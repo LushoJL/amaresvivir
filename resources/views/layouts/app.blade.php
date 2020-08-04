@@ -8,9 +8,9 @@
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
-    <link rel="stylesheet" href="{{asset('css/bootstrap/bootstrap.min.css')}}" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-    <link href="{{asset('css/style.css')}}" rel="stylesheet">
-    <link href="{{asset('css/icofont/icofont.min.css')}}" rel="stylesheet">
+    <link rel="stylesheet" href="{{asset('public/css/bootstrap/bootstrap.min.css')}}" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link href="{{asset('public/css/style.css')}}" rel="stylesheet">
+    <link href="{{asset('public/css/icofont/icofont.min.css')}}" rel="stylesheet">
 
 </head>
 <body>
@@ -69,10 +69,10 @@
 <main id="main">
     @yield('content')
 </main><!-- End Header -->
-<script src="{{asset('js/bootstrap/bootstrap.min.js')}}"></script>
-<script src="{{asset('js/bootstrap/jquery-3.5.1.slim.min.js')}}"></script>
-<script src="{{asset('js/bootstrap/popper.min.js')}}"></script>
-<script src="{{asset('js/jquery-sticky/jquery.sticky.js')}}"></script>
-<script src="{{asset('js/main.js')}}"></script>
+<script src="{{asset('public/js/bootstrap/bootstrap.min.js')}}"></script>
+<script src="{{asset('public/js/bootstrap/jquery-3.5.1.slim.min.js')}}"></script>
+<script src="{{asset('public/js/bootstrap/popper.min.js')}}"></script>
+<script src="{{asset('public/js/jquery-sticky/jquery.sticky.js')}}"></script>
+<script src="{{asset('public/js/main.js')}}"></script>
 </body>
 </html>
