@@ -43,11 +43,11 @@
                 <li class="active"><a href="index.html">INICIO/ </a></li>
                 <li class="drop-down"><a href="">¿QUIENES SOMOS?/ </a>
                     <ul>
-                        <li><a href="#">MISIÓN</a></li>
-                        <li><a href="#">VISIÓN</a></li>
-                        <li><a href="#">FILOSOFÍA</a></li>
-                        <li><a href="#">OBJETIVOS INSTITUCIONALES</a></li>
-                        <li><a href="#">ORGANIGRAMA</a></li>
+                        <li><a href="{{ route('mission') }}">MISIÓN</a></li>
+                        <li><a href="{{ route('vision') }}">VISIÓN</a></li>
+                        <li><a href="{{ route('philosophy') }}">FILOSOFÍA</a></li>
+                        <li><a href="{{ route('institutionalObjectives') }}">OBJETIVOS INSTITUCIONALES</a></li>
+                        <li><a href="{{ route('organizationChart') }}">ORGANIGRAMA</a></li>
                     </ul>
                 </li>
                 <li class="drop-down"><a href="">ACTIVIDADES Y JUEGOS/ </a>

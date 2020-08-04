@@ -11,3 +11,8 @@
     height: 225px;
 
   }
+  .responsive {
+    width: 100%;
+    height: auto;
+  }
+  

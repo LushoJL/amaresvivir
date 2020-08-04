@@ -25,3 +25,10 @@ Route::get('/nos-importas-tu', 'ImportyouController@index')->name('importyou');
 Route::get('/tu-historia', 'HistoryController@index')->name('history');
 Route::get('/noticias', 'NewsController@index')->name('news');
 Route::apiResource('/pensamiento', 'PensamientoController');
+
+//quienes somos
+Route::get('/mision', 'AboutController@mission')->name('mission');
+Route::get('/vision', 'AboutController@vision')->name('vision');
+Route::get('/filosofia', 'AboutController@philosophy')->name('philosophy');
+Route::get('/objetivos_institucionales', 'AboutController@institutionalObjectives')->name('institutionalObjectives');
+Route::get('/organigrama', 'AboutController@organizationChart')->name('organizationChart');
