@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="{{asset('css/bootstrap/bootstrap.min.css')}}" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <link href="{{asset('css/style.css')}}" rel="stylesheet">
     <link href="{{asset('css/icofont/icofont.min.css')}}" rel="stylesheet">
-
+    <link rel="stylesheet" href="{{asset('css/app.css')}}"  rel="stylesheet">
 </head>
 <body>
 <!-- ======= Top Bar ======= -->
@@ -36,8 +36,8 @@
     <div class="container d-flex">
         <nav class="nav-menu d-none d-lg-block">
             <ul>
-                <li class="active"><a href="index.html">INICIO/ </a></li>
-                <li class="drop-down"><a href="">¿QUIENES SOMOS?/ </a>
+                <li class="active"><a href="index.html">INICIO</a></li>
+                <li class="drop-down"><a href="">¿QUIENES SOMOS?</a>
                     <ul>
                         <li><a href="#">MISIÓN</a></li>
                         <li><a href="#">VISIÓN</a></li>
@@ -46,18 +46,18 @@
                         <li><a href="#">ORGANIGRAMA</a></li>
                     </ul>
                 </li>
-                <li class="drop-down"><a href="">ACTIVIDADES Y JUEGOS/ </a>
+                <li class="drop-down"><a href="{{route('activitygame')}}">ACTIVIDADES Y JUEGOS</a>
                     <ul>
-                        <li><a href="#">NIÑOS/AS </a></li>
+                        <li><a href="{{route('activitygame')}}">NIÑOS/AS </a></li>
                         <li><a href="#">JOVENES</a></li>
                         <li><a href="#">ADULTOS</a></li>
 
                     </ul>
                 </li>
-                <li class=""><a href="index.html">TEST/ </a></li>
-                <li class=""><a href="index.html">NOS IMPORTAS TU/ </a></li>
-                <li class=""><a href="index.html">TU HISTORIA/ </a></li>
-                <li class=""><a href="index.html">NOTICIAS/ </a></li>
+                <li class=""><a href="index.html">TEST</a></li>
+                <li class=""><a href="index.html">NOS IMPORTAS TU</a></li>
+                <li class=""><a href="index.html">TU HISTORIA</a></li>
+                <li class=""><a href="index.html">NOTICIAS</a></li>
 
 
             </ul>
@@ -66,13 +66,17 @@
 </header><!-- End Header -->
 
 <!-- ======= Header ======= -->
-<main id="main">
-    @yield('content')
-</main><!-- End Header -->
+<div id="app">
+    <main id="main">
+        @yield('content')
+    </main>
+</div>
+<!-- End Header -->
 <script src="{{asset('js/bootstrap/bootstrap.min.js')}}"></script>
 <script src="{{asset('js/bootstrap/jquery-3.5.1.slim.min.js')}}"></script>
 <script src="{{asset('js/bootstrap/popper.min.js')}}"></script>
 <script src="{{asset('js/jquery-sticky/jquery.sticky.js')}}"></script>
 <script src="{{asset('js/main.js')}}"></script>
+<script src="{{asset('js/app.js')}}"></script>
 </body>
 </html>
