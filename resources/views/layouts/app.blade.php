@@ -8,9 +8,13 @@
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
-    <link rel="stylesheet" href="{{asset('css/bootstrap/bootstrap.min.css')}}" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{asset('css/bootstrap/bootstrap.min.css')}}" crossorigin="anonymous">
     <link href="{{asset('css/style.css')}}" rel="stylesheet">
     <link href="{{asset('css/icofont/icofont.min.css')}}" rel="stylesheet">
+
+    <!--Swiper-->
+    <link rel="stylesheet" href="{{ asset('css/swiper/swiper-bundle.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/swiperStyles.css') }}">
 
 </head>
 <body>
@@ -69,10 +73,14 @@
 <main id="main">
     @yield('content')
 </main><!-- End Header -->
-<script src="{{asset('js/bootstrap/bootstrap.min.js')}}"></script>
+
 <script src="{{asset('js/bootstrap/jquery-3.5.1.slim.min.js')}}"></script>
+<script src="{{asset('js/bootstrap/bootstrap.min.js')}}"></script>
 <script src="{{asset('js/bootstrap/popper.min.js')}}"></script>
 <script src="{{asset('js/jquery-sticky/jquery.sticky.js')}}"></script>
-<script src="{{asset('js/main.js')}}"></script>
+<script src="{{ asset('js/swiper/swiper-bundle.min.js') }}"></script>
+{{-- <script src="{{asset('js/main.js')}}"></script> --}}
+
+@yield('swiper')
 </body>
 </html>
