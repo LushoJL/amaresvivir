@@ -31,4 +31,9 @@ class AboutController extends Controller
     {
         return view('aboutUs.organizationChart');
     }
+
+    public function construction()
+    {
+        return view('construccion');
+    }
 }

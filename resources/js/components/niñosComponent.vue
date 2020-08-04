@@ -3,11 +3,11 @@
 
 <div class="row" id="seletion">
     <div class="col">
-        <a href="#" v-model>
+        <a href="#">  <!--aqui habia un v-model-->
         <div class="box box-2" style="float: right">
         <h3>Niño</h3>
         <div class="image">
-            <img src="../../../public/image/actividadesyjuegos/niño.jpg" width="100%" alt="For you..." />
+            <img src="image/actividadesyjuegos/niño.jpg" width="100%" alt="For you..." />
         </div>
     </div>
         </a>
@@ -17,7 +17,7 @@
         <div class="box box-2">
                 <h3>Niña</h3>
                 <div class="image">
-                    <img src="../../../public/image/actividadesyjuegos/niña.jpg" width="100%" alt="For you..." />
+                    <img src="image/actividadesyjuegos/niña.jpg" width="100%" alt="For you..." />
                 </div>
         </div>
         </a>

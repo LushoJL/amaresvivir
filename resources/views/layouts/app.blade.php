@@ -3,8 +3,9 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>Laravel</title>
+    <title>Amar es Educar</title>
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
@@ -37,7 +38,7 @@
     </div>
 </div>
 
-<!-- ======= Header ======= -->git
+<!-- ======= Header ======= -->
 <header id="header">
     <div class="container d-flex">
         <nav class="nav-menu d-none d-lg-block">
@@ -60,10 +61,10 @@
 
                     </ul>
                 </li>
-                <li class=""><a href="index.html">TEST</a></li>
-                <li class=""><a href="index.html">NOS IMPORTAS TU</a></li>
-                <li class=""><a href="index.html">TU HISTORIA</a></li>
-                <li class=""><a href="index.html">NOTICIAS</a></li>
+                <li class=""><a href="{{ route('construction') }}">TEST</a></li>
+                <li class=""><a href="{{ route('construction') }}">NOS IMPORTAS TU</a></li>
+                <li class=""><a href="{{ route('construction') }}">TU HISTORIA</a></li>
+                <li class=""><a href="{{ route('construction') }}">NOTICIAS</a></li>
 
             </ul>
         </nav><!-- .nav-menu -->
@@ -77,10 +78,9 @@
     </main>
 </div>
 <!-- End Header -->
-<script src="{{asset('js/bootstrap/bootstrap.min.js')}}"></script>
-
-
 <script src="{{asset('js/bootstrap/jquery-3.5.1.slim.min.js')}}"></script>
+
+<script src="{{asset('js/bootstrap/bootstrap.min.js')}}"></script>
 <script src="{{asset('js/bootstrap/bootstrap.min.js')}}"></script>
 <script src="{{asset('js/bootstrap/popper.min.js')}}"></script>
 <script src="{{asset('js/jquery-sticky/jquery.sticky.js')}}"></script>
@@ -89,7 +89,7 @@
 <script src="{{asset('js/app.js')}}"></script>
 
 <script src="{{ asset('js/swiper/swiper-bundle.min.js') }}"></script>
-<script src="{{asset('js/main.js')}}"></script>
+
 
 @yield('swiper')
 

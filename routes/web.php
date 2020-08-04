@@ -33,3 +33,5 @@ Route::get('/vision', 'AboutController@vision')->name('vision');
 Route::get('/filosofia', 'AboutController@philosophy')->name('philosophy');
 Route::get('/objetivos_institucionales', 'AboutController@institutionalObjectives')->name('institutionalObjectives');
 Route::get('/organigrama', 'AboutController@organizationChart')->name('organizationChart');
+
+Route::get('/construccion', 'AboutController@construction')->name('construction');
