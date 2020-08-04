@@ -1,80 +1,78 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- CSRF Token -->
-    <meta name="csrf-token" content="{{ csrf_token() }}">
-
-    <title>{{ config('app.name', 'Laravel') }}</title>
-
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
+    <title>Laravel</title>
 
     <!-- Fonts -->
-    <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
+    <link rel="stylesheet" href="{{asset('css/bootstrap/bootstrap.min.css')}}" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link href="{{asset('css/style.css')}}" rel="stylesheet">
+    <link href="{{asset('css/icofont/icofont.min.css')}}" rel="stylesheet">
 
-    <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
-    <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
-            <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
-                </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav mr-auto">
-
-                    </ul>
-
-                    <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ml-auto">
-                        <!-- Authentication Links -->
-                        @guest
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                            </li>
-                            @if (Route::has('register'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                                </li>
-                            @endif
-                        @else
-                            <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }} <span class="caret"></span>
-                                </a>
-
-                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                                    </a>
-
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                        @csrf
-                                    </form>
-                                </div>
-                            </li>
-                        @endguest
-                    </ul>
-                </div>
+<!-- ======= Top Bar ======= -->
+<div>
+    <div class="container mt-3" >
+        <div class="row">
+            <div class="col-2">
+                <img src="{{asset('image/topBar/logo.png')}}" width="100%">
             </div>
-        </nav>
-
-        <main class="py-4">
-            @yield('content')
-        </main>
+            <div class="col-7">
+                <img src="{{asset('image/topBar/logo2.jpg')}}"  width="100%">
+            </div>
+            <div class="col-3">
+                <img src="{{asset('image/topBar/logo1.png')}}" width="100%">
+            </div>
+        </div>
     </div>
+</div>
+
+<!-- ======= Header ======= -->
+<header id="header">
+    <div class="container d-flex">
+        <nav class="nav-menu d-none d-lg-block">
+            <ul>
+                <li class="active"><a href="index.html">INICIO/ </a></li>
+                <li class="drop-down"><a href="">¿QUIENES SOMOS?/ </a>
+                    <ul>
+                        <li><a href="#">MISIÓN</a></li>
+                        <li><a href="#">VISIÓN</a></li>
+                        <li><a href="#">FILOSOFÍA</a></li>
+                        <li><a href="#">OBJETIVOS INSTITUCIONALES</a></li>
+                        <li><a href="#">ORGANIGRAMA</a></li>
+                    </ul>
+                </li>
+                <li class="drop-down"><a href="">ACTIVIDADES Y JUEGOS/ </a>
+                    <ul>
+                        <li><a href="#">NIÑOS/AS </a></li>
+                        <li><a href="#">JOVENES</a></li>
+                        <li><a href="#">ADULTOS</a></li>
+
+                    </ul>
+                </li>
+                <li class=""><a href="index.html">TEST/ </a></li>
+                <li class=""><a href="index.html">NOS IMPORTAS TU/ </a></li>
+                <li class=""><a href="index.html">TU HISTORIA/ </a></li>
+                <li class=""><a href="index.html">NOTICIAS/ </a></li>
+
+
+            </ul>
+        </nav><!-- .nav-menu -->
+    </div>
+</header><!-- End Header -->
+
+<!-- ======= Header ======= -->
+<main id="main">
+    @yield('content')
+</main><!-- End Header -->
+<script src="{{asset('js/bootstrap/bootstrap.min.js')}}"></script>
+<script src="{{asset('js/bootstrap/jquery-3.5.1.slim.min.js')}}"></script>
+<script src="{{asset('js/bootstrap/popper.min.js')}}"></script>
+<script src="{{asset('js/jquery-sticky/jquery.sticky.js')}}"></script>
+<script src="{{asset('js/main.js')}}"></script>
 </body>
 </html>
