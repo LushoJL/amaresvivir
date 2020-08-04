@@ -18,4 +18,10 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/quienes-somos', 'AboutController@index')->name('about');
+Route::get('/actividades-juegos', 'ActivitygameController@index')->name('activitygame');
+Route::get('/test', 'TestController@index')->name('test');
+Route::get('/nos-importas-tu', 'ImportyouController@index')->name('importyou');
+Route::get('/tu-historia', 'HistoryController@index')->name('history');
+Route::get('/noticias', 'NewsController@index')->name('news');
 Route::apiResource('/pensamiento', 'PensamientoController');
