@@ -8,6 +8,7 @@ window.Vue = require('vue');
 Vue.component('my-pensamientos-component', require('./components/MyPensamientosComponent').default);
 Vue.component('form-component', require('./components/FormComponent').default);
 Vue.component('pensamiento-component', require('./components/PensamientoComponent.vue').default);
+Vue.component('niños-component', require('./components/niñosComponent.vue').default);
 
 
 

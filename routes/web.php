@@ -18,6 +18,7 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/inicio', 'StartController@index')->name('start');
 Route::get('/quienes-somos', 'AboutController@index')->name('about');
 Route::get('/actividades-juegos', 'ActivitygameController@index')->name('activitygame');
 Route::get('/test', 'TestController@index')->name('test');
