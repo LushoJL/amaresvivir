@@ -88,7 +88,7 @@
 <script src="{{secure_asset('js/main.js')}}"></script>
 <script src="{{secure_asset('js/app.js')}}"></script>
 
-<script src="{{ asset('js/swiper/swiper-bundle.min.js') }}"></script>
+<script src="{{ secure_asset('js/swiper/swiper-bundle.min.js') }}"></script>
 
 
 @yield('swiper')
