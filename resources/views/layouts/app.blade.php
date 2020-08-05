@@ -17,8 +17,8 @@
 
 
     <!--Swiper-->
-    <link rel="stylesheet" href="{{ asset('css/swiper/swiper-bundle.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/swiperStyles.css') }}">
+    <link rel="stylesheet" href="{{ secure_asset('css/swiper/swiper-bundle.min.css') }}">
+    <link rel="stylesheet" href="{{ secure_asset('css/swiperStyles.css') }}">
 </head>
 <body>
 <!-- ======= Top Bar ======= -->
