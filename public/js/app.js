@@ -1911,7 +1911,24 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     question: function question() {
       // Use sweetalert2
-      Swal.fire('Any fool can use a computer');
+      Swal.mixin({
+        input: 'text',
+        confirmButtonText: 'Next &rarr;',
+        showCancelButton: true,
+        progressSteps: ['1', '2', '3']
+      }).queue([{
+        title: 'Question 1',
+        text: 'Chaining swal2 modals is easy'
+      }, 'Question 2', 'Question 3']).then(function (result) {
+        if (result.value) {
+          var answers = JSON.stringify(result.value);
+          Swal.fire({
+            title: 'All done!',
+            html: "\n        Your answers:\n        <pre><code>".concat(answers, "</code></pre>\n      "),
+            confirmButtonText: 'Lovely!'
+          });
+        }
+      });
     }
   }
 });
