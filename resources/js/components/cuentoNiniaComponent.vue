@@ -21,6 +21,7 @@
 
 
         </p>
+        <button @click="question">Preguntas</button>
     </div>
 
 
@@ -29,7 +30,13 @@
 
 <script>
 export default {
-    name: "cuentoNiniaComponent"
+    name: "cuentoNiniaComponent",
+    methods: {
+        question() {
+            // Use sweetalert2
+            Swal.fire('Any fool can use a computer');
+        },
+    },
 }
 </script>
 
