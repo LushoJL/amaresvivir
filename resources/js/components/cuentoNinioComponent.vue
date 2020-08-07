@@ -22,6 +22,7 @@
         y Joaquín les conto a sus padres todo lo que había vivido.
 
     </p>
+    <p><button @click="question">Preguntas</button></p>
 </div>
 
 
@@ -30,7 +31,131 @@
 
 <script>
 export default {
-name: "cuentoNinioComponent"
+name: "cuentoNinioComponent",
+    methods: {
+        question() {
+
+            const inputOptions1 = new Promise((resolve) => {
+                setTimeout(() => {
+                    resolve({
+                        'MARITA': 'MARITA',
+                        'JULIETA': 'JULIETA',
+                        'LOS DEMAS COMPAÑEROS': 'LOS DEMAS COMPAÑEROS'
+                    })
+                }, 0)
+            });
+            const inputOptions2 = new Promise((resolve) => {
+                setTimeout(() => {
+                    resolve({
+                        'SERIA IGUAL': 'SERIA IGUAL',
+                        'CABIARÍA': 'CAMBIARÍA',
+                        'PEDIRIA AYUDA': 'PEDIRIA AYUDA'
+                    })
+                }, 0)
+            });
+            const inputOptions3 = new Promise((resolve) => {
+                setTimeout(() => {
+                    resolve({
+                        'SI': 'SI',
+                        'NO': 'NO',
+                    })
+                }, 0)
+            });
+            const inputOptions4 = new Promise((resolve) => {
+                setTimeout(() => {
+                    resolve({
+                        'AMENAZAS': 'AMENAZAS',
+                        'MIEDO': 'MIEDO',
+                        'VERGÜENZA': 'VERGÜENZA',
+                        'ME GUSTA': 'ME GUSTA',
+                    })
+                }, 0)
+            });
+            // Use sweetalert2
+            const { value: options1 } = Swal.mixin({
+
+                confirmButtonText: 'Siguiente &rarr;',
+                showCancelButton: true,
+                progressSteps: ['1', '2', '3', '4', '5', '6']
+            }).queue([
+                {
+                    title: '¿Con qué personaje te identificas del cuento?',
+                    input: 'radio',
+                    inputOptions: inputOptions1,
+                    html:'<hr>',
+                    inputValidator: (value) => {
+                        if (!value) {
+                            return 'Slecciona una opción';
+                        }
+                    }
+                },
+
+                {
+                    title: '¿Qué harías tú en lugar del personaje que elegiste?',
+                    input: 'radio',
+
+                    inputOptions: inputOptions2,
+                    inputValidator: (value) => {
+                        if (!value) {
+                            return 'Slecciona una opción';
+                        }
+                    }
+                },
+                {
+                    title: '¿LE DIRIAS A ALGUIEN SI VIERAS QUE OTRO SUFRE COMO MARITA?',
+                    input: 'radio',
+                    inputOptions: inputOptions3,
+                    inputValidator: (value) => {
+                        if (!value) {
+                            return 'Slecciona una opción';
+                        }
+                    }
+                },
+                {
+                    title: '¿HAS SUFRIDO LO MISMO QUE MARITA ALGUNA VEZ?',
+                    input: 'radio',
+                    inputOptions: inputOptions3,
+                    inputValidator: (value) => {
+                        if (!value) {
+                            return 'Slecciona una opción';
+                        }
+                    }
+                },
+                {
+                    title: '¿SE LO CONTASTE A ALGUIEN PARA PAEDIR AYUDA(A TUS PAPÁS, AMIGOS, MAESTRA/O)?',
+                    input: 'radio',
+                    inputOptions: inputOptions3,
+                    inputValidator: (value) => {
+                        if (!value) {
+                            return 'Slecciona una opción';
+                        }
+                    }
+                },
+                {
+                    title: '¿POR QUÉ NO SE LO CONTARIAS A ALGUIEN?',
+                    input: 'radio',
+                    inputOptions: inputOptions4,
+                    inputValidator: (value) => {
+                        if (!value) {
+                            return 'Slecciona una opción';
+                        }
+                    }
+                },
+            ]).then((result) => {
+                if (result.value) {
+                    const answers = JSON.stringify(result.value)
+                    Swal.fire({
+                        title: '¡Terminaste!',
+                        html: `
+                        Your answers:
+                        <pre><code>${answers}</code></pre>
+                    `,
+                        confirmButtonText: 'Hecho'
+                    })
+                }
+            })
+        },
+    },
 }
 </script>
 

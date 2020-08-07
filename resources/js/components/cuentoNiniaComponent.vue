@@ -22,7 +22,7 @@
 
         </p>
         <p><button @click="question">Preguntas</button></p>
-        
+
     </div>
 
 
@@ -44,7 +44,6 @@ export default {
                     })
                 }, 0)
             });
-
             const inputOptions2 = new Promise((resolve) => {
                 setTimeout(() => {
                     resolve({
@@ -74,7 +73,7 @@ export default {
             });
             // Use sweetalert2
             const { value: options1 } = Swal.mixin({
-                
+
                 confirmButtonText: 'Siguiente &rarr;',
                 showCancelButton: true,
                 progressSteps: ['1', '2', '3', '4', '5', '6']
@@ -83,15 +82,18 @@ export default {
                     title: '¿Con qué personaje te identificas del cuento?',
                     input: 'radio',
                     inputOptions: inputOptions1,
+                    html:'<hr>',
                     inputValidator: (value) => {
                         if (!value) {
                             return 'Slecciona una opción';
                         }
                     }
                 },
+
                 {
                     title: '¿Qué harías tú en lugar del personaje que elegiste?',
                     input: 'radio',
+
                     inputOptions: inputOptions2,
                     inputValidator: (value) => {
                         if (!value) {
