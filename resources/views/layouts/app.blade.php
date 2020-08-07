@@ -87,7 +87,7 @@
 <script src="{{asset('js/bootstrap/bootstrap.min.js')}}"></script>
 <script src="{{asset('js/bootstrap/bootstrap.min.js')}}"></script>
 <script src="{{asset('js/bootstrap/popper.min.js')}}"></script>
-<script src="{{asset('js/jquery-sticky/jquery.sticky.js')}}"></script>
+{{-- <script src="{{asset('js/jquery-sticky/jquery.sticky.js')}}"></script> --}}
 
 <script src="{{asset('js/main.js')}}"></script>
 <script src="{{asset('js/app.js')}}"></script>
