@@ -10,7 +10,7 @@ class ActivitygameController extends Controller
 
         public function index()
     {
-        return view('actividadesjuegos.niños');
+        return view('actividadesjuegos.niños.actividadUno.niños');
     }
 
 }
