@@ -1867,10 +1867,73 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/cuentoNiniaComponent.vue?vue&type=script&lang=js&":
-/*!*******************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/cuentoNiniaComponent.vue?vue&type=script&lang=js& ***!
-  \*******************************************************************************************************************************************************************************/
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/actividadesjuegos/niños/actividadDos/semaforoComponent.vue?vue&type=script&lang=js&":
+/*!*****************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/actividadesjuegos/niños/actividadDos/semaforoComponent.vue?vue&type=script&lang=js& ***!
+  \*****************************************************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+$(function () {
+  // red
+  $('.hover1').hover(function () {
+    $('.red').css('background-color', '#ff0000');
+  }, function () {
+    $('.red').css('background-color', '');
+  }); // amarillo
+
+  $('.hover2').hover(function () {
+    $('.yellow').css('background-color', '#fff500');
+  }, function () {
+    $('.yellow').css('background-color', '');
+  }); // verde
+
+  $('.hover3').hover(function () {
+    $('.green').css('background-color', '#03fc00');
+  }, function () {
+    // vuelve a dejar el <div> como estaba al hacer el "mouseout"
+    $('.green').css('background-color', '');
+  });
+});
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: "semaforoComponent"
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/actividadesjuegos/niños/actividadUno/cuentoNiniaComponent.vue?vue&type=script&lang=js&":
+/*!********************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/actividadesjuegos/niños/actividadUno/cuentoNiniaComponent.vue?vue&type=script&lang=js& ***!
+  \********************************************************************************************************************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -2024,10 +2087,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/cuentoNinioComponent.vue?vue&type=script&lang=js&":
-/*!*******************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/cuentoNinioComponent.vue?vue&type=script&lang=js& ***!
-  \*******************************************************************************************************************************************************************************/
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/actividadesjuegos/niños/actividadUno/cuentoNinioComponent.vue?vue&type=script&lang=js&":
+/*!********************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/actividadesjuegos/niños/actividadUno/cuentoNinioComponent.vue?vue&type=script&lang=js& ***!
+  \********************************************************************************************************************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -2063,16 +2126,128 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: "cuentoNinioComponent"
+  name: "cuentoNinioComponent",
+  methods: {
+    question: function question() {
+      var inputOptions1 = new Promise(function (resolve) {
+        setTimeout(function () {
+          resolve({
+            'MARITA': 'MARITA',
+            'JULIETA': 'JULIETA',
+            'LOS DEMAS COMPAÑEROS': 'LOS DEMAS COMPAÑEROS'
+          });
+        }, 0);
+      });
+      var inputOptions2 = new Promise(function (resolve) {
+        setTimeout(function () {
+          resolve({
+            'SERIA IGUAL': 'SERIA IGUAL',
+            'CABIARÍA': 'CAMBIARÍA',
+            'PEDIRIA AYUDA': 'PEDIRIA AYUDA'
+          });
+        }, 0);
+      });
+      var inputOptions3 = new Promise(function (resolve) {
+        setTimeout(function () {
+          resolve({
+            'SI': 'SI',
+            'NO': 'NO'
+          });
+        }, 0);
+      });
+      var inputOptions4 = new Promise(function (resolve) {
+        setTimeout(function () {
+          resolve({
+            'AMENAZAS': 'AMENAZAS',
+            'MIEDO': 'MIEDO',
+            'VERGÜENZA': 'VERGÜENZA',
+            'ME GUSTA': 'ME GUSTA'
+          });
+        }, 0);
+      }); // Use sweetalert2
+
+      var _Swal$mixin$queue$the = Swal.mixin({
+        confirmButtonText: 'Siguiente &rarr;',
+        showCancelButton: true,
+        progressSteps: ['1', '2', '3', '4', '5', '6']
+      }).queue([{
+        title: '¿Con qué personaje te identificas del cuento?',
+        input: 'radio',
+        inputOptions: inputOptions1,
+        html: '<hr>',
+        inputValidator: function inputValidator(value) {
+          if (!value) {
+            return 'Slecciona una opción';
+          }
+        }
+      }, {
+        title: '¿Qué harías tú en lugar del personaje que elegiste?',
+        input: 'radio',
+        inputOptions: inputOptions2,
+        inputValidator: function inputValidator(value) {
+          if (!value) {
+            return 'Slecciona una opción';
+          }
+        }
+      }, {
+        title: '¿LE DIRIAS A ALGUIEN SI VIERAS QUE OTRO SUFRE COMO MARITA?',
+        input: 'radio',
+        inputOptions: inputOptions3,
+        inputValidator: function inputValidator(value) {
+          if (!value) {
+            return 'Slecciona una opción';
+          }
+        }
+      }, {
+        title: '¿HAS SUFRIDO LO MISMO QUE MARITA ALGUNA VEZ?',
+        input: 'radio',
+        inputOptions: inputOptions3,
+        inputValidator: function inputValidator(value) {
+          if (!value) {
+            return 'Slecciona una opción';
+          }
+        }
+      }, {
+        title: '¿SE LO CONTASTE A ALGUIEN PARA PAEDIR AYUDA(A TUS PAPÁS, AMIGOS, MAESTRA/O)?',
+        input: 'radio',
+        inputOptions: inputOptions3,
+        inputValidator: function inputValidator(value) {
+          if (!value) {
+            return 'Slecciona una opción';
+          }
+        }
+      }, {
+        title: '¿POR QUÉ NO SE LO CONTARIAS A ALGUIEN?',
+        input: 'radio',
+        inputOptions: inputOptions4,
+        inputValidator: function inputValidator(value) {
+          if (!value) {
+            return 'Slecciona una opción';
+          }
+        }
+      }]).then(function (result) {
+        if (result.value) {
+          var answers = JSON.stringify(result.value);
+          Swal.fire({
+            title: '¡Terminaste!',
+            html: "\n                        Your answers:\n                        <pre><code>".concat(answers, "</code></pre>\n                    "),
+            confirmButtonText: 'Hecho'
+          });
+        }
+      }),
+          options1 = _Swal$mixin$queue$the.value;
+    }
+  }
 });
 
 /***/ }),
 
-/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/niñosComponent.vue?vue&type=script&lang=js&":
-/*!*************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/niñosComponent.vue?vue&type=script&lang=js& ***!
-  \*************************************************************************************************************************************************************************/
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/actividadesjuegos/niños/actividadUno/niñosComponent.vue?vue&type=script&lang=js&":
+/*!**************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/actividadesjuegos/niños/actividadUno/niñosComponent.vue?vue&type=script&lang=js& ***!
+  \**************************************************************************************************************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -6553,59 +6728,78 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/cuentoNiniaComponent.vue?vue&type=style&index=0&id=3e05f4da&scoped=true&lang=css&":
-/*!**************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/cuentoNiniaComponent.vue?vue&type=style&index=0&id=3e05f4da&scoped=true&lang=css& ***!
-  \**************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/actividadesjuegos/niños/actividadDos/semaforoComponent.vue?vue&type=style&index=0&id=6747b3c0&scoped=true&lang=css&":
+/*!************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/actividadesjuegos/niños/actividadDos/semaforoComponent.vue?vue&type=style&index=0&id=6747b3c0&scoped=true&lang=css& ***!
+  \************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-var escape = __webpack_require__(/*! ../../../node_modules/css-loader/lib/url/escape.js */ "./node_modules/css-loader/lib/url/escape.js");
-exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
+exports = module.exports = __webpack_require__(/*! ../../../../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
 // imports
 
 
 // module
-exports.push([module.i, "\np[data-v-3e05f4da] {\n    font-family: 'Indie Flower', cursive;\n    border: #ffffff 27px solid;\n    border-image-source: url(" + escape(__webpack_require__(/*! ../../../public/image/actividadesyjuegos/border.png */ "./public/image/actividadesyjuegos/border.png")) + ");\n    border-image-slice: 27;\n\n    padding: 10px;\n    text-align: justify;\n    font-size: 34px;\n}\ndiv[data-v-3e05f4da]{\n    margin-top: 50px;\n    margin-left: 10%;\n    margin-right: 10%;\n}\n", ""]);
+exports.push([module.i, "\n.luces[data-v-6747b3c0]{\n    position: absolute;\n\n    left: 140px;\n    bottom:110px;\n    z-index: -1;\n}\n.hover[data-v-6747b3c0]{\n    position: absolute;\n    left: 140px;\n    bottom:110px;\n    z-index: 1;\n}\n.red[data-v-6747b3c0]{\n    background: #9d0000;\n    width: 125px;\n    height: 130px;\n    margin-top: 10px;\n}\n.yellow[data-v-6747b3c0]{\n    background: #888800;\n    width: 125px;\n    height: 130px;\n}\n.green[data-v-6747b3c0]{\n    background: green;\n    width: 125px;\n    height: 133px;\n}\n.hover1[data-v-6747b3c0]{\n\n    width: 125px;\n    height: 130px;\n\n    cursor: pointer;\n}\n.hover2[data-v-6747b3c0]{\n\n    width: 125px;\n    height: 130px;\n    cursor: pointer;\n}\n.hover3[data-v-6747b3c0]{\n\n    width: 125px;\n    height: 133px;\n    cursor: pointer;\n}\nfigure[data-v-6747b3c0]{\n\n    display: inline-block;\n\n    position: relative;\n    justify-content: center;\n    align-items: center;\n}\n", ""]);
 
 // exports
 
 
 /***/ }),
 
-/***/ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/cuentoNinioComponent.vue?vue&type=style&index=0&id=3b1e0c45&scoped=true&lang=css&":
-/*!**************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/cuentoNinioComponent.vue?vue&type=style&index=0&id=3b1e0c45&scoped=true&lang=css& ***!
-  \**************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/actividadesjuegos/niños/actividadUno/cuentoNiniaComponent.vue?vue&type=style&index=0&id=6d6f293b&scoped=true&lang=css&":
+/*!***************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/actividadesjuegos/niños/actividadUno/cuentoNiniaComponent.vue?vue&type=style&index=0&id=6d6f293b&scoped=true&lang=css& ***!
+  \***************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-var escape = __webpack_require__(/*! ../../../node_modules/css-loader/lib/url/escape.js */ "./node_modules/css-loader/lib/url/escape.js");
-exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
+var escape = __webpack_require__(/*! ../../../../../../node_modules/css-loader/lib/url/escape.js */ "./node_modules/css-loader/lib/url/escape.js");
+exports = module.exports = __webpack_require__(/*! ../../../../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
 // imports
 
 
 // module
-exports.push([module.i, "\np[data-v-3b1e0c45] {\n    font-family: 'Indie Flower', cursive;\n    border: #ffffff 27px solid;\n    border-image-source: url(" + escape(__webpack_require__(/*! ../../../public/image/actividadesyjuegos/border.png */ "./public/image/actividadesyjuegos/border.png")) + ");\n    border-image-slice: 27;\n\n    padding: 10px;\n    text-align: justify;\n    font-size: 34px;\n}\ndiv[data-v-3b1e0c45]{\n    margin-top: 50px;\n    margin-left: 10%;\n    margin-right: 10%;\n}\n", ""]);
+exports.push([module.i, "\np[data-v-6d6f293b] {\n    font-family: 'Indie Flower', cursive;\n    border: #ffffff 27px solid;\n    border-image-source: url(" + escape(__webpack_require__(/*! ../../../../../../public/image/actividadesyjuegos/border.png */ "./public/image/actividadesyjuegos/border.png")) + ");\n    border-image-slice: 27;\n\n    padding: 10px;\n    text-align: justify;\n    font-size: 34px;\n}\ndiv[data-v-6d6f293b]{\n    margin-top: 50px;\n    margin-left: 10%;\n    margin-right: 10%;\n}\n", ""]);
 
 // exports
 
 
 /***/ }),
 
-/***/ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/niñosComponent.vue?vue&type=style&index=0&id=bcb81ea4&scoped=true&lang=css&":
-/*!********************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/niñosComponent.vue?vue&type=style&index=0&id=bcb81ea4&scoped=true&lang=css& ***!
-  \********************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/actividadesjuegos/niños/actividadUno/cuentoNinioComponent.vue?vue&type=style&index=0&id=70dfa026&scoped=true&lang=css&":
+/*!***************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/actividadesjuegos/niños/actividadUno/cuentoNinioComponent.vue?vue&type=style&index=0&id=70dfa026&scoped=true&lang=css& ***!
+  \***************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
+var escape = __webpack_require__(/*! ../../../../../../node_modules/css-loader/lib/url/escape.js */ "./node_modules/css-loader/lib/url/escape.js");
+exports = module.exports = __webpack_require__(/*! ../../../../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
 // imports
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/*--------------------------------------------------------------\n# actividades y juegos\n\nNIÑOS\n--------------------------------------------------------------*/\n#holder[data-v-bcb81ea4]{\n    position:relative;\n}\n\n\n/* image boxes */\n.box[data-v-bcb81ea4]{\n    text-align:center;\n    background-color:#f4f4f4;\n    border:1px solid #ccc;\n\n    margin:5px 1%;\n    padding:10px 2% 15px;\n    position:relative;\n    z-index:5;\n    box-sizing:border-box;\n    -moz-box-sizing:border-box;\n    -webkit-box-sizing:border-box;\n\n    box-shadow:0 0 3px #ccc;\n    -moz-box-shadow:0 0 3px #ccc;\n    -webkit-box-shadow:0 0 3px #ccc;\n\n    transform: scale(1);\n    -moz-transform: scale(1);\n    -webkit-transform: scale(1);\n\n    transition: background-color 1s, box-shadow 1s, transform 0.5s;\n    -moz-transition: background-color 1s, -moz-box-shadow 1s, -moz-transform 0.5s;\n    -webkit-transition: background-color 1s, -webkit-box-shadow 1s, -webkit-transform 0.5s;\n    -o-transition: background-color 1s, -o-box-shadow 1s, -o-transform 0.5s;\n}\n.box[data-v-bcb81ea4]:hover{\n    background-color:#fff;\n    z-index:10;\n\n    box-shadow:0 0 15px #333;\n    -moz-box-shadow:0 0 15px #333;\n    -webkit-box-shadow:0 0 15px #333;\n\n    transform: scale(1.1);\n    -moz-transform: scale(1.1);\n    -webkit-transform: scale(1.1);\n}\n.box-1[data-v-bcb81ea4] { max-width:24%;\n}\n.box-2[data-v-bcb81ea4] { max-width:44%;\n}\n.box-3[data-v-bcb81ea4] { max-width:35%;\n}\n\n/* title holder */\n.box h3[data-v-bcb81ea4]{\n    font-size:27px;\n    color:#777;\n    margin:5px 10px;\n    padding:5px 10px;\n    font-family:'Arial Narrow', Arial;\n    letter-spacing:1px;\n    text-shadow:0 1px 1px #ccc;\n    border-bottom:0 solid #fff;\n\n    transition: color 1s, text-shadow 1s, border-bottom 1s;\n    -moz-transition: color 1s, text-shadow 1s, border-bottom 1s;\n    -webkit-transition: color 1s, text-shadow 1s, border-bottom 1s;\n    -o-transition: color 1s, text-shadow 1s, border-bottom 1s;\n}\n.box:hover h3[data-v-bcb81ea4]{\n    color:#333;\n    border-bottom:1px solid #aaa;\n    text-shadow:1px 1px 1px #fff, 2px 2px 1px #888;\n}\n\n/* image holder */\n.box .image[data-v-bcb81ea4]{\n    margin:10px;\n    opacity:0.5;\n    filter: alpha(opacity=50);\n\n    transition: opacity 1s;\n    -moz-transition: opacity 1s;\n    -webkit-transition: opacity 1.5s;\n    -o-transition: opacity 1s;\n}\n.box:hover .image[data-v-bcb81ea4]{\n    opacity:1;\n    filter: alpha(opacity=100);\n}\n.box .image img[data-v-bcb81ea4]{\n    padding:7px;\n    background:#000;\n}\n.box .image img[data-v-bcb81ea4]:hover{\n    background:#333;\n}\n\n/* description text holder */\n.box .description[data-v-bcb81ea4], .box .description a[data-v-bcb81ea4]{\n    color:rgb(153,153,153);\n    color:rgba(153,153,153,0);\n    text-shadow:0 0 5px #aaa;\n    text-align:left;\n    font-size:14px;\n\n    transition: text-shadow 1s ease 0.5s, color 1s ease 0.5s, outline 1s ease 0.5s;\n    -moz-transition: text-shadow 1s ease 0.5s, color 1s ease 0.5s, outline 1s ease 0.5s;\n    -webkit-transition: text-shadow 1s ease 0.5s, color 1s ease 0.5s, outline 1s ease 0.5s;\n    -o-transition: text-shadow 1s ease 0.5s, color 1s ease 0.5s, outline 1s ease 0.5s;\n}\n.box:hover .description[data-v-bcb81ea4], .box:hover .description a[data-v-bcb81ea4]{\n    text-shadow:0 0 0 #fff;\n    color:rgb(100,100,100);\n}\n.box:hover .description a[data-v-bcb81ea4]{\n    outline:1px dotted #777;\n}\n#overlay[data-v-bcb81ea4]{\n    position:fixed;\n    width:100%;\n    height:100%;\n    left:0;\n    top:0;\n    z-index:7;\n    background:rgb(0,0,0);\n    background:rgba(0,0,0,0.5);\n    filter: alpha(opacity=50);\n\n    transition: background-color 0.7s;\n    -moz-transition: background-color 0.7s;\n    -webkit-transition: background-color 0.7s;\n    -o-transition: background-color 0.7s;\n}\n#overlay[data-v-bcb81ea4]:hover{\n    background:rgb(0,0,0);\n    background:rgba(0,0,0,0);\n    z-index:0;\n    filter: alpha(opacity=0);\n}\n\n", ""]);
+exports.push([module.i, "\np[data-v-70dfa026] {\n    font-family: 'Indie Flower', cursive;\n    border: #ffffff 27px solid;\n    border-image-source: url(" + escape(__webpack_require__(/*! ../../../../../../public/image/actividadesyjuegos/border.png */ "./public/image/actividadesyjuegos/border.png")) + ");\n    border-image-slice: 27;\n\n    padding: 10px;\n    text-align: justify;\n    font-size: 34px;\n}\ndiv[data-v-70dfa026]{\n    margin-top: 50px;\n    margin-left: 10%;\n    margin-right: 10%;\n}\n", ""]);
+
+// exports
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/actividadesjuegos/niños/actividadUno/niñosComponent.vue?vue&type=style&index=0&id=68c3f256&scoped=true&lang=css&":
+/*!*********************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/actividadesjuegos/niños/actividadUno/niñosComponent.vue?vue&type=style&index=0&id=68c3f256&scoped=true&lang=css& ***!
+  \*********************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(/*! ../../../../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/*--------------------------------------------------------------\n# actividades y juegos\n\nNIÑOS\n--------------------------------------------------------------*/\n#holder[data-v-68c3f256]{\n    position:relative;\n}\n\n\n/* image boxes */\n.box[data-v-68c3f256]{\n    text-align:center;\n    background-color:#f4f4f4;\n    border:1px solid #ccc;\n\n    margin:5px 1%;\n    padding:10px 2% 15px;\n    position:relative;\n    z-index:5;\n    box-sizing:border-box;\n    -moz-box-sizing:border-box;\n    -webkit-box-sizing:border-box;\n\n    box-shadow:0 0 3px #ccc;\n    -moz-box-shadow:0 0 3px #ccc;\n    -webkit-box-shadow:0 0 3px #ccc;\n\n    transform: scale(1);\n    -moz-transform: scale(1);\n    -webkit-transform: scale(1);\n\n    transition: background-color 1s, box-shadow 1s, transform 0.5s;\n    -moz-transition: background-color 1s, -moz-box-shadow 1s, -moz-transform 0.5s;\n    -webkit-transition: background-color 1s, -webkit-box-shadow 1s, -webkit-transform 0.5s;\n    -o-transition: background-color 1s, -o-box-shadow 1s, -o-transform 0.5s;\n}\n.box[data-v-68c3f256]:hover{\n    background-color:#fff;\n    z-index:10;\n\n    box-shadow:0 0 15px #333;\n    -moz-box-shadow:0 0 15px #333;\n    -webkit-box-shadow:0 0 15px #333;\n\n    transform: scale(1.1);\n    -moz-transform: scale(1.1);\n    -webkit-transform: scale(1.1);\n}\n.box-1[data-v-68c3f256] { max-width:24%;\n}\n.box-2[data-v-68c3f256] { max-width:44%;\n}\n.box-3[data-v-68c3f256] { max-width:35%;\n}\n\n/* title holder */\n.box h3[data-v-68c3f256]{\n    font-size:27px;\n    color:#777;\n    margin:5px 10px;\n    padding:5px 10px;\n    font-family:'Arial Narrow', Arial;\n    letter-spacing:1px;\n    text-shadow:0 1px 1px #ccc;\n    border-bottom:0 solid #fff;\n\n    transition: color 1s, text-shadow 1s, border-bottom 1s;\n    -moz-transition: color 1s, text-shadow 1s, border-bottom 1s;\n    -webkit-transition: color 1s, text-shadow 1s, border-bottom 1s;\n    -o-transition: color 1s, text-shadow 1s, border-bottom 1s;\n}\n.box:hover h3[data-v-68c3f256]{\n    color:#333;\n    border-bottom:1px solid #aaa;\n    text-shadow:1px 1px 1px #fff, 2px 2px 1px #888;\n}\n\n/* image holder */\n.box .image[data-v-68c3f256]{\n    margin:10px;\n    opacity:0.5;\n    filter: alpha(opacity=50);\n\n    transition: opacity 1s;\n    -moz-transition: opacity 1s;\n    -webkit-transition: opacity 1.5s;\n    -o-transition: opacity 1s;\n}\n.box:hover .image[data-v-68c3f256]{\n    opacity:1;\n    filter: alpha(opacity=100);\n}\n.box .image img[data-v-68c3f256]{\n    padding:7px;\n    background:#000;\n}\n.box .image img[data-v-68c3f256]:hover{\n    background:#333;\n}\n\n/* description text holder */\n.box .description[data-v-68c3f256], .box .description a[data-v-68c3f256]{\n    color:rgb(153,153,153);\n    color:rgba(153,153,153,0);\n    text-shadow:0 0 5px #aaa;\n    text-align:left;\n    font-size:14px;\n\n    transition: text-shadow 1s ease 0.5s, color 1s ease 0.5s, outline 1s ease 0.5s;\n    -moz-transition: text-shadow 1s ease 0.5s, color 1s ease 0.5s, outline 1s ease 0.5s;\n    -webkit-transition: text-shadow 1s ease 0.5s, color 1s ease 0.5s, outline 1s ease 0.5s;\n    -o-transition: text-shadow 1s ease 0.5s, color 1s ease 0.5s, outline 1s ease 0.5s;\n}\n.box:hover .description[data-v-68c3f256], .box:hover .description a[data-v-68c3f256]{\n    text-shadow:0 0 0 #fff;\n    color:rgb(100,100,100);\n}\n.box:hover .description a[data-v-68c3f256]{\n    outline:1px dotted #777;\n}\n#overlay[data-v-68c3f256]{\n    position:fixed;\n    width:100%;\n    height:100%;\n    left:0;\n    top:0;\n    z-index:7;\n    background:rgb(0,0,0);\n    background:rgba(0,0,0,0.5);\n    filter: alpha(opacity=50);\n\n    transition: background-color 0.7s;\n    -moz-transition: background-color 0.7s;\n    -webkit-transition: background-color 0.7s;\n    -o-transition: background-color 0.7s;\n}\n#overlay[data-v-68c3f256]:hover{\n    background:rgb(0,0,0);\n    background:rgba(0,0,0,0);\n    z-index:0;\n    filter: alpha(opacity=0);\n}\n\n", ""]);
 
 // exports
 
@@ -37820,15 +38014,15 @@ process.umask = function() { return 0; };
 
 /***/ }),
 
-/***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/cuentoNiniaComponent.vue?vue&type=style&index=0&id=3e05f4da&scoped=true&lang=css&":
-/*!******************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/style-loader!./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/cuentoNiniaComponent.vue?vue&type=style&index=0&id=3e05f4da&scoped=true&lang=css& ***!
-  \******************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/actividadesjuegos/niños/actividadDos/semaforoComponent.vue?vue&type=style&index=0&id=6747b3c0&scoped=true&lang=css&":
+/*!****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/style-loader!./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/actividadesjuegos/niños/actividadDos/semaforoComponent.vue?vue&type=style&index=0&id=6747b3c0&scoped=true&lang=css& ***!
+  \****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 
-var content = __webpack_require__(/*! !../../../node_modules/css-loader??ref--6-1!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../node_modules/postcss-loader/src??ref--6-2!../../../node_modules/vue-loader/lib??vue-loader-options!./cuentoNiniaComponent.vue?vue&type=style&index=0&id=3e05f4da&scoped=true&lang=css& */ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/cuentoNiniaComponent.vue?vue&type=style&index=0&id=3e05f4da&scoped=true&lang=css&");
+var content = __webpack_require__(/*! !../../../../../../node_modules/css-loader??ref--6-1!../../../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../../../node_modules/postcss-loader/src??ref--6-2!../../../../../../node_modules/vue-loader/lib??vue-loader-options!./semaforoComponent.vue?vue&type=style&index=0&id=6747b3c0&scoped=true&lang=css& */ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/actividadesjuegos/niños/actividadDos/semaforoComponent.vue?vue&type=style&index=0&id=6747b3c0&scoped=true&lang=css&");
 
 if(typeof content === 'string') content = [[module.i, content, '']];
 
@@ -37842,7 +38036,7 @@ var options = {"hmr":true}
 options.transform = transform
 options.insertInto = undefined;
 
-var update = __webpack_require__(/*! ../../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
+var update = __webpack_require__(/*! ../../../../../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
 
 if(content.locals) module.exports = content.locals;
 
@@ -37850,15 +38044,15 @@ if(false) {}
 
 /***/ }),
 
-/***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/cuentoNinioComponent.vue?vue&type=style&index=0&id=3b1e0c45&scoped=true&lang=css&":
-/*!******************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/style-loader!./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/cuentoNinioComponent.vue?vue&type=style&index=0&id=3b1e0c45&scoped=true&lang=css& ***!
-  \******************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/actividadesjuegos/niños/actividadUno/cuentoNiniaComponent.vue?vue&type=style&index=0&id=6d6f293b&scoped=true&lang=css&":
+/*!*******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/style-loader!./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/actividadesjuegos/niños/actividadUno/cuentoNiniaComponent.vue?vue&type=style&index=0&id=6d6f293b&scoped=true&lang=css& ***!
+  \*******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 
-var content = __webpack_require__(/*! !../../../node_modules/css-loader??ref--6-1!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../node_modules/postcss-loader/src??ref--6-2!../../../node_modules/vue-loader/lib??vue-loader-options!./cuentoNinioComponent.vue?vue&type=style&index=0&id=3b1e0c45&scoped=true&lang=css& */ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/cuentoNinioComponent.vue?vue&type=style&index=0&id=3b1e0c45&scoped=true&lang=css&");
+var content = __webpack_require__(/*! !../../../../../../node_modules/css-loader??ref--6-1!../../../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../../../node_modules/postcss-loader/src??ref--6-2!../../../../../../node_modules/vue-loader/lib??vue-loader-options!./cuentoNiniaComponent.vue?vue&type=style&index=0&id=6d6f293b&scoped=true&lang=css& */ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/actividadesjuegos/niños/actividadUno/cuentoNiniaComponent.vue?vue&type=style&index=0&id=6d6f293b&scoped=true&lang=css&");
 
 if(typeof content === 'string') content = [[module.i, content, '']];
 
@@ -37872,7 +38066,7 @@ var options = {"hmr":true}
 options.transform = transform
 options.insertInto = undefined;
 
-var update = __webpack_require__(/*! ../../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
+var update = __webpack_require__(/*! ../../../../../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
 
 if(content.locals) module.exports = content.locals;
 
@@ -37880,15 +38074,15 @@ if(false) {}
 
 /***/ }),
 
-/***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/niñosComponent.vue?vue&type=style&index=0&id=bcb81ea4&scoped=true&lang=css&":
-/*!************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/style-loader!./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/niñosComponent.vue?vue&type=style&index=0&id=bcb81ea4&scoped=true&lang=css& ***!
-  \************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/actividadesjuegos/niños/actividadUno/cuentoNinioComponent.vue?vue&type=style&index=0&id=70dfa026&scoped=true&lang=css&":
+/*!*******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/style-loader!./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/actividadesjuegos/niños/actividadUno/cuentoNinioComponent.vue?vue&type=style&index=0&id=70dfa026&scoped=true&lang=css& ***!
+  \*******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 
-var content = __webpack_require__(/*! !../../../node_modules/css-loader??ref--6-1!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../node_modules/postcss-loader/src??ref--6-2!../../../node_modules/vue-loader/lib??vue-loader-options!./niñosComponent.vue?vue&type=style&index=0&id=bcb81ea4&scoped=true&lang=css& */ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/niñosComponent.vue?vue&type=style&index=0&id=bcb81ea4&scoped=true&lang=css&");
+var content = __webpack_require__(/*! !../../../../../../node_modules/css-loader??ref--6-1!../../../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../../../node_modules/postcss-loader/src??ref--6-2!../../../../../../node_modules/vue-loader/lib??vue-loader-options!./cuentoNinioComponent.vue?vue&type=style&index=0&id=70dfa026&scoped=true&lang=css& */ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/actividadesjuegos/niños/actividadUno/cuentoNinioComponent.vue?vue&type=style&index=0&id=70dfa026&scoped=true&lang=css&");
 
 if(typeof content === 'string') content = [[module.i, content, '']];
 
@@ -37902,7 +38096,37 @@ var options = {"hmr":true}
 options.transform = transform
 options.insertInto = undefined;
 
-var update = __webpack_require__(/*! ../../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
+var update = __webpack_require__(/*! ../../../../../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
+
+if(content.locals) module.exports = content.locals;
+
+if(false) {}
+
+/***/ }),
+
+/***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/actividadesjuegos/niños/actividadUno/niñosComponent.vue?vue&type=style&index=0&id=68c3f256&scoped=true&lang=css&":
+/*!*************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/style-loader!./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/actividadesjuegos/niños/actividadUno/niñosComponent.vue?vue&type=style&index=0&id=68c3f256&scoped=true&lang=css& ***!
+  \*************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+var content = __webpack_require__(/*! !../../../../../../node_modules/css-loader??ref--6-1!../../../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../../../node_modules/postcss-loader/src??ref--6-2!../../../../../../node_modules/vue-loader/lib??vue-loader-options!./niñosComponent.vue?vue&type=style&index=0&id=68c3f256&scoped=true&lang=css& */ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/actividadesjuegos/niños/actividadUno/niñosComponent.vue?vue&type=style&index=0&id=68c3f256&scoped=true&lang=css&");
+
+if(typeof content === 'string') content = [[module.i, content, '']];
+
+var transform;
+var insertInto;
+
+
+
+var options = {"hmr":true}
+
+options.transform = transform
+options.insertInto = undefined;
+
+var update = __webpack_require__(/*! ../../../../../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
 
 if(content.locals) module.exports = content.locals;
 
@@ -38726,10 +38950,70 @@ render._withStripped = true
 
 /***/ }),
 
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/cuentoNiniaComponent.vue?vue&type=template&id=3e05f4da&scoped=true&":
-/*!***********************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/cuentoNiniaComponent.vue?vue&type=template&id=3e05f4da&scoped=true& ***!
-  \***********************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/actividadesjuegos/niños/actividadDos/semaforoComponent.vue?vue&type=template&id=6747b3c0&scoped=true&":
+/*!*********************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/actividadesjuegos/niños/actividadDos/semaforoComponent.vue?vue&type=template&id=6747b3c0&scoped=true& ***!
+  \*********************************************************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _vm._m(0)
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      { staticClass: "mx-auto", staticStyle: { width: "400px" } },
+      [
+        _c("figure", [
+          _c("img", {
+            attrs: {
+              src: "image/actividadesyjuegos/semaforo.png",
+              width: "400px"
+            }
+          }),
+          _vm._v(" "),
+          _c("div", { staticClass: "hover" }, [
+            _c("div", { staticClass: "hover1" }),
+            _vm._v(" "),
+            _c("div", { staticClass: "hover2" }),
+            _vm._v(" "),
+            _c("div", { staticClass: "hover3" })
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "luces" }, [
+            _c("div", { staticClass: "red" }),
+            _vm._v(" "),
+            _c("div", { staticClass: "yellow" }),
+            _vm._v(" "),
+            _c("div", { staticClass: "green" })
+          ])
+        ])
+      ]
+    )
+  }
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/actividadesjuegos/niños/actividadUno/cuentoNiniaComponent.vue?vue&type=template&id=6d6f293b&scoped=true&":
+/*!************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/actividadesjuegos/niños/actividadUno/cuentoNiniaComponent.vue?vue&type=template&id=6d6f293b&scoped=true& ***!
+  \************************************************************************************************************************************************************************************************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -38762,10 +39046,10 @@ render._withStripped = true
 
 /***/ }),
 
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/cuentoNinioComponent.vue?vue&type=template&id=3b1e0c45&scoped=true&":
-/*!***********************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/cuentoNinioComponent.vue?vue&type=template&id=3b1e0c45&scoped=true& ***!
-  \***********************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/actividadesjuegos/niños/actividadUno/cuentoNinioComponent.vue?vue&type=template&id=70dfa026&scoped=true&":
+/*!************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/actividadesjuegos/niños/actividadUno/cuentoNinioComponent.vue?vue&type=template&id=70dfa026&scoped=true& ***!
+  \************************************************************************************************************************************************************************************************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -38784,6 +39068,10 @@ var render = function() {
       _vm._v(
         "\n\n        Joaquín era un niño de pelo corto y negro, gordito, muy alegre, juguetón y muy feliz. Él se había mudado a una nueva ciudad y a una nueva escuela.\n        Por otro lado, Tito era: inteligente, abusón, violento, con mucha picardía y sin nada de empatía. Todas las fechorías que decía o hacia estaba bien para los que le seguían.\n        - ¡Eh, tú! - le gritó Tito a Joaquín, al verlo en la fila para entrar al aula.\n        A Joaquín le asusto ese tono de voz, y sin hacer caso se dirigió a su clase.\n        Cuando fue a sentarse, Tito le habló susurrando a su espalda amenazadoramente, cuidándose de que la profesora no lo oyera. - ¿Dónde vas gordo? ¡Ese es mi sitio! Joaquín, sin mirarlo, fue a colocarse en uno de los pupitres de la última fila.\n        Cuando llegó a casa no contó nada a pesar de estar muy disgustado.\n        A la mañana siguiente, Joaquín desayunó nervioso deseando que esos niños se hubieran olvidado de él, pero en cuanto lo vieron llegar, empezaron de nuevo los ataques.  - ¡Gordoooo, gordoooo! - le cantaron, delante de todos.\n        Y a la hora de la salida…. Cuando salió, los niños estaban esperándolo en la puerta. Joaquín siguió su camino sin mirarlos, pero uno de ellos le puso el pie haciendo que tropezara. - ¡Jajajajajajajaja! ¡Perdona, ha sido sin querer! - escuchó que decían\n        Se estaba levantando del suelo cuando llegó la profesora, que no había visto nada. - ¿Qué te ha pasado Joaquín? ¿Te has hecho daño? - le dijo preocupada. - Solo he resbalado - dijo ocultando la verdad ante la mirada amenazadora de los otros.\n        Otros niños de la clase vieron lo que estaba pasando, pero por miedo a ser objeto también de sus ataques se callaron.\n        Pasaban los días y Joaquín cada vez estaba más amargado, no podía dormir y no sabía cómo resolver esa situación. Joaquín bajó en sus notas, no comía bien, estaba muy triste y se volvió muy reservado.\n        Los padres estaban preocupados por su cambio de actitud, pero pensaban que le estaba costando mucho adaptarse a la nueva ciudad, la nueva casa y el nuevo colegio, y decidieron tener paciencia y estar más atentos.\n        Mientras, Tito y sus seguidores continuaban con el acoso sin darle\n        tregua. Estuvo así durante todo el curso; atormentado.\n        Poco antes de que terminara el curso, se mudaron a otra ciudad\n        y Joaquín les conto a sus padres todo lo que había vivido.\n\n    "
       )
+    ]),
+    _vm._v(" "),
+    _c("p", [
+      _c("button", { on: { click: _vm.question } }, [_vm._v("Preguntas")])
     ])
   ])
 }
@@ -38794,10 +39082,10 @@ render._withStripped = true
 
 /***/ }),
 
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/niñosComponent.vue?vue&type=template&id=bcb81ea4&scoped=true&":
-/*!*****************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/niñosComponent.vue?vue&type=template&id=bcb81ea4&scoped=true& ***!
-  \*****************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/actividadesjuegos/niños/actividadUno/niñosComponent.vue?vue&type=template&id=68c3f256&scoped=true&":
+/*!******************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/actividadesjuegos/niños/actividadUno/niñosComponent.vue?vue&type=template&id=68c3f256&scoped=true& ***!
+  \******************************************************************************************************************************************************************************************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -51078,9 +51366,10 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js"); // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
-Vue.component('cuentoniño-component', __webpack_require__(/*! ./components/cuentoNinioComponent.vue */ "./resources/js/components/cuentoNinioComponent.vue")["default"]);
-Vue.component('cuentoniña-component', __webpack_require__(/*! ./components/cuentoNiniaComponent.vue */ "./resources/js/components/cuentoNiniaComponent.vue")["default"]);
-Vue.component('niños-component', __webpack_require__(/*! ./components/niñosComponent.vue */ "./resources/js/components/niñosComponent.vue")["default"]);
+Vue.component('semaforo-component', __webpack_require__(/*! ./components/actividadesjuegos/niños/actividadDos/semaforoComponent.vue */ "./resources/js/components/actividadesjuegos/niños/actividadDos/semaforoComponent.vue")["default"]);
+Vue.component('cuentoniño-component', __webpack_require__(/*! ./components/actividadesjuegos/niños/actividadUno/cuentoNinioComponent.vue */ "./resources/js/components/actividadesjuegos/niños/actividadUno/cuentoNinioComponent.vue")["default"]);
+Vue.component('cuentoniña-component', __webpack_require__(/*! ./components/actividadesjuegos/niños/actividadUno/cuentoNiniaComponent.vue */ "./resources/js/components/actividadesjuegos/niños/actividadUno/cuentoNiniaComponent.vue")["default"]);
+Vue.component('niños-component', __webpack_require__(/*! ./components/actividadesjuegos/niños/actividadUno/niñosComponent.vue */ "./resources/js/components/actividadesjuegos/niños/actividadUno/niñosComponent.vue")["default"]);
 Vue.component('my-pensamientos-component', __webpack_require__(/*! ./components/MyPensamientosComponent */ "./resources/js/components/MyPensamientosComponent.vue")["default"]);
 Vue.component('form-component', __webpack_require__(/*! ./components/FormComponent */ "./resources/js/components/FormComponent.vue")["default"]);
 Vue.component('pensamiento-component', __webpack_require__(/*! ./components/PensamientoComponent.vue */ "./resources/js/components/PensamientoComponent.vue")["default"]);
@@ -51355,19 +51644,106 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/components/cuentoNiniaComponent.vue":
-/*!**********************************************************!*\
-  !*** ./resources/js/components/cuentoNiniaComponent.vue ***!
-  \**********************************************************/
+/***/ "./resources/js/components/actividadesjuegos/niños/actividadDos/semaforoComponent.vue":
+/*!********************************************************************************************!*\
+  !*** ./resources/js/components/actividadesjuegos/niños/actividadDos/semaforoComponent.vue ***!
+  \********************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _cuentoNiniaComponent_vue_vue_type_template_id_3e05f4da_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./cuentoNiniaComponent.vue?vue&type=template&id=3e05f4da&scoped=true& */ "./resources/js/components/cuentoNiniaComponent.vue?vue&type=template&id=3e05f4da&scoped=true&");
-/* harmony import */ var _cuentoNiniaComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./cuentoNiniaComponent.vue?vue&type=script&lang=js& */ "./resources/js/components/cuentoNiniaComponent.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _cuentoNiniaComponent_vue_vue_type_style_index_0_id_3e05f4da_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./cuentoNiniaComponent.vue?vue&type=style&index=0&id=3e05f4da&scoped=true&lang=css& */ "./resources/js/components/cuentoNiniaComponent.vue?vue&type=style&index=0&id=3e05f4da&scoped=true&lang=css&");
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* harmony import */ var _semaforoComponent_vue_vue_type_template_id_6747b3c0_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./semaforoComponent.vue?vue&type=template&id=6747b3c0&scoped=true& */ "./resources/js/components/actividadesjuegos/niños/actividadDos/semaforoComponent.vue?vue&type=template&id=6747b3c0&scoped=true&");
+/* harmony import */ var _semaforoComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./semaforoComponent.vue?vue&type=script&lang=js& */ "./resources/js/components/actividadesjuegos/niños/actividadDos/semaforoComponent.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _semaforoComponent_vue_vue_type_style_index_0_id_6747b3c0_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./semaforoComponent.vue?vue&type=style&index=0&id=6747b3c0&scoped=true&lang=css& */ "./resources/js/components/actividadesjuegos/niños/actividadDos/semaforoComponent.vue?vue&type=style&index=0&id=6747b3c0&scoped=true&lang=css&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
+  _semaforoComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _semaforoComponent_vue_vue_type_template_id_6747b3c0_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _semaforoComponent_vue_vue_type_template_id_6747b3c0_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  "6747b3c0",
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/actividadesjuegos/niños/actividadDos/semaforoComponent.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/actividadesjuegos/niños/actividadDos/semaforoComponent.vue?vue&type=script&lang=js&":
+/*!*********************************************************************************************************************!*\
+  !*** ./resources/js/components/actividadesjuegos/niños/actividadDos/semaforoComponent.vue?vue&type=script&lang=js& ***!
+  \*********************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_semaforoComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../../node_modules/vue-loader/lib??vue-loader-options!./semaforoComponent.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/actividadesjuegos/niños/actividadDos/semaforoComponent.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_semaforoComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/actividadesjuegos/niños/actividadDos/semaforoComponent.vue?vue&type=style&index=0&id=6747b3c0&scoped=true&lang=css&":
+/*!*****************************************************************************************************************************************************!*\
+  !*** ./resources/js/components/actividadesjuegos/niños/actividadDos/semaforoComponent.vue?vue&type=style&index=0&id=6747b3c0&scoped=true&lang=css& ***!
+  \*****************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_semaforoComponent_vue_vue_type_style_index_0_id_6747b3c0_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../node_modules/style-loader!../../../../../../node_modules/css-loader??ref--6-1!../../../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../../../node_modules/postcss-loader/src??ref--6-2!../../../../../../node_modules/vue-loader/lib??vue-loader-options!./semaforoComponent.vue?vue&type=style&index=0&id=6747b3c0&scoped=true&lang=css& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/actividadesjuegos/niños/actividadDos/semaforoComponent.vue?vue&type=style&index=0&id=6747b3c0&scoped=true&lang=css&");
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_semaforoComponent_vue_vue_type_style_index_0_id_6747b3c0_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_semaforoComponent_vue_vue_type_style_index_0_id_6747b3c0_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_semaforoComponent_vue_vue_type_style_index_0_id_6747b3c0_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_semaforoComponent_vue_vue_type_style_index_0_id_6747b3c0_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_semaforoComponent_vue_vue_type_style_index_0_id_6747b3c0_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0___default.a); 
+
+/***/ }),
+
+/***/ "./resources/js/components/actividadesjuegos/niños/actividadDos/semaforoComponent.vue?vue&type=template&id=6747b3c0&scoped=true&":
+/*!***************************************************************************************************************************************!*\
+  !*** ./resources/js/components/actividadesjuegos/niños/actividadDos/semaforoComponent.vue?vue&type=template&id=6747b3c0&scoped=true& ***!
+  \***************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_semaforoComponent_vue_vue_type_template_id_6747b3c0_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../../node_modules/vue-loader/lib??vue-loader-options!./semaforoComponent.vue?vue&type=template&id=6747b3c0&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/actividadesjuegos/niños/actividadDos/semaforoComponent.vue?vue&type=template&id=6747b3c0&scoped=true&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_semaforoComponent_vue_vue_type_template_id_6747b3c0_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_semaforoComponent_vue_vue_type_template_id_6747b3c0_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/actividadesjuegos/niños/actividadUno/cuentoNiniaComponent.vue":
+/*!***********************************************************************************************!*\
+  !*** ./resources/js/components/actividadesjuegos/niños/actividadUno/cuentoNiniaComponent.vue ***!
+  \***********************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _cuentoNiniaComponent_vue_vue_type_template_id_6d6f293b_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./cuentoNiniaComponent.vue?vue&type=template&id=6d6f293b&scoped=true& */ "./resources/js/components/actividadesjuegos/niños/actividadUno/cuentoNiniaComponent.vue?vue&type=template&id=6d6f293b&scoped=true&");
+/* harmony import */ var _cuentoNiniaComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./cuentoNiniaComponent.vue?vue&type=script&lang=js& */ "./resources/js/components/actividadesjuegos/niños/actividadUno/cuentoNiniaComponent.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _cuentoNiniaComponent_vue_vue_type_style_index_0_id_6d6f293b_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./cuentoNiniaComponent.vue?vue&type=style&index=0&id=6d6f293b&scoped=true&lang=css& */ "./resources/js/components/actividadesjuegos/niños/actividadUno/cuentoNiniaComponent.vue?vue&type=style&index=0&id=6d6f293b&scoped=true&lang=css&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
 
@@ -51378,83 +51754,83 @@ __webpack_require__.r(__webpack_exports__);
 
 var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
   _cuentoNiniaComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _cuentoNiniaComponent_vue_vue_type_template_id_3e05f4da_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
-  _cuentoNiniaComponent_vue_vue_type_template_id_3e05f4da_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  _cuentoNiniaComponent_vue_vue_type_template_id_6d6f293b_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _cuentoNiniaComponent_vue_vue_type_template_id_6d6f293b_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
   false,
   null,
-  "3e05f4da",
+  "6d6f293b",
   null
   
 )
 
 /* hot reload */
 if (false) { var api; }
-component.options.__file = "resources/js/components/cuentoNiniaComponent.vue"
+component.options.__file = "resources/js/components/actividadesjuegos/niños/actividadUno/cuentoNiniaComponent.vue"
 /* harmony default export */ __webpack_exports__["default"] = (component.exports);
 
 /***/ }),
 
-/***/ "./resources/js/components/cuentoNiniaComponent.vue?vue&type=script&lang=js&":
-/*!***********************************************************************************!*\
-  !*** ./resources/js/components/cuentoNiniaComponent.vue?vue&type=script&lang=js& ***!
-  \***********************************************************************************/
+/***/ "./resources/js/components/actividadesjuegos/niños/actividadUno/cuentoNiniaComponent.vue?vue&type=script&lang=js&":
+/*!************************************************************************************************************************!*\
+  !*** ./resources/js/components/actividadesjuegos/niños/actividadUno/cuentoNiniaComponent.vue?vue&type=script&lang=js& ***!
+  \************************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_cuentoNiniaComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./cuentoNiniaComponent.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/cuentoNiniaComponent.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_cuentoNiniaComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../../node_modules/vue-loader/lib??vue-loader-options!./cuentoNiniaComponent.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/actividadesjuegos/niños/actividadUno/cuentoNiniaComponent.vue?vue&type=script&lang=js&");
 /* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_cuentoNiniaComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 
-/***/ "./resources/js/components/cuentoNiniaComponent.vue?vue&type=style&index=0&id=3e05f4da&scoped=true&lang=css&":
-/*!*******************************************************************************************************************!*\
-  !*** ./resources/js/components/cuentoNiniaComponent.vue?vue&type=style&index=0&id=3e05f4da&scoped=true&lang=css& ***!
-  \*******************************************************************************************************************/
+/***/ "./resources/js/components/actividadesjuegos/niños/actividadUno/cuentoNiniaComponent.vue?vue&type=style&index=0&id=6d6f293b&scoped=true&lang=css&":
+/*!********************************************************************************************************************************************************!*\
+  !*** ./resources/js/components/actividadesjuegos/niños/actividadUno/cuentoNiniaComponent.vue?vue&type=style&index=0&id=6d6f293b&scoped=true&lang=css& ***!
+  \********************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_cuentoNiniaComponent_vue_vue_type_style_index_0_id_3e05f4da_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/style-loader!../../../node_modules/css-loader??ref--6-1!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../node_modules/postcss-loader/src??ref--6-2!../../../node_modules/vue-loader/lib??vue-loader-options!./cuentoNiniaComponent.vue?vue&type=style&index=0&id=3e05f4da&scoped=true&lang=css& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/cuentoNiniaComponent.vue?vue&type=style&index=0&id=3e05f4da&scoped=true&lang=css&");
-/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_cuentoNiniaComponent_vue_vue_type_style_index_0_id_3e05f4da_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_cuentoNiniaComponent_vue_vue_type_style_index_0_id_3e05f4da_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__);
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_cuentoNiniaComponent_vue_vue_type_style_index_0_id_3e05f4da_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_cuentoNiniaComponent_vue_vue_type_style_index_0_id_3e05f4da_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
- /* harmony default export */ __webpack_exports__["default"] = (_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_cuentoNiniaComponent_vue_vue_type_style_index_0_id_3e05f4da_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0___default.a); 
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_cuentoNiniaComponent_vue_vue_type_style_index_0_id_6d6f293b_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../node_modules/style-loader!../../../../../../node_modules/css-loader??ref--6-1!../../../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../../../node_modules/postcss-loader/src??ref--6-2!../../../../../../node_modules/vue-loader/lib??vue-loader-options!./cuentoNiniaComponent.vue?vue&type=style&index=0&id=6d6f293b&scoped=true&lang=css& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/actividadesjuegos/niños/actividadUno/cuentoNiniaComponent.vue?vue&type=style&index=0&id=6d6f293b&scoped=true&lang=css&");
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_cuentoNiniaComponent_vue_vue_type_style_index_0_id_6d6f293b_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_cuentoNiniaComponent_vue_vue_type_style_index_0_id_6d6f293b_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_cuentoNiniaComponent_vue_vue_type_style_index_0_id_6d6f293b_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_cuentoNiniaComponent_vue_vue_type_style_index_0_id_6d6f293b_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_cuentoNiniaComponent_vue_vue_type_style_index_0_id_6d6f293b_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0___default.a); 
 
 /***/ }),
 
-/***/ "./resources/js/components/cuentoNiniaComponent.vue?vue&type=template&id=3e05f4da&scoped=true&":
-/*!*****************************************************************************************************!*\
-  !*** ./resources/js/components/cuentoNiniaComponent.vue?vue&type=template&id=3e05f4da&scoped=true& ***!
-  \*****************************************************************************************************/
+/***/ "./resources/js/components/actividadesjuegos/niños/actividadUno/cuentoNiniaComponent.vue?vue&type=template&id=6d6f293b&scoped=true&":
+/*!******************************************************************************************************************************************!*\
+  !*** ./resources/js/components/actividadesjuegos/niños/actividadUno/cuentoNiniaComponent.vue?vue&type=template&id=6d6f293b&scoped=true& ***!
+  \******************************************************************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_cuentoNiniaComponent_vue_vue_type_template_id_3e05f4da_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./cuentoNiniaComponent.vue?vue&type=template&id=3e05f4da&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/cuentoNiniaComponent.vue?vue&type=template&id=3e05f4da&scoped=true&");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_cuentoNiniaComponent_vue_vue_type_template_id_3e05f4da_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_cuentoNiniaComponent_vue_vue_type_template_id_6d6f293b_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../../node_modules/vue-loader/lib??vue-loader-options!./cuentoNiniaComponent.vue?vue&type=template&id=6d6f293b&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/actividadesjuegos/niños/actividadUno/cuentoNiniaComponent.vue?vue&type=template&id=6d6f293b&scoped=true&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_cuentoNiniaComponent_vue_vue_type_template_id_6d6f293b_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_cuentoNiniaComponent_vue_vue_type_template_id_3e05f4da_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_cuentoNiniaComponent_vue_vue_type_template_id_6d6f293b_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 
 /***/ }),
 
-/***/ "./resources/js/components/cuentoNinioComponent.vue":
-/*!**********************************************************!*\
-  !*** ./resources/js/components/cuentoNinioComponent.vue ***!
-  \**********************************************************/
+/***/ "./resources/js/components/actividadesjuegos/niños/actividadUno/cuentoNinioComponent.vue":
+/*!***********************************************************************************************!*\
+  !*** ./resources/js/components/actividadesjuegos/niños/actividadUno/cuentoNinioComponent.vue ***!
+  \***********************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _cuentoNinioComponent_vue_vue_type_template_id_3b1e0c45_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./cuentoNinioComponent.vue?vue&type=template&id=3b1e0c45&scoped=true& */ "./resources/js/components/cuentoNinioComponent.vue?vue&type=template&id=3b1e0c45&scoped=true&");
-/* harmony import */ var _cuentoNinioComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./cuentoNinioComponent.vue?vue&type=script&lang=js& */ "./resources/js/components/cuentoNinioComponent.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _cuentoNinioComponent_vue_vue_type_style_index_0_id_3b1e0c45_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./cuentoNinioComponent.vue?vue&type=style&index=0&id=3b1e0c45&scoped=true&lang=css& */ "./resources/js/components/cuentoNinioComponent.vue?vue&type=style&index=0&id=3b1e0c45&scoped=true&lang=css&");
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* harmony import */ var _cuentoNinioComponent_vue_vue_type_template_id_70dfa026_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./cuentoNinioComponent.vue?vue&type=template&id=70dfa026&scoped=true& */ "./resources/js/components/actividadesjuegos/niños/actividadUno/cuentoNinioComponent.vue?vue&type=template&id=70dfa026&scoped=true&");
+/* harmony import */ var _cuentoNinioComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./cuentoNinioComponent.vue?vue&type=script&lang=js& */ "./resources/js/components/actividadesjuegos/niños/actividadUno/cuentoNinioComponent.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _cuentoNinioComponent_vue_vue_type_style_index_0_id_70dfa026_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./cuentoNinioComponent.vue?vue&type=style&index=0&id=70dfa026&scoped=true&lang=css& */ "./resources/js/components/actividadesjuegos/niños/actividadUno/cuentoNinioComponent.vue?vue&type=style&index=0&id=70dfa026&scoped=true&lang=css&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
 
@@ -51465,83 +51841,83 @@ __webpack_require__.r(__webpack_exports__);
 
 var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
   _cuentoNinioComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _cuentoNinioComponent_vue_vue_type_template_id_3b1e0c45_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
-  _cuentoNinioComponent_vue_vue_type_template_id_3b1e0c45_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  _cuentoNinioComponent_vue_vue_type_template_id_70dfa026_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _cuentoNinioComponent_vue_vue_type_template_id_70dfa026_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
   false,
   null,
-  "3b1e0c45",
+  "70dfa026",
   null
   
 )
 
 /* hot reload */
 if (false) { var api; }
-component.options.__file = "resources/js/components/cuentoNinioComponent.vue"
+component.options.__file = "resources/js/components/actividadesjuegos/niños/actividadUno/cuentoNinioComponent.vue"
 /* harmony default export */ __webpack_exports__["default"] = (component.exports);
 
 /***/ }),
 
-/***/ "./resources/js/components/cuentoNinioComponent.vue?vue&type=script&lang=js&":
-/*!***********************************************************************************!*\
-  !*** ./resources/js/components/cuentoNinioComponent.vue?vue&type=script&lang=js& ***!
-  \***********************************************************************************/
+/***/ "./resources/js/components/actividadesjuegos/niños/actividadUno/cuentoNinioComponent.vue?vue&type=script&lang=js&":
+/*!************************************************************************************************************************!*\
+  !*** ./resources/js/components/actividadesjuegos/niños/actividadUno/cuentoNinioComponent.vue?vue&type=script&lang=js& ***!
+  \************************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_cuentoNinioComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./cuentoNinioComponent.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/cuentoNinioComponent.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_cuentoNinioComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../../node_modules/vue-loader/lib??vue-loader-options!./cuentoNinioComponent.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/actividadesjuegos/niños/actividadUno/cuentoNinioComponent.vue?vue&type=script&lang=js&");
 /* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_cuentoNinioComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 
-/***/ "./resources/js/components/cuentoNinioComponent.vue?vue&type=style&index=0&id=3b1e0c45&scoped=true&lang=css&":
-/*!*******************************************************************************************************************!*\
-  !*** ./resources/js/components/cuentoNinioComponent.vue?vue&type=style&index=0&id=3b1e0c45&scoped=true&lang=css& ***!
-  \*******************************************************************************************************************/
+/***/ "./resources/js/components/actividadesjuegos/niños/actividadUno/cuentoNinioComponent.vue?vue&type=style&index=0&id=70dfa026&scoped=true&lang=css&":
+/*!********************************************************************************************************************************************************!*\
+  !*** ./resources/js/components/actividadesjuegos/niños/actividadUno/cuentoNinioComponent.vue?vue&type=style&index=0&id=70dfa026&scoped=true&lang=css& ***!
+  \********************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_cuentoNinioComponent_vue_vue_type_style_index_0_id_3b1e0c45_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/style-loader!../../../node_modules/css-loader??ref--6-1!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../node_modules/postcss-loader/src??ref--6-2!../../../node_modules/vue-loader/lib??vue-loader-options!./cuentoNinioComponent.vue?vue&type=style&index=0&id=3b1e0c45&scoped=true&lang=css& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/cuentoNinioComponent.vue?vue&type=style&index=0&id=3b1e0c45&scoped=true&lang=css&");
-/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_cuentoNinioComponent_vue_vue_type_style_index_0_id_3b1e0c45_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_cuentoNinioComponent_vue_vue_type_style_index_0_id_3b1e0c45_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__);
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_cuentoNinioComponent_vue_vue_type_style_index_0_id_3b1e0c45_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_cuentoNinioComponent_vue_vue_type_style_index_0_id_3b1e0c45_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
- /* harmony default export */ __webpack_exports__["default"] = (_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_cuentoNinioComponent_vue_vue_type_style_index_0_id_3b1e0c45_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0___default.a); 
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_cuentoNinioComponent_vue_vue_type_style_index_0_id_70dfa026_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../node_modules/style-loader!../../../../../../node_modules/css-loader??ref--6-1!../../../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../../../node_modules/postcss-loader/src??ref--6-2!../../../../../../node_modules/vue-loader/lib??vue-loader-options!./cuentoNinioComponent.vue?vue&type=style&index=0&id=70dfa026&scoped=true&lang=css& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/actividadesjuegos/niños/actividadUno/cuentoNinioComponent.vue?vue&type=style&index=0&id=70dfa026&scoped=true&lang=css&");
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_cuentoNinioComponent_vue_vue_type_style_index_0_id_70dfa026_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_cuentoNinioComponent_vue_vue_type_style_index_0_id_70dfa026_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_cuentoNinioComponent_vue_vue_type_style_index_0_id_70dfa026_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_cuentoNinioComponent_vue_vue_type_style_index_0_id_70dfa026_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_cuentoNinioComponent_vue_vue_type_style_index_0_id_70dfa026_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0___default.a); 
 
 /***/ }),
 
-/***/ "./resources/js/components/cuentoNinioComponent.vue?vue&type=template&id=3b1e0c45&scoped=true&":
-/*!*****************************************************************************************************!*\
-  !*** ./resources/js/components/cuentoNinioComponent.vue?vue&type=template&id=3b1e0c45&scoped=true& ***!
-  \*****************************************************************************************************/
+/***/ "./resources/js/components/actividadesjuegos/niños/actividadUno/cuentoNinioComponent.vue?vue&type=template&id=70dfa026&scoped=true&":
+/*!******************************************************************************************************************************************!*\
+  !*** ./resources/js/components/actividadesjuegos/niños/actividadUno/cuentoNinioComponent.vue?vue&type=template&id=70dfa026&scoped=true& ***!
+  \******************************************************************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_cuentoNinioComponent_vue_vue_type_template_id_3b1e0c45_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./cuentoNinioComponent.vue?vue&type=template&id=3b1e0c45&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/cuentoNinioComponent.vue?vue&type=template&id=3b1e0c45&scoped=true&");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_cuentoNinioComponent_vue_vue_type_template_id_3b1e0c45_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_cuentoNinioComponent_vue_vue_type_template_id_70dfa026_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../../node_modules/vue-loader/lib??vue-loader-options!./cuentoNinioComponent.vue?vue&type=template&id=70dfa026&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/actividadesjuegos/niños/actividadUno/cuentoNinioComponent.vue?vue&type=template&id=70dfa026&scoped=true&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_cuentoNinioComponent_vue_vue_type_template_id_70dfa026_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_cuentoNinioComponent_vue_vue_type_template_id_3b1e0c45_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_cuentoNinioComponent_vue_vue_type_template_id_70dfa026_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 
 /***/ }),
 
-/***/ "./resources/js/components/niñosComponent.vue":
-/*!****************************************************!*\
-  !*** ./resources/js/components/niñosComponent.vue ***!
-  \****************************************************/
+/***/ "./resources/js/components/actividadesjuegos/niños/actividadUno/niñosComponent.vue":
+/*!*****************************************************************************************!*\
+  !*** ./resources/js/components/actividadesjuegos/niños/actividadUno/niñosComponent.vue ***!
+  \*****************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _ni_osComponent_vue_vue_type_template_id_bcb81ea4_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./niñosComponent.vue?vue&type=template&id=bcb81ea4&scoped=true& */ "./resources/js/components/niñosComponent.vue?vue&type=template&id=bcb81ea4&scoped=true&");
-/* harmony import */ var _ni_osComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./niñosComponent.vue?vue&type=script&lang=js& */ "./resources/js/components/niñosComponent.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _ni_osComponent_vue_vue_type_style_index_0_id_bcb81ea4_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./niñosComponent.vue?vue&type=style&index=0&id=bcb81ea4&scoped=true&lang=css& */ "./resources/js/components/niñosComponent.vue?vue&type=style&index=0&id=bcb81ea4&scoped=true&lang=css&");
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* harmony import */ var _ni_osComponent_vue_vue_type_template_id_68c3f256_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./niñosComponent.vue?vue&type=template&id=68c3f256&scoped=true& */ "./resources/js/components/actividadesjuegos/niños/actividadUno/niñosComponent.vue?vue&type=template&id=68c3f256&scoped=true&");
+/* harmony import */ var _ni_osComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./niñosComponent.vue?vue&type=script&lang=js& */ "./resources/js/components/actividadesjuegos/niños/actividadUno/niñosComponent.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _ni_osComponent_vue_vue_type_style_index_0_id_68c3f256_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./niñosComponent.vue?vue&type=style&index=0&id=68c3f256&scoped=true&lang=css& */ "./resources/js/components/actividadesjuegos/niños/actividadUno/niñosComponent.vue?vue&type=style&index=0&id=68c3f256&scoped=true&lang=css&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
 
@@ -51552,65 +51928,65 @@ __webpack_require__.r(__webpack_exports__);
 
 var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
   _ni_osComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _ni_osComponent_vue_vue_type_template_id_bcb81ea4_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
-  _ni_osComponent_vue_vue_type_template_id_bcb81ea4_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  _ni_osComponent_vue_vue_type_template_id_68c3f256_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _ni_osComponent_vue_vue_type_template_id_68c3f256_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
   false,
   null,
-  "bcb81ea4",
+  "68c3f256",
   null
   
 )
 
 /* hot reload */
 if (false) { var api; }
-component.options.__file = "resources/js/components/niñosComponent.vue"
+component.options.__file = "resources/js/components/actividadesjuegos/niños/actividadUno/niñosComponent.vue"
 /* harmony default export */ __webpack_exports__["default"] = (component.exports);
 
 /***/ }),
 
-/***/ "./resources/js/components/niñosComponent.vue?vue&type=script&lang=js&":
-/*!*****************************************************************************!*\
-  !*** ./resources/js/components/niñosComponent.vue?vue&type=script&lang=js& ***!
-  \*****************************************************************************/
+/***/ "./resources/js/components/actividadesjuegos/niños/actividadUno/niñosComponent.vue?vue&type=script&lang=js&":
+/*!******************************************************************************************************************!*\
+  !*** ./resources/js/components/actividadesjuegos/niños/actividadUno/niñosComponent.vue?vue&type=script&lang=js& ***!
+  \******************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ni_osComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./niñosComponent.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/niñosComponent.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ni_osComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../../node_modules/vue-loader/lib??vue-loader-options!./niñosComponent.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/actividadesjuegos/niños/actividadUno/niñosComponent.vue?vue&type=script&lang=js&");
 /* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ni_osComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 
-/***/ "./resources/js/components/niñosComponent.vue?vue&type=style&index=0&id=bcb81ea4&scoped=true&lang=css&":
-/*!*************************************************************************************************************!*\
-  !*** ./resources/js/components/niñosComponent.vue?vue&type=style&index=0&id=bcb81ea4&scoped=true&lang=css& ***!
-  \*************************************************************************************************************/
+/***/ "./resources/js/components/actividadesjuegos/niños/actividadUno/niñosComponent.vue?vue&type=style&index=0&id=68c3f256&scoped=true&lang=css&":
+/*!**************************************************************************************************************************************************!*\
+  !*** ./resources/js/components/actividadesjuegos/niños/actividadUno/niñosComponent.vue?vue&type=style&index=0&id=68c3f256&scoped=true&lang=css& ***!
+  \**************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_ni_osComponent_vue_vue_type_style_index_0_id_bcb81ea4_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/style-loader!../../../node_modules/css-loader??ref--6-1!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../node_modules/postcss-loader/src??ref--6-2!../../../node_modules/vue-loader/lib??vue-loader-options!./niñosComponent.vue?vue&type=style&index=0&id=bcb81ea4&scoped=true&lang=css& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/niñosComponent.vue?vue&type=style&index=0&id=bcb81ea4&scoped=true&lang=css&");
-/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_ni_osComponent_vue_vue_type_style_index_0_id_bcb81ea4_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_ni_osComponent_vue_vue_type_style_index_0_id_bcb81ea4_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__);
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_ni_osComponent_vue_vue_type_style_index_0_id_bcb81ea4_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_ni_osComponent_vue_vue_type_style_index_0_id_bcb81ea4_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
- /* harmony default export */ __webpack_exports__["default"] = (_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_ni_osComponent_vue_vue_type_style_index_0_id_bcb81ea4_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0___default.a); 
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_ni_osComponent_vue_vue_type_style_index_0_id_68c3f256_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../node_modules/style-loader!../../../../../../node_modules/css-loader??ref--6-1!../../../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../../../node_modules/postcss-loader/src??ref--6-2!../../../../../../node_modules/vue-loader/lib??vue-loader-options!./niñosComponent.vue?vue&type=style&index=0&id=68c3f256&scoped=true&lang=css& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/actividadesjuegos/niños/actividadUno/niñosComponent.vue?vue&type=style&index=0&id=68c3f256&scoped=true&lang=css&");
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_ni_osComponent_vue_vue_type_style_index_0_id_68c3f256_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_ni_osComponent_vue_vue_type_style_index_0_id_68c3f256_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_ni_osComponent_vue_vue_type_style_index_0_id_68c3f256_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_ni_osComponent_vue_vue_type_style_index_0_id_68c3f256_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_ni_osComponent_vue_vue_type_style_index_0_id_68c3f256_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0___default.a); 
 
 /***/ }),
 
-/***/ "./resources/js/components/niñosComponent.vue?vue&type=template&id=bcb81ea4&scoped=true&":
-/*!***********************************************************************************************!*\
-  !*** ./resources/js/components/niñosComponent.vue?vue&type=template&id=bcb81ea4&scoped=true& ***!
-  \***********************************************************************************************/
+/***/ "./resources/js/components/actividadesjuegos/niños/actividadUno/niñosComponent.vue?vue&type=template&id=68c3f256&scoped=true&":
+/*!************************************************************************************************************************************!*\
+  !*** ./resources/js/components/actividadesjuegos/niños/actividadUno/niñosComponent.vue?vue&type=template&id=68c3f256&scoped=true& ***!
+  \************************************************************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ni_osComponent_vue_vue_type_template_id_bcb81ea4_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./niñosComponent.vue?vue&type=template&id=bcb81ea4&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/niñosComponent.vue?vue&type=template&id=bcb81ea4&scoped=true&");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ni_osComponent_vue_vue_type_template_id_bcb81ea4_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ni_osComponent_vue_vue_type_template_id_68c3f256_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../../node_modules/vue-loader/lib??vue-loader-options!./niñosComponent.vue?vue&type=template&id=68c3f256&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/actividadesjuegos/niños/actividadUno/niñosComponent.vue?vue&type=template&id=68c3f256&scoped=true&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ni_osComponent_vue_vue_type_template_id_68c3f256_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ni_osComponent_vue_vue_type_template_id_bcb81ea4_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ni_osComponent_vue_vue_type_template_id_68c3f256_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 

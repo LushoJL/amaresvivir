@@ -12,5 +12,8 @@ class ActivitygameController extends Controller
     {
         return view('actividadesjuegos.niños.actividadUno.niños');
     }
-
+        public function actividadDos()
+        {
+            return view('actividadesjuegos.niños.actividadDos.semaforo');
+        }
 }
