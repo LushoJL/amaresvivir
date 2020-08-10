@@ -1871,11 +1871,12 @@ __webpack_require__.r(__webpack_exports__);
 /*!*****************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/actividadesjuegos/niños/actividadDos/semaforoComponent.vue?vue&type=script&lang=js& ***!
   \*****************************************************************************************************************************************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/*! no static exports found */
+/***/ (function(module, exports) {
 
-"use strict";
-__webpack_require__.r(__webpack_exports__);
+//
+//
+//
 //
 //
 //
@@ -2007,107 +2008,6 @@ $(function () {
     // vuelve a dejar el <div> como estaba al hacer el "mouseout"
     $('.green').css('background-color', '');
   });
-});
-var piezas = document.getElementsByClassName('movil'); // var tamWidh = [134,192,134,163,134,163,134,192,134];
-// var tamHeight = [163,134,163,134,192,134,163,134,163];
-
-var tamWidh = [134, 192, 134, 163, 134, 163, 134, 192, 134];
-var tamHeight = [163, 134, 163, 134, 192, 134, 163, 134, 163];
-
-for (var i = 0; i < piezas.length; i++) {
-  piezas[i].setAttribute("width", tamWidh[i]);
-  piezas[i].setAttribute("height", tamHeight[i]);
-  piezas[i].setAttribute("x", Math.floor(Math.random() * 10 + 1));
-  piezas[i].setAttribute("y", Math.floor(Math.random() * 409 + 1));
-  piezas[i].setAttribute("onmousedown", "seleccionarElemento(evt)");
-}
-
-var elementSelect = 0;
-var currentX = 0;
-var currentY = 0;
-var currentPosX = 0;
-var currentPosY = 0;
-
-function seleccionarElemento(evt) {
-  elementSelect = reordenar(evt);
-  currentX = evt.clientX;
-  currentY = evt.clientY;
-  currentPosX = parseFloat(elementSelect.getAttribute("x"));
-  currentPosY = parseFloat(elementSelect.getAttribute("y"));
-  elementSelect.setAttribute("onmousemove", "moverElemento(evt)");
-}
-
-function moverElemento(evt) {
-  var dx = evt.clientX - currentX;
-  var dy = evt.clientY - currentY;
-  currentPosX = currentPosx + dx;
-  currentPosY = currentPosy + dy;
-  elementSelect.setAttribute("x", currentPosx);
-  elementSelect.setAttribute("y", currentPosy);
-  currentX = evt.clientX;
-  currentY = evt.clientY;
-  elementSelect.setAttribute("onmouseout", "deseleccionarElemento(evt)");
-  elementSelect.setAttribute("onmouseup", "deseleccionarElemento(evt)");
-  iman();
-}
-
-function deseleccionarElemento(evt) {
-  testing();
-
-  if (elementSelect != 0) {
-    elementSelect.removeAttribute("onmousemove");
-    elementSelect.removeAttribute("onmouseout");
-    elementSelect.removeAttribute("onmouseup");
-    elementSelect = 0;
-  }
-}
-
-var entorno = document.getElementById('entorno');
-
-function reordenar(evt) {
-  var padre = evt.target.parentNode;
-  var clone = padre.cloneNode(true);
-  var id = padre.getAttribute("id");
-  entorno.removeChild(document.getElementById(id));
-  entorno.appendChild(clone);
-  return entorno.lastChild.firstChild;
-}
-
-var origX = [200, 304, 466, 200, 333, 437, 200, 304, 466];
-var origY = [100, 100, 100, 233, 204, 233, 337, 366, 337];
-
-function iman() {
-  for (var i = 0; i < piezas.length; i++) {
-    if (Math.abs(currentPosx - origX[i]) < 15 && Math.abs(currentPosy - origY[i]) < 15) {
-      elementSelect.setAttribute("x", origX[i]);
-      elementSelect.setAttribute("y", origY[i]);
-    }
-  }
-}
-
-var win = document.getElementById("win");
-
-function testing() {
-  var bien_ubicada = 0;
-  var padres = document.getElementsByClassName('padre');
-
-  for (var i = 0; i < piezas.length; i++) {
-    var posx = parseFloat(padres[i].firstChild.getAttribute("x"));
-    var posy = parseFloat(padres[i].firstChild.getAttribute("y"));
-    var ide = padres[i].getAttribute("id");
-
-    if (origX[ide] == posx && origY[ide] == posy) {
-      bien_ubicada = bien_ubicada + 1;
-    }
-  }
-
-  if (bien_ubicada == 9) {
-    win.play();
-  }
-}
-
-/* harmony default export */ __webpack_exports__["default"] = ({
-  name: "semaforoComponent"
 });
 
 /***/ }),
@@ -6922,7 +6822,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../../node_module
 
 
 // module
-exports.push([module.i, "\n.luces[data-v-6747b3c0]{\n    position: absolute;\n\n    left: 140px;\n    bottom:110px;\n    z-index: -1;\n}\n.hover[data-v-6747b3c0]{\n    position: absolute;\n    left: 140px;\n    bottom:110px;\n    z-index: 1;\n}\n.red[data-v-6747b3c0]{\n    background: #9d0000;\n    width: 125px;\n    height: 130px;\n    margin-top: 10px;\n}\n.yellow[data-v-6747b3c0]{\n    background: #888800;\n    width: 125px;\n    height: 130px;\n}\n.green[data-v-6747b3c0]{\n    background: green;\n    width: 125px;\n    height: 133px;\n}\n.hover1[data-v-6747b3c0]{\n\n    width: 125px;\n    height: 130px;\n\n    cursor: pointer;\n}\n.hover2[data-v-6747b3c0]{\n\n    width: 125px;\n    height: 130px;\n    cursor: pointer;\n}\n.hover3[data-v-6747b3c0]{\n\n    width: 125px;\n    height: 133px;\n    cursor: pointer;\n}\nfigure[data-v-6747b3c0]{\n\n    display: inline-block;\n\n    position: relative;\n    justify-content: center;\n    align-items: center;\n}\n", ""]);
+exports.push([module.i, "\n.luces[data-v-6747b3c0]{\n    position: absolute;\n\n    left: 140px;\n    bottom:110px;\n    z-index: -1;\n}\n.hover[data-v-6747b3c0]{\n    position: absolute;\n    left: 140px;\n    bottom:110px;\n    z-index: 1;\n}\n.red[data-v-6747b3c0]{\n    background: #9d0000;\n    width: 125px;\n    height: 130px;\n    margin-top: 10px;\n}\n.yellow[data-v-6747b3c0]{\n    background: #888800;\n    width: 125px;\n    height: 130px;\n}\n.green[data-v-6747b3c0]{\n    background: green;\n    width: 125px;\n    height: 133px;\n}\n.hover1[data-v-6747b3c0]{\n\n    width: 125px;\n    height: 130px;\n\n    cursor: pointer;\n}\n.hover2[data-v-6747b3c0]{\n\n    width: 125px;\n    height: 130px;\n    cursor: pointer;\n}\n.hover3[data-v-6747b3c0]{\n\n    width: 125px;\n    height: 133px;\n    cursor: pointer;\n}\nfigure[data-v-6747b3c0]{\n\n    display: inline-block;\n\n    position: relative;\n    justify-content: center;\n    align-items: center;\n}\n/*Hoja de estilos*/\n#entorno[data-v-6747b3c0] {\n    display: block;\n    margin: 0 auto;\n}\n#fondo[data-v-6747b3c0] {\n    opacity: 0.3;\n}\n", ""]);
 
 // exports
 
@@ -39166,7 +39066,7 @@ var render = function() {
         _c(
           "div",
           {
-            staticClass: "modal-dialog modal-dialog-centered",
+            staticClass: "modal-dialog modal-dialog-centered modal-lg",
             attrs: { role: "document" }
           },
           [
@@ -39180,11 +39080,10 @@ var render = function() {
                   [
                     _c("g", { attrs: { id: "fondo" } }, [
                       _c("image", {
+                        staticStyle: { width: "400px", height: "400px" },
                         attrs: {
                           "xlink:href":
                             "https://raw.githubusercontent.com/NestorPlasencia/pikachu-puzzle/master//pikachu.png",
-                          width: "400",
-                          height: "400",
                           x: "200",
                           y: "100"
                         }
@@ -39317,7 +39216,8 @@ var staticRenderFns = [
           _c("img", {
             attrs: {
               src: "image/actividadesyjuegos/semaforo.png",
-              width: "400px"
+              width: "400px",
+              alt: ""
             }
           }),
           _vm._v(" "),
@@ -52197,14 +52097,15 @@ __webpack_require__.r(__webpack_exports__);
 /*!********************************************************************************************!*\
   !*** ./resources/js/components/actividadesjuegos/niños/actividadDos/semaforoComponent.vue ***!
   \********************************************************************************************/
-/*! exports provided: default */
+/*! no static exports found */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _semaforoComponent_vue_vue_type_template_id_6747b3c0_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./semaforoComponent.vue?vue&type=template&id=6747b3c0&scoped=true& */ "./resources/js/components/actividadesjuegos/niños/actividadDos/semaforoComponent.vue?vue&type=template&id=6747b3c0&scoped=true&");
 /* harmony import */ var _semaforoComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./semaforoComponent.vue?vue&type=script&lang=js& */ "./resources/js/components/actividadesjuegos/niños/actividadDos/semaforoComponent.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _semaforoComponent_vue_vue_type_style_index_0_id_6747b3c0_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./semaforoComponent.vue?vue&type=style&index=0&id=6747b3c0&scoped=true&lang=css& */ "./resources/js/components/actividadesjuegos/niños/actividadDos/semaforoComponent.vue?vue&type=style&index=0&id=6747b3c0&scoped=true&lang=css&");
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _semaforoComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _semaforoComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+/* harmony import */ var _semaforoComponent_vue_vue_type_style_index_0_id_6747b3c0_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./semaforoComponent.vue?vue&type=style&index=0&id=6747b3c0&scoped=true&lang=css& */ "./resources/js/components/actividadesjuegos/niños/actividadDos/semaforoComponent.vue?vue&type=style&index=0&id=6747b3c0&scoped=true&lang=css&");
 /* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
@@ -52236,13 +52137,15 @@ component.options.__file = "resources/js/components/actividadesjuegos/niños/act
 /*!*********************************************************************************************************************!*\
   !*** ./resources/js/components/actividadesjuegos/niños/actividadDos/semaforoComponent.vue?vue&type=script&lang=js& ***!
   \*********************************************************************************************************************/
-/*! exports provided: default */
+/*! no static exports found */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_semaforoComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../../node_modules/vue-loader/lib??vue-loader-options!./semaforoComponent.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/actividadesjuegos/niños/actividadDos/semaforoComponent.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_semaforoComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_semaforoComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_semaforoComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_semaforoComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_semaforoComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_semaforoComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0___default.a); 
 
 /***/ }),
 
