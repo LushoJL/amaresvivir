@@ -1,28 +1,100 @@
 <template>
-    <div class="mx-auto" style="width: 400px;">
-        <figure>
-            <img src="image/actividadesyjuegos/semaforo.png" width="400px">
+    <div>
+        <!--    semaforo-->
+        <div class="mx-auto" style="width: 400px;">
+            <figure>
+                <img src="image/actividadesyjuegos/semaforo.png" width="400px">
 
-            <div class="hover">
-                <div class="hover1"></div>
-                <div class="hover2"></div>
-                <div class="hover3"></div>
+                <div class="hover">
+                    <div class="hover1" data-toggle="modal" data-target="#rompecabezarojo"></div>
+                    <div class="hover2" data-toggle="modal" data-target="#rompecabezaamarillo"></div>
+                    <div class="hover3" data-toggle="modal" data-target="#rompecabezaverde"></div>
+                </div>
+                <div class="luces">
+                    <div class="red">
+
+                    </div>
+                    <div class="yellow">
+
+                    </div>
+                    <div class="green">
+
+                    </div>
+                </div>
+
+
+            </figure>
+        </div>
+        <!--    fin semaforo-->
+
+        <!--    rompecabeza rojo-->
+        <div class="modal fade" id="rompecabezarojo" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" >Modal title</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        rompe xabeza rojo
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Save changes</button>
+                    </div>
+                </div>
             </div>
-            <div class="luces">
-                <div class="red">
+        </div>
+        <!--    fin rompecabeza rojo-->
 
-                </div>
-                <div class="yellow">
-
-                </div>
-                <div class="green">
-
+        <!--    rompe cabeza amarillo-->
+        <div class="modal fade" id="rompecabezaamarillo" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Modal title</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        rompe cabeza amarillo
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Save changes</button>
+                    </div>
                 </div>
             </div>
+        </div>
+        <!--    fin rompe cabeza amarillo-->
 
-
-        </figure>
+        <!--    rompe cabeza verde-->
+        <div class="modal fade" id="rompecabezaverde" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Modal title</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        rompe cabeza verde
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Save changes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--    fin rompecabeza verde-->
     </div>
+
+
 </template>
 
 <script>
