@@ -1975,6 +1975,18 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 $(function () {
   // red
   $('.hover1').hover(function () {
@@ -1996,6 +2008,104 @@ $(function () {
     $('.green').css('background-color', '');
   });
 });
+var piezas = document.getElementsByClassName('movil'); // var tamWidh = [134,192,134,163,134,163,134,192,134];
+// var tamHeight = [163,134,163,134,192,134,163,134,163];
+
+var tamWidh = [134, 192, 134, 163, 134, 163, 134, 192, 134];
+var tamHeight = [163, 134, 163, 134, 192, 134, 163, 134, 163];
+
+for (var i = 0; i < piezas.length; i++) {
+  piezas[i].setAttribute("width", tamWidh[i]);
+  piezas[i].setAttribute("height", tamHeight[i]);
+  piezas[i].setAttribute("x", Math.floor(Math.random() * 10 + 1));
+  piezas[i].setAttribute("y", Math.floor(Math.random() * 409 + 1));
+  piezas[i].setAttribute("onmousedown", "seleccionarElemento(evt)");
+}
+
+var elementSelect = 0;
+var currentX = 0;
+var currentY = 0;
+var currentPosX = 0;
+var currentPosY = 0;
+
+function seleccionarElemento(evt) {
+  elementSelect = reordenar(evt);
+  currentX = evt.clientX;
+  currentY = evt.clientY;
+  currentPosX = parseFloat(elementSelect.getAttribute("x"));
+  currentPosY = parseFloat(elementSelect.getAttribute("y"));
+  elementSelect.setAttribute("onmousemove", "moverElemento(evt)");
+}
+
+function moverElemento(evt) {
+  var dx = evt.clientX - currentX;
+  var dy = evt.clientY - currentY;
+  currentPosX = currentPosx + dx;
+  currentPosY = currentPosy + dy;
+  elementSelect.setAttribute("x", currentPosx);
+  elementSelect.setAttribute("y", currentPosy);
+  currentX = evt.clientX;
+  currentY = evt.clientY;
+  elementSelect.setAttribute("onmouseout", "deseleccionarElemento(evt)");
+  elementSelect.setAttribute("onmouseup", "deseleccionarElemento(evt)");
+  iman();
+}
+
+function deseleccionarElemento(evt) {
+  testing();
+
+  if (elementSelect != 0) {
+    elementSelect.removeAttribute("onmousemove");
+    elementSelect.removeAttribute("onmouseout");
+    elementSelect.removeAttribute("onmouseup");
+    elementSelect = 0;
+  }
+}
+
+var entorno = document.getElementById('entorno');
+
+function reordenar(evt) {
+  var padre = evt.target.parentNode;
+  var clone = padre.cloneNode(true);
+  var id = padre.getAttribute("id");
+  entorno.removeChild(document.getElementById(id));
+  entorno.appendChild(clone);
+  return entorno.lastChild.firstChild;
+}
+
+var origX = [200, 304, 466, 200, 333, 437, 200, 304, 466];
+var origY = [100, 100, 100, 233, 204, 233, 337, 366, 337];
+
+function iman() {
+  for (var i = 0; i < piezas.length; i++) {
+    if (Math.abs(currentPosx - origX[i]) < 15 && Math.abs(currentPosy - origY[i]) < 15) {
+      elementSelect.setAttribute("x", origX[i]);
+      elementSelect.setAttribute("y", origY[i]);
+    }
+  }
+}
+
+var win = document.getElementById("win");
+
+function testing() {
+  var bien_ubicada = 0;
+  var padres = document.getElementsByClassName('padre');
+
+  for (var i = 0; i < piezas.length; i++) {
+    var posx = parseFloat(padres[i].firstChild.getAttribute("x"));
+    var posy = parseFloat(padres[i].firstChild.getAttribute("y"));
+    var ide = padres[i].getAttribute("id");
+
+    if (origX[ide] == posx && origY[ide] == posy) {
+      bien_ubicada = bien_ubicada + 1;
+    }
+  }
+
+  if (bien_ubicada == 9) {
+    win.play();
+  }
+}
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "semaforoComponent"
 });
@@ -39037,15 +39147,172 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("div", [
+    _vm._m(0),
+    _vm._v(" "),
+    _c(
+      "div",
+      {
+        staticClass: "modal fade",
+        attrs: {
+          id: "rompecabezarojo",
+          tabindex: "-1",
+          role: "dialog",
+          "aria-labelledby": "exampleModalCenterTitle",
+          "aria-hidden": "true"
+        }
+      },
+      [
+        _c(
+          "div",
+          {
+            staticClass: "modal-dialog modal-dialog-centered",
+            attrs: { role: "document" }
+          },
+          [
+            _c("div", { staticClass: "modal-content" }, [
+              _vm._m(1),
+              _vm._v(" "),
+              _c("div", { staticClass: "modal-body" }, [
+                _c(
+                  "svg",
+                  { attrs: { width: "600", height: "600", id: "entorno" } },
+                  [
+                    _c("g", { attrs: { id: "fondo" } }, [
+                      _c("image", {
+                        attrs: {
+                          "xlink:href":
+                            "https://raw.githubusercontent.com/NestorPlasencia/pikachu-puzzle/master//pikachu.png",
+                          width: "400",
+                          height: "400",
+                          x: "200",
+                          y: "100"
+                        }
+                      })
+                    ]),
+                    _vm._v(" "),
+                    _c("g", { staticClass: "padre", attrs: { id: "0" } }, [
+                      _c("image", {
+                        staticClass: "movil",
+                        attrs: {
+                          "xlink:href":
+                            "https://raw.githubusercontent.com/NestorPlasencia/pikachu-puzzle/master/1.png"
+                        }
+                      })
+                    ]),
+                    _vm._v(" "),
+                    _c("g", { staticClass: "padre", attrs: { id: "1" } }, [
+                      _c("image", {
+                        staticClass: "movil",
+                        attrs: {
+                          "xlink:href":
+                            "https://raw.githubusercontent.com/NestorPlasencia/pikachu-puzzle/master/2.png"
+                        }
+                      })
+                    ]),
+                    _vm._v(" "),
+                    _c("g", { staticClass: "padre", attrs: { id: "2" } }, [
+                      _c("image", {
+                        staticClass: "movil",
+                        attrs: {
+                          "xlink:href":
+                            "https://raw.githubusercontent.com/NestorPlasencia/pikachu-puzzle/master/3.png"
+                        }
+                      })
+                    ]),
+                    _vm._v(" "),
+                    _c("g", { staticClass: "padre", attrs: { id: "3" } }, [
+                      _c("image", {
+                        staticClass: "movil",
+                        attrs: {
+                          "xlink:href":
+                            "https://raw.githubusercontent.com/NestorPlasencia/pikachu-puzzle/master/4.png"
+                        }
+                      })
+                    ]),
+                    _vm._v(" "),
+                    _c("g", { staticClass: "padre", attrs: { id: "4" } }, [
+                      _c("image", {
+                        staticClass: "movil",
+                        attrs: {
+                          "xlink:href":
+                            "https://raw.githubusercontent.com/NestorPlasencia/pikachu-puzzle/master/5.png"
+                        }
+                      })
+                    ]),
+                    _vm._v(" "),
+                    _c("g", { staticClass: "padre", attrs: { id: "5" } }, [
+                      _c("image", {
+                        staticClass: "movil",
+                        attrs: {
+                          "xlink:href":
+                            "https://raw.githubusercontent.com/NestorPlasencia/pikachu-puzzle/master/6.png"
+                        }
+                      })
+                    ]),
+                    _vm._v(" "),
+                    _c("g", { staticClass: "padre", attrs: { id: "6" } }, [
+                      _c("image", {
+                        staticClass: "movil",
+                        attrs: {
+                          "xlink:href":
+                            "https://raw.githubusercontent.com/NestorPlasencia/pikachu-puzzle/master/7.png"
+                        }
+                      })
+                    ]),
+                    _vm._v(" "),
+                    _c("g", { staticClass: "padre", attrs: { id: "7" } }, [
+                      _c("image", {
+                        staticClass: "movil",
+                        attrs: {
+                          "xlink:href":
+                            "https://raw.githubusercontent.com/NestorPlasencia/pikachu-puzzle/master/8.png"
+                        }
+                      })
+                    ]),
+                    _vm._v(" "),
+                    _c("g", { staticClass: "padre", attrs: { id: "8" } }, [
+                      _c("image", {
+                        staticClass: "movil",
+                        attrs: {
+                          "xlink:href":
+                            "https://raw.githubusercontent.com/NestorPlasencia/pikachu-puzzle/master/9.png"
+                        }
+                      })
+                    ])
+                  ]
+                ),
+                _vm._v(" "),
+                _c("audio", {
+                  attrs: {
+                    id: "win",
+                    src:
+                      "https://raw.githubusercontent.com/NestorPlasencia/PikaPuzzle/master/media/win.mp3"
+                  }
+                })
+              ]),
+              _vm._v(" "),
+              _vm._m(2)
+            ])
+          ]
+        )
+      ]
+    ),
+    _vm._v(" "),
+    _vm._m(3),
+    _vm._v(" "),
+    _vm._m(4)
+  ])
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", [
-      _c("div", { staticClass: "mx-auto", staticStyle: { width: "400px" } }, [
+    return _c(
+      "div",
+      { staticClass: "mx-auto", staticStyle: { width: "400px" } },
+      [
         _c("figure", [
           _c("img", {
             attrs: {
@@ -39088,233 +39355,202 @@ var staticRenderFns = [
             _c("div", { staticClass: "green" })
           ])
         ])
-      ]),
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "modal-header" }, [
+      _c("h5", { staticClass: "modal-title" }, [_vm._v("Modal title")]),
       _vm._v(" "),
       _c(
-        "div",
+        "button",
         {
-          staticClass: "modal fade",
+          staticClass: "close",
           attrs: {
-            id: "rompecabezarojo",
-            tabindex: "-1",
-            role: "dialog",
-            "aria-labelledby": "exampleModalCenterTitle",
-            "aria-hidden": "true"
+            type: "button",
+            "data-dismiss": "modal",
+            "aria-label": "Close"
           }
         },
-        [
-          _c(
-            "div",
-            {
-              staticClass: "modal-dialog modal-dialog-centered",
-              attrs: { role: "document" }
-            },
-            [
-              _c("div", { staticClass: "modal-content" }, [
-                _c("div", { staticClass: "modal-header" }, [
-                  _c("h5", { staticClass: "modal-title" }, [
-                    _vm._v("Modal title")
-                  ]),
-                  _vm._v(" "),
-                  _c(
-                    "button",
-                    {
-                      staticClass: "close",
-                      attrs: {
-                        type: "button",
-                        "data-dismiss": "modal",
-                        "aria-label": "Close"
-                      }
-                    },
-                    [
-                      _c("span", { attrs: { "aria-hidden": "true" } }, [
-                        _vm._v("×")
-                      ])
-                    ]
-                  )
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "modal-body" }, [
-                  _vm._v(
-                    "\n                    rompe xabeza rojo\n                "
-                  )
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "modal-footer" }, [
-                  _c(
-                    "button",
-                    {
-                      staticClass: "btn btn-secondary",
-                      attrs: { type: "button", "data-dismiss": "modal" }
-                    },
-                    [_vm._v("Close")]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "button",
-                    {
-                      staticClass: "btn btn-primary",
-                      attrs: { type: "button" }
-                    },
-                    [_vm._v("Save changes")]
-                  )
-                ])
-              ])
-            ]
-          )
-        ]
-      ),
-      _vm._v(" "),
-      _c(
-        "div",
-        {
-          staticClass: "modal fade",
-          attrs: {
-            id: "rompecabezaamarillo",
-            tabindex: "-1",
-            role: "dialog",
-            "aria-labelledby": "exampleModalCenterTitle",
-            "aria-hidden": "true"
-          }
-        },
-        [
-          _c(
-            "div",
-            {
-              staticClass: "modal-dialog modal-dialog-centered",
-              attrs: { role: "document" }
-            },
-            [
-              _c("div", { staticClass: "modal-content" }, [
-                _c("div", { staticClass: "modal-header" }, [
-                  _c("h5", { staticClass: "modal-title" }, [
-                    _vm._v("Modal title")
-                  ]),
-                  _vm._v(" "),
-                  _c(
-                    "button",
-                    {
-                      staticClass: "close",
-                      attrs: {
-                        type: "button",
-                        "data-dismiss": "modal",
-                        "aria-label": "Close"
-                      }
-                    },
-                    [
-                      _c("span", { attrs: { "aria-hidden": "true" } }, [
-                        _vm._v("×")
-                      ])
-                    ]
-                  )
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "modal-body" }, [
-                  _vm._v(
-                    "\n                    rompe cabeza amarillo\n                "
-                  )
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "modal-footer" }, [
-                  _c(
-                    "button",
-                    {
-                      staticClass: "btn btn-secondary",
-                      attrs: { type: "button", "data-dismiss": "modal" }
-                    },
-                    [_vm._v("Close")]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "button",
-                    {
-                      staticClass: "btn btn-primary",
-                      attrs: { type: "button" }
-                    },
-                    [_vm._v("Save changes")]
-                  )
-                ])
-              ])
-            ]
-          )
-        ]
-      ),
-      _vm._v(" "),
-      _c(
-        "div",
-        {
-          staticClass: "modal fade",
-          attrs: {
-            id: "rompecabezaverde",
-            tabindex: "-1",
-            role: "dialog",
-            "aria-labelledby": "exampleModalCenterTitle",
-            "aria-hidden": "true"
-          }
-        },
-        [
-          _c(
-            "div",
-            {
-              staticClass: "modal-dialog modal-dialog-centered",
-              attrs: { role: "document" }
-            },
-            [
-              _c("div", { staticClass: "modal-content" }, [
-                _c("div", { staticClass: "modal-header" }, [
-                  _c("h5", { staticClass: "modal-title" }, [
-                    _vm._v("Modal title")
-                  ]),
-                  _vm._v(" "),
-                  _c(
-                    "button",
-                    {
-                      staticClass: "close",
-                      attrs: {
-                        type: "button",
-                        "data-dismiss": "modal",
-                        "aria-label": "Close"
-                      }
-                    },
-                    [
-                      _c("span", { attrs: { "aria-hidden": "true" } }, [
-                        _vm._v("×")
-                      ])
-                    ]
-                  )
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "modal-body" }, [
-                  _vm._v(
-                    "\n                    rompe cabeza verde\n                "
-                  )
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "modal-footer" }, [
-                  _c(
-                    "button",
-                    {
-                      staticClass: "btn btn-secondary",
-                      attrs: { type: "button", "data-dismiss": "modal" }
-                    },
-                    [_vm._v("Close")]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "button",
-                    {
-                      staticClass: "btn btn-primary",
-                      attrs: { type: "button" }
-                    },
-                    [_vm._v("Save changes")]
-                  )
-                ])
-              ])
-            ]
-          )
-        ]
+        [_c("span", { attrs: { "aria-hidden": "true" } }, [_vm._v("×")])]
       )
     ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "modal-footer" }, [
+      _c(
+        "button",
+        {
+          staticClass: "btn btn-secondary",
+          attrs: { type: "button", "data-dismiss": "modal" }
+        },
+        [_vm._v("Close")]
+      ),
+      _vm._v(" "),
+      _c(
+        "button",
+        { staticClass: "btn btn-primary", attrs: { type: "button" } },
+        [_vm._v("Save changes")]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      {
+        staticClass: "modal fade",
+        attrs: {
+          id: "rompecabezaamarillo",
+          tabindex: "-1",
+          role: "dialog",
+          "aria-labelledby": "exampleModalCenterTitle",
+          "aria-hidden": "true"
+        }
+      },
+      [
+        _c(
+          "div",
+          {
+            staticClass: "modal-dialog modal-dialog-centered",
+            attrs: { role: "document" }
+          },
+          [
+            _c("div", { staticClass: "modal-content" }, [
+              _c("div", { staticClass: "modal-header" }, [
+                _c("h5", { staticClass: "modal-title" }, [
+                  _vm._v("Modal title")
+                ]),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  {
+                    staticClass: "close",
+                    attrs: {
+                      type: "button",
+                      "data-dismiss": "modal",
+                      "aria-label": "Close"
+                    }
+                  },
+                  [
+                    _c("span", { attrs: { "aria-hidden": "true" } }, [
+                      _vm._v("×")
+                    ])
+                  ]
+                )
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "modal-body" }, [
+                _vm._v(
+                  "\n                    rompe cabeza amarillo\n                "
+                )
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "modal-footer" }, [
+                _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-secondary",
+                    attrs: { type: "button", "data-dismiss": "modal" }
+                  },
+                  [_vm._v("Close")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  { staticClass: "btn btn-primary", attrs: { type: "button" } },
+                  [_vm._v("Save changes")]
+                )
+              ])
+            ])
+          ]
+        )
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      {
+        staticClass: "modal fade",
+        attrs: {
+          id: "rompecabezaverde",
+          tabindex: "-1",
+          role: "dialog",
+          "aria-labelledby": "exampleModalCenterTitle",
+          "aria-hidden": "true"
+        }
+      },
+      [
+        _c(
+          "div",
+          {
+            staticClass: "modal-dialog modal-dialog-centered",
+            attrs: { role: "document" }
+          },
+          [
+            _c("div", { staticClass: "modal-content" }, [
+              _c("div", { staticClass: "modal-header" }, [
+                _c("h5", { staticClass: "modal-title" }, [
+                  _vm._v("Modal title")
+                ]),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  {
+                    staticClass: "close",
+                    attrs: {
+                      type: "button",
+                      "data-dismiss": "modal",
+                      "aria-label": "Close"
+                    }
+                  },
+                  [
+                    _c("span", { attrs: { "aria-hidden": "true" } }, [
+                      _vm._v("×")
+                    ])
+                  ]
+                )
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "modal-body" }, [
+                _vm._v(
+                  "\n                    rompe cabeza verde\n                "
+                )
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "modal-footer" }, [
+                _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-secondary",
+                    attrs: { type: "button", "data-dismiss": "modal" }
+                  },
+                  [_vm._v("Close")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  { staticClass: "btn btn-primary", attrs: { type: "button" } },
+                  [_vm._v("Save changes")]
+                )
+              ])
+            ])
+          ]
+        )
+      ]
+    )
   }
 ]
 render._withStripped = true
