@@ -24,7 +24,7 @@
     <!--sweetalert-->
     <link rel="stylesheet" href="{{ secure_asset('css/sweetalert2/sweetalert2.min.css') }}">
     <link rel="stylesheet" href="{{ secure_asset('css/sweetalert2/animate.min.css') }}">
-    <!--otros-->
+    <!--otros--> 
     <link rel="stylesheet" href="{{secure_asset('css/radioStyle.css')}}">
 </head>
 <body>
