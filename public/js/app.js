@@ -1988,6 +1988,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 $(function () {
   // red
   $('.hover1').hover(function () {
@@ -39074,113 +39077,115 @@ var render = function() {
               _vm._m(1),
               _vm._v(" "),
               _c("div", { staticClass: "modal-body" }, [
-                _c(
-                  "svg",
-                  { attrs: { width: "600", height: "600", id: "entorno" } },
-                  [
-                    _c("g", { attrs: { id: "fondo" } }, [
-                      _c("image", {
-                        staticStyle: { width: "400px", height: "400px" },
-                        attrs: {
-                          "xlink:href":
-                            "https://raw.githubusercontent.com/NestorPlasencia/pikachu-puzzle/master//pikachu.png",
-                          x: "200",
-                          y: "100"
-                        }
-                      })
-                    ]),
-                    _vm._v(" "),
-                    _c("g", { staticClass: "padre", attrs: { id: "0" } }, [
-                      _c("image", {
-                        staticClass: "movil",
-                        attrs: {
-                          "xlink:href":
-                            "https://raw.githubusercontent.com/NestorPlasencia/pikachu-puzzle/master/1.png"
-                        }
-                      })
-                    ]),
-                    _vm._v(" "),
-                    _c("g", { staticClass: "padre", attrs: { id: "1" } }, [
-                      _c("image", {
-                        staticClass: "movil",
-                        attrs: {
-                          "xlink:href":
-                            "https://raw.githubusercontent.com/NestorPlasencia/pikachu-puzzle/master/2.png"
-                        }
-                      })
-                    ]),
-                    _vm._v(" "),
-                    _c("g", { staticClass: "padre", attrs: { id: "2" } }, [
-                      _c("image", {
-                        staticClass: "movil",
-                        attrs: {
-                          "xlink:href":
-                            "https://raw.githubusercontent.com/NestorPlasencia/pikachu-puzzle/master/3.png"
-                        }
-                      })
-                    ]),
-                    _vm._v(" "),
-                    _c("g", { staticClass: "padre", attrs: { id: "3" } }, [
-                      _c("image", {
-                        staticClass: "movil",
-                        attrs: {
-                          "xlink:href":
-                            "https://raw.githubusercontent.com/NestorPlasencia/pikachu-puzzle/master/4.png"
-                        }
-                      })
-                    ]),
-                    _vm._v(" "),
-                    _c("g", { staticClass: "padre", attrs: { id: "4" } }, [
-                      _c("image", {
-                        staticClass: "movil",
-                        attrs: {
-                          "xlink:href":
-                            "https://raw.githubusercontent.com/NestorPlasencia/pikachu-puzzle/master/5.png"
-                        }
-                      })
-                    ]),
-                    _vm._v(" "),
-                    _c("g", { staticClass: "padre", attrs: { id: "5" } }, [
-                      _c("image", {
-                        staticClass: "movil",
-                        attrs: {
-                          "xlink:href":
-                            "https://raw.githubusercontent.com/NestorPlasencia/pikachu-puzzle/master/6.png"
-                        }
-                      })
-                    ]),
-                    _vm._v(" "),
-                    _c("g", { staticClass: "padre", attrs: { id: "6" } }, [
-                      _c("image", {
-                        staticClass: "movil",
-                        attrs: {
-                          "xlink:href":
-                            "https://raw.githubusercontent.com/NestorPlasencia/pikachu-puzzle/master/7.png"
-                        }
-                      })
-                    ]),
-                    _vm._v(" "),
-                    _c("g", { staticClass: "padre", attrs: { id: "7" } }, [
-                      _c("image", {
-                        staticClass: "movil",
-                        attrs: {
-                          "xlink:href":
-                            "https://raw.githubusercontent.com/NestorPlasencia/pikachu-puzzle/master/8.png"
-                        }
-                      })
-                    ]),
-                    _vm._v(" "),
-                    _c("g", { staticClass: "padre", attrs: { id: "8" } }, [
-                      _c("image", {
-                        staticClass: "movil",
-                        attrs: {
-                          "xlink:href":
-                            "https://raw.githubusercontent.com/NestorPlasencia/pikachu-puzzle/master/9.png"
-                        }
-                      })
-                    ])
-                  ]
-                ),
+                _c("div", { staticClass: "col col-lg-8" }, [
+                  _c(
+                    "svg",
+                    { attrs: { width: "600", height: "600", id: "entorno" } },
+                    [
+                      _c("g", { attrs: { id: "fondo" } }, [
+                        _c("image", {
+                          staticStyle: { width: "400px", height: "400px" },
+                          attrs: {
+                            "xlink:href":
+                              "https://raw.githubusercontent.com/NestorPlasencia/pikachu-puzzle/master//pikachu.png",
+                            x: "200",
+                            y: "100"
+                          }
+                        })
+                      ]),
+                      _vm._v(" "),
+                      _c("g", { staticClass: "padre", attrs: { id: "0" } }, [
+                        _c("image", {
+                          staticClass: "movil",
+                          attrs: {
+                            "xlink:href":
+                              "https://raw.githubusercontent.com/NestorPlasencia/pikachu-puzzle/master/1.png"
+                          }
+                        })
+                      ]),
+                      _vm._v(" "),
+                      _c("g", { staticClass: "padre", attrs: { id: "1" } }, [
+                        _c("image", {
+                          staticClass: "movil",
+                          attrs: {
+                            "xlink:href":
+                              "https://raw.githubusercontent.com/NestorPlasencia/pikachu-puzzle/master/2.png"
+                          }
+                        })
+                      ]),
+                      _vm._v(" "),
+                      _c("g", { staticClass: "padre", attrs: { id: "2" } }, [
+                        _c("image", {
+                          staticClass: "movil",
+                          attrs: {
+                            "xlink:href":
+                              "https://raw.githubusercontent.com/NestorPlasencia/pikachu-puzzle/master/3.png"
+                          }
+                        })
+                      ]),
+                      _vm._v(" "),
+                      _c("g", { staticClass: "padre", attrs: { id: "3" } }, [
+                        _c("image", {
+                          staticClass: "movil",
+                          attrs: {
+                            "xlink:href":
+                              "https://raw.githubusercontent.com/NestorPlasencia/pikachu-puzzle/master/4.png"
+                          }
+                        })
+                      ]),
+                      _vm._v(" "),
+                      _c("g", { staticClass: "padre", attrs: { id: "4" } }, [
+                        _c("image", {
+                          staticClass: "movil",
+                          attrs: {
+                            "xlink:href":
+                              "https://raw.githubusercontent.com/NestorPlasencia/pikachu-puzzle/master/5.png"
+                          }
+                        })
+                      ]),
+                      _vm._v(" "),
+                      _c("g", { staticClass: "padre", attrs: { id: "5" } }, [
+                        _c("image", {
+                          staticClass: "movil",
+                          attrs: {
+                            "xlink:href":
+                              "https://raw.githubusercontent.com/NestorPlasencia/pikachu-puzzle/master/6.png"
+                          }
+                        })
+                      ]),
+                      _vm._v(" "),
+                      _c("g", { staticClass: "padre", attrs: { id: "6" } }, [
+                        _c("image", {
+                          staticClass: "movil",
+                          attrs: {
+                            "xlink:href":
+                              "https://raw.githubusercontent.com/NestorPlasencia/pikachu-puzzle/master/7.png"
+                          }
+                        })
+                      ]),
+                      _vm._v(" "),
+                      _c("g", { staticClass: "padre", attrs: { id: "7" } }, [
+                        _c("image", {
+                          staticClass: "movil",
+                          attrs: {
+                            "xlink:href":
+                              "https://raw.githubusercontent.com/NestorPlasencia/pikachu-puzzle/master/8.png"
+                          }
+                        })
+                      ]),
+                      _vm._v(" "),
+                      _c("g", { staticClass: "padre", attrs: { id: "8" } }, [
+                        _c("image", {
+                          staticClass: "movil",
+                          attrs: {
+                            "xlink:href":
+                              "https://raw.githubusercontent.com/NestorPlasencia/pikachu-puzzle/master/9.png"
+                          }
+                        })
+                      ])
+                    ]
+                  )
+                ]),
                 _vm._v(" "),
                 _c("audio", {
                   attrs: {
