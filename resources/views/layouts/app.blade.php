@@ -23,6 +23,9 @@
     <link rel="stylesheet" href="{{asset('css/swiperStyles.css') }}">
     <!--sweetalert-->
     <link rel="stylesheet" href="{{ asset('css/sweetalert2/sweetalert2.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/sweetalert2/animate.min.css') }}">
+    <!--otros-->
+    <link rel="stylesheet" href="{{asset('css/radioStyle.css')}}">
 </head>
 <body>
 <!-- ======= Top Bar ======= -->
@@ -95,6 +98,7 @@
 <script src="{{asset('js/swiper/swiper-bundle.min.js') }}"></script>
 
 <script src="{{asset('js/sweetalert2/sweetalert2.all.min.js') }}"></script>
+<script src="{{asset('js/sweetalert2/sweetalert2.min.js') }}"></script>
 
 
 @yield('swiper')
@@ -207,4 +211,3 @@
 
 {{--</body>--}}
 {{--</html>--}}
-
