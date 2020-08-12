@@ -22,7 +22,7 @@
         y Joaquín les conto a sus padres todo lo que había vivido.
 
     </p>
-    <p><button @click="question">Preguntas</button></p>
+    <div class="section mb-5"><center><button class="btn btn-outline-primary" @click="question">Preguntas</button></center></div>
 </div>
 
 
@@ -35,125 +35,204 @@ name: "cuentoNinioComponent",
     methods: {
         question() {
 
-            const inputOptions1 = new Promise((resolve) => {
-                setTimeout(() => {
-                    resolve({
-                        'MARITA': 'MARITA',
-                        'JULIETA': 'JULIETA',
-                        'LOS DEMAS COMPAÑEROS': 'LOS DEMAS COMPAÑEROS'
-                    })
-                }, 0)
-            });
-            const inputOptions2 = new Promise((resolve) => {
-                setTimeout(() => {
-                    resolve({
-                        'SERIA IGUAL': 'SERIA IGUAL',
-                        'CABIARÍA': 'CAMBIARÍA',
-                        'PEDIRIA AYUDA': 'PEDIRIA AYUDA'
-                    })
-                }, 0)
-            });
-            const inputOptions3 = new Promise((resolve) => {
-                setTimeout(() => {
-                    resolve({
-                        'SI': 'SI',
-                        'NO': 'NO',
-                    })
-                }, 0)
-            });
-            const inputOptions4 = new Promise((resolve) => {
-                setTimeout(() => {
-                    resolve({
-                        'AMENAZAS': 'AMENAZAS',
-                        'MIEDO': 'MIEDO',
-                        'VERGÜENZA': 'VERGÜENZA',
-                        'ME GUSTA': 'ME GUSTA',
-                    })
-                }, 0)
-            });
-            // Use sweetalert2
-            const { value: options1 } = Swal.mixin({
+            (async () =>{
+                const { value: respuestas } = await Swal.mixin({
+                    confirmButtonText: 'Siguiente &rarr;',
+                    showCancelButton: true,
+                    cancelButtonText: 'Cancelar',
+                    progressSteps: ['1', '2', '3', '4', '5', '6']
+                }).queue([
+                    {
+                        title: '<span style="color: #ffffff;">¿CON QUÉ PERSONAJE DEL CUENTO TE IDENTIFICAS?</span>',
+                        showClass: {
+                            popup: 'animate__animated animate__backInDown'
+                        },
+                        width: '50%',
+                        imageUrl: 'image/question.png',
+                        imageWidth: '30%',
+                        imageHeight: 'auto',
+                        imageAlt: 'Custom image',
+                        background: '#fff url(image/purple.jpg)',
+                        html:
+                            `
+                                <div class="radiobtn">
+                                    <input type="radio" id="swal-input1"  name="1" value="JOAQUÍN"><label for="swal-input1">JOAQUÍN</label>
+                                </div>
+                                <div class="radiobtn">
+                                    <input type="radio" id="swal-input2"  name="1" value="TITO"><label for="swal-input2">TITO</label>
+                                </div>
+                                <div class="radiobtn">
+                                    <input type="radio" id="swal-input3"  name="1" value="LOS DEMAS COMPAÑEROS"><label for="swal-input3">LOS DEMAS COMPAÑEROS</label>
+                                </div>
+                                `,
+                        preConfirm: () => {
+                            return [
+                                $('input[name="1"]:checked').val(),
+                            ]
+                        },
+                    },
+                    {
+                        title: '<span style="color: #ffffff;">¿QUÉ HARÍAS TÚ EN LUGAR DEL PERSONAJE QUE ELEGISTE?</span>',
+                        showClass: {
+                            popup: 'animate__animated animate__rotateIn'
+                        },
+                        hideClass: {
+                            popup: 'animate__animated animate__fadeOutUp'
+                        },
+                        width: '50%',
+                        imageUrl: 'image/question.png',
+                        imageWidth: '30%',
+                        imageHeight: 'auto',
+                        imageAlt: 'Custom image',
+                        background: '#fff url(image/purple.jpg)',
+                        html:
+                            `
+                                <div class="radiobtn">
+                                    <input type="radio" id="swal-input1"  name="1" value="SERÍA IGUAL"><label for="swal-input1">SERÍA IGUAL</label>
+                                </div>
+                                <div class="radiobtn">
+                                    <input type="radio" id="swal-input2"  name="1" value="CAMBIARÍA"><label for="swal-input2">CAMBIARÍA</label>
+                                </div>
+                                <div class="radiobtn">
+                                    <input type="radio" id="swal-input3"  name="1" value="PEDIRÍA AYUDA"><label for="swal-input3">PEDIRÍA AYUDA</label>
+                                </div>
+                                `,
+                        preConfirm: () => {
+                            return [
+                                $('input[name="1"]:checked').val(),
+                            ]
+                        },
+                    },
+                    {
+                        title: '<span style="color: #ffffff;">¿LE DIRÍAS A ALGUIEN SI VIERAS QUE OTRO SUFRE COMO JOAQUÍN?</span>',
+                        showClass: {
+                            popup: 'animate__animated animate__rotateIn'
+                        },
+                        hideClass: {
+                            popup: 'animate__animated animate__fadeOutUp'
+                        },
+                        width: '50%',
+                        imageUrl: 'image/question.png',
+                        imageWidth: '30%',
+                        imageHeight: 'auto',
+                        imageAlt: 'Custom image',
+                        background: '#fff url(image/purple.jpg)',
+                        html:
+                            `
+                                <div class="radiobtn">
+                                    <input type="radio" id="swal-input1"  name="1" value="SI"><label for="swal-input1">SI</label>
+                                </div>
+                                <div class="radiobtn">
+                                    <input type="radio" id="swal-input2"  name="1" value="NO"><label for="swal-input2">NO</label>
+                                </div>
 
-                confirmButtonText: 'Siguiente &rarr;',
-                showCancelButton: true,
-                progressSteps: ['1', '2', '3', '4', '5', '6']
-            }).queue([
-                {
-                    title: '¿Con qué personaje te identificas del cuento?',
-                    input: 'radio',
-                    inputOptions: inputOptions1,
-                    html:'<hr>',
-                    inputValidator: (value) => {
-                        if (!value) {
-                            return 'Slecciona una opción';
-                        }
-                    }
-                },
+                                `,
+                        preConfirm: () => {
+                            return [
+                                $('input[name="1"]:checked').val(),
+                            ]
+                        },
+                    },
+                    {
+                        title: '<span style="color: #ffffff;">¿HAS SUFRIDO LO MISMO QUE JOAQUÍN ALGUNA VEZ?</span>',
+                        showClass: {
+                            popup: 'animate__animated animate__rotateIn'
+                        },
+                        hideClass: {
+                            popup: 'animate__animated animate__fadeOutUp'
+                        },
+                        width: '50%',
+                        imageUrl: 'image/question.png',
+                        imageWidth: '30%',
+                        imageHeight: 'auto',
+                        imageAlt: 'Custom image',
+                        background: '#fff url(image/purple.jpg)',
+                        html:
+                            `
+                                <div class="radiobtn">
+                                    <input type="radio" id="swal-input1"  name="1" value="SI"><label for="swal-input1">SI</label>
+                                </div>
+                                <div class="radiobtn">
+                                    <input type="radio" id="swal-input2"  name="1" value="NO"><label for="swal-input2">NO</label>
+                                </div>
 
-                {
-                    title: '¿Qué harías tú en lugar del personaje que elegiste?',
-                    input: 'radio',
+                                `,
+                        preConfirm: () => {
+                            return [
+                                $('input[name="1"]:checked').val(),
+                            ]
+                        },
+                    },
+                    {
+                        title: '<span style="color: #ffffff;">¿SE LO CONTASTE A ALGUIEN, PARA PERDIR AYUDA (A TUS PAPÁS, AMIGOS, MAESTRA/O)?</span>',
+                        showClass: {
+                            popup: 'animate__animated animate__rotateIn'
+                        },
+                        hideClass: {
+                            popup: 'animate__animated animate__fadeOutUp'
+                        },
+                        width: '50%',
+                        imageUrl: 'image/question.png',
+                        imageWidth: '30%',
+                        imageHeight: 'auto',
+                        imageAlt: 'Custom image',
+                        background: '#fff url(image/purple.jpg)',
+                        html:
+                            `
+                                <div class="radiobtn">
+                                    <input type="radio" id="swal-input1"  name="1" value="SI"><label for="swal-input1">SI</label>
+                                </div>
+                                <div class="radiobtn">
+                                    <input type="radio" id="swal-input2"  name="1" value="NO"><label for="swal-input2">NO</label>
+                                </div>
 
-                    inputOptions: inputOptions2,
-                    inputValidator: (value) => {
-                        if (!value) {
-                            return 'Slecciona una opción';
-                        }
-                    }
-                },
-                {
-                    title: '¿LE DIRIAS A ALGUIEN SI VIERAS QUE OTRO SUFRE COMO MARITA?',
-                    input: 'radio',
-                    inputOptions: inputOptions3,
-                    inputValidator: (value) => {
-                        if (!value) {
-                            return 'Slecciona una opción';
-                        }
-                    }
-                },
-                {
-                    title: '¿HAS SUFRIDO LO MISMO QUE MARITA ALGUNA VEZ?',
-                    input: 'radio',
-                    inputOptions: inputOptions3,
-                    inputValidator: (value) => {
-                        if (!value) {
-                            return 'Slecciona una opción';
-                        }
-                    }
-                },
-                {
-                    title: '¿SE LO CONTASTE A ALGUIEN PARA PAEDIR AYUDA(A TUS PAPÁS, AMIGOS, MAESTRA/O)?',
-                    input: 'radio',
-                    inputOptions: inputOptions3,
-                    inputValidator: (value) => {
-                        if (!value) {
-                            return 'Slecciona una opción';
-                        }
-                    }
-                },
-                {
-                    title: '¿POR QUÉ NO SE LO CONTARIAS A ALGUIEN?',
-                    input: 'radio',
-                    inputOptions: inputOptions4,
-                    inputValidator: (value) => {
-                        if (!value) {
-                            return 'Slecciona una opción';
-                        }
-                    }
-                },
-            ]).then((result) => {
-                if (result.value) {
-                    const answers = JSON.stringify(result.value)
-                    Swal.fire({
-                        title: '¡Terminaste!',
-                        html: `
-                        Your answers:
-                        <pre><code>${answers}</code></pre>
-                    `,
-                        confirmButtonText: 'Hecho'
-                    })
+                                `,
+                        preConfirm: () => {
+                            return [
+                                $('input[name="1"]:checked').val(),
+                            ]
+                        },
+                    },
+                    {
+                        title: '<span style="color: #ffffff;">¿POR QUÉ NO SE LO CONTARIAS A ALGUIEN?</span>',
+                        showClass: {
+                            popup: 'animate__animated animate__rotateIn'
+                        },
+                        hideClass: {
+                            popup: 'animate__animated animate__fadeOutUp'
+                        },
+                        width: '50%',
+                        imageUrl: 'image/question.png',
+                        imageWidth: '30%',
+                        imageHeight: 'auto',
+                        imageAlt: 'Custom image',
+                        background: '#fff url(image/purple.jpg)',
+                        html:
+                            `
+                                <div class="radiobtn">
+                                    <input type="radio" id="swal-input1"  name="1" value="AMENAZAS"><label for="swal-input1">AMENAZAS</label>
+                                </div>
+                                <div class="radiobtn">
+                                    <input type="radio" id="swal-input2"  name="1" value="MIEDO"><label for="swal-input2">MIEDO</label>
+                                </div>
+                                <div class="radiobtn">
+                                    <input type="radio" id="swal-input3"  name="1" value="VUERGÜENZA"><label for="swal-input3">VUERGÜENZA</label>
+                                </div>
+                                <div class="radiobtn">
+                                    <input type="radio" id="swal-input4"  name="1" value="ME GUSTA"><label for="swal-input4">ME GUSTA</label>
+                                </div>
+                                `,
+                        preConfirm: () => {
+                            return [
+                                $('input[name="1"]:checked').val(),
+                            ]
+                        },
+                    },
+                ])
+                if (respuestas) {
+                    Swal.fire(JSON.stringify(respuestas))
                 }
-            })
+            })()
         },
     },
 }
