@@ -6909,11 +6909,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../../node_module
 
 
 // module
-<<<<<<< HEAD
 exports.push([module.i, "\n.luces[data-v-6747b3c0]{\n    position: absolute;\n\n    left: 140px;\n    bottom:110px;\n    z-index: -1;\n}\n.hover[data-v-6747b3c0]{\n    position: absolute;\n    left: 140px;\n    bottom:110px;\n    z-index: 1;\n}\n.red[data-v-6747b3c0]{\n    background: #9d0000;\n    width: 125px;\n    height: 130px;\n    margin-top: 10px;\n}\n.yellow[data-v-6747b3c0]{\n    background: #888800;\n    width: 125px;\n    height: 130px;\n}\n.green[data-v-6747b3c0]{\n    background: green;\n    width: 125px;\n    height: 133px;\n}\n.hover1[data-v-6747b3c0]{\n\n    width: 125px;\n    height: 130px;\n\n    cursor: pointer;\n}\n.hover2[data-v-6747b3c0]{\n\n    width: 125px;\n    height: 130px;\n    cursor: pointer;\n}\n.hover3[data-v-6747b3c0]{\n\n    width: 125px;\n    height: 133px;\n    cursor: pointer;\n}\nfigure[data-v-6747b3c0]{\n\n    display: inline-block;\n\n    position: relative;\n    justify-content: center;\n    align-items: center;\n}\n/*Hoja de estilos*/\n#entorno[data-v-6747b3c0] {\n    display: block;\n    margin: 0 auto;\n}\n#fondo[data-v-6747b3c0] {\n    opacity: 0.3;\n}\n", ""]);
-=======
-exports.push([module.i, "\n.luces[data-v-6747b3c0]{\r\n    position: absolute;\r\n\r\n    left: 140px;\r\n    bottom:110px;\r\n    z-index: -1;\n}\n.hover[data-v-6747b3c0]{\r\n    position: absolute;\r\n    left: 140px;\r\n    bottom:110px;\r\n    z-index: 1;\n}\n.red[data-v-6747b3c0]{\r\n    background: #9d0000;\r\n    width: 125px;\r\n    height: 130px;\r\n    margin-top: 10px;\n}\n.yellow[data-v-6747b3c0]{\r\n    background: #888800;\r\n    width: 125px;\r\n    height: 130px;\n}\n.green[data-v-6747b3c0]{\r\n    background: green;\r\n    width: 125px;\r\n    height: 133px;\n}\n.hover1[data-v-6747b3c0]{\r\n\r\n    width: 125px;\r\n    height: 130px;\r\n\r\n    cursor: pointer;\n}\n.hover2[data-v-6747b3c0]{\r\n\r\n    width: 125px;\r\n    height: 130px;\r\n    cursor: pointer;\n}\n.hover3[data-v-6747b3c0]{\r\n\r\n    width: 125px;\r\n    height: 133px;\r\n    cursor: pointer;\n}\nfigure[data-v-6747b3c0]{\r\n\r\n    display: inline-block;\r\n\r\n    position: relative;\r\n    justify-content: center;\r\n    align-items: center;\n}\r\n", ""]);
->>>>>>> 14f07d2a70dda2ece396be9c3ce0c3758ec1eff3
 
 // exports
 
@@ -53342,8 +53338,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Projects\amaresvivir\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Projects\amaresvivir\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /home/vagrant/proyectos/blog/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /home/vagrant/proyectos/blog/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
