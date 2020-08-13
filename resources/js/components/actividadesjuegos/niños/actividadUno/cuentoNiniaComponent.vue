@@ -40,7 +40,8 @@ export default {
                     confirmButtonText: 'Siguiente &rarr;',
                     showCancelButton: true,
                     cancelButtonText: 'Cancelar',
-                    progressSteps: ['1', '2', '3', '4', '5', '6']
+                    progressSteps: ['1', '2', '3', '4', '5', '6'],
+                    progressStepsDistance: '5%',
                 }).queue([
                     {
                         title: '<span style="color: #ffffff;">¿CON QUÉ PERSONAJE DEL CUENTO TE IDENTIFICAS?</span>',
