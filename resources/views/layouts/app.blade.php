@@ -26,6 +26,8 @@
     <link rel="stylesheet" href="{{ asset('css/sweetalert2/animate.min.css') }}">
     <!--otros-->
     <link rel="stylesheet" href="{{asset('css/radioStyle.css')}}">
+    {{--    draggdable--}}
+    <link rel="stylesheet" href="{{asset('css/jquery-ui/jquery-ui.css')}}">
 </head>
 <body>
 <!-- ======= Top Bar ======= -->
@@ -86,100 +88,94 @@
 </div>
 <!-- End Header -->
 <script src="{{asset('js/bootstrap/jquery-3.5.1.slim.min.js')}}"></script>
-
 <script src="{{asset('js/bootstrap/jquery.min.js')}}"></script>
+
 <script src="{{asset('js/bootstrap/bootstrap.min.js')}}"></script>
 <script src="{{asset('js/bootstrap/popper.min.js')}}"></script>
 <script src="{{asset('js/jquery-sticky/jquery.sticky.js')}}"></script>
+
+
 
 <script src="{{asset('js/main.js')}}"></script>
 <script src="{{asset('js/swiper/swiper-bundle.min.js') }}"></script>
 
 <script src="{{asset('js/sweetalert2/sweetalert2.all.min.js') }}"></script>
 <script src="{{asset('js/app.js')}}"></script>
+
+<script src="{{asset('js/jquery-ui/jquery-ui.js')}}"></script>
+<script src="{{asset('js/jquery-touch/jquery.ui.touch-punch.min.js')}}"></script>
 <script>
-    var piezas = document.getElementsByClassName('movil');
-    // var tamWidh = [134,192,134,163,134,163,134,192,134];
-    // var tamHeight = [163,134,163,134,192,134,163,134,163];
-    var tamWidh = [134,192,134,163,134,163,134,192,134];
-    var tamHeight = [163,134,163,134,192,134,163,134,163];
-    for(var i=0;i<piezas.length;i++){
-        piezas[i].setAttribute("width", tamWidh[i]);
-        piezas[i].setAttribute("height",tamHeight[i]);
-        piezas[i].setAttribute("x", Math.floor((Math.random() * 10) + 1));
-        piezas[i].setAttribute("y", Math.floor((Math.random() * 409) + 1));
-        piezas[i].setAttribute("onmousedown","seleccionarElemento(evt)");
-    }
-    var elementSelect = 0;
-    var currentX = 0;
-    var currentY = 0;
-    var currentPosX = 0;
-    var currentPosY = 0;
-    function seleccionarElemento(evt) {
-        elementSelect = reordenar(evt);
-        currentX = evt.clientX;
-        currentY = evt.clientY;
-        currentPosx = parseFloat(elementSelect.getAttribute("x"));
-        currentPosy = parseFloat(elementSelect.getAttribute("y"));
-        elementSelect.setAttribute("onmousemove","moverElemento(evt)");
-    }
-    function moverElemento(evt){
-        var dx = evt.clientX - currentX;
-        var dy = evt.clientY - currentY;
-        currentPosx = currentPosx + dx;
-        currentPosy = currentPosy + dy;
-        elementSelect.setAttribute("x",currentPosx);
-        elementSelect.setAttribute("y",currentPosy);
-        currentX = evt.clientX;
-        currentY = evt.clientY;
-        elementSelect.setAttribute("onmouseout","deseleccionarElemento(evt)");
-        elementSelect.setAttribute("onmouseup","deseleccionarElemento(evt)");
-        iman();
-    }
-    function deseleccionarElemento(evt){
-        testing();
-        if(elementSelect != 0){
-            elementSelect.removeAttribute("onmousemove");
-            elementSelect.removeAttribute("onmouseout");
-            elementSelect.removeAttribute("onmouseup");
-            elementSelect = 0;
+    $(document).ready(function () {
+        var piezas=$('.pieza');//obteniendo todas las piezas de la clase pieza del html
+        var pos=11;//esto es para poner primera fila
+        //tamaño para cada pieza
+        var width=[134,191,134,163,135,163,136,193,136]
+        //posiciones de cada pieza
+        var Y = [20, 20, 20, 151, 124, 151, 256, 284, 256];
+        var X = [20, 125, 286, 20, 153, 257, 20, 125, 285];
+        //cambia de tamaño a las piezas y agrega draggable para arrastrar con mouse o touch
+        for (var i=0;i<piezas.length;i++){
+            $(piezas[i]).css({'width':width[i],'position':'absolute'})
+            $(piezas[i]).draggable({
+                containment: ".rompecabeza",
+                scroll: false,
+                stop: function (event, ui) {
+                    posicionar(ui.position.left, ui.position.top, $(this));
+                },
+                start:function (){
+                    $(this).css({'z-index': pos});
+                    pos++;
+                }
+            });
         }
-    }
-    var entorno = document.getElementById('entorno');
-    function reordenar(evt){
-        var padre = evt.target.parentNode;
-        var clone = padre.cloneNode(true);
-        var id = padre.getAttribute("id");
-        entorno.removeChild(document.getElementById(id));
-        entorno.appendChild(clone);
-        return entorno.lastChild.firstChild;
-    }
-    var origX = [200,304,466,200,333,437,200,304,466];
-    var origY = [100,100,100,233,204,233,337,366,337];
-    function iman(){
-        for(var i=0;i<piezas.length;i++){
-            if (Math.abs(currentPosx-origX[i])<15 && Math.abs(currentPosy-origY[i])<15) {
-                elementSelect.setAttribute("x",origX[i]);
-                elementSelect.setAttribute("y",origY[i]);
+        //para el responsive
+        const mediumBp = matchMedia('(max-width: 800px)');
+        const changeSize = mql =>{
+            if (mql.matches){
+                pienzasDesordenadas(5,264,420,636);
+            }else{
+                pienzasDesordenadas(420,604,10,200);
             }
         }
-    }
-    var win = document.getElementById("win");
-    function testing() {
-        var bien_ubicada = 0;
-        var padres = document.getElementsByClassName('padre');
-        for(var i=0;i<piezas.length;i++){
-            var posx = parseFloat(padres[i].firstChild.getAttribute("x"));
-            var posy = parseFloat(padres[i].firstChild.getAttribute("y"));
-            ide = padres[i].getAttribute("id");
-            if(origX[ide] == posx && origY[ide] == posy){
-                bien_ubicada = bien_ubicada + 1;
+        mediumBp.addListener(changeSize);
+        changeSize(mediumBp);
+        //sin responsive
+        //para mezclar piezas cuando no esta armado
+        function pienzasDesordenadas(minX, maxX,minY, maxY){
+            for (var i=0;i<piezas.length;i++){
+                var cssX = parseInt($(piezas[i]).css('left').slice(0, -2));
+                var cssY = parseInt($(piezas[i]).css('top').slice(0, -2));
+                if (!(cssY>=0 && cssY <=400 && cssX >=0 && cssX <420)){
+                    $(piezas[i]).css({'left': Math.random() * (maxX - minX) + minX,'top': Math.random() * (maxY - minY) + minY,'z-index':Math.random() * (10 - 1) + 1});
+                }
             }
         }
-        if(bien_ubicada == 9){
-            win.play();
+        //pone la pieza en su lugar
+        function posicionar(x, y, pieza) {
+            for (var i = 0; i < 9; i++) {
+                if (Math.abs(x - X[i]) < 35 && Math.abs(y - Y[i]) < 35) {
+                    pieza.css({'top': Y[i], 'left': X[i]});
+                }
+            }
+            tester();
         }
-    }
+        var win = document.getElementById("win");
+        //verefica su todas las piezas estan en su lugar
+        function tester(){
+            var c=0;
+            for (var i=0;i<piezas.length;i++) {
+                var cssX = parseInt($(piezas[i]).css('left').slice(0, -2));
+                var cssY = parseInt($(piezas[i]).css('top').slice(0, -2));
+                if ( cssX===X[i] && cssY===Y[i]){
+                    c++;
+                }
+            }
+            if (c===9){
+                //cuando termino de armar rompecabeza
+                win.play();///
+            }
+        }
+    });
 </script>
 
 <script src="{{asset('js/sweetalert2/sweetalert2.min.js') }}"></script>
