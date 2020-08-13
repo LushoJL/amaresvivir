@@ -11,23 +11,23 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="{{asset('css/bootstrap/bootstrap.min.css')}}" crossorigin="anonymous">
-    <link href="{{asset('css/style.css')}}" rel="stylesheet">
-    <link href="{{asset('css/icofont/icofont.min.css')}}" rel="stylesheet">
+    <link rel="stylesheet" href="{{secure_asset('css/bootstrap/bootstrap.min.css')}}" crossorigin="anonymous">
+    <link href="{{secure_asset('css/style.css')}}" rel="stylesheet">
+    <link href="{{secure_asset('css/icofont/icofont.min.css')}}" rel="stylesheet">
 
-    <link rel="stylesheet" href="{{asset('css/app.css')}}"  rel="stylesheet">
+    <link rel="stylesheet" href="{{secure_asset('css/app.css')}}"  rel="stylesheet">
 
 
     <!--Swiper-->
-    <link rel="stylesheet" href="{{asset('css/swiper/swiper-bundle.min.css') }}">
-    <link rel="stylesheet" href="{{asset('css/swiperStyles.css') }}">
+    <link rel="stylesheet" href="{{secure_asset('css/swiper/swiper-bundle.min.css') }}">
+    <link rel="stylesheet" href="{{secure_asset('css/swiperStyles.css') }}">
     <!--sweetalert-->
-    <link rel="stylesheet" href="{{ asset('css/sweetalert2/sweetalert2.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/sweetalert2/animate.min.css') }}">
+    <link rel="stylesheet" href="{{ secure_asset('css/sweetalert2/sweetalert2.min.css') }}">
+    <link rel="stylesheet" href="{{ secure_asset('css/sweetalert2/animate.min.css') }}">
     <!--otros-->
-    <link rel="stylesheet" href="{{asset('css/radioStyle.css')}}">
+    <link rel="stylesheet" href="{{secure_asset('css/radioStyle.css')}}">
     {{--    draggdable--}}
-    <link rel="stylesheet" href="{{asset('css/jquery-ui/jquery-ui.css')}}">
+    <link rel="stylesheet" href="{{secure_asset('css/jquery-ui/jquery-ui.css')}}">
 </head>
 <body>
 <!-- ======= Top Bar ======= -->
@@ -35,13 +35,13 @@
     <div class="container mt-3" >
         <div class="row">
             <div class="col-2">
-                <img src="{{asset('image/topBar/logo.png')}}" width="100%">
+                <img src="{{secure_asset('image/topBar/logo.png')}}" width="100%">
             </div>
             <div class="col-7">
-                <img src="{{asset('image/topBar/logo2.jpg')}}"  width="100%">
+                <img src="{{secure_asset('image/topBar/logo2.jpg')}}"  width="100%">
             </div>
             <div class="col-3">
-                <img src="{{asset('image/topBar/logo1.png')}}" width="100%">
+                <img src="{{secure_asset('image/topBar/logo1.png')}}" width="100%">
             </div>
         </div>
     </div>
@@ -87,23 +87,23 @@
     </main>
 </div>
 <!-- End Header -->
-<script src="{{asset('js/bootstrap/jquery-3.5.1.slim.min.js')}}"></script>
-<script src="{{asset('js/bootstrap/jquery.min.js')}}"></script>
+<script src="{{secure_asset('js/bootstrap/jquery-3.5.1.slim.min.js')}}"></script>
+<script src="{{secure_asset('js/bootstrap/jquery.min.js')}}"></script>
 
-<script src="{{asset('js/bootstrap/bootstrap.min.js')}}"></script>
-<script src="{{asset('js/bootstrap/popper.min.js')}}"></script>
-<script src="{{asset('js/jquery-sticky/jquery.sticky.js')}}"></script>
+<script src="{{secure_asset('js/bootstrap/bootstrap.min.js')}}"></script>
+<script src="{{secure_asset('js/bootstrap/popper.min.js')}}"></script>
+<script src="{{secure_asset('js/jquery-sticky/jquery.sticky.js')}}"></script>
 
 
 
-<script src="{{asset('js/main.js')}}"></script>
-<script src="{{asset('js/swiper/swiper-bundle.min.js') }}"></script>
+<script src="{{secure_asset('js/main.js')}}"></script>
+<script src="{{secure_asset('js/swiper/swiper-bundle.min.js') }}"></script>
 
-<script src="{{asset('js/sweetalert2/sweetalert2.all.min.js') }}"></script>
-<script src="{{asset('js/app.js')}}"></script>
+<script src="{{secure_asset('js/sweetalert2/sweetalert2.all.min.js') }}"></script>
+<script src="{{secure_asset('js/app.js')}}"></script>
 
-<script src="{{asset('js/jquery-ui/jquery-ui.js')}}"></script>
-<script src="{{asset('js/jquery-touch/jquery.ui.touch-punch.min.js')}}"></script>
+<script src="{{secure_asset('js/jquery-ui/jquery-ui.js')}}"></script>
+<script src="{{secure_asset('js/jquery-touch/jquery.ui.touch-punch.min.js')}}"></script>
 <script>
     $(document).ready(function () {
         var piezas=$('.pieza');//obteniendo todas las piezas de la clase pieza del html
@@ -178,7 +178,7 @@
     });
 </script>
 
-<script src="{{asset('js/sweetalert2/sweetalert2.min.js') }}"></script>
+<script src="{{secure_asset('js/sweetalert2/sweetalert2.min.js') }}"></script>
 
 
 @yield('swiper')
