@@ -1883,11 +1883,27 @@ __webpack_require__.r(__webpack_exports__);
 /*!*****************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/actividadesjuegos/niños/actividadDos/semaforoComponent.vue?vue&type=script&lang=js& ***!
   \*****************************************************************************************************************************************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/*! no static exports found */
+/***/ (function(module, exports) {
 
-"use strict";
-__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -2007,9 +2023,6 @@ $(function () {
     // vuelve a dejar el <div> como estaba al hacer el "mouseout"
     $('.green').css('background-color', '');
   });
-});
-/* harmony default export */ __webpack_exports__["default"] = ({
-  name: "semaforoComponent"
 });
 
 /***/ }),
@@ -6896,7 +6909,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../../node_module
 
 
 // module
-exports.push([module.i, "\n.luces[data-v-6747b3c0]{\r\n    position: absolute;\r\n\r\n    left: 140px;\r\n    bottom:110px;\r\n    z-index: -1;\n}\n.hover[data-v-6747b3c0]{\r\n    position: absolute;\r\n    left: 140px;\r\n    bottom:110px;\r\n    z-index: 1;\n}\n.red[data-v-6747b3c0]{\r\n    background: #9d0000;\r\n    width: 125px;\r\n    height: 130px;\r\n    margin-top: 10px;\n}\n.yellow[data-v-6747b3c0]{\r\n    background: #888800;\r\n    width: 125px;\r\n    height: 130px;\n}\n.green[data-v-6747b3c0]{\r\n    background: green;\r\n    width: 125px;\r\n    height: 133px;\n}\n.hover1[data-v-6747b3c0]{\r\n\r\n    width: 125px;\r\n    height: 130px;\r\n\r\n    cursor: pointer;\n}\n.hover2[data-v-6747b3c0]{\r\n\r\n    width: 125px;\r\n    height: 130px;\r\n    cursor: pointer;\n}\n.hover3[data-v-6747b3c0]{\r\n\r\n    width: 125px;\r\n    height: 133px;\r\n    cursor: pointer;\n}\nfigure[data-v-6747b3c0]{\r\n\r\n    display: inline-block;\r\n\r\n    position: relative;\r\n    justify-content: center;\r\n    align-items: center;\n}\r\n", ""]);
+exports.push([module.i, "\n.luces[data-v-6747b3c0]{\n    position: absolute;\n\n    left: 140px;\n    bottom:110px;\n    z-index: -1;\n}\n.hover[data-v-6747b3c0]{\n    position: absolute;\n    left: 140px;\n    bottom:110px;\n    z-index: 1;\n}\n.red[data-v-6747b3c0]{\n    background: #9d0000;\n    width: 125px;\n    height: 130px;\n    margin-top: 10px;\n}\n.yellow[data-v-6747b3c0]{\n    background: #888800;\n    width: 125px;\n    height: 130px;\n}\n.green[data-v-6747b3c0]{\n    background: green;\n    width: 125px;\n    height: 133px;\n}\n.hover1[data-v-6747b3c0]{\n\n    width: 125px;\n    height: 130px;\n\n    cursor: pointer;\n}\n.hover2[data-v-6747b3c0]{\n\n    width: 125px;\n    height: 130px;\n    cursor: pointer;\n}\n.hover3[data-v-6747b3c0]{\n\n    width: 125px;\n    height: 133px;\n    cursor: pointer;\n}\nfigure[data-v-6747b3c0]{\n\n    display: inline-block;\n\n    position: relative;\n    justify-content: center;\n    align-items: center;\n}\n/*Hoja de estilos*/\n#entorno[data-v-6747b3c0] {\n    display: block;\n    margin: 0 auto;\n}\n#fondo[data-v-6747b3c0] {\n    opacity: 0.3;\n}\n", ""]);
 
 // exports
 
@@ -39880,20 +39893,179 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("div", [
+    _vm._m(0),
+    _vm._v(" "),
+    _c(
+      "div",
+      {
+        staticClass: "modal fade",
+        attrs: {
+          id: "rompecabezarojo",
+          tabindex: "-1",
+          role: "dialog",
+          "aria-labelledby": "exampleModalCenterTitle",
+          "aria-hidden": "true"
+        }
+      },
+      [
+        _c(
+          "div",
+          {
+            staticClass: "modal-dialog modal-dialog-centered modal-lg",
+            attrs: { role: "document" }
+          },
+          [
+            _c("div", { staticClass: "modal-content" }, [
+              _vm._m(1),
+              _vm._v(" "),
+              _c("div", { staticClass: "modal-body" }, [
+                _c("div", { staticClass: "col col-lg-8" }, [
+                  _c(
+                    "svg",
+                    { attrs: { width: "600", height: "600", id: "entorno" } },
+                    [
+                      _c("g", { attrs: { id: "fondo" } }, [
+                        _c("image", {
+                          staticStyle: { width: "400px", height: "400px" },
+                          attrs: {
+                            "xlink:href":
+                              "https://raw.githubusercontent.com/NestorPlasencia/pikachu-puzzle/master//pikachu.png",
+                            x: "200",
+                            y: "100"
+                          }
+                        })
+                      ]),
+                      _vm._v(" "),
+                      _c("g", { staticClass: "padre", attrs: { id: "0" } }, [
+                        _c("image", {
+                          staticClass: "movil",
+                          attrs: {
+                            "xlink:href":
+                              "https://raw.githubusercontent.com/NestorPlasencia/pikachu-puzzle/master/1.png"
+                          }
+                        })
+                      ]),
+                      _vm._v(" "),
+                      _c("g", { staticClass: "padre", attrs: { id: "1" } }, [
+                        _c("image", {
+                          staticClass: "movil",
+                          attrs: {
+                            "xlink:href":
+                              "https://raw.githubusercontent.com/NestorPlasencia/pikachu-puzzle/master/2.png"
+                          }
+                        })
+                      ]),
+                      _vm._v(" "),
+                      _c("g", { staticClass: "padre", attrs: { id: "2" } }, [
+                        _c("image", {
+                          staticClass: "movil",
+                          attrs: {
+                            "xlink:href":
+                              "https://raw.githubusercontent.com/NestorPlasencia/pikachu-puzzle/master/3.png"
+                          }
+                        })
+                      ]),
+                      _vm._v(" "),
+                      _c("g", { staticClass: "padre", attrs: { id: "3" } }, [
+                        _c("image", {
+                          staticClass: "movil",
+                          attrs: {
+                            "xlink:href":
+                              "https://raw.githubusercontent.com/NestorPlasencia/pikachu-puzzle/master/4.png"
+                          }
+                        })
+                      ]),
+                      _vm._v(" "),
+                      _c("g", { staticClass: "padre", attrs: { id: "4" } }, [
+                        _c("image", {
+                          staticClass: "movil",
+                          attrs: {
+                            "xlink:href":
+                              "https://raw.githubusercontent.com/NestorPlasencia/pikachu-puzzle/master/5.png"
+                          }
+                        })
+                      ]),
+                      _vm._v(" "),
+                      _c("g", { staticClass: "padre", attrs: { id: "5" } }, [
+                        _c("image", {
+                          staticClass: "movil",
+                          attrs: {
+                            "xlink:href":
+                              "https://raw.githubusercontent.com/NestorPlasencia/pikachu-puzzle/master/6.png"
+                          }
+                        })
+                      ]),
+                      _vm._v(" "),
+                      _c("g", { staticClass: "padre", attrs: { id: "6" } }, [
+                        _c("image", {
+                          staticClass: "movil",
+                          attrs: {
+                            "xlink:href":
+                              "https://raw.githubusercontent.com/NestorPlasencia/pikachu-puzzle/master/7.png"
+                          }
+                        })
+                      ]),
+                      _vm._v(" "),
+                      _c("g", { staticClass: "padre", attrs: { id: "7" } }, [
+                        _c("image", {
+                          staticClass: "movil",
+                          attrs: {
+                            "xlink:href":
+                              "https://raw.githubusercontent.com/NestorPlasencia/pikachu-puzzle/master/8.png"
+                          }
+                        })
+                      ]),
+                      _vm._v(" "),
+                      _c("g", { staticClass: "padre", attrs: { id: "8" } }, [
+                        _c("image", {
+                          staticClass: "movil",
+                          attrs: {
+                            "xlink:href":
+                              "https://raw.githubusercontent.com/NestorPlasencia/pikachu-puzzle/master/9.png"
+                          }
+                        })
+                      ])
+                    ]
+                  )
+                ]),
+                _vm._v(" "),
+                _c("audio", {
+                  attrs: {
+                    id: "win",
+                    src:
+                      "https://raw.githubusercontent.com/NestorPlasencia/PikaPuzzle/master/media/win.mp3"
+                  }
+                })
+              ]),
+              _vm._v(" "),
+              _vm._m(2)
+            ])
+          ]
+        )
+      ]
+    ),
+    _vm._v(" "),
+    _vm._m(3),
+    _vm._v(" "),
+    _vm._m(4)
+  ])
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", [
-      _c("div", { staticClass: "mx-auto", staticStyle: { width: "400px" } }, [
+    return _c(
+      "div",
+      { staticClass: "mx-auto", staticStyle: { width: "400px" } },
+      [
         _c("figure", [
           _c("img", {
             attrs: {
               src: "image/actividadesyjuegos/semaforo.png",
-              width: "400px"
+              width: "400px",
+              alt: ""
             }
           }),
           _vm._v(" "),
@@ -39931,233 +40103,202 @@ var staticRenderFns = [
             _c("div", { staticClass: "green" })
           ])
         ])
-      ]),
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "modal-header" }, [
+      _c("h5", { staticClass: "modal-title" }, [_vm._v("Modal title")]),
       _vm._v(" "),
       _c(
-        "div",
+        "button",
         {
-          staticClass: "modal fade",
+          staticClass: "close",
           attrs: {
-            id: "rompecabezarojo",
-            tabindex: "-1",
-            role: "dialog",
-            "aria-labelledby": "exampleModalCenterTitle",
-            "aria-hidden": "true"
+            type: "button",
+            "data-dismiss": "modal",
+            "aria-label": "Close"
           }
         },
-        [
-          _c(
-            "div",
-            {
-              staticClass: "modal-dialog modal-dialog-centered",
-              attrs: { role: "document" }
-            },
-            [
-              _c("div", { staticClass: "modal-content" }, [
-                _c("div", { staticClass: "modal-header" }, [
-                  _c("h5", { staticClass: "modal-title" }, [
-                    _vm._v("Modal title")
-                  ]),
-                  _vm._v(" "),
-                  _c(
-                    "button",
-                    {
-                      staticClass: "close",
-                      attrs: {
-                        type: "button",
-                        "data-dismiss": "modal",
-                        "aria-label": "Close"
-                      }
-                    },
-                    [
-                      _c("span", { attrs: { "aria-hidden": "true" } }, [
-                        _vm._v("×")
-                      ])
-                    ]
-                  )
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "modal-body" }, [
-                  _vm._v(
-                    "\n                    rompe xabeza rojo\n                "
-                  )
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "modal-footer" }, [
-                  _c(
-                    "button",
-                    {
-                      staticClass: "btn btn-secondary",
-                      attrs: { type: "button", "data-dismiss": "modal" }
-                    },
-                    [_vm._v("Close")]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "button",
-                    {
-                      staticClass: "btn btn-primary",
-                      attrs: { type: "button" }
-                    },
-                    [_vm._v("Save changes")]
-                  )
-                ])
-              ])
-            ]
-          )
-        ]
-      ),
-      _vm._v(" "),
-      _c(
-        "div",
-        {
-          staticClass: "modal fade",
-          attrs: {
-            id: "rompecabezaamarillo",
-            tabindex: "-1",
-            role: "dialog",
-            "aria-labelledby": "exampleModalCenterTitle",
-            "aria-hidden": "true"
-          }
-        },
-        [
-          _c(
-            "div",
-            {
-              staticClass: "modal-dialog modal-dialog-centered",
-              attrs: { role: "document" }
-            },
-            [
-              _c("div", { staticClass: "modal-content" }, [
-                _c("div", { staticClass: "modal-header" }, [
-                  _c("h5", { staticClass: "modal-title" }, [
-                    _vm._v("Modal title")
-                  ]),
-                  _vm._v(" "),
-                  _c(
-                    "button",
-                    {
-                      staticClass: "close",
-                      attrs: {
-                        type: "button",
-                        "data-dismiss": "modal",
-                        "aria-label": "Close"
-                      }
-                    },
-                    [
-                      _c("span", { attrs: { "aria-hidden": "true" } }, [
-                        _vm._v("×")
-                      ])
-                    ]
-                  )
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "modal-body" }, [
-                  _vm._v(
-                    "\n                    rompe cabeza amarillo\n                "
-                  )
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "modal-footer" }, [
-                  _c(
-                    "button",
-                    {
-                      staticClass: "btn btn-secondary",
-                      attrs: { type: "button", "data-dismiss": "modal" }
-                    },
-                    [_vm._v("Close")]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "button",
-                    {
-                      staticClass: "btn btn-primary",
-                      attrs: { type: "button" }
-                    },
-                    [_vm._v("Save changes")]
-                  )
-                ])
-              ])
-            ]
-          )
-        ]
-      ),
-      _vm._v(" "),
-      _c(
-        "div",
-        {
-          staticClass: "modal fade",
-          attrs: {
-            id: "rompecabezaverde",
-            tabindex: "-1",
-            role: "dialog",
-            "aria-labelledby": "exampleModalCenterTitle",
-            "aria-hidden": "true"
-          }
-        },
-        [
-          _c(
-            "div",
-            {
-              staticClass: "modal-dialog modal-dialog-centered",
-              attrs: { role: "document" }
-            },
-            [
-              _c("div", { staticClass: "modal-content" }, [
-                _c("div", { staticClass: "modal-header" }, [
-                  _c("h5", { staticClass: "modal-title" }, [
-                    _vm._v("Modal title")
-                  ]),
-                  _vm._v(" "),
-                  _c(
-                    "button",
-                    {
-                      staticClass: "close",
-                      attrs: {
-                        type: "button",
-                        "data-dismiss": "modal",
-                        "aria-label": "Close"
-                      }
-                    },
-                    [
-                      _c("span", { attrs: { "aria-hidden": "true" } }, [
-                        _vm._v("×")
-                      ])
-                    ]
-                  )
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "modal-body" }, [
-                  _vm._v(
-                    "\n                    rompe cabeza verde\n                "
-                  )
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "modal-footer" }, [
-                  _c(
-                    "button",
-                    {
-                      staticClass: "btn btn-secondary",
-                      attrs: { type: "button", "data-dismiss": "modal" }
-                    },
-                    [_vm._v("Close")]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "button",
-                    {
-                      staticClass: "btn btn-primary",
-                      attrs: { type: "button" }
-                    },
-                    [_vm._v("Save changes")]
-                  )
-                ])
-              ])
-            ]
-          )
-        ]
+        [_c("span", { attrs: { "aria-hidden": "true" } }, [_vm._v("×")])]
       )
     ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "modal-footer" }, [
+      _c(
+        "button",
+        {
+          staticClass: "btn btn-secondary",
+          attrs: { type: "button", "data-dismiss": "modal" }
+        },
+        [_vm._v("Close")]
+      ),
+      _vm._v(" "),
+      _c(
+        "button",
+        { staticClass: "btn btn-primary", attrs: { type: "button" } },
+        [_vm._v("Save changes")]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      {
+        staticClass: "modal fade",
+        attrs: {
+          id: "rompecabezaamarillo",
+          tabindex: "-1",
+          role: "dialog",
+          "aria-labelledby": "exampleModalCenterTitle",
+          "aria-hidden": "true"
+        }
+      },
+      [
+        _c(
+          "div",
+          {
+            staticClass: "modal-dialog modal-dialog-centered",
+            attrs: { role: "document" }
+          },
+          [
+            _c("div", { staticClass: "modal-content" }, [
+              _c("div", { staticClass: "modal-header" }, [
+                _c("h5", { staticClass: "modal-title" }, [
+                  _vm._v("Modal title")
+                ]),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  {
+                    staticClass: "close",
+                    attrs: {
+                      type: "button",
+                      "data-dismiss": "modal",
+                      "aria-label": "Close"
+                    }
+                  },
+                  [
+                    _c("span", { attrs: { "aria-hidden": "true" } }, [
+                      _vm._v("×")
+                    ])
+                  ]
+                )
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "modal-body" }, [
+                _vm._v(
+                  "\n                    rompe cabeza amarillo\n                "
+                )
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "modal-footer" }, [
+                _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-secondary",
+                    attrs: { type: "button", "data-dismiss": "modal" }
+                  },
+                  [_vm._v("Close")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  { staticClass: "btn btn-primary", attrs: { type: "button" } },
+                  [_vm._v("Save changes")]
+                )
+              ])
+            ])
+          ]
+        )
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      {
+        staticClass: "modal fade",
+        attrs: {
+          id: "rompecabezaverde",
+          tabindex: "-1",
+          role: "dialog",
+          "aria-labelledby": "exampleModalCenterTitle",
+          "aria-hidden": "true"
+        }
+      },
+      [
+        _c(
+          "div",
+          {
+            staticClass: "modal-dialog modal-dialog-centered",
+            attrs: { role: "document" }
+          },
+          [
+            _c("div", { staticClass: "modal-content" }, [
+              _c("div", { staticClass: "modal-header" }, [
+                _c("h5", { staticClass: "modal-title" }, [
+                  _vm._v("Modal title")
+                ]),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  {
+                    staticClass: "close",
+                    attrs: {
+                      type: "button",
+                      "data-dismiss": "modal",
+                      "aria-label": "Close"
+                    }
+                  },
+                  [
+                    _c("span", { attrs: { "aria-hidden": "true" } }, [
+                      _vm._v("×")
+                    ])
+                  ]
+                )
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "modal-body" }, [
+                _vm._v(
+                  "\n                    rompe cabeza verde\n                "
+                )
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "modal-footer" }, [
+                _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-secondary",
+                    attrs: { type: "button", "data-dismiss": "modal" }
+                  },
+                  [_vm._v("Close")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  { staticClass: "btn btn-primary", attrs: { type: "button" } },
+                  [_vm._v("Save changes")]
+                )
+              ])
+            ])
+          ]
+        )
+      ]
+    )
   }
 ]
 render._withStripped = true
@@ -52832,14 +52973,15 @@ __webpack_require__.r(__webpack_exports__);
 /*!********************************************************************************************!*\
   !*** ./resources/js/components/actividadesjuegos/niños/actividadDos/semaforoComponent.vue ***!
   \********************************************************************************************/
-/*! exports provided: default */
+/*! no static exports found */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _semaforoComponent_vue_vue_type_template_id_6747b3c0_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./semaforoComponent.vue?vue&type=template&id=6747b3c0&scoped=true& */ "./resources/js/components/actividadesjuegos/niños/actividadDos/semaforoComponent.vue?vue&type=template&id=6747b3c0&scoped=true&");
 /* harmony import */ var _semaforoComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./semaforoComponent.vue?vue&type=script&lang=js& */ "./resources/js/components/actividadesjuegos/niños/actividadDos/semaforoComponent.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _semaforoComponent_vue_vue_type_style_index_0_id_6747b3c0_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./semaforoComponent.vue?vue&type=style&index=0&id=6747b3c0&scoped=true&lang=css& */ "./resources/js/components/actividadesjuegos/niños/actividadDos/semaforoComponent.vue?vue&type=style&index=0&id=6747b3c0&scoped=true&lang=css&");
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _semaforoComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _semaforoComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+/* harmony import */ var _semaforoComponent_vue_vue_type_style_index_0_id_6747b3c0_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./semaforoComponent.vue?vue&type=style&index=0&id=6747b3c0&scoped=true&lang=css& */ "./resources/js/components/actividadesjuegos/niños/actividadDos/semaforoComponent.vue?vue&type=style&index=0&id=6747b3c0&scoped=true&lang=css&");
 /* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
@@ -52871,13 +53013,15 @@ component.options.__file = "resources/js/components/actividadesjuegos/niños/act
 /*!*********************************************************************************************************************!*\
   !*** ./resources/js/components/actividadesjuegos/niños/actividadDos/semaforoComponent.vue?vue&type=script&lang=js& ***!
   \*********************************************************************************************************************/
-/*! exports provided: default */
+/*! no static exports found */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_semaforoComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../../node_modules/vue-loader/lib??vue-loader-options!./semaforoComponent.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/actividadesjuegos/niños/actividadDos/semaforoComponent.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_semaforoComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_semaforoComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_semaforoComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_semaforoComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_semaforoComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_semaforoComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0___default.a); 
 
 /***/ }),
 
@@ -53194,8 +53338,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Projects\amaresvivir\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Projects\amaresvivir\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /home/vagrant/proyectos/blog/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /home/vagrant/proyectos/blog/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

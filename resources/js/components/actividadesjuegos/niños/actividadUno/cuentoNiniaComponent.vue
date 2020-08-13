@@ -47,7 +47,6 @@ export default {
                         showClass: {
                             popup: 'animate__animated animate__backInDown'
                         },
-                        width: '50%',
                         imageUrl: 'image/question.png',
                         imageWidth: '30%',
                         imageHeight: 'auto',
@@ -79,7 +78,6 @@ export default {
                         hideClass: {
                             popup: 'animate__animated animate__fadeOutUp'
                         },
-                        width: '50%',
                         imageUrl: 'image/question.png',
                         imageWidth: '30%',
                         imageHeight: 'auto',
@@ -111,7 +109,6 @@ export default {
                         hideClass: {
                             popup: 'animate__animated animate__fadeOutUp'
                         },
-                        width: '50%',
                         imageUrl: 'image/question.png',
                         imageWidth: '30%',
                         imageHeight: 'auto',
@@ -141,7 +138,6 @@ export default {
                         hideClass: {
                             popup: 'animate__animated animate__fadeOutUp'
                         },
-                        width: '50%',
                         imageUrl: 'image/question.png',
                         imageWidth: '30%',
                         imageHeight: 'auto',
@@ -171,7 +167,6 @@ export default {
                         hideClass: {
                             popup: 'animate__animated animate__fadeOutUp'
                         },
-                        width: '50%',
                         imageUrl: 'image/question.png',
                         imageWidth: '30%',
                         imageHeight: 'auto',
@@ -201,7 +196,6 @@ export default {
                         hideClass: {
                             popup: 'animate__animated animate__fadeOutUp'
                         },
-                        width: '50%',
                         imageUrl: 'image/question.png',
                         imageWidth: '30%',
                         imageHeight: 'auto',
