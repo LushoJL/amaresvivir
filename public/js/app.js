@@ -2466,7 +2466,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "niñosComponent",
   data: function data() {
@@ -6917,7 +6916,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../../node_module
 
 
 // module
-exports.push([module.i, "\n.luces[data-v-6747b3c0]{\r\n    position: absolute;\r\n\r\n    left: 140px;\r\n    bottom:110px;\r\n    z-index: -1;\n}\n.hover[data-v-6747b3c0]{\r\n    position: absolute;\r\n    left: 140px;\r\n    bottom:110px;\r\n    z-index: 1;\n}\n.red[data-v-6747b3c0]{\r\n    background: #9d0000;\r\n    width: 125px;\r\n    height: 130px;\r\n    margin-top: 10px;\n}\n.yellow[data-v-6747b3c0]{\r\n    background: #888800;\r\n    width: 125px;\r\n    height: 130px;\n}\n.green[data-v-6747b3c0]{\r\n    background: green;\r\n    width: 125px;\r\n    height: 133px;\n}\n.hover1[data-v-6747b3c0]{\r\n\r\n    width: 125px;\r\n    height: 130px;\r\n\r\n    cursor: pointer;\n}\n.hover2[data-v-6747b3c0]{\r\n\r\n    width: 125px;\r\n    height: 130px;\r\n    cursor: pointer;\n}\n.hover3[data-v-6747b3c0]{\r\n\r\n    width: 125px;\r\n    height: 133px;\r\n    cursor: pointer;\n}\nfigure[data-v-6747b3c0]{\r\n\r\n    display: inline-block;\r\n\r\n    position: relative;\r\n    justify-content: center;\r\n    align-items: center;\n}\ndiv.rompecabeza[data-v-6747b3c0] {\r\n    height: 450px;\r\n    width: 820px;\r\n    background-color: #090909;\r\n    margin: auto;\r\n    position: relative;\n}\ndiv.base[data-v-6747b3c0] {\r\n    float: left;\r\n    margin-top: 20px;\r\n    margin-left:20px;\r\n    width: 400px;\r\n    height: 400px;\n}\ndiv.piezas[data-v-6747b3c0] {\r\n    margin-top: 20px;\r\n    float: left;\r\n    width: 400px;\r\n    height: 400px;\n}\n@media only screen and (max-width: 800px) {\ndiv.rompecabeza[data-v-6747b3c0] {\r\n        height: 850px;\r\n        width: 450px;\r\n        background-color: #0e0d0d;\r\n        margin: auto;\r\n        position: relative;\r\n        display: grid;\n}\ndiv.base[data-v-6747b3c0] {\r\n        float: left;\r\n        width: 400px;\r\n        height: 400px;\n}\ndiv.piezas[data-v-6747b3c0] {\r\n        margin-top: 0;\r\n        float: left;\r\n        width: 400px;\r\n        height: 400px;\n}\n}\r\n", ""]);
+exports.push([module.i, "\n.luces[data-v-6747b3c0]{\n    position: absolute;\n\n    left: 140px;\n    bottom:110px;\n    z-index: -1;\n}\n.hover[data-v-6747b3c0]{\n    position: absolute;\n    left: 140px;\n    bottom:110px;\n    z-index: 1;\n}\n.red[data-v-6747b3c0]{\n    background: #9d0000;\n    width: 125px;\n    height: 130px;\n    margin-top: 10px;\n}\n.yellow[data-v-6747b3c0]{\n    background: #888800;\n    width: 125px;\n    height: 130px;\n}\n.green[data-v-6747b3c0]{\n    background: green;\n    width: 125px;\n    height: 133px;\n}\n.hover1[data-v-6747b3c0]{\n\n    width: 125px;\n    height: 130px;\n\n    cursor: pointer;\n}\n.hover2[data-v-6747b3c0]{\n\n    width: 125px;\n    height: 130px;\n    cursor: pointer;\n}\n.hover3[data-v-6747b3c0]{\n\n    width: 125px;\n    height: 133px;\n    cursor: pointer;\n}\nfigure[data-v-6747b3c0]{\n\n    display: inline-block;\n\n    position: relative;\n    justify-content: center;\n    align-items: center;\n}\ndiv.rompecabeza[data-v-6747b3c0] {\n    height: 450px;\n    width: 820px;\n    background-color: #090909;\n    margin: auto;\n    position: relative;\n}\ndiv.base[data-v-6747b3c0] {\n    float: left;\n    margin-top: 20px;\n    margin-left:20px;\n    width: 400px;\n    height: 400px;\n}\ndiv.piezas[data-v-6747b3c0] {\n    margin-top: 20px;\n    float: left;\n    width: 400px;\n    height: 400px;\n}\n@media only screen and (max-width: 800px) {\ndiv.rompecabeza[data-v-6747b3c0] {\n        height: 850px;\n        width: 450px;\n        background-color: #0e0d0d;\n        margin: auto;\n        position: relative;\n        display: grid;\n}\ndiv.base[data-v-6747b3c0] {\n        float: left;\n        width: 400px;\n        height: 400px;\n}\ndiv.piezas[data-v-6747b3c0] {\n        margin-top: 0;\n        float: left;\n        width: 400px;\n        height: 400px;\n}\n}\n", ""]);
 
 // exports
 
@@ -6976,7 +6975,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../../node_module
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/*--------------------------------------------------------------\n# actividades y juegos\n\nNIÑOS\n--------------------------------------------------------------*/\n#holder[data-v-68c3f256]{\n    position:relative;\n}\n\n\n/* image boxes */\n.box[data-v-68c3f256]{\n    text-align:center;\n    background-color:#f4f4f4;\n    border:1px solid #ccc;\n\n    margin:5px 1%;\n    padding:10px 2% 15px;\n    position:relative;\n    z-index:5;\n    box-sizing:border-box;\n    -moz-box-sizing:border-box;\n    -webkit-box-sizing:border-box;\n\n    box-shadow:0 0 3px #ccc;\n    -moz-box-shadow:0 0 3px #ccc;\n    -webkit-box-shadow:0 0 3px #ccc;\n\n    transform: scale(1);\n    -moz-transform: scale(1);\n    -webkit-transform: scale(1);\n\n    transition: background-color 1s, box-shadow 1s, transform 0.5s;\n    -moz-transition: background-color 1s, -moz-box-shadow 1s, -moz-transform 0.5s;\n    -webkit-transition: background-color 1s, -webkit-box-shadow 1s, -webkit-transform 0.5s;\n    -o-transition: background-color 1s, -o-box-shadow 1s, -o-transform 0.5s;\n}\n.box[data-v-68c3f256]:hover{\n    background-color:#fff;\n    z-index:10;\n\n    box-shadow:0 0 15px #333;\n    -moz-box-shadow:0 0 15px #333;\n    -webkit-box-shadow:0 0 15px #333;\n\n    transform: scale(1.1);\n    -moz-transform: scale(1.1);\n    -webkit-transform: scale(1.1);\n}\n.box-1[data-v-68c3f256] { max-width:24%;\n}\n.box-2[data-v-68c3f256] { max-width:44%;\n}\n.box-3[data-v-68c3f256] { max-width:35%;\n}\n\n/* title holder */\n.box h3[data-v-68c3f256]{\n    font-size:27px;\n    color:#777;\n    margin:5px 10px;\n    padding:5px 10px;\n    font-family:'Arial Narrow', Arial;\n    letter-spacing:1px;\n    text-shadow:0 1px 1px #ccc;\n    border-bottom:0 solid #fff;\n\n    transition: color 1s, text-shadow 1s, border-bottom 1s;\n    -moz-transition: color 1s, text-shadow 1s, border-bottom 1s;\n    -webkit-transition: color 1s, text-shadow 1s, border-bottom 1s;\n    -o-transition: color 1s, text-shadow 1s, border-bottom 1s;\n}\n.box:hover h3[data-v-68c3f256]{\n    color:#333;\n    border-bottom:1px solid #aaa;\n    text-shadow:1px 1px 1px #fff, 2px 2px 1px #888;\n}\n\n/* image holder */\n.box .image[data-v-68c3f256]{\n    margin:10px;\n    opacity:0.5;\n    filter: alpha(opacity=50);\n\n    transition: opacity 1s;\n    -moz-transition: opacity 1s;\n    -webkit-transition: opacity 1.5s;\n    -o-transition: opacity 1s;\n}\n.box:hover .image[data-v-68c3f256]{\n    opacity:1;\n    filter: alpha(opacity=100);\n}\n.box .image img[data-v-68c3f256]{\n    padding:7px;\n    background:#000;\n}\n.box .image img[data-v-68c3f256]:hover{\n    background:#333;\n}\n\n/* description text holder */\n.box .description[data-v-68c3f256], .box .description a[data-v-68c3f256]{\n    color:rgb(153,153,153);\n    color:rgba(153,153,153,0);\n    text-shadow:0 0 5px #aaa;\n    text-align:left;\n    font-size:14px;\n\n    transition: text-shadow 1s ease 0.5s, color 1s ease 0.5s, outline 1s ease 0.5s;\n    -moz-transition: text-shadow 1s ease 0.5s, color 1s ease 0.5s, outline 1s ease 0.5s;\n    -webkit-transition: text-shadow 1s ease 0.5s, color 1s ease 0.5s, outline 1s ease 0.5s;\n    -o-transition: text-shadow 1s ease 0.5s, color 1s ease 0.5s, outline 1s ease 0.5s;\n}\n.box:hover .description[data-v-68c3f256], .box:hover .description a[data-v-68c3f256]{\n    text-shadow:0 0 0 #fff;\n    color:rgb(100,100,100);\n}\n.box:hover .description a[data-v-68c3f256]{\n    outline:1px dotted #777;\n}\n#overlay[data-v-68c3f256]{\n    position:fixed;\n    width:100%;\n    height:100%;\n    left:0;\n    top:0;\n    z-index:7;\n    background:rgb(0,0,0);\n    background:rgba(0,0,0,0.5);\n    filter: alpha(opacity=50);\n\n    transition: background-color 0.7s;\n    -moz-transition: background-color 0.7s;\n    -webkit-transition: background-color 0.7s;\n    -o-transition: background-color 0.7s;\n}\n#overlay[data-v-68c3f256]:hover{\n    background:rgb(0,0,0);\n    background:rgba(0,0,0,0);\n    z-index:0;\n    filter: alpha(opacity=0);\n}\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/* image boxes */\n.box[data-v-68c3f256]{\n    width: 400px;\n    background-color:#f4f4f4;\n    border:1px solid #ccc;\n\n\n\n    position:relative;\n    z-index:5;\n    box-sizing:border-box;\n\n\n    box-shadow:0 0 3px #ccc;\n    -moz-box-shadow:0 0 3px #ccc;\n    -webkit-box-shadow:0 0 3px #ccc;\n\n    transform: scale(1);\n    -moz-transform: scale(1);\n    -webkit-transform: scale(1);\n    text-align: center;\n    transition: background-color 1s, box-shadow 1s, transform 0.5s;\n    -moz-transition: background-color 1s, -moz-box-shadow 1s, -moz-transform 0.5s;\n    -webkit-transition: background-color 1s, -webkit-box-shadow 1s, -webkit-transform 0.5s;\n    -o-transition: background-color 1s, -o-box-shadow 1s, -o-transform 0.5s;\n}\n.box[data-v-68c3f256]:hover{\n    background-color:#fff;\n    z-index:10;\n\n    box-shadow:0 0 15px #333;\n    -moz-box-shadow:0 0 15px #333;\n    -webkit-box-shadow:0 0 15px #333;\n\n    transform: scale(1.1);\n    -moz-transform: scale(1.1);\n    -webkit-transform: scale(1.1);\n}\n/* title holder */\n.box h3[data-v-68c3f256]{\n    font-size:27px;\n    color:#777;\n    margin:5px 10px;\n    padding:5px 10px;\n    font-family:'Arial Narrow', Arial;\n    letter-spacing:1px;\n    text-shadow:0 1px 1px #ccc;\n    border-bottom:0 solid #fff;\n\n    transition: color 1s, text-shadow 1s, border-bottom 1s;\n    -moz-transition: color 1s, text-shadow 1s, border-bottom 1s;\n    -webkit-transition: color 1s, text-shadow 1s, border-bottom 1s;\n    -o-transition: color 1s, text-shadow 1s, border-bottom 1s;\n}\n.box:hover h3[data-v-68c3f256]{\n    color:#333;\n    border-bottom:1px solid #aaa;\n    text-shadow:1px 1px 1px #fff, 2px 2px 1px #888;\n}\n\n/* image holder */\n.box .image[data-v-68c3f256]{\n\n    margin:10px;\n    opacity:0.5;\n    filter: alpha(opacity=50);\n\n    transition: opacity 1s;\n    -moz-transition: opacity 1s;\n    -webkit-transition: opacity 1.5s;\n    -o-transition: opacity 1s;\n}\n.box:hover .image[data-v-68c3f256]{\n    opacity:1;\n    filter: alpha(opacity=100);\n}\n.box .image img[data-v-68c3f256]{\n    padding:2%;\n    background: #000000;\n    width: 100%;\n}\n.box .image img[data-v-68c3f256]:hover{\n    background:#333;\n}\n@media (min-width: 600px) {\n.box-1[data-v-68c3f256]{\n        float: left;\n        margin-right:10px;\n}\n.box-2[data-v-68c3f256]{\n        float: left;\n        margin-left:10px;\n}\n}\n", ""]);
 
 // exports
 
@@ -40406,8 +40405,13 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _vm.show
-    ? _c("div", { staticClass: "row", attrs: { id: "seletion" } }, [
-        _c("div", { staticClass: "col" }, [
+    ? _c(
+        "div",
+        {
+          staticClass: "d-flex justify-content-center",
+          attrs: { id: "seletion" }
+        },
+        [
           _c(
             "a",
             {
@@ -40418,10 +40422,8 @@ var render = function() {
               }
             },
             [_vm._m(0)]
-          )
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "col" }, [
+          ),
+          _vm._v(" "),
           _c(
             "a",
             {
@@ -40433,8 +40435,8 @@ var render = function() {
             },
             [_vm._m(1)]
           )
-        ])
-      ])
+        ]
+      )
     : _vm.children === "ninio"
     ? _c("cuentoniño-component")
     : _vm.children === "ninia"
@@ -40446,23 +40448,19 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: "box box-2", staticStyle: { float: "right" } },
-      [
-        _c("h3", [_vm._v("Niño")]),
-        _vm._v(" "),
-        _c("div", { staticClass: "image" }, [
-          _c("img", {
-            attrs: {
-              src: "image/actividadesyjuegos/niño.jpg",
-              width: "100%",
-              alt: "For you..."
-            }
-          })
-        ])
-      ]
-    )
+    return _c("div", { staticClass: "box box-1" }, [
+      _c("h3", [_vm._v("Niño")]),
+      _vm._v(" "),
+      _c("div", { staticClass: "image" }, [
+        _c("img", {
+          attrs: {
+            src: "image/actividadesyjuegos/niño.jpg",
+            width: "350",
+            alt: "For you..."
+          }
+        })
+      ])
+    ])
   },
   function() {
     var _vm = this
@@ -40475,7 +40473,7 @@ var staticRenderFns = [
         _c("img", {
           attrs: {
             src: "image/actividadesyjuegos/niña.jpg",
-            width: "100%",
+            width: "350",
             alt: "For you..."
           }
         })
@@ -53321,8 +53319,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Projects\amaresvivir\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Projects\amaresvivir\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /home/vagrant/proyectos/blog/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /home/vagrant/proyectos/blog/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
