@@ -3,23 +3,20 @@
     <!--elegir niño o niña-->
     <div class="d-flex justify-content-center" id="seletion" v-if="show">
 
-            <a  v-on:click="selectionChildren('ninio')" ><!--aqui habia un v-model-->
-            <div class="box box-1">
+            <div class="box box-1" v-on:click="selectionChildren('ninio')" >
             <h3>Niño</h3>
             <div class="image" >
                 <img src="image/actividadesyjuegos/niño.jpg" width="350" alt="For you..." />
             </div>
         </div>
-            </a>
 
-            <a  v-on:click="selectionChildren('ninia')" >
-            <div class="box box-2">
+            <div class="box box-2" v-on:click="selectionChildren('ninia')">
                     <h3>Niña</h3>
                     <div class="image">
                         <img src="image/actividadesyjuegos/niña.jpg" width="350" alt="For you..." />
                     </div>
             </div>
-            </a>
+
 
     </div>
 
@@ -62,7 +59,7 @@ export default {
     background-color:#f4f4f4;
     border:1px solid #ccc;
 
-
+    cursor: pointer;
 
     position:relative;
     z-index:5;

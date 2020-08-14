@@ -25,7 +25,8 @@ Route::get('/semaforo', 'ActivitygameController@actividadDos')->name('actividadd
 Route::get('/test', 'TestController@index')->name('test');
 Route::get('/nos-importas-tu', 'ImportyouController@index')->name('importyou');
 Route::get('/tu-historia', 'HistoryController@index')->name('history');
-Route::get('/noticias', 'NewsController@index')->name('news');
+Route::get('/noticia', 'NewsController@index')->name('news');
+Route::get('/noticia-articulo', 'NewsController@article')->name('article');
 Route::apiResource('/pensamiento', 'PensamientoController');
 
 //quienes somos
