@@ -216,10 +216,14 @@ export default {
                                 <div class="radiobtn">
                                     <input type="radio" id="swal-input4"  name="1" value="ME GUSTA"><label for="swal-input4">ME GUSTA</label>
                                 </div>
+                                <div class="section">
+                                    <textarea class="form-control" name="2" id="swal-input5" style="width: 100%;" placeholder="OTRO: "></textarea>
+                                </div>
                                 `,
                         preConfirm: () => {
                             return [
                                 $('input[name="1"]:checked').val(),
+                                $('#swal-input5').val(),
                             ]
                         },
                     },
