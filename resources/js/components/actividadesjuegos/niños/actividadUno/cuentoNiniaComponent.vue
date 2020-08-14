@@ -40,14 +40,14 @@ export default {
                     confirmButtonText: 'Siguiente &rarr;',
                     showCancelButton: true,
                     cancelButtonText: 'Cancelar',
-                    progressSteps: ['1', '2', '3', '4', '5', '6']
+                    progressSteps: ['1', '2', '3', '4', '5', '6'],
+                    progressStepsDistance: '5%',
                 }).queue([
                     {
                         title: '<span style="color: #ffffff;">¿CON QUÉ PERSONAJE DEL CUENTO TE IDENTIFICAS?</span>',
                         showClass: {
                             popup: 'animate__animated animate__backInDown'
                         },
-                        width: '50%',
                         imageUrl: 'image/question.png',
                         imageWidth: '30%',
                         imageHeight: 'auto',
@@ -79,7 +79,6 @@ export default {
                         hideClass: {
                             popup: 'animate__animated animate__fadeOutUp'
                         },
-                        width: '50%',
                         imageUrl: 'image/question.png',
                         imageWidth: '30%',
                         imageHeight: 'auto',
@@ -111,7 +110,6 @@ export default {
                         hideClass: {
                             popup: 'animate__animated animate__fadeOutUp'
                         },
-                        width: '50%',
                         imageUrl: 'image/question.png',
                         imageWidth: '30%',
                         imageHeight: 'auto',
@@ -141,7 +139,6 @@ export default {
                         hideClass: {
                             popup: 'animate__animated animate__fadeOutUp'
                         },
-                        width: '50%',
                         imageUrl: 'image/question.png',
                         imageWidth: '30%',
                         imageHeight: 'auto',
@@ -171,7 +168,6 @@ export default {
                         hideClass: {
                             popup: 'animate__animated animate__fadeOutUp'
                         },
-                        width: '50%',
                         imageUrl: 'image/question.png',
                         imageWidth: '30%',
                         imageHeight: 'auto',
@@ -201,7 +197,6 @@ export default {
                         hideClass: {
                             popup: 'animate__animated animate__fadeOutUp'
                         },
-                        width: '50%',
                         imageUrl: 'image/question.png',
                         imageWidth: '30%',
                         imageHeight: 'auto',
