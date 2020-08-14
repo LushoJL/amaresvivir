@@ -1,28 +1,27 @@
 <template>
 
-<!--elegir niño o niña-->
-<div class="row" id="seletion" v-if="show">
-    <div class="col" >
-        <a  v-on:click="selectionChildren('ninio')" ><!--aqui habia un v-model-->
-        <div class="box box-2" style="float: right">
-        <h3>Niño</h3>
-        <div class="image">
-            <img src="image/actividadesyjuegos/niño.jpg" width="100%" alt="For you..." />
+    <!--elegir niño o niña-->
+    <div class="d-flex justify-content-center" id="seletion" v-if="show">
+
+            <a  v-on:click="selectionChildren('ninio')" ><!--aqui habia un v-model-->
+            <div class="box box-1">
+            <h3>Niño</h3>
+            <div class="image" >
+                <img src="image/actividadesyjuegos/niño.jpg" width="350" alt="For you..." />
+            </div>
         </div>
+            </a>
+
+            <a  v-on:click="selectionChildren('ninia')" >
+            <div class="box box-2">
+                    <h3>Niña</h3>
+                    <div class="image">
+                        <img src="image/actividadesyjuegos/niña.jpg" width="350" alt="For you..." />
+                    </div>
+            </div>
+            </a>
+
     </div>
-        </a>
-    </div>
-    <div class="col">
-        <a  v-on:click="selectionChildren('ninia')" >
-        <div class="box box-2">
-                <h3>Niña</h3>
-                <div class="image">
-                    <img src="image/actividadesyjuegos/niña.jpg" width="100%" alt="For you..." />
-                </div>
-        </div>
-        </a>
-    </div>
-</div>
 
 <!--    cuento de niño-->
     <cuentoniño-component
@@ -57,29 +56,18 @@ export default {
 
 <style scoped>
 
-/*--------------------------------------------------------------
-# actividades y juegos
-
-NIÑOS
---------------------------------------------------------------*/
-#holder{
-    position:relative;
-}
-
-
 /* image boxes */
 .box{
-    text-align:center;
+    width: 400px;
     background-color:#f4f4f4;
     border:1px solid #ccc;
 
-    margin:5px 1%;
-    padding:10px 2% 15px;
+
+
     position:relative;
     z-index:5;
     box-sizing:border-box;
-    -moz-box-sizing:border-box;
-    -webkit-box-sizing:border-box;
+
 
     box-shadow:0 0 3px #ccc;
     -moz-box-shadow:0 0 3px #ccc;
@@ -88,12 +76,13 @@ NIÑOS
     transform: scale(1);
     -moz-transform: scale(1);
     -webkit-transform: scale(1);
-
+    text-align: center;
     transition: background-color 1s, box-shadow 1s, transform 0.5s;
     -moz-transition: background-color 1s, -moz-box-shadow 1s, -moz-transform 0.5s;
     -webkit-transition: background-color 1s, -webkit-box-shadow 1s, -webkit-transform 0.5s;
     -o-transition: background-color 1s, -o-box-shadow 1s, -o-transform 0.5s;
 }
+
 .box:hover{
     background-color:#fff;
     z-index:10;
@@ -106,10 +95,6 @@ NIÑOS
     -moz-transform: scale(1.1);
     -webkit-transform: scale(1.1);
 }
-.box-1 { max-width:24%; }
-.box-2 { max-width:44%; }
-.box-3 { max-width:35%; }
-
 /* title holder */
 .box h3{
     font-size:27px;
@@ -134,6 +119,7 @@ NIÑOS
 
 /* image holder */
 .box .image{
+
     margin:10px;
     opacity:0.5;
     filter: alpha(opacity=50);
@@ -148,56 +134,23 @@ NIÑOS
     filter: alpha(opacity=100);
 }
 .box .image img{
-    padding:7px;
-    background:#000;
+    padding:2%;
+    background: #000000;
+    width: 100%;
+
 }
 .box .image img:hover{
     background:#333;
 }
 
-/* description text holder */
-.box .description, .box .description a{
-    color:rgb(153,153,153);
-    color:rgba(153,153,153,0);
-    text-shadow:0 0 5px #aaa;
-    text-align:left;
-    font-size:14px;
-
-    transition: text-shadow 1s ease 0.5s, color 1s ease 0.5s, outline 1s ease 0.5s;
-    -moz-transition: text-shadow 1s ease 0.5s, color 1s ease 0.5s, outline 1s ease 0.5s;
-    -webkit-transition: text-shadow 1s ease 0.5s, color 1s ease 0.5s, outline 1s ease 0.5s;
-    -o-transition: text-shadow 1s ease 0.5s, color 1s ease 0.5s, outline 1s ease 0.5s;
+@media (min-width: 600px) {
+    .box-1{
+        float: left;
+        margin-right:10px;
+    }
+    .box-2{
+        float: left;
+        margin-left:10px;
+    }
 }
-.box:hover .description, .box:hover .description a{
-    text-shadow:0 0 0 #fff;
-    color:rgb(100,100,100);
-}
-.box:hover .description a{
-    outline:1px dotted #777;
-}
-
-
-#overlay{
-    position:fixed;
-    width:100%;
-    height:100%;
-    left:0;
-    top:0;
-    z-index:7;
-    background:rgb(0,0,0);
-    background:rgba(0,0,0,0.5);
-    filter: alpha(opacity=50);
-
-    transition: background-color 0.7s;
-    -moz-transition: background-color 0.7s;
-    -webkit-transition: background-color 0.7s;
-    -o-transition: background-color 0.7s;
-}
-#overlay:hover{
-    background:rgb(0,0,0);
-    background:rgba(0,0,0,0);
-    z-index:0;
-    filter: alpha(opacity=0);
-}
-
 </style>
