@@ -6,7 +6,7 @@
 
             <div class="col-8 my-2 border-top">
               <h3 class="display-4">Organigrama:</h3>
-              <img src="{{ url('image/organization.jpg') }}" alt="inserte imagen" width="100%">
+              <img src="{{ asset('image/organization.jpg') }}" alt="inserte imagen" width="100%">
             </div>
 
           </div>
