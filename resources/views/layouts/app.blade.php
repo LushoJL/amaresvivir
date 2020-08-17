@@ -54,28 +54,28 @@
     <div class="container d-flex">
         <nav class="nav-menu d-none d-lg-block">
             <ul>
-                <li class="active"><a href="{{route('start')}}">INICIO</a></li>
+                <li class="active"><a href="{{secure_url('/inicio')}}">INICIO</a></li>
                 <li class="drop-down"><a href="">¿QUIENES SOMOS?</a>
                     <ul>
-                        <li><a href="{{ route('mission') }}">MISIÓN</a></li>
-                        <li><a href="{{ route('vision') }}">VISIÓN</a></li>
-                        <li><a href="{{ route('philosophy') }}">FILOSOFÍA</a></li>
-                        <li><a href="{{ route('institutionalObjectives') }}">OBJETIVOS INSTITUCIONALES</a></li>
-                        <li><a href="{{ route('organizationChart') }}">ORGANIGRAMA</a></li>
+                        <li><a href="{{ secure_url('/mision') }}">MISIÓN</a></li>
+                        <li><a href="{{ secure_url('/vision') }}">VISIÓN</a></li>
+                        <li><a href="{{ secure_url('/filosofia') }}">FILOSOFÍA</a></li>
+                        <li><a href="{{ secure_url('/objetivos_institucionales') }}">OBJETIVOS INSTITUCIONALES</a></li>
+                        <li><a href="{{ secure_url('/organigrama') }}">ORGANIGRAMA</a></li>
                     </ul>
                 </li>
-                <li class="drop-down"><a href="{{route('activitygame')}}">ACTIVIDADES Y JUEGOS</a>
+                <li class="drop-down"><a href="{{secure_url('/actividades-juegos')}}">ACTIVIDADES Y JUEGOS</a>
                     <ul>
-                        <li><a href="{{route('activitygame')}}">NIÑOS/AS </a></li>
-                        <li><a href="{{route('FourPicsOneWord')}}">JOVENES</a></li>
+                        <li><a href="{{secure_url('/actividades-juegos')}}">NIÑOS/AS </a></li>
+                        <li><a href="{{secure_url('/actividades-juegos-joven')}}">JOVENES</a></li>
                         <li><a href="#">ADULTOS</a></li>
 
                     </ul>
                 </li>
-                <li class=""><a href="{{ route('construction') }}">TEST</a></li>
-                <li class=""><a href="{{ route('construction') }}">NOS IMPORTAS TU</a></li>
-                <li class=""><a href="{{ route('construction') }}">TU HISTORIA</a></li>
-                <li class=""><a href="{{ route('news') }}">NOTICIAS</a></li>
+                <li class=""><a href="{{ secure_url('/construccion') }}">TEST</a></li>
+                <li class=""><a href="{{ secure_url('/construccion') }}">NOS IMPORTAS TU</a></li>
+                <li class=""><a href="{{ secure_url('/construccion') }}">TU HISTORIA</a></li>
+                <li class=""><a href="{{ secure_url('/noticia') }}">NOTICIAS</a></li>
 
             </ul>
         </nav><!-- .nav-menu -->
