@@ -82,7 +82,7 @@
     </div>
 </header><!-- End Header -->
 
-<!-- ======= Header ======= -->
+<!-- ======= Headers ======= -->
 <div id="app">
     <main id="main">
         @yield('content')
