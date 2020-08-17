@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="{{secure_asset('css/app.css')}}"  rel="stylesheet">
 
 
-    <!--Swiper-->
+    <!--Swiper pru-->
     <link rel="stylesheet" href="{{secure_asset('css/swiper/swiper-bundle.min.css') }}">
     <link rel="stylesheet" href="{{secure_asset('css/swiperStyles.css') }}">
     <!--sweetalert-->
