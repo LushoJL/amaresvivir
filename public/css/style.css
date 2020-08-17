@@ -365,6 +365,8 @@ background: #F8FAFC;
 
 /*--------------------------------------------------------------
 # escoger niño o niña
+# actividad 1
+
 --------------------------------------------------------------*/
 /* image boxes */
 .box{
@@ -463,4 +465,123 @@ background: #F8FAFC;
         margin-left:10px;
     }
 }
+/* cuento para la niña y niño */
+.cuento {
 
+    border: #ffffff 27px solid;
+    border-image-source: url("../image/actividadesyjuegos/border.png");
+    border-image-slice: 27;
+
+    padding: 10px;
+    text-align: justify;
+    font-size: 34px;
+}
+.buttonQuestion{
+    margin-top: 50px;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+/*--------------------------------------------------------------
+# actividad 2
+# SEMAFORO
+
+--------------------------------------------------------------*/
+.luces{
+    position: absolute;
+
+    left: 140px;
+    bottom:110px;
+    z-index: -1;
+}
+.hover{
+    position: absolute;
+    left: 140px;
+    bottom:110px;
+    z-index: 1;
+}
+.red{
+    background: #9d0000;
+    width: 125px;
+    height: 130px;
+    margin-top: 10px;
+
+}
+.yellow{
+    background: #888800;
+    width: 125px;
+    height: 130px;
+}
+.green{
+    background: green;
+    width: 125px;
+    height: 133px;
+}
+.hover1{
+
+    width: 125px;
+    height: 130px;
+
+    cursor: pointer;
+}
+.hover2{
+
+    width: 125px;
+    height: 130px;
+    cursor: pointer;
+}
+.hover3{
+
+    width: 125px;
+    height: 133px;
+    cursor: pointer;
+}
+figure{
+
+    display: inline-block;
+
+    position: relative;
+    justify-content: center;
+    align-items: center;
+}
+div.rompecabeza {
+    height: 450px;
+    width: 820px;
+    background-color: #090909;
+    margin: auto;
+    position: relative;
+}
+div.base {
+    float: left;
+    margin-top: 20px;
+    margin-left:20px;
+    width: 400px;
+    height: 400px;
+}
+div.piezas {
+    margin-top: 20px;
+    float: left;
+    width: 400px;
+    height: 400px;
+}
+@media only screen and (max-width: 800px) {
+    div.rompecabeza {
+        height: 850px;
+        width: 450px;
+        background-color: #0e0d0d;
+        margin: auto;
+        position: relative;
+        display: grid;
+    }
+    div.base {
+        float: left;
+        width: 400px;
+        height: 400px;
+    }
+    div.piezas {
+        margin-top: 0;
+        float: left;
+        width: 400px;
+        height: 400px;
+    }
+}
