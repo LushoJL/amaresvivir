@@ -67,7 +67,7 @@
                 <li class="drop-down"><a href="{{route('activitygame')}}">ACTIVIDADES Y JUEGOS</a>
                     <ul>
                         <li><a href="{{route('activitygame')}}">NIÑOS/AS </a></li>
-                        <li><a href="#">JOVENES</a></li>
+                        <li><a href="{{route('FourPicsOneWord')}}">JOVENES</a></li>
                         <li><a href="#">ADULTOS</a></li>
 
                     </ul>
