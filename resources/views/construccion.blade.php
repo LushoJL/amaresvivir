@@ -7,6 +7,6 @@
     <title>Document</title>
 </head>
 <body>
-    <img src="{{ asset('image/construccion.jpg') }}" alt="" class="responsive" style="width: 90%; height: auto;">
+    <img src="{{ secure_asset('image/construccion.jpg') }}" alt="" class="responsive" style="width: 90%; height: auto;">
 </body>
 </html>
