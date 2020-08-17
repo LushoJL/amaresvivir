@@ -6,9 +6,6 @@ window.Vue = require('vue');
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 //noticia
-Vue.component('noticia-component', require('./components/noticias/indexComponent').default);
-Vue.component('noticia-articulo-component', require('./components/noticias/articuloComponent').default);
-
 
 Vue.component('semaforo-component', require('./components/actividadesjuegos/niños/actividadDos/semaforoComponent.vue').default);
 Vue.component('cuentoniño-component', require('./components/actividadesjuegos/niños/actividadUno/cuentoNinioComponent.vue').default);
@@ -21,5 +18,4 @@ Vue.component('pensamiento-component', require('./components/PensamientoComponen
 
 const app = new Vue({
     el: '#app',
-
 });

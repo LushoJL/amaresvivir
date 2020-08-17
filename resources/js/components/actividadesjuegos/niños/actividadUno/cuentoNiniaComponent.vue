@@ -239,7 +239,7 @@ export default {
 
 <style scoped>
 p {
-    font-family: 'Indie Flower', cursive;
+
     border: #ffffff 27px solid;
     border-image-source: url("../../../../../../public/image/actividadesyjuegos/border.png");
     border-image-slice: 27;
