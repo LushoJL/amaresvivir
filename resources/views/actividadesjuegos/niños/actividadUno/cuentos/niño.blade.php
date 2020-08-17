@@ -1,7 +1,7 @@
 
 @extends('layouts.app')
 @section('content')
-    <h1><center>JOAQUÍN</center></h1>
+    <h1><center>JOAQUÍNa</center></h1>
     <p class="cuento">
 
         Joaquín era un niño de pelo corto y negro, gordito, muy alegre, juguetón y muy feliz. Él se había mudado a una nueva ciudad y a una nueva escuela.
