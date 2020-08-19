@@ -39,6 +39,7 @@
                         </button>
                     </div>
                     <div class="modal-body">
+
                         <div class="rompecabeza">
                             <div class="base">
                                 <img src="https://raw.githubusercontent.com/NestorPlasencia/pikachu-puzzle/master//pikachu.png" alt=""
