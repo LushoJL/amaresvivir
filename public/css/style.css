@@ -590,12 +590,26 @@ div.piezas {
 
 /*una palabra*/
 div.unaPlabra{
-    height: 650px;
     width: 450px;
-    background: #0e0d0d;
+    /*background: #0e0d0d;*/
     margin: auto;
     position: relative;
     border-radius: 20px;
+
+
+    -webkit-box-shadow: 0px 1px 50px 0px rgba(6,0,87,1);
+    -moz-box-shadow: 0px 1px 50px 0px rgba(6,0,87,1);
+    box-shadow: 0px 1px 50px 0px rgba(6,0,87,1);
+
+
+    background: rgba(152,0,212,1);
+    background: -moz-radial-gradient(center, ellipse cover, rgba(152,0,212,1) 0%, rgba(152,0,212,1) 2%, rgba(0,19,74,1) 60%, rgba(0,19,74,1) 99%);
+    background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, rgba(152,0,212,1)), color-stop(2%, rgba(152,0,212,1)), color-stop(60%, rgba(0,19,74,1)), color-stop(99%, rgba(0,19,74,1)));
+    background: -webkit-radial-gradient(center, ellipse cover, rgba(152,0,212,1) 0%, rgba(152,0,212,1) 2%, rgba(0,19,74,1) 60%, rgba(0,19,74,1) 99%);
+    background: -o-radial-gradient(center, ellipse cover, rgba(152,0,212,1) 0%, rgba(152,0,212,1) 2%, rgba(0,19,74,1) 60%, rgba(0,19,74,1) 99%);
+    background: -ms-radial-gradient(center, ellipse cover, rgba(152,0,212,1) 0%, rgba(152,0,212,1) 2%, rgba(0,19,74,1) 60%, rgba(0,19,74,1) 99%);
+    background: radial-gradient(ellipse at center, rgba(152,0,212,1) 0%, rgba(152,0,212,1) 2%, rgba(0,19,74,1) 60%, rgba(0,19,74,1) 99%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#9800d4', endColorstr='#00134a', GradientType=1 );
 }
 .headerImagen{
     width: 100%;
@@ -615,32 +629,48 @@ div.unaPlabra{
 .imagenes >div>img{
     border-radius: 20px;
 }
-.respuesta{
-    width: 100%;
-    height: 150px;
+
+.LetrasRespuestas {
+    height: 80px;
+
+    width: 80%;
+    margin: auto;
 
 }
 
-.respuestaInput{
-    width: 60%;
+.letra-1,.letra-2,.letra-3,.letra-4,.letra-5,.letra-6,.letra-7,.letra-8,.letra-9,.letra-10,
+.letra-11,.letra-12,.letra-13,.letra-14,.letra-15,.letra-16,.letra-17,.letra-18{
+    width: 30px;
+    height: 30px;
+    background: white;
+    float: left;
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-bottom: 10px;
+
+
+
+    -webkit-box-shadow: -8px -1px 53px 0px rgba(255,255,255,1);
+    -moz-box-shadow: -8px -1px 53px 0px rgba(255,255,255,1);
+    box-shadow: -8px -1px 53px 0px rgba(255,255,255,1);
+}
+.letra-8,.letra-9,.letra-10,
+.letra-11,.letra-12,.letra-13,.letra-14,.letra-15,.letra-16,.letra-17,.letra-18,.letra-19{
+    display: none;
+}
+
+.letrasBotones{
+
+    width: 80%;
+    height: 100px;
     margin: auto;
 }
-.respuestaInput > input{
-
-    width: 35px;
-    border-radius:10px;
-    margin-top: 15px;
-
-
-}
-.letrasBotones{
-    margin-top: 10px;
-    margin-left: 50px;
-    margin-right: 50px;
-}
 .letrasBotones>button{
-    width: 40px;
-    margin-left: 10px;
-    margin-bottom: 5px;
+    width: 30px;
+    height: 30px;
 
+    float: left;
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-bottom: 10px;
 }
