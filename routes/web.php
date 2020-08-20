@@ -20,8 +20,6 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/inicio', 'StartController@index')->name('start');
 Route::get('/quienes-somos', 'AboutController@index')->name('about');
-Route::get('/actividades-juegos', 'ActivitygameController@index')->name('activitygame');
-Route::get('/semaforo', 'ActivitygameController@actividadDos')->name('actividaddos');
 Route::get('/test', 'TestController@index')->name('test');
 Route::get('/nos-importas-tu', 'ImportyouController@index')->name('importyou');
 Route::get('/tu-historia', 'HistoryController@index')->name('history');
@@ -37,3 +35,29 @@ Route::get('/objetivos_institucionales', 'AboutController@institutionalObjective
 Route::get('/organigrama', 'AboutController@organizationChart')->name('organizationChart');
 
 Route::get('/construccion', 'AboutController@construction')->name('construction');
+
+/**
+ * actividades y juegos
+ *
+ * niños
+ *
+ **/
+
+//actividad 1
+//seleccion de niño o niña
+Route::get('/actividades-juegos', 'ActivitygameController@index')->name('activitygame');
+Route::get('/actividades-juegos-niña', 'ActivitygameController@girl')->name('girl');
+Route::get('/actividades-juegos-niño', 'ActivitygameController@boy')->name('boy');
+
+//actividad 2
+Route::get('/semaforo', 'ActivitygameController@actividadDos')->name('actividaddos');
+
+/**
+ *
+ *jovenes
+ *
+ */
+//actividad dos
+Route::get('/actividades-juegos-joven', 'ActivitygameController@FourPicsOneWord')->name('FourPicsOneWord');
+
+

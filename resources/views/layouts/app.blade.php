@@ -8,8 +8,8 @@
     <title>Amar es Educar</title>
 
     <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">
+    {{--    <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">--}}
+    {{--    <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">--}}
 
     <link rel="stylesheet" href="{{secure_asset('css/bootstrap/bootstrap.min.css')}}" crossorigin="anonymous">
     <link href="{{secure_asset('css/style.css')}}" rel="stylesheet">
@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="{{secure_asset('css/app.css')}}"  rel="stylesheet">
 
 
-    <!--Swiper-->
+    <!--Swiper pru-->
     <link rel="stylesheet" href="{{secure_asset('css/swiper/swiper-bundle.min.css') }}">
     <link rel="stylesheet" href="{{secure_asset('css/swiperStyles.css') }}">
     <!--sweetalert-->
@@ -54,35 +54,35 @@
     <div class="container d-flex">
         <nav class="nav-menu d-none d-lg-block">
             <ul>
-                <li class="active"><a href="{{route('start')}}">INICIO</a></li>
+                <li class="active"><a href="{{secure_url('/inicio')}}">INICIO</a></li>
                 <li class="drop-down"><a href="">¿QUIENES SOMOS?</a>
                     <ul>
-                        <li><a href="{{ route('mission') }}">MISIÓN</a></li>
-                        <li><a href="{{ route('vision') }}">VISIÓN</a></li>
-                        <li><a href="{{ route('philosophy') }}">FILOSOFÍA</a></li>
-                        <li><a href="{{ route('institutionalObjectives') }}">OBJETIVOS INSTITUCIONALES</a></li>
-                        <li><a href="{{ route('organizationChart') }}">ORGANIGRAMA</a></li>
+                        <li><a href="{{ secure_url('/mision') }}">MISIÓN</a></li>
+                        <li><a href="{{ secure_url('/vision') }}">VISIÓN</a></li>
+                        <li><a href="{{ secure_url('/filosofia') }}">FILOSOFÍA</a></li>
+                        <li><a href="{{ secure_url('/objetivos_institucionales') }}">OBJETIVOS INSTITUCIONALES</a></li>
+                        <li><a href="{{ secure_url('/organigrama') }}">ORGANIGRAMA</a></li>
                     </ul>
                 </li>
-                <li class="drop-down"><a href="{{route('activitygame')}}">ACTIVIDADES Y JUEGOS</a>
+                <li class="drop-down"><a href="{{secure_url('/actividades-juegos')}}">ACTIVIDADES Y JUEGOS</a>
                     <ul>
-                        <li><a href="{{route('activitygame')}}">NIÑOS/AS </a></li>
-                        <li><a href="#">JOVENES</a></li>
+                        <li><a href="{{secure_url('/actividades-juegos')}}">NIÑOS/AS </a></li>
+                        <li><a href="{{secure_url('/actividades-juegos-joven')}}">JOVENES</a></li>
                         <li><a href="#">ADULTOS</a></li>
 
                     </ul>
                 </li>
-                <li class=""><a href="{{ route('construction') }}">TEST</a></li>
-                <li class=""><a href="{{ route('construction') }}">NOS IMPORTAS TU</a></li>
-                <li class=""><a href="{{ route('construction') }}">TU HISTORIA</a></li>
-                <li class=""><a href="{{ route('news') }}">NOTICIAS</a></li>
+                <li class=""><a href="{{ secure_url('/construccion') }}">TEST</a></li>
+                <li class=""><a href="{{ secure_url('/construccion') }}">NOS IMPORTAS TU</a></li>
+                <li class=""><a href="{{ secure_url('/construccion') }}">TU HISTORIA</a></li>
+                <li class=""><a href="{{ secure_url('/noticia') }}">NOTICIAS</a></li>
 
             </ul>
         </nav><!-- .nav-menu -->
     </div>
 </header><!-- End Header -->
 
-<!-- ======= Header ======= -->
+<!-- ======= Headers ======= -->
 <div id="app">
     <main id="main">
         @yield('content')
@@ -106,6 +106,429 @@
 
 <script src="{{secure_asset('js/jquery-ui/jquery-ui.js')}}"></script>
 <script src="{{secure_asset('js/jquery-touch/jquery.ui.touch-punch.min.js')}}"></script>
+
+{{--preguntas niña--}}
+<script>
+    $(document).ready(function() {
+        $("#btnQuestionGirl").click(function(){
+            (async () =>{
+                const { value: respuestas } = await Swal.mixin({
+                    confirmButtonText: 'Siguiente &rarr;',
+                    showCancelButton: true,
+                    cancelButtonText: 'Cancelar',
+                    progressSteps: ['1', '2', '3', '4', '5', '6'],
+                    progressStepsDistance: '5%',
+                }).queue([
+                    {
+                        title: '<span style="color: #ffffff;">¿CON QUÉ PERSONAJE DEL CUENTO TE IDENTIFICAS?</span>',
+                        showClass: {
+                            popup: 'animate__animated animate__backInDown'
+                        },
+                        imageUrl: 'image/question.png',
+                        imageWidth: '30%',
+                        imageHeight: 'auto',
+                        imageAlt: 'Custom image',
+                        background: '#fff url(image/purple.jpg)',
+                        html:
+                            `
+                                <div class="radiobtn">
+                                    <input type="radio" id="swal-input1"  name="1" value="MARITA"><label for="swal-input1">MARITA</label>
+                                </div>
+                                <div class="radiobtn">
+                                    <input type="radio" id="swal-input2"  name="1" value="JULIETA"><label for="swal-input2">JULIETA</label>
+                                </div>
+                                <div class="radiobtn">
+                                    <input type="radio" id="swal-input3"  name="1" value="LOS DEMAS COMPAÑEROS"><label for="swal-input3">LOS DEMAS COMPAÑEROS</label>
+                                </div>
+                                `,
+                        preConfirm: () => {
+                            return [
+                                $('input[name="1"]:checked').val(),
+                            ]
+                        },
+                    },
+                    {
+                        title: '<span style="color: #ffffff;">¿QUÉ HARÍAS TÚ EN LUGAR DEL PERSONAJE QUE ELEGISTE?</span>',
+                        showClass: {
+                            popup: 'animate__animated animate__rotateIn'
+                        },
+                        hideClass: {
+                            popup: 'animate__animated animate__fadeOutUp'
+                        },
+                        imageUrl: 'image/question.png',
+                        imageWidth: '30%',
+                        imageHeight: 'auto',
+                        imageAlt: 'Custom image',
+                        background: '#fff url(image/purple.jpg)',
+                        html:
+                            `
+                                <div class="radiobtn">
+                                    <input type="radio" id="swal-input1"  name="1" value="SERÍA IGUAL"><label for="swal-input1">SERÍA IGUAL</label>
+                                </div>
+                                <div class="radiobtn">
+                                    <input type="radio" id="swal-input2"  name="1" value="CAMBIARÍA"><label for="swal-input2">CAMBIARÍA</label>
+                                </div>
+                                <div class="radiobtn">
+                                    <input type="radio" id="swal-input3"  name="1" value="PEDIRÍA AYUDA"><label for="swal-input3">PEDIRÍA AYUDA</label>
+                                </div>
+                                `,
+                        preConfirm: () => {
+                            return [
+                                $('input[name="1"]:checked').val(),
+                            ]
+                        },
+                    },
+                    {
+                        title: '<span style="color: #ffffff;">¿LE DIRÍAS A ALGUIEN SI VIERAS QUE OTRO SUFRE COMO MARITA?</span>',
+                        showClass: {
+                            popup: 'animate__animated animate__rotateIn'
+                        },
+                        hideClass: {
+                            popup: 'animate__animated animate__fadeOutUp'
+                        },
+                        imageUrl: 'image/question.png',
+                        imageWidth: '30%',
+                        imageHeight: 'auto',
+                        imageAlt: 'Custom image',
+                        background: '#fff url(image/purple.jpg)',
+                        html:
+                            `
+                                <div class="radiobtn">
+                                    <input type="radio" id="swal-input1"  name="1" value="SI"><label for="swal-input1">SI</label>
+                                </div>
+                                <div class="radiobtn">
+                                    <input type="radio" id="swal-input2"  name="1" value="NO"><label for="swal-input2">NO</label>
+                                </div>
+                                `,
+                        preConfirm: () => {
+                            return [
+                                $('input[name="1"]:checked').val(),
+                            ]
+                        },
+                    },
+                    {
+                        title: '<span style="color: #ffffff;">¿HAS SUFRIDO LO MISMO QUE MARITA ALGUNA VEZ?</span>',
+                        showClass: {
+                            popup: 'animate__animated animate__rotateIn'
+                        },
+                        hideClass: {
+                            popup: 'animate__animated animate__fadeOutUp'
+                        },
+                        imageUrl: 'image/question.png',
+                        imageWidth: '30%',
+                        imageHeight: 'auto',
+                        imageAlt: 'Custom image',
+                        background: '#fff url(image/purple.jpg)',
+                        html:
+                            `
+                                <div class="radiobtn">
+                                    <input type="radio" id="swal-input1"  name="1" value="SI"><label for="swal-input1">SI</label>
+                                </div>
+                                <div class="radiobtn">
+                                    <input type="radio" id="swal-input2"  name="1" value="NO"><label for="swal-input2">NO</label>
+                                </div>
+                                `,
+                        preConfirm: () => {
+                            return [
+                                $('input[name="1"]:checked').val(),
+                            ]
+                        },
+                    },
+                    {
+                        title: '<span style="color: #ffffff;">¿SE LO CONTASTE A ALGUIEN, PARA PERDIR AYUDA (A TUS PAPÁS, AMIGOS, MAESTRA/O)?</span>',
+                        showClass: {
+                            popup: 'animate__animated animate__rotateIn'
+                        },
+                        hideClass: {
+                            popup: 'animate__animated animate__fadeOutUp'
+                        },
+                        imageUrl: 'image/question.png',
+                        imageWidth: '30%',
+                        imageHeight: 'auto',
+                        imageAlt: 'Custom image',
+                        background: '#fff url(image/purple.jpg)',
+                        html:
+                            `
+                                <div class="radiobtn">
+                                    <input type="radio" id="swal-input1"  name="1" value="SI"><label for="swal-input1">SI</label>
+                                </div>
+                                <div class="radiobtn">
+                                    <input type="radio" id="swal-input2"  name="1" value="NO"><label for="swal-input2">NO</label>
+                                </div>
+                                `,
+                        preConfirm: () => {
+                            return [
+                                $('input[name="1"]:checked').val(),
+                            ]
+                        },
+                    },
+                    {
+                        title: '<span style="color: #ffffff;">¿POR QUÉ NO SE LO CONTARIAS A ALGUIEN?</span>',
+                        showClass: {
+                            popup: 'animate__animated animate__rotateIn'
+                        },
+                        hideClass: {
+                            popup: 'animate__animated animate__fadeOutUp'
+                        },
+                        imageUrl: 'image/question.png',
+                        imageWidth: '30%',
+                        imageHeight: 'auto',
+                        imageAlt: 'Custom image',
+                        background: '#fff url(image/purple.jpg)',
+                        html:
+                            `
+                                <div class="radiobtn">
+                                    <input type="radio" id="swal-input1"  name="1" value="AMENAZAS"><label for="swal-input1">AMENAZAS</label>
+                                </div>
+                                <div class="radiobtn">
+                                    <input type="radio" id="swal-input2"  name="1" value="MIEDO"><label for="swal-input2">MIEDO</label>
+                                </div>
+                                <div class="radiobtn">
+                                    <input type="radio" id="swal-input3"  name="1" value="VUERGÜENZA"><label for="swal-input3">VUERGÜENZA</label>
+                                </div>
+                                <div class="radiobtn">
+                                    <input type="radio" id="swal-input4"  name="1" value="ME GUSTA"><label for="swal-input4">ME GUSTA</label>
+                                </div>
+                                <div class="section">
+                                    <textarea class="form-control" name="2" id="swal-input5" style="width: 100%;" placeholder="OTRO: "></textarea>
+                                </div>
+                                `,
+                        preConfirm: () => {
+                            return [
+                                $('input[name="1"]:checked').val(),
+                                $('#swal-input5').val(),
+                            ]
+                        },
+                    },
+                ])
+                if (respuestas) {
+                    Swal.fire(JSON.stringify(respuestas))
+                }
+            })()
+        });
+        $("#btnQuestionBoy").click(function(){
+            (async () =>{
+                const { value: respuestas } = await Swal.mixin({
+                    confirmButtonText: 'Siguiente &rarr;',
+                    showCancelButton: true,
+                    cancelButtonText: 'Cancelar',
+                    progressSteps: ['1', '2', '3', '4', '5', '6'],
+                    progressStepsDistance: '5%',
+                }).queue([
+                    {
+                        title: '<span style="color: #ffffff;">¿CON QUÉ PERSONAJE DEL CUENTO TE IDENTIFICAS?</span>',
+                        showClass: {
+                            popup: 'animate__animated animate__backInDown'
+                        },
+                        imageUrl: 'image/question.png',
+                        imageWidth: '30%',
+                        imageHeight: 'auto',
+                        imageAlt: 'Custom image',
+                        background: '#fff url(image/purple.jpg)',
+                        html:
+                            `
+                                <div class="radiobtn">
+                                    <input type="radio" id="swal-input1"  name="1" value="JOAQUÍN"><label for="swal-input1">JOAQUÍN</label>
+                                </div>
+                                <div class="radiobtn">
+                                    <input type="radio" id="swal-input2"  name="1" value="TITO"><label for="swal-input2">TITO</label>
+                                </div>
+                                <div class="radiobtn">
+                                    <input type="radio" id="swal-input3"  name="1" value="LOS DEMAS COMPAÑEROS"><label for="swal-input3">LOS DEMAS COMPAÑEROS</label>
+                                </div>
+                                `,
+                        preConfirm: () => {
+                            return [
+                                $('input[name="1"]:checked').val(),
+                            ]
+                        },
+                    },
+                    {
+                        title: '<span style="color: #ffffff;">¿QUÉ HARÍAS TÚ EN LUGAR DEL PERSONAJE QUE ELEGISTE?</span>',
+                        showClass: {
+                            popup: 'animate__animated animate__rotateIn'
+                        },
+                        hideClass: {
+                            popup: 'animate__animated animate__fadeOutUp'
+                        },
+                        imageUrl: 'image/question.png',
+                        imageWidth: '30%',
+                        imageHeight: 'auto',
+                        imageAlt: 'Custom image',
+                        background: '#fff url(image/purple.jpg)',
+                        html:
+                            `
+                                <div class="radiobtn">
+                                    <input type="radio" id="swal-input1"  name="1" value="SERÍA IGUAL"><label for="swal-input1">SERÍA IGUAL</label>
+                                </div>
+                                <div class="radiobtn">
+                                    <input type="radio" id="swal-input2"  name="1" value="CAMBIARÍA"><label for="swal-input2">CAMBIARÍA</label>
+                                </div>
+                                <div class="radiobtn">
+                                    <input type="radio" id="swal-input3"  name="1" value="PEDIRÍA AYUDA"><label for="swal-input3">PEDIRÍA AYUDA</label>
+                                </div>
+                                `,
+                        preConfirm: () => {
+                            return [
+                                $('input[name="1"]:checked').val(),
+                            ]
+                        },
+                    },
+                    {
+                        title: '<span style="color: #ffffff;">¿LE DIRÍAS A ALGUIEN SI VIERAS QUE OTRO SUFRE COMO JOAQUÍN?</span>',
+                        showClass: {
+                            popup: 'animate__animated animate__rotateIn'
+                        },
+                        hideClass: {
+                            popup: 'animate__animated animate__fadeOutUp'
+                        },
+                        imageUrl: 'image/question.png',
+                        imageWidth: '30%',
+                        imageHeight: 'auto',
+                        imageAlt: 'Custom image',
+                        background: '#fff url(image/purple.jpg)',
+                        html:
+                            `
+                                <div class="radiobtn">
+                                    <input type="radio" id="swal-input1"  name="1" value="SI"><label for="swal-input1">SI</label>
+                                </div>
+                                <div class="radiobtn">
+                                    <input type="radio" id="swal-input2"  name="1" value="NO"><label for="swal-input2">NO</label>
+                                </div>
+                                `,
+                        preConfirm: () => {
+                            return [
+                                $('input[name="1"]:checked').val(),
+                            ]
+                        },
+                    },
+                    {
+                        title: '<span style="color: #ffffff;">¿HAS SUFRIDO LO MISMO QUE JOAQUÍN ALGUNA VEZ?</span>',
+                        showClass: {
+                            popup: 'animate__animated animate__rotateIn'
+                        },
+                        hideClass: {
+                            popup: 'animate__animated animate__fadeOutUp'
+                        },
+                        imageUrl: 'image/question.png',
+                        imageWidth: '30%',
+                        imageHeight: 'auto',
+                        imageAlt: 'Custom image',
+                        background: '#fff url(image/purple.jpg)',
+                        html:
+                            `
+                                <div class="radiobtn">
+                                    <input type="radio" id="swal-input1"  name="1" value="SI"><label for="swal-input1">SI</label>
+                                </div>
+                                <div class="radiobtn">
+                                    <input type="radio" id="swal-input2"  name="1" value="NO"><label for="swal-input2">NO</label>
+                                </div>
+                                `,
+                        preConfirm: () => {
+                            return [
+                                $('input[name="1"]:checked').val(),
+                            ]
+                        },
+                    },
+                    {
+                        title: '<span style="color: #ffffff;">¿SE LO CONTASTE A ALGUIEN, PARA PERDIR AYUDA (A TUS PAPÁS, AMIGOS, MAESTRA/O)?</span>',
+                        showClass: {
+                            popup: 'animate__animated animate__rotateIn'
+                        },
+                        hideClass: {
+                            popup: 'animate__animated animate__fadeOutUp'
+                        },
+                        imageUrl: 'image/question.png',
+                        imageWidth: '30%',
+                        imageHeight: 'auto',
+                        imageAlt: 'Custom image',
+                        background: '#fff url(image/purple.jpg)',
+                        html:
+                            `
+                                <div class="radiobtn">
+                                    <input type="radio" id="swal-input1"  name="1" value="SI"><label for="swal-input1">SI</label>
+                                </div>
+                                <div class="radiobtn">
+                                    <input type="radio" id="swal-input2"  name="1" value="NO"><label for="swal-input2">NO</label>
+                                </div>
+                                `,
+                        preConfirm: () => {
+                            return [
+                                $('input[name="1"]:checked').val(),
+                            ]
+                        },
+                    },
+                    {
+                        title: '<span style="color: #ffffff;">¿POR QUÉ NO SE LO CONTARIAS A ALGUIEN?</span>',
+                        showClass: {
+                            popup: 'animate__animated animate__rotateIn'
+                        },
+                        hideClass: {
+                            popup: 'animate__animated animate__fadeOutUp'
+                        },
+                        imageUrl: 'image/question.png',
+                        imageWidth: '30%',
+                        imageHeight: 'auto',
+                        imageAlt: 'Custom image',
+                        background: '#fff url(image/purple.jpg)',
+                        html:
+                            `
+                                <div class="radiobtn">
+                                    <input type="radio" id="swal-input1"  name="1" value="AMENAZAS"><label for="swal-input1">AMENAZAS</label>
+                                </div>
+                                <div class="radiobtn">
+                                    <input type="radio" id="swal-input2"  name="1" value="MIEDO"><label for="swal-input2">MIEDO</label>
+                                </div>
+                                <div class="radiobtn">
+                                    <input type="radio" id="swal-input3"  name="1" value="VUERGÜENZA"><label for="swal-input3">VUERGÜENZA</label>
+                                </div>
+                                <div class="radiobtn">
+                                    <input type="radio" id="swal-input4"  name="1" value="ME GUSTA"><label for="swal-input4">ME GUSTA</label>
+                                </div>
+                                <div class="section">
+                                    <textarea class="form-control" name="2" id="swal-input5" style="width: 100%;" placeholder="OTRO: "></textarea>
+                                </div>
+                                `,
+                        preConfirm: () => {
+                            return [
+                                $('input[name="1"]:checked').val(),
+                                $('#swal-input5').val(),
+                            ]
+                        },
+                    },
+                ])
+                if (respuestas) {
+                    Swal.fire(JSON.stringify(respuestas))
+                }
+            })()
+        });
+    });
+</script>
+{{--SEMAFORO--}}
+<script>
+    $(function() {
+        // red
+        $('.hover1').hover(function() {
+            $('.red').css('background-color', '#ff0000');
+        }, function() {
+            $('.red').css('background-color', '');
+        });
+        // amarillo
+        $('.hover2').hover(function() {
+            $('.yellow').css('background-color', '#fff500');
+        }, function() {
+            $('.yellow').css('background-color', '');
+        });
+        // verde
+        $('.hover3').hover(function() {
+            $('.green').css('background-color', '#03fc00');
+        }, function() {
+            // vuelve a dejar el <div> como estaba al hacer el "mouseout"
+            $('.green').css('background-color', '');
+        });
+    });
+</script>
+{{--rompecabeza--}}
 <script>
     $(document).ready(function () {
         var piezas=$('.pieza');//obteniendo todas las piezas de la clase pieza del html

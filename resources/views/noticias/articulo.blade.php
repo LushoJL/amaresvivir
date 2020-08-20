@@ -14,7 +14,7 @@
                     <p class="small mb-0"> Fecha: 22-04-2020</p>
                     <p class="small mb-0"> Autor: eli</p>
                     <p class="small">categorias: <a href="#">Noticias</a> / <a href="#">Actividades</a> </p>
-                    <img src="{{asset('noticias/img/foto.jpg')}}" alt="" class="img-fluid"><br><br>
+                    <img src="{{secure_asset('noticias/img/foto.jpg')}}" alt="" class="img-fluid"><br><br>
                     <p>El Alto. Junio.  Con el objetivo de generar nuevas ideas y conocer
                         las nuevas tendencias y estrategias en marketing digital internacional,
                         la carrera de Ingeniería Comercial organizó el Webinar «Digitalización:
