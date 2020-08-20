@@ -60,4 +60,7 @@ Route::get('/semaforo', 'ActivitygameController@actividadDos')->name('actividadd
 //actividad dos
 Route::get('/actividades-juegos-joven', 'ActivitygameController@FourPicsOneWord')->name('FourPicsOneWord');
 
+//adultos index
+Route::get('/actividades-adultos', 'AdultsController@index')->name('adults');
+
 
