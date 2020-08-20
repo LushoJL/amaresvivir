@@ -68,7 +68,7 @@
                     <ul>
                         <li><a href="{{secure_url('/actividades-juegos')}}">NIÑOS/AS </a></li>
                         <li><a href="{{secure_url('/actividades-juegos-joven')}}">JOVENES</a></li>
-                        <li><a href="{{secure_asset('/actividades-adultos')}}">ADULTOS</a></li>
+                        <li><a href="{{secure_url('/actividades-adultos')}}">ADULTOS</a></li>
 
                     </ul>
                 </li>

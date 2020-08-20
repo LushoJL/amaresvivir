@@ -62,5 +62,6 @@ Route::get('/actividades-juegos-joven', 'ActivitygameController@FourPicsOneWord'
 
 //adultos index
 Route::get('/actividades-adultos', 'AdultsController@index')->name('adults');
+Route::get('/actividades-adultos/caso-uno', 'AdultsController@firstCase')->name('firstCase');
 
 

@@ -14,6 +14,6 @@ class AdultsController extends Controller
 
     public function firstCase()
     {
-
+        return view('actividadesjuegos.adultos.actividadUno.casoUno');
     }
 }
