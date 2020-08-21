@@ -62,46 +62,6 @@
 
 
 
-<script>
-    const config = {
-        width: 450,
-        height: 600,
-        parent: 'containerPHASER',
-        type: Phaser.AUTO,
-        scale: {
-            parent: 'containerPHASER',
-            autoCenter: Phaser.Scale.CENTER_BOTH,
-        },
-        scene: {
-            preload: preload,
-            create: create,
-            update: update
-        }
-    };
-    var game = new Phaser.Game(config);
-
-    function preload(){
-        this.load.image("image1","https://raw.githubusercontent.com/NestorPlasencia/pikachu-puzzle/master//pikachu.png");
-        this.load.image("image2","https://raw.githubusercontent.com/NestorPlasencia/pikachu-puzzle/master//pikachu.png");
-        this.load.image("image3","https://raw.githubusercontent.com/NestorPlasencia/pikachu-puzzle/master//pikachu.png");
-        this.load.image("image4","https://raw.githubusercontent.com/NestorPlasencia/pikachu-puzzle/master//pikachu.png");
-    }
-    function create(){
-        this.img1=this.add.image(120, 120, "image1");
-        this.img2=this.add.image(330, 120, "image2");
-
-        this.img3=this.add.image(120, 345, "image3");
-        this.img4=this.add.image(330, 345, "image4");
-        this.img1.setScale(0.09);
-        this.img2.setScale(0.09);
-        this.img3.setScale(0.09);
-        this.img4.setScale(0.09);
-
-    }
-    function update(){
-
-    }
-</script>
 
 
 @endsection
