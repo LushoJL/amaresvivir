@@ -28,6 +28,10 @@
     <link rel="stylesheet" href="{{secure_asset('css/radioStyle.css')}}">
     {{--    draggdable--}}
     <link rel="stylesheet" href="{{secure_asset('css/jquery-ui/jquery-ui.css')}}">
+
+{{--    phaser--}}
+    <script src="{{secure_asset('js/phaser/phaser.min.js') }}"></script>
+
 </head>
 <body>
 
@@ -604,7 +608,6 @@
 </script>
 
 <script src="{{secure_asset('js/sweetalert2/sweetalert2.min.js') }}"></script>
-
 
 @yield('swiper')
 
