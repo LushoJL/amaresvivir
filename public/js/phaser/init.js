@@ -16,10 +16,10 @@ const config = {
 var game = new Phaser.Game(config);
 
 function preload(){
-    this.load.image("image","./js/phaser/sprites/Image.png");
-    this.load.image("button","./js/phaser/sprites/Button.png");
-    this.load.image("background","./js/phaser/sprites/BackGround.png");
-    this.load.image("TextBox","./js/phaser/sprites/TextBox.png");
+    this.load.image("image","js/phaser/sprites/Image.png");
+    this.load.image("button","js/phaser/sprites/Button.png");
+    this.load.image("background","js/phaser/sprites/BackGround.png");
+    this.load.image("TextBox","js/phaser/sprites/TextBox.png");
 
 }
 function create(){
