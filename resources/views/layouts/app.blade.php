@@ -29,8 +29,6 @@
     {{--    draggdable--}}
     <link rel="stylesheet" href="{{secure_asset('css/jquery-ui/jquery-ui.css')}}">
 
-{{--    phaser--}}
-    <script src="{{secure_asset('js/phaser/phaser.min.js') }}"></script>
 
 </head>
 <body>
@@ -608,71 +606,10 @@
 </script>
 
 <script src="{{secure_asset('js/sweetalert2/sweetalert2.min.js') }}"></script>
-<script>
-    const config = {
-        width: 450,
-        height: 650,
-        parent: 'containerPHASER',
-        type: Phaser.AUTO,
-        scale: {
-            parent: 'containerPHASER',
-            autoCenter: Phaser.Scale.CENTER_BOTH,
-        },
-        scene: {
-            preload: preload,
-            create: create,
-            update: update
-        }
-    };
-    var game = new Phaser.Game(config);
 
-    function preload(){
-        this.load.image("image","{{secure_asset('js/phaser/sprites/Image.png')}}");
-        this.load.image("button","{{secure_asset('js/phaser/sprites/Button.png')}}");
-        this.load.image("background","{{secure_asset('js/phaser/sprites/BackGround.png')}}");
-        this.load.image("TextBox","{{secure_asset('js/phaser/sprites/TextBox.png')}}");
-
-    }
-    function create(){
-        this.img1=this.add.image(225, 325, "background");
-        this.img1=this.add.image(120, 120, "image");
-        this.img2=this.add.image(330, 120, "image");
-
-        this.img3=this.add.image(120, 305, "image");
-        this.img4=this.add.image(330, 305, "image");
-
-        this.p=this.add.image(126, 450, "TextBox");
-        this.i=this.add.image(159, 450, "TextBox");
-        this.k=this.add.image(192, 450, "TextBox");
-        this.a=this.add.image(225, 450, "TextBox");
-        this.c=this.add.image(258, 450, "TextBox");
-        this.h=this.add.image(291, 450, "TextBox");
-        this.u=this.add.image(324, 450, "TextBox");
-
-        this.btn1=this.add.image(75, 520, "button");
-        this.btn2=this.add.image(135, 520, "button");
-        this.btn3=this.add.image(195, 520, "button");
-        this.btn5=this.add.image(255, 520, "button");
-        this.btn5=this.add.image(315, 520, "button");
-        this.btn6=this.add.image(375, 520, "button");
-
-
-        this.btn7=this.add.image(75, 570, "button");
-        this.btn8=this.add.image(135, 570, "button");
-        this.btn9=this.add.image(195, 570, "button");
-        this.btn10=this.add.image(255, 570, "button");
-        this.btn11=this.add.image(315, 570, "button");
-        this.btn12=this.add.image(375, 570, "button");
-
-
-
-        console.log(this.img2)
-
-    }
-    function update(){
-
-    }
-</script>
+{{--    phaser--}}
+<script src="{{secure_asset('js/phaser/phaser.min.js') }}"></script>
+<script src="{{secure_asset('js/phaser/init.js') }}"></script>
 
 @yield('swiper')
 
