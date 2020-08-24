@@ -30,6 +30,8 @@
     <link rel="stylesheet" href="{{secure_asset('css/jquery-ui/jquery-ui.css')}}">
 
 
+    {{--    phaser--}}
+    <script src="{{secure_asset('js/phaser/phaser.min.js') }}"></script>
 </head>
 <body>
 
@@ -607,9 +609,6 @@
 
 <script src="{{secure_asset('js/sweetalert2/sweetalert2.min.js') }}"></script>
 
-{{--    phaser--}}
-<script src="{{secure_asset('js/phaser/phaser.min.js') }}"></script>
-<script src="{{secure_asset('js/phaser/src/init.js') }}" type="module"></script>
 
 @yield('swiper')
 

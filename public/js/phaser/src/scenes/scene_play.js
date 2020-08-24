@@ -1,16 +1,23 @@
-var i=0;
+
 class Scene_play extends Phaser.Scene{
     constructor() {
         super({key: "Scene_play"});
     }
 
     create(){
+        var add = this.add;
+        function NumeroRandom(min, max) {
+            return Math.floor(Math.random() * (max - min)) + min;
+        }
         this.img1=this.add.image(225, 325, "background");
         this.img1=this.add.image(120, 120, "image");
         this.img2=this.add.image(330, 120, "image");
 
         this.img3=this.add.image(120, 305, "image");
         this.img4=this.add.image(330, 305, "image");
+
+        var TextBoxX=[126,159,192,225,258,291,324]
+        var TextBoxY=[450,450,450,450,450,450,450]
 
         this.p=this.add.image(126, 450, "TextBox");
         this.i=this.add.image(159, 450, "TextBox");
@@ -20,33 +27,44 @@ class Scene_play extends Phaser.Scene{
         this.h=this.add.image(291, 450, "TextBox");
         this.u=this.add.image(324, 450, "TextBox");
 
+        var LetrasDesordenadas = [];
+        var Resultado = [];
+        var abecedario=["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
+        abecedario = abecedario.sort(function() {return Math.random() - 0.5});
 
+        var Respuesta=["P","I","K","A","C","H","U"];
+        for (var i=Respuesta.length;i<12;i++){
+            Respuesta[i]=abecedario[i]
+
+        }
+        var SelectLetras=[];
+        Respuesta = Respuesta.sort(function() {return Math.random() - 0.5});
         var ButtonX=[75,135,195,255,315,375,75,135,195,255,315,375]
         var ButtonY=[520,520,520,520,520,520,570,570,570,570,570,570]
+
         let buttonGroup=this.add.group({
             key:'button',
             repeat:11,
 
         });
-        console.log();
 
-
-
-        for (i;i<12;i++){
+        for (var i=0;i<12;i++){
 
             buttonGroup.getChildren()[i].x=ButtonX[i];
             buttonGroup.getChildren()[i].y=ButtonY[i];
             buttonGroup.getChildren()[i].setInteractive();
             buttonGroup.getChildren()[i].setOrigin(0.5,0.5);
 
-            this.add.text(ButtonX[i], ButtonY[i], 'I', { fontSize: 30, color: '#000000' }).setOrigin(0.5,0.5);
+            SelectLetras[i]=add.text(ButtonX[i], ButtonY[i], Respuesta[i], { fontSize: 30, color: '#000000' }).setOrigin(0.5,0.5);
 
-
-
-
+            LetrasDesordenadas[i] = {
+                letra: Respuesta[i],
+                x: ButtonX[i],
+                y: ButtonY[i],
+            };
         }
 
-        buttonGroup.children.iterate((x)=>{
+            buttonGroup.children.iterate((x)=>{
             x.on('pointerdown', function (pointer) {
                 this.setTint(0x848484);
             });
@@ -57,50 +75,26 @@ class Scene_play extends Phaser.Scene{
 
             x.on('pointerup', function (pointer) {
 
-                console.log(x);
+                for (var i=0;i<12;i++){
+                    if (LetrasDesordenadas[i].x===x.x && LetrasDesordenadas[i].y===x.y){
+                        Resultado.push(LetrasDesordenadas[i].letra);
+                        add.text(TextBoxX[Resultado.length-1], TextBoxY[Resultado.length-1], Resultado[Resultado.length-1], { fontSize: 30, color: '#000000' }).setOrigin(0.5,0.5);
+                        x.alpha=0;
+                        SelectLetras[i].alpha=0;
+                    }
+                }
                 this.clearTint();
             });
         })
-        // for (var i=0;i<12;i++){
-        //     buttonGroup.create()
-        //     var button=this.add.image(ButtonX[i], ButtonY[i], "button").setInteractive();
-        //     button.on('pointerdown', function (pointer) {
-        //
-        //         this.setTint(0x848484);
-        //
-        //     });
-        //
-        //     button.on('pointerout', function (pointer) {
-        //
-        //         this.clearTint();
-        //
-        //     });
-        //
-        //     button.on('pointerup', function (pointer) {
-        //         console.log(button);
-        //
-        //         this.clearTint();
-        //
-        //     });
-        // }
-
-        // this.btn1=this.add.image(75, 520, "button");
-        // this.btn2=this.add.image(135, 520, "button");
-        // this.btn3=this.add.image(195, 520, "button");
-        // this.btn5=this.add.image(255, 520, "button");
-        // this.btn5=this.add.image(315, 520, "button");
-        // this.btn6=this.add.image(375, 520, "button");
-        //
-        //
-        // this.btn7=this.add.image(75, 570, "button");
-        // this.btn8=this.add.image(135, 570, "button");
-        // this.btn9=this.add.image(195, 570, "button");
-        // this.btn10=this.add.image(255, 570, "button");
-        // this.btn11=this.add.image(315, 570, "button");
-        // var btn12=this.add.image(375, 570, "button").setInteractive();
 
 
+    function imprimirResultado(esto){
+            for (var i=0;i<Resultado.length;i++){
+                this.add.text(TextBoxX[i], TextBoxY[i], Resultado[i], { fontSize: 30, color: '#000000' }).setOrigin(0.5,0.5);
+                console.log(Resultado)
 
+            }
+    }
 
     }
 }
