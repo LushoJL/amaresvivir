@@ -609,7 +609,7 @@
 
 {{--    phaser--}}
 <script src="{{secure_asset('js/phaser/phaser.min.js') }}"></script>
-<script src="{{secure_asset('js/phaser/init.js') }}"></script>
+<script src="{{secure_asset('js/phaser/src/init.js') }}" type="module"></script>
 
 @yield('swiper')
 
