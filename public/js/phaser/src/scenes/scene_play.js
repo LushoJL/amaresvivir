@@ -1,3 +1,4 @@
+var i=0;
 class Scene_play extends Phaser.Scene{
     constructor() {
         super({key: "Scene_play"});
@@ -19,42 +20,87 @@ class Scene_play extends Phaser.Scene{
         this.h=this.add.image(291, 450, "TextBox");
         this.u=this.add.image(324, 450, "TextBox");
 
-        this.btn1=this.add.image(75, 520, "button");
-        this.btn2=this.add.image(135, 520, "button");
-        this.btn3=this.add.image(195, 520, "button");
-        this.btn5=this.add.image(255, 520, "button");
-        this.btn5=this.add.image(315, 520, "button");
-        this.btn6=this.add.image(375, 520, "button");
 
-
-        this.btn7=this.add.image(75, 570, "button");
-        this.btn8=this.add.image(135, 570, "button");
-        this.btn9=this.add.image(195, 570, "button");
-        this.btn10=this.add.image(255, 570, "button");
-        this.btn11=this.add.image(315, 570, "button");
-        this.btn12=this.add.image(375, 570, "button");
-
-
-        var sprite = this.add.sprite(375, 600, 'button').setInteractive();
-
-        sprite.on('pointerdown', function (pointer) {
-
-            this.setTint(0x848484);
+        var ButtonX=[75,135,195,255,315,375,75,135,195,255,315,375]
+        var ButtonY=[520,520,520,520,520,520,570,570,570,570,570,570]
+        let buttonGroup=this.add.group({
+            key:'button',
+            repeat:11,
 
         });
+        console.log();
 
-        sprite.on('pointerout', function (pointer) {
 
-            this.clearTint();
 
-        });
+        for (i;i<12;i++){
 
-        sprite.on('pointerup', function (pointer) {
-            console.log("a")
+            buttonGroup.getChildren()[i].x=ButtonX[i];
+            buttonGroup.getChildren()[i].y=ButtonY[i];
+            buttonGroup.getChildren()[i].setInteractive();
+            buttonGroup.getChildren()[i].setOrigin(0.5,0.5);
 
-            this.clearTint();
+            this.add.text(ButtonX[i], ButtonY[i], 'I', { fontSize: 30, color: '#000000' }).setOrigin(0.5,0.5);
 
-        });
+
+
+
+        }
+
+        buttonGroup.children.iterate((x)=>{
+            x.on('pointerdown', function (pointer) {
+                this.setTint(0x848484);
+            });
+
+            x.on('pointerout', function (pointer) {
+                this.clearTint();
+            });
+
+            x.on('pointerup', function (pointer) {
+
+                console.log(x);
+                this.clearTint();
+            });
+        })
+        // for (var i=0;i<12;i++){
+        //     buttonGroup.create()
+        //     var button=this.add.image(ButtonX[i], ButtonY[i], "button").setInteractive();
+        //     button.on('pointerdown', function (pointer) {
+        //
+        //         this.setTint(0x848484);
+        //
+        //     });
+        //
+        //     button.on('pointerout', function (pointer) {
+        //
+        //         this.clearTint();
+        //
+        //     });
+        //
+        //     button.on('pointerup', function (pointer) {
+        //         console.log(button);
+        //
+        //         this.clearTint();
+        //
+        //     });
+        // }
+
+        // this.btn1=this.add.image(75, 520, "button");
+        // this.btn2=this.add.image(135, 520, "button");
+        // this.btn3=this.add.image(195, 520, "button");
+        // this.btn5=this.add.image(255, 520, "button");
+        // this.btn5=this.add.image(315, 520, "button");
+        // this.btn6=this.add.image(375, 520, "button");
+        //
+        //
+        // this.btn7=this.add.image(75, 570, "button");
+        // this.btn8=this.add.image(135, 570, "button");
+        // this.btn9=this.add.image(195, 570, "button");
+        // this.btn10=this.add.image(255, 570, "button");
+        // this.btn11=this.add.image(315, 570, "button");
+        // var btn12=this.add.image(375, 570, "button").setInteractive();
+
+
+
 
     }
 }
