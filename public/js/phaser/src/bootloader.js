@@ -12,6 +12,8 @@ class Bootloader extends Phaser.Scene{
         this.load.image("button","js/phaser/assets/Button.png");
         this.load.image("background","js/phaser/assets/BackGround.png");
         this.load.image("TextBox","js/phaser/assets/TextBox.png");
+
+
     }
 }
 export default Bootloader;

@@ -4,67 +4,92 @@ class Scene_play extends Phaser.Scene{
         super({key: "Scene_play"});
     }
 
-    create(){
+    create() {
         var add = this.add;
-        function NumeroRandom(min, max) {
-            return Math.floor(Math.random() * (max - min)) + min;
-        }
-        this.img1=this.add.image(225, 325, "background");
-        this.img1=this.add.image(120, 120, "image");
-        this.img2=this.add.image(330, 120, "image");
+        var tweens=this.tweens;
+        var imgf;
+        var VereficarResultado=0;
 
-        this.img3=this.add.image(120, 305, "image");
-        this.img4=this.add.image(330, 305, "image");
+        this.img1 = this.add.image(225, 325, "background");
+        imgf = this.add.image(225, 325, "background");
+        this.img1 = this.add.image(120, 120, "image");
+        this.img2 = this.add.image(330, 120, "image");
 
-        var TextBoxX=[126,159,192,225,258,291,324]
-        var TextBoxY=[450,450,450,450,450,450,450]
+        this.img3 = this.add.image(120, 305, "image");
+        this.img4 = this.add.image(330, 305, "image");
 
-        this.p=this.add.image(126, 450, "TextBox");
-        this.i=this.add.image(159, 450, "TextBox");
-        this.k=this.add.image(192, 450, "TextBox");
-        this.a=this.add.image(225, 450, "TextBox");
-        this.c=this.add.image(258, 450, "TextBox");
-        this.h=this.add.image(291, 450, "TextBox");
-        this.u=this.add.image(324, 450, "TextBox");
+        //creando grupo de caja de text
+        let TextBoxGroup = this.add.group({
+            key: 'TextBox',
+            repeat: 6,
+        });
 
-        var LetrasDesordenadas = [];
-        var Resultado = [];
-        var abecedario=["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
-        abecedario = abecedario.sort(function() {return Math.random() - 0.5});
-
-        var Respuesta=["P","I","K","A","C","H","U"];
-        for (var i=Respuesta.length;i<12;i++){
-            Respuesta[i]=abecedario[i]
-
-        }
-        var SelectLetras=[];
-        Respuesta = Respuesta.sort(function() {return Math.random() - 0.5});
-        var ButtonX=[75,135,195,255,315,375,75,135,195,255,315,375]
-        var ButtonY=[520,520,520,520,520,520,570,570,570,570,570,570]
-
-        let buttonGroup=this.add.group({
-            key:'button',
-            repeat:11,
+        //creando grupo de botones para las letras
+        let buttonGroup = this.add.group({
+            key: 'button',
+            repeat: 11,
 
         });
 
-        for (var i=0;i<12;i++){
+        //Ubicaciones para las cajas donde se imprimiran las letras
+        var TextBoxX = [126, 159, 192, 225, 258, 291, 324]
+        var TextBoxY = [450, 450, 450, 450, 450, 450, 450]
 
-            buttonGroup.getChildren()[i].x=ButtonX[i];
-            buttonGroup.getChildren()[i].y=ButtonY[i];
+        //ubicacion de los botones con letras
+        var ButtonX = [75, 135, 195, 255, 315, 375, 75, 135, 195, 255, 315, 375]
+        var ButtonY = [520, 520, 520, 520, 520, 520, 570, 570, 570, 570, 570, 570]
+
+        var abecedario = ["B", "D", "E", "F", "G", "J",  "L", "M", "N", "O", "Q", "R", "S", "T", "V", "W", "X", "Y", "Z"];
+        var Respuesta = ["P", "I", "K", "A", "C", "H", "U"];
+
+        //mezcla el array del abecedario
+        abecedario = abecedario.sort(function () {
+            return Math.random() - 0.5
+        });
+
+        var LetrasDeBotones = [];//letras que mostraran en los botones
+        var LetrasSeleccionadas = [0, 0, 0, 0, 0, 0, 0];//letras que se selecionaron
+        var LetrasAzar = [];//letras mezcladas de abecedario y respuesta
+
+        //concatenando abecedario y respuesta
+        for (var i = 0; i < 12; i++) {
+            if (i<Respuesta.length)
+            LetrasAzar[i] = Respuesta[i]
+            else
+             LetrasAzar[i] = abecedario[i]
+        }
+
+        //mezclando  letraz al azar
+        LetrasAzar = LetrasAzar.sort(function () {
+            return Math.random() - 0.5
+        });
+
+        // poniendo ubicacion a los botones y caja de texto
+        for (var i = 0; i < 12; i++) {
+            if (i<7){
+                //cajas de text
+                TextBoxGroup.getChildren()[i].x = TextBoxX[i];
+                TextBoxGroup.getChildren()[i].y = TextBoxY[i];
+                TextBoxGroup.getChildren()[i].setInteractive();
+            }
+                //botones
+            buttonGroup.getChildren()[i].x = ButtonX[i];
+            buttonGroup.getChildren()[i].y = ButtonY[i];
             buttonGroup.getChildren()[i].setInteractive();
-            buttonGroup.getChildren()[i].setOrigin(0.5,0.5);
-
-            SelectLetras[i]=add.text(ButtonX[i], ButtonY[i], Respuesta[i], { fontSize: 30, color: '#000000' }).setOrigin(0.5,0.5);
-
-            LetrasDesordenadas[i] = {
-                letra: Respuesta[i],
+            buttonGroup.getChildren()[i].setOrigin(0.5, 0.5);
+            //poniendo las letras
+            LetrasDeBotones[i] = {
+                letra: add.text(ButtonX[i], ButtonY[i], LetrasAzar[i], {
+                    fontSize: 30,
+                    color: '#000000'
+                }).setOrigin(0.5, 0.5),
                 x: ButtonX[i],
                 y: ButtonY[i],
+                i: 100
             };
         }
 
-            buttonGroup.children.iterate((x)=>{
+        buttonGroup.children.iterate((x) => {
             x.on('pointerdown', function (pointer) {
                 this.setTint(0x848484);
             });
@@ -73,29 +98,76 @@ class Scene_play extends Phaser.Scene{
                 this.clearTint();
             });
 
-            x.on('pointerup', function (pointer) {
 
-                for (var i=0;i<12;i++){
-                    if (LetrasDesordenadas[i].x===x.x && LetrasDesordenadas[i].y===x.y){
-                        Resultado.push(LetrasDesordenadas[i].letra);
-                        add.text(TextBoxX[Resultado.length-1], TextBoxY[Resultado.length-1], Resultado[Resultado.length-1], { fontSize: 30, color: '#000000' }).setOrigin(0.5,0.5);
-                        x.alpha=0;
-                        SelectLetras[i].alpha=0;
+            x.on('pointerup', function (pointer) {
+                var sw = true;
+                for (var i = 0; i < 12; i++) {
+
+                    if (LetrasDeBotones[i].letra.x === x.x && LetrasDeBotones[i].letra.y === x.y && VereficarResultado!==8) {
+
+                        for (var j = 0; j < LetrasSeleccionadas.length; j++) {
+                            if (LetrasSeleccionadas[j] === 0 && sw) {
+                                LetrasSeleccionadas[j] = LetrasDeBotones[i].letra._text;
+                                LetrasDeBotones[i].letra.x = TextBoxX[j];
+                                LetrasDeBotones[i].letra.y = TextBoxY[j];
+                                LetrasDeBotones[i].i = j;
+                                sw = false;
+                                x.alpha = 0;
+
+                            }
+                        }
+                        verefica();
+
                     }
                 }
+
                 this.clearTint();
             });
-        })
+        });
+        TextBoxGroup.children.iterate((x) => {
+            x.on('pointerout', function (pointer) {
+                this.clearTint();
+            });
+            x.on('pointerup', function (pointer) {
+
+                for (var i = 0; i < 12; i++) {
+                    if (LetrasDeBotones[i].letra.x === x.x && LetrasDeBotones[i].letra.y === x.y && VereficarResultado!==8) {
+                        LetrasDeBotones[i].letra.x = LetrasDeBotones[i].x;
+                        LetrasDeBotones[i].letra.y = LetrasDeBotones[i].y;
+                        LetrasSeleccionadas[LetrasDeBotones[i].i] = 0;
+                        LetrasDeBotones[i].i = 100;
+                        buttonGroup.getChildren()[i].alpha = 1
 
 
-    function imprimirResultado(esto){
-            for (var i=0;i<Resultado.length;i++){
-                this.add.text(TextBoxX[i], TextBoxY[i], Resultado[i], { fontSize: 30, color: '#000000' }).setOrigin(0.5,0.5);
-                console.log(Resultado)
+                    }
 
+                }
+
+                this.clearTint();
+            });
+        });
+
+        function verefica(){
+            VereficarResultado=0;
+            for (var i=0;i<LetrasSeleccionadas.length;i++){
+                if (LetrasSeleccionadas[i]===Respuesta[i])VereficarResultado++;
             }
-    }
-
+            if (VereficarResultado===7){
+                for (var i=0;i<12;i++){
+                    if (LetrasDeBotones[i].i!==100)LetrasDeBotones[i].letra.setColor('#06f300');
+                }
+                VereficarResultado++;
+                imgf.setDepth(1);
+                tweens.add({
+                    targets:imgf,
+                    duration: 1000,
+                    alpha: {
+                        getStart: () => 0,
+                        getEnd: () => 0.7
+                    },
+                })
+            }
+        }
     }
 }
 export default Scene_play;
