@@ -7,6 +7,7 @@ class SceneFinal extends Phaser.Scene {
         var add = this.add;
         var tweens=this.tweens;
 
+        this.img1 = this.add.image(225, 325, "background");
 
         var TextFinal;
 
