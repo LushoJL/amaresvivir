@@ -7,11 +7,11 @@ class Scene_play extends Phaser.Scene{
     create() {
         var add = this.add;
         var tweens=this.tweens;
-        var imgf;
         var VereficarResultado=0;
 
+
         this.img1 = this.add.image(225, 325, "background");
-        imgf = this.add.image(225, 325, "background");
+        var imgf = this.add.image(225, 325, "background");
         this.img1 = this.add.image(120, 120, "image");
         this.img2 = this.add.image(330, 120, "image");
 
@@ -146,7 +146,24 @@ class Scene_play extends Phaser.Scene{
                 this.clearTint();
             });
         });
+        // add.text(100, 100, 'PIKACHU', {
+        //     fontFamily: 'Verdana, "Arial", Tahoma, serif',
+        //     fontSize: 30,
+        //     color: '#000000'
+        // }).setOrigin(0.5, 0.5);
 
+        var TextFinal;
+
+        WebFont.load({
+            google: {
+                families: [ 'Londrina Solid']
+            },
+            active: function ()
+            {
+                TextFinal=add.text(100, -100, 'PIKACHU', { fontFamily: 'Londrina Solid', fontSize: 80, color: '#29e705' }).setShadow(2, 2, "#333333", 2, false, true);
+
+            }
+        });
         function verefica(){
             VereficarResultado=0;
             for (var i=0;i<LetrasSeleccionadas.length;i++){
@@ -165,6 +182,12 @@ class Scene_play extends Phaser.Scene{
                         getStart: () => 0,
                         getEnd: () => 0.7
                     },
+                });
+                TextFinal.setDepth(1);
+                tweens.add({
+                    targets:TextFinal,
+                    duration: 1000,
+                    y:300
                 })
             }
         }
