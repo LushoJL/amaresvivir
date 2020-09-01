@@ -28,6 +28,10 @@
     <link rel="stylesheet" href="{{secure_asset('css/radioStyle.css')}}">
     {{--    draggdable--}}
     <link rel="stylesheet" href="{{secure_asset('css/jquery-ui/jquery-ui.css')}}">
+
+
+    {{--    phaser--}}
+    <script src="{{secure_asset('js/phaser/phaser.min.js') }}"></script>
 </head>
 <body>
 
