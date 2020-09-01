@@ -10,7 +10,7 @@
                         <b>CONÓCENOS</b>
                     </div>
                     <ul class="list-group list-group-flush">
-                        <a class="list-group-item text-dark" href="{{route('mission')}}">MISIÓN</a>
+                        <a class="list-group-item text-light active" href="{{route('mission')}}">MISIÓN</a>
                         <a class="list-group-item text-dark" href="{{route('vision')}}">VISIÓN</a>
                         <a class="list-group-item text-dark" href="{{route('philosophy')}}">FILOSOFÍA</a>
                         <a class="list-group-item text-dark" href="{{route('institutionalObjectives')}}">OBJETIVOS INSTITUCIONALES</a>

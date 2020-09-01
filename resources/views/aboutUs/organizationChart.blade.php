@@ -13,7 +13,7 @@
                         <a class="list-group-item text-dark" href="{{route('vision')}}">VISIÓN</a>
                         <a class="list-group-item text-dark" href="{{route('philosophy')}}">FILOSOFÍA</a>
                         <a class="list-group-item text-dark" href="{{route('institutionalObjectives')}}">OBJETIVOS INSTITUCIONALES</a>
-                        <a class="list-group-item text-dark" href="{{route('organizationChart')}}">ORGANIGRAMA</a>
+                        <a class="list-group-item text-light active" href="{{route('organizationChart')}}">ORGANIGRAMA</a>
                     </ul>
                 </div>
             </div>
