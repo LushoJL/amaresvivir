@@ -1,11 +1,22 @@
 @extends('layouts.app')
 @section('content')
-    
+
     <div class="container">
         <div class="row mt-3">
-            
-            <div class="col-4 my-5 border-bottom">
-                <img src="{{ asset('image/filosofia.jpg') }}" alt="inserte imagen :v" class="float-md-right">
+
+            <div class="col-4">
+                <div class="card" >
+                    <div class="card-header">
+                        <b>CONÓCENOS</b>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <a class="list-group-item text-dark" href="{{route('mission')}}">MISIÓN</a>
+                        <a class="list-group-item text-dark" href="{{route('vision')}}">VISIÓN</a>
+                        <a class="list-group-item text-dark" href="{{route('philosophy')}}">FILOSOFÍA</a>
+                        <a class="list-group-item text-dark" href="{{route('institutionalObjectives')}}">OBJETIVOS INSTITUCIONALES</a>
+                        <a class="list-group-item text-dark" href="{{route('organizationChart')}}">ORGANIGRAMA</a>
+                    </ul>
+                </div>
             </div>
 
             <div class="col-sm-8">
@@ -18,7 +29,7 @@
             </div>
 
           </div>
-          
+
     </div>
 
 @endsection
