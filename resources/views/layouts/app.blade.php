@@ -80,6 +80,9 @@
                 <li class=""><a href="{{ secure_url('/construccion') }}">NOS IMPORTAS TU</a></li>
                 <li class=""><a href="{{ secure_url('/construccion') }}">TU HISTORIA</a></li>
                 <li class=""><a href="{{ secure_url('/noticia') }}">NOTICIAS</a></li>
+                <li class=""><a href="{{ secure_url('login') }}">LOGIN</a></li>
+                {{--<li class=""><a href="{{ secure_url('register') }}">REGISTER</a></li>--}}
+                <li class=""><a href="{{ secure_url('index') }}">INDEX</a></li>
 
             </ul>
         </nav><!-- .nav-menu -->

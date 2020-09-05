@@ -15,8 +15,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Auth::routes();
-
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/inicio', 'StartController@index')->name('start');
 Route::get('/quienes-somos', 'AboutController@index')->name('about');
@@ -65,3 +63,10 @@ Route::get('/actividades-adultos', 'AdultsController@index')->name('adults');
 Route::get('/actividades-adultos/caso-uno', 'AdultsController@firstCase')->name('firstCase');
 
 
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+//administracion
+Route::get('/index', 'AboutController@index')->name('index');
