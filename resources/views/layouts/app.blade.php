@@ -33,12 +33,12 @@
     {{--    phaser--}}
     <script src="{{secure_asset('js/phaser/phaser.min.js') }}"></script>
 </head>
-<body>
+<body style="background: black">
 
 <!-- ======= Top Bar ======= -->
 <div>
-    <div class="container mt-3" >
-        <div class="row">
+    <div class="m-2 pplomo" >
+        <div class="row ">
             <div class="col-2">
                 <img src="{{secure_asset('image/topBar/logo.png')}}" width="100%">
             </div>
@@ -53,44 +53,32 @@
 </div>
 
 <!-- ======= Header ======= -->
-<header id="header">
 
-    <div class="container d-flex">
-        <nav class="nav-menu d-none d-lg-block">
-            <ul>
-                <li class="active"><a href="{{secure_url('/inicio')}}">INICIO</a></li>
-                <li class="drop-down"><a href="">¿QUIENES SOMOS?</a>
-                    <ul>
-                        <li><a href="{{ secure_url('/mision') }}">MISIÓN</a></li>
-                        <li><a href="{{ secure_url('/vision') }}">VISIÓN</a></li>
-                        <li><a href="{{ secure_url('/filosofia') }}">FILOSOFÍA</a></li>
-                        <li><a href="{{ secure_url('/objetivos_institucionales') }}">OBJETIVOS INSTITUCIONALES</a></li>
-                        <li><a href="{{ secure_url('/organigrama') }}">ORGANIGRAMA</a></li>
-                    </ul>
-                </li>
-                <li class="drop-down"><a href="{{secure_url('/actividades-juegos')}}">ACTIVIDADES Y JUEGOS</a>
-                    <ul>
-                        <li><a href="{{secure_url('/actividades-juegos')}}">NIÑOS/AS </a></li>
-                        <li><a href="{{secure_url('/actividades-juegos-joven')}}">JOVENES</a></li>
-                        <li><a href="{{secure_url('/actividades-adultos')}}">ADULTOS</a></li>
+    @include('layouts.header')
 
-                    </ul>
-                </li>
-                <li class=""><a href="{{ secure_url('/construccion') }}">TEST</a></li>
-                <li class=""><a href="{{ secure_url('/construccion') }}">NOS IMPORTAS TU</a></li>
-                <li class=""><a href="{{ secure_url('/construccion') }}">TU HISTORIA</a></li>
-                <li class=""><a href="{{ secure_url('/noticia') }}">NOTICIAS</a></li>
 
-            </ul>
-        </nav><!-- .nav-menu -->
-    </div>
-</header><!-- End Header -->
-
-<!-- ======= Headers ======= -->
 <div id="app">
-    <main id="main">
-        @yield('content')
-    </main>
+
+    <div class="page-wrapper chiller-theme toggled">
+        @include('layouts.conocenos')
+        <main class="page-content pplomo">
+            @yield('content')
+        </main>
+    </div>
+
+
+
+{{--    <div class="wrapper pnaranja " >--}}
+{{--        @include('layouts.conocenos')--}}
+
+{{--    </div>--}}
+
+{{--        <main id="main" class="pplomo ">--}}
+{{--            @yield('content')--}}
+{{--            @include('layouts.footer')--}}
+
+{{--        </main>--}}
+
 </div>
 <!-- End Header -->
 <script src="{{secure_asset('js/bootstrap/jquery-3.5.1.slim.min.js')}}"></script>
@@ -110,6 +98,63 @@
 
 <script src="{{secure_asset('js/jquery-ui/jquery-ui.js')}}"></script>
 <script src="{{secure_asset('js/jquery-touch/jquery.ui.touch-punch.min.js')}}"></script>
+
+
+
+
+<script>
+    $(".sidebar-dropdown > a").click(function() {
+        $(".sidebar-submenu").slideUp(200);
+        if (
+            $(this)
+                .parent()
+                .hasClass("active")
+        ) {
+            $(".sidebar-dropdown").removeClass("active");
+            $(this)
+                .parent()
+                .removeClass("active");
+        } else {
+            $(".sidebar-dropdown").removeClass("active");
+            $(this)
+                .next(".sidebar-submenu")
+                .slideDown(200);
+            $(this)
+                .parent()
+                .addClass("active");
+        }
+    });
+
+
+
+    //para el responsive
+    const mediumBpSidebar = matchMedia('(max-width: 990px)');
+    const changeSizeSidebar = mql =>{
+        if (mql.matches){
+            $(".page-wrapper").removeClass("toggled");
+            $(".page-wrapper").css("margin-left",0);
+        }else{
+            $(".page-wrapper").addClass("toggled");
+            $(".page-wrapper").css("margin-left",260);
+        }
+    }
+    mediumBpSidebar.addListener(changeSizeSidebar);
+    changeSizeSidebar(mediumBpSidebar);
+
+    $("#close-sidebar").click(function() {
+        $(".page-wrapper").removeClass("toggled");
+        $(".page-wrapper").css("margin-left",0);
+
+
+    });
+    $("#show-sidebar").click(function() {
+        $(".page-wrapper").addClass("toggled");
+        $(".page-wrapper").css("margin-left",260);
+
+    });
+
+
+</script>
 
 {{--preguntas niña--}}
 <script>
