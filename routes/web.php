@@ -58,7 +58,7 @@ Route::get('/semaforo', 'ActivitygameController@actividadDos')->name('actividadd
 //actividad dos
 Route::get('/actividades-juegos-joven', 'ActivitygameController@FourPicsOneWord')->name('FourPicsOneWord');
 
-//adultos index
+//adultos_index
 Route::get('/actividades-adultos', 'AdultsController@index')->name('adults');
 Route::get('/actividades-adultos/caso-uno', 'AdultsController@firstCase')->name('firstCase');
 
@@ -66,7 +66,7 @@ Route::get('/actividades-adultos/caso-uno', 'AdultsController@firstCase')->name(
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+//Route::get('/home', 'HomeController@index')->name('home');
 
-//administracion
-Route::get('/index', 'AboutController@index')->name('index');
+//admin
+Route::get('/index', 'AdminController@index')->name('index');

@@ -36,9 +36,4 @@ class AboutController extends Controller
     {
         return view('construccion');
     }
-
-    public function index()
-    {
-        return view('index');
-    }
 }
