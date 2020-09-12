@@ -1,5 +1,5 @@
 
-@extends('layouts.app')
+@extends('layouts. templateFront.app')
 @section('content')
     <h1><center>JOAQUÍN</center></h1>
     <p class="cuento">

@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts. templateFront.app')
 @section('content')
 
 <div class="container">
@@ -20,20 +20,25 @@
         <!-- Add Pagination -->
         <div class="swiper-pagination"></div>
       </div>
-        <div>
-            <h1>Bienvenido</h1>
-            <h1>Bienvenido</h1>
-            <h1>Bienvenido</h1>
-            <h1>Bienvenido</h1>
-            <h1>Bienvenido</h1>
-            <h1>Bienvenido</h1>
-            <h1>Bienvenido</h1>
-            <h1>Bienvenido</h1>
-            <h1>Bienvenido</h1>
-            <h1>Bienvenido</h1>
-            <h1>Bienvenido</h1>
-            <h1>Bienvenido</h1>
-        </div>
+    <div class="row">
+        <img src="{{asset("images/AMBOS.png")}}" alt="LGO" WIDTH="35%">
+
+    </div>
+    <div class="row ">
+        <div class="col-sm-6 mt-5"><p style="font-family: Ravie;color: white;font-size: 3vw">Bienvenido</p></div>
+        <div class="col-sm-6 naranjado mt-5" style="border: black solid 10px;height: 100px"></div>
+    </div>
+    <h1>hola mundo</h1>
+    <h1>hola mundo</h1>
+    <h1>hola mundo</h1>
+    <h1>hola mundo</h1>
+    <h1>hola mundo</h1>
+    <h1>hola mundo</h1>
+    <h1>hola mundo</h1>
+    <h1>hola mundo</h1>
+    <h1>hola mundo</h1>
+    <h1>hola mundo</h1>
+    <h1>hola mundo</h1>
 </div>
 
 

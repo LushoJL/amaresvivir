@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts. templateFront.app')
 @section('content')
     <div class="container">
         <h2 class="my-5 text-center text-primary">Noticias Unifranz</h2>

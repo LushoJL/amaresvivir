@@ -12,11 +12,9 @@
     {{--    <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">--}}
 
     <link rel="stylesheet" href="{{secure_asset('css/bootstrap/bootstrap.min.css')}}" crossorigin="anonymous">
-    <link href="{{secure_asset('css/style.css')}}" rel="stylesheet">
     <link href="{{secure_asset('css/icofont/icofont.min.css')}}" rel="stylesheet">
 
     <link rel="stylesheet" href="{{secure_asset('css/app.css')}}"  rel="stylesheet">
-
 
     <!--Swiper pru-->
     <link rel="stylesheet" href="{{secure_asset('css/swiper/swiper-bundle.min.css') }}">
@@ -29,68 +27,61 @@
     {{--    draggdable--}}
     <link rel="stylesheet" href="{{secure_asset('css/jquery-ui/jquery-ui.css')}}">
 
+    <link href="{{secure_asset('css/style.css')}}" rel="stylesheet">
 
     {{--    phaser--}}
     <script src="{{secure_asset('js/phaser/phaser.min.js') }}"></script>
 </head>
-<body style="background: black">
 
-<!-- ======= Top Bar ======= -->
-<div>
-    <div class="m-2 pplomo" >
+
+<body style="background: #000000;">
+
+
+
+<!-- ======= Header ======= -->
+<div class=" container-fluid " style="background: black;">
+
+    <div class="header plomo">
         <div class="row ">
-            <div class="col-2">
-                <img src="{{secure_asset('image/topBar/logo.png')}}" width="100%">
+            <div class="col-2 mt-3">
+                <img src="{{asset("image/topBar/logo.png")}}" alt="logo1" class="logo">
             </div>
-            <div class="col-7">
-                <img src="{{secure_asset('image/topBar/logo2.jpg')}}"  width="100%">
+            <div class="col-7 mt-3">
+                <img src="{{asset("image/topBar/logo1.png")}}" alt="logo2" class="logo" >
             </div>
-            <div class="col-3">
-                <img src="{{secure_asset('image/topBar/logo1.png')}}" width="100%">
+            <div class="col-3 mt-3">
+                <img src="{{asset("image/topBar/logo2.png")}}" alt="logo3" class="logo">
             </div>
         </div>
     </div>
-</div>
+    @include('layouts. templateFront.navbar')
 
-<!-- ======= Header ======= -->
-
-    @include('layouts.header')
-
-
-<div id="app">
-
-    <div class="page-wrapper chiller-theme toggled">
-        @include('layouts.conocenos')
-        <main class="page-content pplomo">
+    <div class="row" id="app">
+        <div class="col-4" >
+            @include('layouts. templateFront.conocenos')
+        </div>
+        <main class="col plomo main"  >
             @yield('content')
         </main>
     </div>
 
 
 
-{{--    <div class="wrapper pnaranja " >--}}
-{{--        @include('layouts.conocenos')--}}
-
-{{--    </div>--}}
-
-{{--        <main id="main" class="pplomo ">--}}
-{{--            @yield('content')--}}
-{{--            @include('layouts.footer')--}}
-
-{{--        </main>--}}
-
 </div>
+
 <!-- End Header -->
 <script src="{{secure_asset('js/bootstrap/jquery-3.5.1.slim.min.js')}}"></script>
 <script src="{{secure_asset('js/bootstrap/jquery.min.js')}}"></script>
-
-<script src="{{secure_asset('js/bootstrap/bootstrap.min.js')}}"></script>
 <script src="{{secure_asset('js/bootstrap/popper.min.js')}}"></script>
-<script src="{{secure_asset('js/jquery-sticky/jquery.sticky.js')}}"></script>
+<script src="{{secure_asset('js/bootstrap/bootstrap.min.js')}}"></script>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
 
 
 
-<script src="{{secure_asset('js/main.js')}}"></script>
+
 <script src="{{secure_asset('js/swiper/swiper-bundle.min.js') }}"></script>
 
 <script src="{{secure_asset('js/sweetalert2/sweetalert2.all.min.js') }}"></script>
@@ -98,6 +89,7 @@
 
 <script src="{{secure_asset('js/jquery-ui/jquery-ui.js')}}"></script>
 <script src="{{secure_asset('js/jquery-touch/jquery.ui.touch-punch.min.js')}}"></script>
+<script src="{{secure_asset('js/main.js')}}"></script>
 
 
 
@@ -658,4 +650,5 @@
 @yield('swiper')
 
 </body>
+
 </html>

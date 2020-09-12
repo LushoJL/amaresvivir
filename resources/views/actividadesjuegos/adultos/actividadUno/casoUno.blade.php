@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts. templateFront.app')
 @section('content')
     <h1><center>CASO Nº1: CIELOS</center></h1>
     <p class="cuento">"Cuando tenía 14 años, conocí a un chico en el cumpleaños de una amiga. Los tres primeros meses fueron bastante bien, pero después empezó a alejarme de mis amigas y de mi familia y solo podía salir si él me daba permiso, y me ponía horarios.
