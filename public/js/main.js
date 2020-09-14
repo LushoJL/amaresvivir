@@ -7,17 +7,21 @@ $(".sidenav").css("padding-top",$(".nav-personalizado").height()+20);
 
 if ($(window).width() <= 1000) {
     $(".main").removeClass("col");
+    $(".main").addClass("col-12");
 } else {
+    $(".main").removeClass("col-12");
     $(".main").addClass("col");
 }
 $(".dropdown-menu-quinessomos").css("width",$(".nav-quienessomos").width()+16);
 $(".dropdown-menu-actividadesJuegos").css("width",$(".nav-actividadesJuegos").width()+16);
+
 $(window).resize(function() {
 
     if ($(this).width() <= 1000) {
         $(".main").removeClass("col");
-
+        $(".main").addClass("col-12");
     } else {
+        $(".main").removeClass("col-12");
         $(".main").addClass("col");
     }
 

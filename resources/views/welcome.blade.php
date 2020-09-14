@@ -21,8 +21,10 @@
         <div class="swiper-pagination"></div>
       </div>
     <div class="row">
-        <img src="{{asset("images/AMBOS.png")}}" alt="LGO" WIDTH="35%">
+        <div class="col-6">
+            <img src="{{asset("images/AMBOS.png")}}" alt="LGO" width="35%">
 
+        </div>
     </div>
     <div class="row ">
         <div class="col-sm-6 mt-5"><p style="font-family: Ravie;color: white;font-size: 3vw">Bienvenido</p></div>

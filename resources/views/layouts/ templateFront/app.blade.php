@@ -60,9 +60,9 @@
         <div class="col-4" >
             @include('layouts. templateFront.conocenos')
         </div>
-        <main class="col plomo main"  >
+        <div class="plomo main"  >
             @yield('content')
-        </main>
+        </div>
     </div>
 
 
