@@ -65,10 +65,6 @@ NAVBAR
     font-weight: bold;
 
 }
-.nav-personalizado > #navbarToggler>.nav> .active{
-
-
-}
 
 /*
 SIDEBAR
@@ -125,7 +121,7 @@ CONTENIDO
     left: -15px!important;
     margin-left: 10px;
     border-radius: 5px;
-    padding: 50px;
+
 }
 
 

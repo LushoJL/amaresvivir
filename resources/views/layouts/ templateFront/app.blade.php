@@ -43,13 +43,13 @@
 
     <div class="header plomo">
         <div class="row ">
-            <div class="col-2 mt-3">
+            <div class="col-2 mt-3 mb-3">
                 <img src="{{asset("image/topBar/logo.png")}}" alt="logo1" class="logo">
             </div>
-            <div class="col-7 mt-3">
+            <div class="col-7 mt-3 mb-3">
                 <img src="{{asset("image/topBar/logo1.png")}}" alt="logo2" class="logo" >
             </div>
-            <div class="col-3 mt-3">
+            <div class="col-3 mt-3 mb-3">
                 <img src="{{asset("image/topBar/logo2.png")}}" alt="logo3" class="logo">
             </div>
         </div>

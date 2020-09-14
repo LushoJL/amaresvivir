@@ -6,7 +6,6 @@
     </button>
 
     <div class=" collapse navbar-collapse " id="navbarToggler">
-
         <ul class="nav navbar-nav  nav-fill">
             <li class="nav-item">
                 <a class="flex-lg-fill text-lg-center nav-link naranjado mt-1 mr-1 mb-1 active " href="{{secure_url('/inicio')}}" style="font-size: 30px">INICIO</a>
@@ -35,7 +34,6 @@
             <li class="nav-item"> <a class="flex-lg-fill text-lg-center nav-link plomo m-1" href="{{ secure_url('/construccion') }}">TU <br>HISTORIA</a></li>
             <li class="nav-item"> <a class="flex-lg-fill text-lg-center nav-link naranjado mt-1 ml-1 mb-1" href="{{ secure_url('/noticia') }}">NOTICIAS<br> Y NOVEDADES</a></li>
         </ul>
-
     </div>
 
 </nav>

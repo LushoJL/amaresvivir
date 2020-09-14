@@ -21,8 +21,8 @@
         <div class="swiper-pagination"></div>
       </div>
     <div class="row">
-        <div class="col-6">
-            <img src="{{asset("images/AMBOS.png")}}" alt="LGO" width="35%">
+        <div class="col-8">
+            <img src="{{asset("images/AMBOS.png")}}" alt="LGO" width="100%">
 
         </div>
     </div>
