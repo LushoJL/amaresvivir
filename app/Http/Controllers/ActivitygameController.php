@@ -7,26 +7,29 @@ use Illuminate\Http\Request;
 
 class ActivitygameController extends Controller
 {
+    /**
+     * LANDING PAGE
+     */
     /*
      * actividad y juegos de niños
      *
      */
         public function index()
     {
-        return view('actividadesjuegos.niños.actividadUno.niños');
+        return view('landingPage/actividadesjuegos.niños.actividadUno.niños');
     }
         public function actividadDos()
         {
-            return view('actividadesjuegos.niños.actividadDos.semaforo');
+            return view('landingPage/actividadesjuegos.niños.actividadDos.semaforo');
         }
         //cuento de niño
         public function boy(){
-            return view('actividadesjuegos.niños.actividadUno.cuentos.niño');
+            return view('landingPage/actividadesjuegos.niños.actividadUno.cuentos.niño');
         }
         //cuento de niña
         public function girl()
         {
-            return view('actividadesjuegos.niños.actividadUno.cuentos.niña');
+            return view('landingPage/actividadesjuegos.niños.actividadUno.cuentos.niña');
         }
         /*
         * actividad y juegos de jovenes
@@ -36,6 +39,19 @@ class ActivitygameController extends Controller
             //cuatro fotos una palabra
         public function FourPicsOneWord()
         {
-            return view('actividadesjuegos.jovenes.actividadDos.index');
+            return view('landingPage/actividadesjuegos.jovenes.actividadDos.index');
+        }
+
+        /**
+         * ADMIN
+         */
+        function niñoAdmin(){
+            return view('admin.actividadesJuegos.niño');
+        }
+        function jovenAdmin(){
+            return view('admin.actividadesJuegos.joven');
+        }
+        function adultoAdmin(){
+            return view('admin.actividadesJuegos.adulto');
         }
 }

@@ -9,11 +9,11 @@ class AdultsController extends Controller
     //
     public function index()
     {
-        return view('actividadesjuegos.adultos.actividadUno.index');
+        return view('landingPage/actividadesjuegos.adultos.actividadUno.index');
     }
 
     public function firstCase()
     {
-        return view('actividadesjuegos.adultos.actividadUno.casoUno');
+        return view('landingPage/actividadesjuegos.adultos.actividadUno.casoUno');
     }
 }

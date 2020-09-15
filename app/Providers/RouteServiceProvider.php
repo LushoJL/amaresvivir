@@ -53,7 +53,24 @@ class RouteServiceProvider extends ServiceProvider
     {
         Route::middleware('web')
              ->namespace($this->namespace)
-             ->group(base_path('routes/web.php'));
+             ->group(function (){
+                 //landingPage
+                 require base_path('routes/web.php');
+                 require base_path('routes/landingPage/quienesSomos.php');
+                 require base_path('routes/landingPage/actividadesJuegos.php');
+                 require base_path('routes/landingPage/test.php');
+                 require base_path('routes/landingPage/tuHistoria.php');
+                 require base_path('routes/landingPage/tuNosImportas.php');
+                 require base_path('routes/landingPage/noticias.php');
+                 //admin
+                 require base_path('routes/admin/inicio.php');
+                 require base_path('routes/admin/quienesSomos.php');
+                 require base_path('routes/admin/actividadesJuegos.php');
+                 require base_path('routes/admin/test.php');
+                 require base_path('routes/admin/tuHistoria.php');
+                 require base_path('routes/admin/tuNosImportas.php');
+                 require base_path('routes/admin/noticias.php');
+             });
     }
 
     /**

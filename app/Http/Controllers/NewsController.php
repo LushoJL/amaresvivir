@@ -6,12 +6,24 @@ use Illuminate\Http\Request;
 
 class NewsController extends Controller
 {
+    /**
+     *LANDING PAGE
+     */
     public function index()
     {
-        return view('noticias.index');
+        return view('landingPage/noticias.index');
     }
     public function article()
     {
-        return view('noticias.articulo');
+        return view('landingPage/noticias.articulo');
+    }
+
+    /**
+     * ADMIN
+     */
+
+    public function indexAdmin()
+    {
+        return view('admin.noticias.noticias');
     }
 }

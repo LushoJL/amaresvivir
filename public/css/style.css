@@ -11,7 +11,7 @@
 COLORES
  */
 .naranjado{
-    background: #E86624!important;
+    background: #CC652B!important;
 }
 .plomo{
     background: #524658!important;
@@ -54,7 +54,7 @@ NAVBAR
 .nav-personalizado{
     background: black!important;
     font-family:  'Coiny', cursive;
-    z-index: 10000!important;
+    z-index: 1021!important;
 
 }
 .nav{
@@ -121,7 +121,7 @@ CONTENIDO
     left: -15px!important;
     margin-left: 10px;
     border-radius: 5px;
-
+    padding: 50px;
 }
 
 
@@ -259,7 +259,7 @@ CONTENIDO
 
     left: 140px;
     bottom:110px;
-    z-index: -1;
+   /*// z-index: -1;*/
 }
 .hover{
     position: absolute;
@@ -441,6 +441,4 @@ div.unaPlabra{
     margin-right: 5px;
     margin-bottom: 10px;
 }
-
-
 
