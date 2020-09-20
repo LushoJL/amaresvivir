@@ -35,7 +35,7 @@ CABEZERA
  */
 .header {
     background-color: #000000;
-
+    min-width: 512px!important;
 
 }
 .logo{
@@ -52,16 +52,17 @@ END CABEZARA
 NAVBAR
  */
 .nav-personalizado{
-    background: black!important;
+    background: #000000 !important;
     font-family:  'Coiny', cursive;
     z-index: 1021!important;
+    min-width: 512px!important;
 
 }
 .nav{
     width: 100%;
 }
 .navbar-dark .navbar-nav .nav-link {
-    color: rgba(0, 0, 0);
+    color: rgba(0, 0, 0,1);
     font-weight: bold;
 
 }
@@ -122,6 +123,8 @@ CONTENIDO
     margin-left: 10px;
     border-radius: 5px;
     padding: 50px;
+    min-width: 512px!important;
+
 }
 
 
@@ -254,55 +257,30 @@ CONTENIDO
 # SEMAFORO
 
 --------------------------------------------------------------*/
-.luces{
-    position: absolute;
 
-    left: 140px;
-    bottom:110px;
-   /*// z-index: -1;*/
-}
-.hover{
+.luces,.hover{
     position: absolute;
-    left: 140px;
-    bottom:110px;
+    left: 108px;
+    bottom:108px;
     z-index: 1;
+}
+.red,.yellow,.green,.hover1,.hover2,.hover3{
+    width: 64px;
+    height: 68px;
 }
 .red{
     background: #9d0000;
-    width: 125px;
-    height: 130px;
-    margin-top: 10px;
-
 }
 .yellow{
     background: #888800;
-    width: 125px;
-    height: 130px;
 }
 .green{
     background: green;
-    width: 125px;
-    height: 133px;
 }
-.hover1{
-
-    width: 125px;
-    height: 130px;
-
-    cursor: pointer;
+.hover{
+    z-index: 3;
 }
-.hover2{
 
-    width: 125px;
-    height: 130px;
-    cursor: pointer;
-}
-.hover3{
-
-    width: 125px;
-    height: 133px;
-    cursor: pointer;
-}
 figure{
 
     display: inline-block;
@@ -313,10 +291,12 @@ figure{
 }
 
 /*rompe cabeza*/
+
+
 div.rompecabeza {
     height: 450px;
     width: 820px;
-    background-color: #090909;
+    background-color: #000000;
     margin: auto;
     position: relative;
 }
@@ -327,13 +307,17 @@ div.base {
     width: 400px;
     height: 400px;
 }
+div.base>img{
+    width:100%;
+    opacity: 20%;
+}
 div.piezas {
     margin-top: 20px;
     float: left;
     width: 400px;
     height: 400px;
 }
-@media only screen and (max-width: 800px) {
+@media only screen and (max-width: 1400px) {
     div.rompecabeza {
         height: 850px;
         width: 450px;
@@ -390,8 +374,6 @@ div.unaPlabra{
     width: 200px;
     margin: 12px;
     float: left;
-
-
 }
 .imagenes >div>img{
     border-radius: 20px;
@@ -399,7 +381,6 @@ div.unaPlabra{
 
 .LetrasRespuestas {
     height: 80px;
-
     width: 80%;
     margin: auto;
 
@@ -414,9 +395,6 @@ div.unaPlabra{
     margin-left: 5px;
     margin-right: 5px;
     margin-bottom: 10px;
-
-
-
     -webkit-box-shadow: -8px -1px 53px 0px rgba(255,255,255,1);
     -moz-box-shadow: -8px -1px 53px 0px rgba(255,255,255,1);
     box-shadow: -8px -1px 53px 0px rgba(255,255,255,1);

@@ -2,17 +2,24 @@
 @section('content')
 
         <!--    semaforo-->
-        <div class="mx-auto" style="width: 400px;">
-            <figure>
-                <div style="z-index: 4">
-                    <img src="image/actividadesyjuegos/semaforo.png" width="400px" alt="">
 
-                </div>
-                <div style="z-index: 2">
+            <div class="m-auto" style="width: 400px;">
+                <figure>
+                    <div style="z-index: 2;position: relative">
+                        <img src="{{secure_asset('images/ninioactividades/semaforo.png')}}" width="220px" alt=""style="margin-left: 32px">
+
+                    </div>
+
                     <div class="hover">
-                        <div class="hover1" data-toggle="modal" data-target="#rompecabezarojo"></div>
-                        <div class="hover2" data-toggle="modal" data-target="#rompecabezaamarillo"></div>
-                        <div class="hover3" data-toggle="modal" data-target="#rompecabezaverde"></div>
+                        <a href="{{secure_url('/semaforo-rojo')}}">
+                            <div class="hover1"></div>
+                        </a>
+                        <a href="{{secure_url('/semaforo-amarillo')}}">
+                            <div class="hover2" data-toggle="modal" data-target="#rompecabezaamarillo"></div>
+                        </a>
+                        <a href="{{secure_url('/semaforo-verde')}}">
+                            <div class="hover3" data-toggle="modal" data-target="#rompecabezaverde"></div>
+                        </a>
                     </div>
                     <div class="luces">
                         <div class="red">
@@ -25,113 +32,14 @@
 
                         </div>
                     </div>
-                </div>
+                </figure>
 
-
-
-            </figure>
+            </div>
+        <div class="m-auto  naranjado p-3" style="width: 90%;text-align: center;border: black solid 5px">
+            <p class="m-auto" style="font-family: Ravie;font-size:2vw ">SEMAFORO DE LA SEXUALIDAD <br> (elija un color)</p>
         </div>
+
+
+
         <!--    fin semaforo-->
-
-        <!--    rompecabeza rojo-->
-        <div class="modal fade" id="rompecabezarojo" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" >Modal title</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-
-                        <div class="rompecabeza">
-                            <div class="base">
-                                <img src="https://raw.githubusercontent.com/NestorPlasencia/pikachu-puzzle/master//pikachu.png" alt=""
-                                     class="mt-0 " width="100%" style="opacity: 50%">
-                            </div>
-
-                            <div class="piezas">
-
-
-                                <img src="https://raw.githubusercontent.com/NestorPlasencia/pikachu-puzzle/master/1.png" class="pieza"
-                                     id="img1">
-                                <img src="https://raw.githubusercontent.com/NestorPlasencia/pikachu-puzzle/master/2.png" class="pieza"
-                                     id="img2">
-                                <img src="https://raw.githubusercontent.com/NestorPlasencia/pikachu-puzzle/master/3.png" class="pieza"
-                                     id="img3">
-
-                                <img src="https://raw.githubusercontent.com/NestorPlasencia/pikachu-puzzle/master/4.png" class="pieza"
-                                     id="img4">
-                                <img src="https://raw.githubusercontent.com/NestorPlasencia/pikachu-puzzle/master/5.png" class="pieza"
-                                     id="img5">
-                                <img src="https://raw.githubusercontent.com/NestorPlasencia/pikachu-puzzle/master/6.png" class="pieza"
-                                     id="img6">
-
-                                <img src="https://raw.githubusercontent.com/NestorPlasencia/pikachu-puzzle/master/7.png" class="pieza"
-                                     id="img7">
-                                <img src="https://raw.githubusercontent.com/NestorPlasencia/pikachu-puzzle/master/8.png" class="pieza"
-                                     id="img8">
-                                <img src="https://raw.githubusercontent.com/NestorPlasencia/pikachu-puzzle/master/9.png" class="pieza"
-                                     id="img9">
-                            </div>
-
-                            <audio id="win" src="https://raw.githubusercontent.com/NestorPlasencia/PikaPuzzle/master/media/win.mp3"></audio>
-                        </div>
-
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Save changes</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!--    fin rompecabeza rojo-->
-
-        <!--    rompe cabeza amarillo-->
-        <div class="modal fade" id="rompecabezaamarillo" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title">Modal title</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        rompe cabeza amarillo
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Save changes</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!--    fin rompe cabeza amarillo-->
-
-        <!--    rompe cabeza verde-->
-        <div class="modal fade" id="rompecabezaverde" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title">Modal title</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        rompe cabeza verde
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Save changes</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!--    fin rompecabeza verde-->
-
-
 @endsection

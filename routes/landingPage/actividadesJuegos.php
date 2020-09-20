@@ -2,10 +2,26 @@
 /**
  * ACTIVIDADES Y JUEGOS
  */
-Route::get('/actividades-juegos', 'ActivitygameController@index')->name('activitygame');//NIÑOS
-Route::get('/actividades-juegos-niña', 'ActivitygameController@girl')->name('girl');//NIÑOS
-Route::get('/actividades-juegos-niño', 'ActivitygameController@boy')->name('boy');//NIÑOS
-Route::get('/semaforo', 'ActivitygameController@actividadDos')->name('actividaddos');//NIÑOS
-Route::get('/actividades-juegos-joven', 'ActivitygameController@FourPicsOneWord')->name('FourPicsOneWord');//JOVENES
-Route::get('/actividades-adultos', 'AdultsController@index')->name('adults');//ADULTOS
-Route::get('/actividades-adultos/caso-uno', 'AdultsController@firstCase')->name('firstCase');//ADULTOS
+/*
+ * Niños
+ */
+Route::get('/actividades-juegos', 'ActivitygameController@index')->name('activitygame');
+Route::get('/actividades-juegos-niña', 'ActivitygameController@girl')->name('girl');
+Route::get('/actividades-juegos-niño', 'ActivitygameController@boy')->name('boy');
+Route::get('/semaforo', 'ActivitygameController@actividadDos')->name('actividaddos');
+Route::get('/semaforo-rojo', 'ActivitygameController@actividadDosRojo');
+Route::get('/semaforo-amarillo', 'ActivitygameController@actividadDosAmarillo');
+Route::get('/semaforo-verde', 'ActivitygameController@actividadDosVerde');
+
+
+/*
+ * Jovenes
+ */
+Route::get('/actividades-juegos-joven', 'ActivitygameController@FourPicsOneWord')->name('FourPicsOneWord');
+
+
+/*
+ * Adultos
+ */
+Route::get('/actividades-adultos', 'AdultsController@index')->name('adults');
+Route::get('/actividades-adultos/caso-uno', 'AdultsController@firstCase')->name('firstCase');

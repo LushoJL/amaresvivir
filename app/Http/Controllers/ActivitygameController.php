@@ -11,7 +11,7 @@ class ActivitygameController extends Controller
      * LANDING PAGE
      */
     /*
-     * actividad y juegos de niños
+     * niños
      *
      */
         public function index()
@@ -21,6 +21,15 @@ class ActivitygameController extends Controller
         public function actividadDos()
         {
             return view('landingPage/actividadesjuegos.niños.actividadDos.semaforo');
+        }
+        function actividadDosRojo(){
+            return view('landingPage/actividadesjuegos.niños.actividadDos.rojo');
+        }
+        function actividadDosAmarillo(){
+            return view('landingPage/actividadesjuegos.niños.actividadDos.amarillo');
+        }
+        function actividadDosVerde(){
+            return view('landingPage/actividadesjuegos.niños.actividadDos.verde');
         }
         //cuento de niño
         public function boy(){
@@ -32,7 +41,7 @@ class ActivitygameController extends Controller
             return view('landingPage/actividadesjuegos.niños.actividadUno.cuentos.niña');
         }
         /*
-        * actividad y juegos de jovenes
+        * jovenes
         *
         */
         //actividad dos
@@ -54,4 +63,6 @@ class ActivitygameController extends Controller
         function adultoAdmin(){
             return view('admin.actividadesJuegos.adulto');
         }
+
+
 }
