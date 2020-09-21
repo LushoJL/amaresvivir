@@ -21,14 +21,14 @@
 <body class="hold-transition login-page">
 <div class="login-box">
     <div class="login-logo">
-        <a href="{{route('start')}}"><b>Amar es Educar</b>ADMIN</a>
+        <a href="{{secure_url('start')}}"><b>Amar es Educar</b>ADMIN</a>
     </div>
     <!-- /.login-logo -->
     <div class="card">
         <div class="card-body login-card-body">
             <p class="login-box-msg">Ingresa tus credenciales.</p>
 
-            <form action="{{route('login')}}" method="POST">
+            <form action="{{secure_url('login')}}" method="POST">
                 @csrf
 
                 <div class="input-group mb-3">

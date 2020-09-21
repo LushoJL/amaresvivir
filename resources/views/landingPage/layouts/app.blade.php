@@ -29,7 +29,7 @@
 
     {{--button--}}
     <link rel="stylesheet" href="{{secure_asset('css/loginButton.css')}}">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{{secure_asset('plugins/fontawesome-free/css/all.min.css')}}">
 
     <link href="{{secure_asset('css/style.css')}}" rel="stylesheet">
 
@@ -69,7 +69,7 @@
         </div>
     </div>
 
-    <a href="{{route('login')}}" class="btn-login"><span class="fa fa-lock"> Login</span></a>
+    <a href="{{secure_url('login')}}" class="btn-login"><span class="fa fa-lock"> Login</span></a>
 
 
 </div>
