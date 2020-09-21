@@ -86,19 +86,21 @@ class ActivitygameController extends Controller
         }
 
         public function guardarImagen($color,$req){
-            Storage::deleteDirectory('public/'.$color);
 
+            Storage::disk('s3')->deleteDirectory('public/'.$color);
             if($req->hasFile('base')) {
+
                 $image       = $req->file('base');
                 $image_resize = Image::make($image->getRealPath());
                 $image_resize->resize(400, 400);
-                Storage::put("public/".$color."/base.jpg", $image_resize->encode());
-                $url = $req->root().Storage::url($color.'/base.jpg');
+                Storage::disk('s3')->put("public/".$color."/base.jpg", $image_resize->encode(), 'public');
+                $url = Storage::disk('s3')->url('public/'.$color.'/base.jpg');
+
                 $x=$y=0;
                 for ($i=1;$i<=9;$i++){
                     $img = Image::make($url);
                     $img->crop(133, 133, $x, $y);
-                    Storage::put("public/".$color."/".$i.".jpg", $img->encode());
+                    Storage::disk('s3')->put("public/".$color."/".$i.".jpg", $img->encode(), 'public');
                     $x+=133;
                     if ($i%3==0){
                         $y+=133;

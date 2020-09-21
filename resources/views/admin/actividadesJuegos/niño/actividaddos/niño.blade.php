@@ -6,7 +6,7 @@
         <div class="col-lg-4 ">
             <div style="position: absolute;width: 250px;height: 250px; background: red;opacity: 0.4;"></div>
             <div  style="width: 250px">
-                <img src="{{Storage::url('public/rojo/base.jpg')}}" id="imagenRojo" width="250" height="250">
+                <img src="{{Storage::disk('s3')->url('public/rojo/base.jpg')}}" id="imagenRojo" width="250" height="250">
 
                 <form method="POST" action="{{secure_url('/rojo')}}" enctype="multipart/form-data">
                     @csrf
@@ -29,7 +29,7 @@
             <div style="position: absolute;width: 250px;height: 250px; background: yellow;opacity: 0.4;"></div>
 
             <div  style="width: 250px">
-                <img src="{{Storage::url('public/amarillo/base.jpg')}}" id="imagenAmarillo" width="250" height="250">
+                <img src="{{Storage::disk('s3')->url('public/amarillo/base.jpg')}}" id="imagenAmarillo" width="250" height="250">
 
                 <form method="POST" action="{{secure_url('/amarillo')}}" enctype="multipart/form-data">
                     @csrf
@@ -51,7 +51,7 @@
             <div style="position: absolute;width: 250px;height: 250px; background: green;opacity: 0.4;"></div>
 
             <div  style="width: 250px">
-                <img src="{{Storage::url('public/verde/base.jpg')}}" id="imagenVerde" width="250" height="250">
+                <img src="{{Storage::disk('s3')->url('public/verde/base.jpg')}}" id="imagenVerde" width="250" height="250">
 
                 <form method="POST" action="{{secure_url('/verde')}}" enctype="multipart/form-data">
                     @csrf
