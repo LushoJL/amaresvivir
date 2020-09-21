@@ -88,6 +88,7 @@ class ActivitygameController extends Controller
         public function guardarImagen($color,$req){
 
             Storage::disk('s3')->deleteDirectory('public/'.$color);
+
             if($req->hasFile('base')) {
 
                 $image       = $req->file('base');
