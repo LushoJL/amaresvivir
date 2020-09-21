@@ -32,7 +32,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <link href="{{secure_asset('css/style.css')}}" rel="stylesheet">
-    https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css
+
     {{--    phaser--}}
     <script src="{{secure_asset('js/phaser/phaser.min.js') }}"></script>
 </head>

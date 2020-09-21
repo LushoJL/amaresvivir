@@ -70,5 +70,44 @@
 <script src="{{secure_asset('plugins/chart.js/Chart.min.js')}}"></script>
 <script src="{{secure_asset('dist/js/demo.js')}}"></script>
 <script src="{{secure_asset('dist/js/pages/dashboard3.js')}}"></script>
+{{--image tools--}}
+<script src="{{secure_asset('js/ImageTools/ImageTools.js')}}"></script>
+<script>
+    function resize(itemfile) {
+
+        var element = itemfile;
+        ImageTools.resize(element.files[0], {
+            width: 1920,
+            height: 1080
+        }, function (blob, didItResize) {
+            var file = new File([blob], (ListadeImagenes.length + 1) + ".jpg");
+            ListadeImagenes.push(file);
+        });
+    };
+    function sendresize () {
+
+        var fd = new FormData();
+        var ins = ListadeImagenes.length;
+        for (var x = 0; x < ins; x++) {
+            fd.append("imgUpload", ListadeImagenes[x]);
+        }
+        $.ajax({
+            url: {{asset('recorte')}},
+            method: 'post',
+            data: fd,
+            contentType: false,
+            processData: false,
+            success: function (response) {
+                console.log(response);
+                location.reload();
+
+            },
+            error: function (err) {
+                console.log(err);
+            }
+        });
+    };
+
+</script>
 </body>
 </html>
