@@ -37,10 +37,10 @@
         <div class="col-sm-6 mt-5"><p style="font-family: Ravie;color: white;font-size: 3vw">Bienvenido</p></div>
         <div class="col-sm-6 naranjado mt-5" style="border: black solid 10px;height: 100px"></div>
     </div>
-    <h1>hola mundo</h1>
-    <h1>hola mundo</h1>
-    <h1>hola mundo</h1>
-    <h1>hola mundo</h1>
+    <h1>hola mundo 1</h1>
+    <h1>hola mundo 2</h1>
+    <h1>hola mundo 3</h1>
+    <h1>hola mundo 4</h1>
     <h1>hola mundo</h1>
     <h1>hola mundo</h1>
     <h1>hola mundo</h1>
