@@ -6,18 +6,18 @@
             <div class="m-auto" style="width: 400px;">
                 <figure>
                     <div style="z-index: 2;position: relative">
-                        <img src="{{secure_asset('images/ninioactividades/semaforo.png')}}" width="220px" alt=""style="margin-left: 32px">
+                        <img src="{{asset('images/ninioactividades/semaforo.png')}}" width="220px" alt=""style="margin-left: 32px">
 
                     </div>
 
                     <div class="hover">
-                        <a href="{{secure_url('/semaforo-rojo')}}">
+                        <a href="{{url('/semaforo-rojo')}}">
                             <div class="hover1"></div>
                         </a>
-                        <a href="{{secure_url('/semaforo-amarillo')}}">
+                        <a href="{{url('/semaforo-amarillo')}}">
                             <div class="hover2" data-toggle="modal" data-target="#rompecabezaamarillo"></div>
                         </a>
-                        <a href="{{secure_url('/semaforo-verde')}}">
+                        <a href="{{url('/semaforo-verde')}}">
                             <div class="hover3" data-toggle="modal" data-target="#rompecabezaverde"></div>
                         </a>
                     </div>

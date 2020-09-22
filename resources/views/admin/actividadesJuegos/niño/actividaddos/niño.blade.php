@@ -8,7 +8,7 @@
             <div  style="width: 250px">
                 <img src="{{Storage::disk('s3')->url('public/rojo/base.jpg')}}" id="imagenRojo" width="250" height="250">
 
-                <form method="POST" action="{{secure_url('/rojo')}}" enctype="multipart/form-data">
+                <form method="POST" action="{{url('/rojo')}}" enctype="multipart/form-data">
                     @csrf
                     <div class="input-group is-invalid">
                         <div class="custom-file">
@@ -16,8 +16,8 @@
                             <label class="custom-file-label" for="validatedInputGroupCustomFile">Suba una imagen</label>
                         </div>
                     </div>
-                    <button type="submit" class="btn btn-primary btn-lg btn-block" >Aplicar</button>
-
+                    <button type="button" class="btn btn-info btn-lg btn-block">Mensaje</button>
+                    <button type="submit" class="btn btn-primary btn-lg btn-block">Aplicar</button>
                 </form>
             </div>
 
@@ -31,7 +31,7 @@
             <div  style="width: 250px">
                 <img src="{{Storage::disk('s3')->url('public/amarillo/base.jpg')}}" id="imagenAmarillo" width="250" height="250">
 
-                <form method="POST" action="{{secure_url('/amarillo')}}" enctype="multipart/form-data">
+                <form method="POST" action="{{url('/amarillo')}}" enctype="multipart/form-data">
                     @csrf
                     <div class="input-group is-invalid">
                         <div class="custom-file">
@@ -39,8 +39,8 @@
                             <label class="custom-file-label" for="validatedInputGroupCustomFile">Suba una imagen</label>
                         </div>
                     </div>
+                    <button type="button" class="btn btn-info btn-lg btn-block">Mensaje</button>
                     <button type="submit" class="btn btn-primary btn-lg btn-block">Aplicar</button>
-
                 </form>
             </div>
 
@@ -53,7 +53,7 @@
             <div  style="width: 250px">
                 <img src="{{Storage::disk('s3')->url('public/verde/base.jpg')}}" id="imagenVerde" width="250" height="250">
 
-                <form method="POST" action="{{secure_url('/verde')}}" enctype="multipart/form-data">
+                <form method="POST" action="{{url('/verde')}}" enctype="multipart/form-data">
                     @csrf
                     <div class="input-group is-invalid">
                         <div class="custom-file">
@@ -61,6 +61,7 @@
                             <label class="custom-file-label" for="validatedInputGroupCustomFile">Suba una imagen</label>
                         </div>
                     </div>
+                    <button type="button" class="btn btn-info btn-lg btn-block">Mensaje</button>
                     <button type="submit" class="btn btn-primary btn-lg btn-block">Aplicar</button>
 
                 </form>

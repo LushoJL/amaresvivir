@@ -8,7 +8,7 @@
     <div class="container">
         <div class="row mt-5">
             <div class="col-xl-6">
-                <center> <img src="{{secure_asset('images/Conocenos/objetivospersonaje.png')}}" alt="objetivosPersonaje" width="450px">
+                <center> <img src="{{asset('images/Conocenos/objetivospersonaje.png')}}" alt="objetivosPersonaje" width="450px">
                 </center>
             </div>
             <div class="col-xl-6">

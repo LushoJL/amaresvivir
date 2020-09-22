@@ -8,11 +8,11 @@
     <title>AmarEsEducar | Admin</title>
 
     <!-- Font Awesome Icons -->
-    <link rel="stylesheet" href="{{secure_asset('plugins/fontawesome-free/css/all.min.css')}}">
+    <link rel="stylesheet" href="{{asset('plugins/fontawesome-free/css/all.min.css')}}">
     <!-- IonIcons -->
     <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <!-- Theme style -->
-    <link rel="stylesheet" href="{{secure_asset('dist/css/adminlte.min.css')}}">
+    <link rel="stylesheet" href="{{asset('dist/css/adminlte.min.css')}}">
     <!-- Google Font: Source Sans Pro -->
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 </head>
@@ -60,18 +60,18 @@
 <!-- REQUIRED SCRIPTS -->
 
 <!-- jQuery -->
-<script src="{{secure_asset('plugins/jquery/jquery.min.js')}}"></script>
+<script src="{{asset('plugins/jquery/jquery.min.js')}}"></script>
 <!-- Bootstrap -->
-<script src="{{secure_asset('plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+<script src="{{asset('plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
 <!-- AdminLTE -->
-<script src="{{secure_asset('dist/js/adminlte.js')}}"></script>
+<script src="{{asset('dist/js/adminlte.js')}}"></script>
 
 <!-- OPTIONAL SCRIPTS -->
-<script src="{{secure_asset('plugins/chart.js/Chart.min.js')}}"></script>
-<script src="{{secure_asset('dist/js/demo.js')}}"></script>
-<script src="{{secure_asset('dist/js/pages/dashboard3.js')}}"></script>
+<script src="{{asset('plugins/chart.js/Chart.min.js')}}"></script>
+<script src="{{asset('dist/js/demo.js')}}"></script>
+<script src="{{asset('dist/js/pages/dashboard3.js')}}"></script>
 {{--image tools--}}
-<script src="{{secure_asset('js/ImageTools/ImageTools.js')}}"></script>
+<script src="{{asset('js/ImageTools/ImageTools.js')}}"></script>
 <script>
     function resize(itemfile) {
 

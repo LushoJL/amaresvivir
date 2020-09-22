@@ -12,7 +12,7 @@
                 </div>
             </div>
             <div class="col-lg-6">
-                <center> <img src="{{secure_asset('images/Conocenos/filosofiapersonaje.png')}}" alt="visionPersonaje" width="450px">
+                <center> <img src="{{asset('images/Conocenos/filosofiapersonaje.png')}}" alt="visionPersonaje" width="450px">
                 </center>
             </div>
         </div>

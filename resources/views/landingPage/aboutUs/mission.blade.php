@@ -15,7 +15,7 @@
                 </div>
             </div>
             <div class="col-lg-6">
-                <center> <img src="{{secure_asset('images/Conocenos/misionpersonaje.png')}}" alt="misionPersonaje" width="350px">
+                <center> <img src="{{asset('images/Conocenos/misionpersonaje.png')}}" alt="misionPersonaje" width="350px">
                 </center>
             </div>
           </div>
