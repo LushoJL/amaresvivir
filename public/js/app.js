@@ -86,18 +86,6 @@
 /************************************************************************/
 /******/ ({
 
-/***/ "./node_modules/@babel/runtime/regenerator/index.js":
-/*!**********************************************************!*\
-  !*** ./node_modules/@babel/runtime/regenerator/index.js ***!
-  \**********************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__(/*! regenerator-runtime */ "./node_modules/regenerator-runtime/runtime.js");
-
-
-/***/ }),
-
 /***/ "./node_modules/axios/index.js":
 /*!*************************************!*\
   !*** ./node_modules/axios/index.js ***!
@@ -1808,10 +1796,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/PensamientoComponent.vue?vue&type=script&lang=js&":
-/*!*******************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/PensamientoComponent.vue?vue&type=script&lang=js& ***!
-  \*******************************************************************************************************************************************************************************/
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/actividades/niños/SemaforoComponent.vue?vue&type=script&lang=js&":
+/*!**********************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/actividades/niños/SemaforoComponent.vue?vue&type=script&lang=js& ***!
+  \**********************************************************************************************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -1840,641 +1828,159 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['pensamiento'],
+  mounted: function mounted() {
+    this.getMensajes();
+  },
   data: function data() {
     return {
-      editMode: false
+      mensajes: '',
+      imagenMiniaturaRojo: 'https://amar-es-educar-imagenes.s3-sa-east-1.amazonaws.com/public/rojo/base.jpg',
+      imagenMiniaturaAmarillo: 'https://amar-es-educar-imagenes.s3-sa-east-1.amazonaws.com/public/amarillo/base.jpg',
+      imagenMiniaturaVerde: 'https://amar-es-educar-imagenes.s3-sa-east-1.amazonaws.com/public/verde/base.jpg',
+      rojo: '',
+      amarillo: '',
+      verde: ''
     };
   },
-  mounted: function mounted() {
-    console.log('Component mounted.');
-  },
   methods: {
-    onClickDelete: function onClickDelete() {
+    getMensajes: function getMensajes() {
       var _this = this;
 
-      axios["delete"]("/pensamiento/".concat(this.pensamiento.id)).then(function () {
-        _this.$emit('delete');
+      var mensajes = 'todoslosmensajesdelsemaforo';
+      axios.get(mensajes).then(function (response) {
+        _this.mensajes = response.data;
+        _this.rojo = _this.mensajes.rojo;
+        _this.amarillo = _this.mensajes.amarillo;
+        _this.verde = _this.mensajes.verde;
       });
     },
-    onClickEdit: function onClickEdit() {
-      this.editMode = true;
+    //rojo
+    obtenerImageRojo: function obtenerImageRojo(e) {
+      var file = e.target.files[0];
+      this.cargarImagen(file, 'rojo');
     },
-    onClickUpdate: function onClickUpdate() {
+    //amarillo
+    obtenerImageAmarillo: function obtenerImageAmarillo(e) {
+      var file = e.target.files[0];
+      this.cargarImagen(file, 'amarillo');
+    },
+    //verde
+    obtenerImageVerde: function obtenerImageVerde(e) {
+      var file = e.target.files[0];
+      this.cargarImagen(file, 'verde');
+    },
+    cargarImagen: function cargarImagen(file, color) {
       var _this2 = this;
 
-      var params = {
-        description: this.pensamiento.description
-      };
-      axios.put("/pensamiento/".concat(this.pensamiento.id), params).then(function (response) {
-        _this2.editMode = false;
-        var pensamiento = response.data;
+      var reader = new FileReader();
 
-        _this2.$emit('update', pensamiento);
+      reader.onload = function (e) {
+        if (color === 'rojo') _this2.imagenMiniaturaRojo = e.target.result;else if (color === 'amarillo') _this2.imagenMiniaturaAmarillo = e.target.result;else _this2.imagenMiniaturaVerde = e.target.result;
+      };
+
+      reader.readAsDataURL(file);
+    },
+    addImageRojo: function addImageRojo() {
+      var _this3 = this;
+
+      axios.post('/rojo', {
+        image: this.imagenMiniaturaRojo,
+        mensaje: this.rojo
+      }).then(function (response) {
+        _this3.getMensajes();
+
+        console.log(response.data);
+      });
+    },
+    addImageAmarillo: function addImageAmarillo() {
+      var _this4 = this;
+
+      axios.post('/amarillo', {
+        image: this.imagenMiniaturaAmarillo,
+        mensaje: this.amarillo
+      }).then(function (response) {
+        _this4.getMensajes();
+
+        console.log(response.data);
+      });
+    },
+    addImageVerde: function addImageVerde() {
+      var _this5 = this;
+
+      axios.post('/verde', {
+        image: this.imagenMiniaturaVerde,
+        mensaje: this.verde
+      }).then(function (response) {
+        _this5.getMensajes();
+
+        console.log(response.data);
       });
     }
-  }
-});
-
-/***/ }),
-
-/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/actividadesjuegos/niños/actividadDos/semaforoComponent.vue?vue&type=script&lang=js&":
-/*!*****************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/actividadesjuegos/niños/actividadDos/semaforoComponent.vue?vue&type=script&lang=js& ***!
-  \*****************************************************************************************************************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-$(function () {
-  // red
-  $('.hover1').hover(function () {
-    $('.red').css('background-color', '#ff0000');
-  }, function () {
-    $('.red').css('background-color', '');
-  }); // amarillo
-
-  $('.hover2').hover(function () {
-    $('.yellow').css('background-color', '#fff500');
-  }, function () {
-    $('.yellow').css('background-color', '');
-  }); // verde
-
-  $('.hover3').hover(function () {
-    $('.green').css('background-color', '#03fc00');
-  }, function () {
-    // vuelve a dejar el <div> como estaba al hacer el "mouseout"
-    $('.green').css('background-color', '');
-  });
-});
-
-/***/ }),
-
-/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/actividadesjuegos/niños/actividadUno/cuentoNiniaComponent.vue?vue&type=script&lang=js&":
-/*!********************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/actividadesjuegos/niños/actividadUno/cuentoNiniaComponent.vue?vue&type=script&lang=js& ***!
-  \********************************************************************************************************************************************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
-/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
-
-
-function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
-
-function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
-
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-/* harmony default export */ __webpack_exports__["default"] = ({
-  name: "cuentoNiniaComponent",
-  methods: {
-    question: function question() {
-      _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
-        var _yield$Swal$mixin$que, respuestas;
-
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
-          while (1) {
-            switch (_context.prev = _context.next) {
-              case 0:
-                _context.next = 2;
-                return Swal.mixin({
-                  confirmButtonText: 'Siguiente &rarr;',
-                  showCancelButton: true,
-                  cancelButtonText: 'Cancelar',
-                  progressSteps: ['1', '2', '3', '4', '5', '6'],
-                  progressStepsDistance: '5%'
-                }).queue([{
-                  title: '<span style="color: #ffffff;">¿CON QUÉ PERSONAJE DEL CUENTO TE IDENTIFICAS?</span>',
-                  showClass: {
-                    popup: 'animate__animated animate__backInDown'
-                  },
-                  imageUrl: 'image/question.png',
-                  imageWidth: '30%',
-                  imageHeight: 'auto',
-                  imageAlt: 'Custom image',
-                  background: '#fff url(image/purple.jpg)',
-                  html: "\n                                <div class=\"radiobtn\">\n                                    <input type=\"radio\" id=\"swal-input1\"  name=\"1\" value=\"MARITA\"><label for=\"swal-input1\">MARITA</label>\n                                </div>\n                                <div class=\"radiobtn\">\n                                    <input type=\"radio\" id=\"swal-input2\"  name=\"1\" value=\"JULIETA\"><label for=\"swal-input2\">JULIETA</label>\n                                </div>\n                                <div class=\"radiobtn\">\n                                    <input type=\"radio\" id=\"swal-input3\"  name=\"1\" value=\"LOS DEMAS COMPA\xD1EROS\"><label for=\"swal-input3\">LOS DEMAS COMPA\xD1EROS</label>\n                                </div>\n                                ",
-                  preConfirm: function preConfirm() {
-                    return [$('input[name="1"]:checked').val()];
-                  }
-                }, {
-                  title: '<span style="color: #ffffff;">¿QUÉ HARÍAS TÚ EN LUGAR DEL PERSONAJE QUE ELEGISTE?</span>',
-                  showClass: {
-                    popup: 'animate__animated animate__rotateIn'
-                  },
-                  hideClass: {
-                    popup: 'animate__animated animate__fadeOutUp'
-                  },
-                  imageUrl: 'image/question.png',
-                  imageWidth: '30%',
-                  imageHeight: 'auto',
-                  imageAlt: 'Custom image',
-                  background: '#fff url(image/purple.jpg)',
-                  html: "\n                                <div class=\"radiobtn\">\n                                    <input type=\"radio\" id=\"swal-input1\"  name=\"1\" value=\"SER\xCDA IGUAL\"><label for=\"swal-input1\">SER\xCDA IGUAL</label>\n                                </div>\n                                <div class=\"radiobtn\">\n                                    <input type=\"radio\" id=\"swal-input2\"  name=\"1\" value=\"CAMBIAR\xCDA\"><label for=\"swal-input2\">CAMBIAR\xCDA</label>\n                                </div>\n                                <div class=\"radiobtn\">\n                                    <input type=\"radio\" id=\"swal-input3\"  name=\"1\" value=\"PEDIR\xCDA AYUDA\"><label for=\"swal-input3\">PEDIR\xCDA AYUDA</label>\n                                </div>\n                                ",
-                  preConfirm: function preConfirm() {
-                    return [$('input[name="1"]:checked').val()];
-                  }
-                }, {
-                  title: '<span style="color: #ffffff;">¿LE DIRÍAS A ALGUIEN SI VIERAS QUE OTRO SUFRE COMO MARITA?</span>',
-                  showClass: {
-                    popup: 'animate__animated animate__rotateIn'
-                  },
-                  hideClass: {
-                    popup: 'animate__animated animate__fadeOutUp'
-                  },
-                  imageUrl: 'image/question.png',
-                  imageWidth: '30%',
-                  imageHeight: 'auto',
-                  imageAlt: 'Custom image',
-                  background: '#fff url(image/purple.jpg)',
-                  html: "\n                                <div class=\"radiobtn\">\n                                    <input type=\"radio\" id=\"swal-input1\"  name=\"1\" value=\"SI\"><label for=\"swal-input1\">SI</label>\n                                </div>\n                                <div class=\"radiobtn\">\n                                    <input type=\"radio\" id=\"swal-input2\"  name=\"1\" value=\"NO\"><label for=\"swal-input2\">NO</label>\n                                </div>\n\n                                ",
-                  preConfirm: function preConfirm() {
-                    return [$('input[name="1"]:checked').val()];
-                  }
-                }, {
-                  title: '<span style="color: #ffffff;">¿HAS SUFRIDO LO MISMO QUE MARITA ALGUNA VEZ?</span>',
-                  showClass: {
-                    popup: 'animate__animated animate__rotateIn'
-                  },
-                  hideClass: {
-                    popup: 'animate__animated animate__fadeOutUp'
-                  },
-                  imageUrl: 'image/question.png',
-                  imageWidth: '30%',
-                  imageHeight: 'auto',
-                  imageAlt: 'Custom image',
-                  background: '#fff url(image/purple.jpg)',
-                  html: "\n                                <div class=\"radiobtn\">\n                                    <input type=\"radio\" id=\"swal-input1\"  name=\"1\" value=\"SI\"><label for=\"swal-input1\">SI</label>\n                                </div>\n                                <div class=\"radiobtn\">\n                                    <input type=\"radio\" id=\"swal-input2\"  name=\"1\" value=\"NO\"><label for=\"swal-input2\">NO</label>\n                                </div>\n\n                                ",
-                  preConfirm: function preConfirm() {
-                    return [$('input[name="1"]:checked').val()];
-                  }
-                }, {
-                  title: '<span style="color: #ffffff;">¿SE LO CONTASTE A ALGUIEN, PARA PERDIR AYUDA (A TUS PAPÁS, AMIGOS, MAESTRA/O)?</span>',
-                  showClass: {
-                    popup: 'animate__animated animate__rotateIn'
-                  },
-                  hideClass: {
-                    popup: 'animate__animated animate__fadeOutUp'
-                  },
-                  imageUrl: 'image/question.png',
-                  imageWidth: '30%',
-                  imageHeight: 'auto',
-                  imageAlt: 'Custom image',
-                  background: '#fff url(image/purple.jpg)',
-                  html: "\n                                <div class=\"radiobtn\">\n                                    <input type=\"radio\" id=\"swal-input1\"  name=\"1\" value=\"SI\"><label for=\"swal-input1\">SI</label>\n                                </div>\n                                <div class=\"radiobtn\">\n                                    <input type=\"radio\" id=\"swal-input2\"  name=\"1\" value=\"NO\"><label for=\"swal-input2\">NO</label>\n                                </div>\n\n                                ",
-                  preConfirm: function preConfirm() {
-                    return [$('input[name="1"]:checked').val()];
-                  }
-                }, {
-                  title: '<span style="color: #ffffff;">¿POR QUÉ NO SE LO CONTARIAS A ALGUIEN?</span>',
-                  showClass: {
-                    popup: 'animate__animated animate__rotateIn'
-                  },
-                  hideClass: {
-                    popup: 'animate__animated animate__fadeOutUp'
-                  },
-                  imageUrl: 'image/question.png',
-                  imageWidth: '30%',
-                  imageHeight: 'auto',
-                  imageAlt: 'Custom image',
-                  background: '#fff url(image/purple.jpg)',
-                  html: "\n                                <div class=\"radiobtn\">\n                                    <input type=\"radio\" id=\"swal-input1\"  name=\"1\" value=\"AMENAZAS\"><label for=\"swal-input1\">AMENAZAS</label>\n                                </div>\n                                <div class=\"radiobtn\">\n                                    <input type=\"radio\" id=\"swal-input2\"  name=\"1\" value=\"MIEDO\"><label for=\"swal-input2\">MIEDO</label>\n                                </div>\n                                <div class=\"radiobtn\">\n                                    <input type=\"radio\" id=\"swal-input3\"  name=\"1\" value=\"VUERG\xDCENZA\"><label for=\"swal-input3\">VUERG\xDCENZA</label>\n                                </div>\n                                <div class=\"radiobtn\">\n                                    <input type=\"radio\" id=\"swal-input4\"  name=\"1\" value=\"ME GUSTA\"><label for=\"swal-input4\">ME GUSTA</label>\n                                </div>\n                                <div class=\"section\">\n                                    <textarea class=\"form-control\" name=\"2\" id=\"swal-input5\" style=\"width: 100%;\" placeholder=\"OTRO: \"></textarea>\n                                </div>\n                                ",
-                  preConfirm: function preConfirm() {
-                    return [$('input[name="1"]:checked').val(), $('#swal-input5').val()];
-                  }
-                }]);
-
-              case 2:
-                _yield$Swal$mixin$que = _context.sent;
-                respuestas = _yield$Swal$mixin$que.value;
-
-                if (respuestas) {
-                  Swal.fire(JSON.stringify(respuestas));
-                }
-
-              case 5:
-              case "end":
-                return _context.stop();
-            }
-          }
-        }, _callee);
-      }))();
-    }
-  }
-});
-
-/***/ }),
-
-/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/actividadesjuegos/niños/actividadUno/cuentoNinioComponent.vue?vue&type=script&lang=js&":
-/*!********************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/actividadesjuegos/niños/actividadUno/cuentoNinioComponent.vue?vue&type=script&lang=js& ***!
-  \********************************************************************************************************************************************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
-/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
-
-
-function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
-
-function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
-
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-/* harmony default export */ __webpack_exports__["default"] = ({
-  name: "cuentoNinioComponent",
-  methods: {
-    question: function question() {
-      _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
-        var _yield$Swal$mixin$que, respuestas;
-
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
-          while (1) {
-            switch (_context.prev = _context.next) {
-              case 0:
-                _context.next = 2;
-                return Swal.mixin({
-                  confirmButtonText: 'Siguiente &rarr;',
-                  showCancelButton: true,
-                  cancelButtonText: 'Cancelar',
-                  progressSteps: ['1', '2', '3', '4', '5', '6'],
-                  progressStepsDistance: '5%'
-                }).queue([{
-                  title: '<span style="color: #ffffff;">¿CON QUÉ PERSONAJE DEL CUENTO TE IDENTIFICAS?</span>',
-                  showClass: {
-                    popup: 'animate__animated animate__backInDown'
-                  },
-                  imageUrl: 'image/question.png',
-                  imageWidth: '30%',
-                  imageHeight: 'auto',
-                  imageAlt: 'Custom image',
-                  background: '#fff url(image/purple.jpg)',
-                  html: "\n                                <div class=\"radiobtn\">\n                                    <input type=\"radio\" id=\"swal-input1\"  name=\"1\" value=\"JOAQU\xCDN\"><label for=\"swal-input1\">JOAQU\xCDN</label>\n                                </div>\n                                <div class=\"radiobtn\">\n                                    <input type=\"radio\" id=\"swal-input2\"  name=\"1\" value=\"TITO\"><label for=\"swal-input2\">TITO</label>\n                                </div>\n                                <div class=\"radiobtn\">\n                                    <input type=\"radio\" id=\"swal-input3\"  name=\"1\" value=\"LOS DEMAS COMPA\xD1EROS\"><label for=\"swal-input3\">LOS DEMAS COMPA\xD1EROS</label>\n                                </div>\n                                ",
-                  preConfirm: function preConfirm() {
-                    return [$('input[name="1"]:checked').val()];
-                  }
-                }, {
-                  title: '<span style="color: #ffffff;">¿QUÉ HARÍAS TÚ EN LUGAR DEL PERSONAJE QUE ELEGISTE?</span>',
-                  showClass: {
-                    popup: 'animate__animated animate__rotateIn'
-                  },
-                  hideClass: {
-                    popup: 'animate__animated animate__fadeOutUp'
-                  },
-                  imageUrl: 'image/question.png',
-                  imageWidth: '30%',
-                  imageHeight: 'auto',
-                  imageAlt: 'Custom image',
-                  background: '#fff url(image/purple.jpg)',
-                  html: "\n                                <div class=\"radiobtn\">\n                                    <input type=\"radio\" id=\"swal-input1\"  name=\"1\" value=\"SER\xCDA IGUAL\"><label for=\"swal-input1\">SER\xCDA IGUAL</label>\n                                </div>\n                                <div class=\"radiobtn\">\n                                    <input type=\"radio\" id=\"swal-input2\"  name=\"1\" value=\"CAMBIAR\xCDA\"><label for=\"swal-input2\">CAMBIAR\xCDA</label>\n                                </div>\n                                <div class=\"radiobtn\">\n                                    <input type=\"radio\" id=\"swal-input3\"  name=\"1\" value=\"PEDIR\xCDA AYUDA\"><label for=\"swal-input3\">PEDIR\xCDA AYUDA</label>\n                                </div>\n                                ",
-                  preConfirm: function preConfirm() {
-                    return [$('input[name="1"]:checked').val()];
-                  }
-                }, {
-                  title: '<span style="color: #ffffff;">¿LE DIRÍAS A ALGUIEN SI VIERAS QUE OTRO SUFRE COMO JOAQUÍN?</span>',
-                  showClass: {
-                    popup: 'animate__animated animate__rotateIn'
-                  },
-                  hideClass: {
-                    popup: 'animate__animated animate__fadeOutUp'
-                  },
-                  imageUrl: 'image/question.png',
-                  imageWidth: '30%',
-                  imageHeight: 'auto',
-                  imageAlt: 'Custom image',
-                  background: '#fff url(image/purple.jpg)',
-                  html: "\n                                <div class=\"radiobtn\">\n                                    <input type=\"radio\" id=\"swal-input1\"  name=\"1\" value=\"SI\"><label for=\"swal-input1\">SI</label>\n                                </div>\n                                <div class=\"radiobtn\">\n                                    <input type=\"radio\" id=\"swal-input2\"  name=\"1\" value=\"NO\"><label for=\"swal-input2\">NO</label>\n                                </div>\n\n                                ",
-                  preConfirm: function preConfirm() {
-                    return [$('input[name="1"]:checked').val()];
-                  }
-                }, {
-                  title: '<span style="color: #ffffff;">¿HAS SUFRIDO LO MISMO QUE JOAQUÍN ALGUNA VEZ?</span>',
-                  showClass: {
-                    popup: 'animate__animated animate__rotateIn'
-                  },
-                  hideClass: {
-                    popup: 'animate__animated animate__fadeOutUp'
-                  },
-                  imageUrl: 'image/question.png',
-                  imageWidth: '30%',
-                  imageHeight: 'auto',
-                  imageAlt: 'Custom image',
-                  background: '#fff url(image/purple.jpg)',
-                  html: "\n                                <div class=\"radiobtn\">\n                                    <input type=\"radio\" id=\"swal-input1\"  name=\"1\" value=\"SI\"><label for=\"swal-input1\">SI</label>\n                                </div>\n                                <div class=\"radiobtn\">\n                                    <input type=\"radio\" id=\"swal-input2\"  name=\"1\" value=\"NO\"><label for=\"swal-input2\">NO</label>\n                                </div>\n\n                                ",
-                  preConfirm: function preConfirm() {
-                    return [$('input[name="1"]:checked').val()];
-                  }
-                }, {
-                  title: '<span style="color: #ffffff;">¿SE LO CONTASTE A ALGUIEN, PARA PERDIR AYUDA (A TUS PAPÁS, AMIGOS, MAESTRA/O)?</span>',
-                  showClass: {
-                    popup: 'animate__animated animate__rotateIn'
-                  },
-                  hideClass: {
-                    popup: 'animate__animated animate__fadeOutUp'
-                  },
-                  imageUrl: 'image/question.png',
-                  imageWidth: '30%',
-                  imageHeight: 'auto',
-                  imageAlt: 'Custom image',
-                  background: '#fff url(image/purple.jpg)',
-                  html: "\n                                <div class=\"radiobtn\">\n                                    <input type=\"radio\" id=\"swal-input1\"  name=\"1\" value=\"SI\"><label for=\"swal-input1\">SI</label>\n                                </div>\n                                <div class=\"radiobtn\">\n                                    <input type=\"radio\" id=\"swal-input2\"  name=\"1\" value=\"NO\"><label for=\"swal-input2\">NO</label>\n                                </div>\n\n                                ",
-                  preConfirm: function preConfirm() {
-                    return [$('input[name="1"]:checked').val()];
-                  }
-                }, {
-                  title: '<span style="color: #ffffff;">¿POR QUÉ NO SE LO CONTARIAS A ALGUIEN?</span>',
-                  showClass: {
-                    popup: 'animate__animated animate__rotateIn'
-                  },
-                  hideClass: {
-                    popup: 'animate__animated animate__fadeOutUp'
-                  },
-                  imageUrl: 'image/question.png',
-                  imageWidth: '30%',
-                  imageHeight: 'auto',
-                  imageAlt: 'Custom image',
-                  background: '#fff url(image/purple.jpg)',
-                  html: "\n                                <div class=\"radiobtn\">\n                                    <input type=\"radio\" id=\"swal-input1\"  name=\"1\" value=\"AMENAZAS\"><label for=\"swal-input1\">AMENAZAS</label>\n                                </div>\n                                <div class=\"radiobtn\">\n                                    <input type=\"radio\" id=\"swal-input2\"  name=\"1\" value=\"MIEDO\"><label for=\"swal-input2\">MIEDO</label>\n                                </div>\n                                <div class=\"radiobtn\">\n                                    <input type=\"radio\" id=\"swal-input3\"  name=\"1\" value=\"VUERG\xDCENZA\"><label for=\"swal-input3\">VUERG\xDCENZA</label>\n                                </div>\n                                <div class=\"radiobtn\">\n                                    <input type=\"radio\" id=\"swal-input4\"  name=\"1\" value=\"ME GUSTA\"><label for=\"swal-input4\">ME GUSTA</label>\n                                </div>\n                                <div class=\"section\">\n                                    <textarea class=\"form-control\" name=\"2\" id=\"swal-input5\" style=\"width: 100%;\" placeholder=\"OTRO: \"></textarea>\n                                </div>\n                                ",
-                  preConfirm: function preConfirm() {
-                    return [$('input[name="1"]:checked').val(), $('#swal-input5').val()];
-                  }
-                }]);
-
-              case 2:
-                _yield$Swal$mixin$que = _context.sent;
-                respuestas = _yield$Swal$mixin$que.value;
-
-                if (respuestas) {
-                  Swal.fire(JSON.stringify(respuestas));
-                }
-
-              case 5:
-              case "end":
-                return _context.stop();
-            }
-          }
-        }, _callee);
-      }))();
-    }
-  }
-});
-
-/***/ }),
-
-/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/actividadesjuegos/niños/actividadUno/niñosComponent.vue?vue&type=script&lang=js&":
-/*!**************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/actividadesjuegos/niños/actividadUno/niñosComponent.vue?vue&type=script&lang=js& ***!
-  \**************************************************************************************************************************************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-/* harmony default export */ __webpack_exports__["default"] = ({
-  name: "niñosComponent",
-  data: function data() {
-    return {
-      children: '',
-      show: true
-    };
   },
-  methods: {
-    selectionChildren: function selectionChildren(info) {
-      this.children = info;
-      this.show = false;
+  computed: {
+    imagenRojo: function imagenRojo() {
+      return this.imagenMiniaturaRojo;
+    },
+    imagenAmarillo: function imagenAmarillo() {
+      return this.imagenMiniaturaAmarillo;
+    },
+    imagenVerde: function imagenVerde() {
+      return this.imagenMiniaturaVerde;
     }
   }
 });
@@ -6897,198 +6403,6 @@ __webpack_require__.r(__webpack_exports__);
 
 })));
 //# sourceMappingURL=bootstrap.js.map
-
-
-/***/ }),
-
-/***/ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/actividadesjuegos/niños/actividadDos/semaforoComponent.vue?vue&type=style&index=0&id=6747b3c0&scoped=true&lang=css&":
-/*!************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/actividadesjuegos/niños/actividadDos/semaforoComponent.vue?vue&type=style&index=0&id=6747b3c0&scoped=true&lang=css& ***!
-  \************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(/*! ../../../../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
-// imports
-
-
-// module
-exports.push([module.i, "\n.luces[data-v-6747b3c0]{\n    position: absolute;\n\n    left: 140px;\n    bottom:110px;\n    z-index: -1;\n}\n.hover[data-v-6747b3c0]{\n    position: absolute;\n    left: 140px;\n    bottom:110px;\n    z-index: 1;\n}\n.red[data-v-6747b3c0]{\n    background: #9d0000;\n    width: 125px;\n    height: 130px;\n    margin-top: 10px;\n}\n.yellow[data-v-6747b3c0]{\n    background: #888800;\n    width: 125px;\n    height: 130px;\n}\n.green[data-v-6747b3c0]{\n    background: green;\n    width: 125px;\n    height: 133px;\n}\n.hover1[data-v-6747b3c0]{\n\n    width: 125px;\n    height: 130px;\n\n    cursor: pointer;\n}\n.hover2[data-v-6747b3c0]{\n\n    width: 125px;\n    height: 130px;\n    cursor: pointer;\n}\n.hover3[data-v-6747b3c0]{\n\n    width: 125px;\n    height: 133px;\n    cursor: pointer;\n}\nfigure[data-v-6747b3c0]{\n\n    display: inline-block;\n\n    position: relative;\n    justify-content: center;\n    align-items: center;\n}\ndiv.rompecabeza[data-v-6747b3c0] {\n    height: 450px;\n    width: 820px;\n    background-color: #090909;\n    margin: auto;\n    position: relative;\n}\ndiv.base[data-v-6747b3c0] {\n    float: left;\n    margin-top: 20px;\n    margin-left:20px;\n    width: 400px;\n    height: 400px;\n}\ndiv.piezas[data-v-6747b3c0] {\n    margin-top: 20px;\n    float: left;\n    width: 400px;\n    height: 400px;\n}\n@media only screen and (max-width: 800px) {\ndiv.rompecabeza[data-v-6747b3c0] {\n        height: 850px;\n        width: 450px;\n        background-color: #0e0d0d;\n        margin: auto;\n        position: relative;\n        display: grid;\n}\ndiv.base[data-v-6747b3c0] {\n        float: left;\n        width: 400px;\n        height: 400px;\n}\ndiv.piezas[data-v-6747b3c0] {\n        margin-top: 0;\n        float: left;\n        width: 400px;\n        height: 400px;\n}\n}\n", ""]);
-
-// exports
-
-
-/***/ }),
-
-/***/ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/actividadesjuegos/niños/actividadUno/cuentoNiniaComponent.vue?vue&type=style&index=0&id=6d6f293b&scoped=true&lang=css&":
-/*!***************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/actividadesjuegos/niños/actividadUno/cuentoNiniaComponent.vue?vue&type=style&index=0&id=6d6f293b&scoped=true&lang=css& ***!
-  \***************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-var escape = __webpack_require__(/*! ../../../../../../node_modules/css-loader/lib/url/escape.js */ "./node_modules/css-loader/lib/url/escape.js");
-exports = module.exports = __webpack_require__(/*! ../../../../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
-// imports
-
-
-// module
-exports.push([module.i, "\np[data-v-6d6f293b] {\n\n    border: #ffffff 27px solid;\n    border-image-source: url(" + escape(__webpack_require__(/*! ../../../../../../public/image/actividadesyjuegos/border.png */ "./public/image/actividadesyjuegos/border.png")) + ");\n    border-image-slice: 27;\n\n    padding: 10px;\n    text-align: justify;\n    font-size: 34px;\n}\ndiv[data-v-6d6f293b]{\n    margin-top: 50px;\n    margin-left: 10%;\n    margin-right: 10%;\n}\n", ""]);
-
-// exports
-
-
-/***/ }),
-
-/***/ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/actividadesjuegos/niños/actividadUno/cuentoNinioComponent.vue?vue&type=style&index=0&id=70dfa026&scoped=true&lang=css&":
-/*!***************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/actividadesjuegos/niños/actividadUno/cuentoNinioComponent.vue?vue&type=style&index=0&id=70dfa026&scoped=true&lang=css& ***!
-  \***************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-var escape = __webpack_require__(/*! ../../../../../../node_modules/css-loader/lib/url/escape.js */ "./node_modules/css-loader/lib/url/escape.js");
-exports = module.exports = __webpack_require__(/*! ../../../../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
-// imports
-
-
-// module
-exports.push([module.i, "\np[data-v-70dfa026] {\n\n    border: #ffffff 27px solid;\n    border-image-source: url(" + escape(__webpack_require__(/*! ../../../../../../public/image/actividadesyjuegos/border.png */ "./public/image/actividadesyjuegos/border.png")) + ");\n    border-image-slice: 27;\n\n    padding: 10px;\n    text-align: justify;\n    font-size: 34px;\n}\ndiv[data-v-70dfa026]{\n    margin-top: 50px;\n    margin-left: 10%;\n    margin-right: 10%;\n}\n", ""]);
-
-// exports
-
-
-/***/ }),
-
-/***/ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/actividadesjuegos/niños/actividadUno/niñosComponent.vue?vue&type=style&index=0&id=68c3f256&scoped=true&lang=css&":
-/*!*********************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/actividadesjuegos/niños/actividadUno/niñosComponent.vue?vue&type=style&index=0&id=68c3f256&scoped=true&lang=css& ***!
-  \*********************************************************************************************************************************************************************************************************************************************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(/*! ../../../../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
-// imports
-
-
-// module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/* image boxes */\n.box[data-v-68c3f256]{\n    width: 400px;\n    background-color:#f4f4f4;\n    border:1px solid #ccc;\n\n    cursor: pointer;\n\n    position:relative;\n    z-index:5;\n    box-sizing:border-box;\n\n\n    box-shadow:0 0 3px #ccc;\n    -moz-box-shadow:0 0 3px #ccc;\n    -webkit-box-shadow:0 0 3px #ccc;\n\n    transform: scale(1);\n    -moz-transform: scale(1);\n    -webkit-transform: scale(1);\n    text-align: center;\n    transition: background-color 1s, box-shadow 1s, transform 0.5s;\n    -moz-transition: background-color 1s, -moz-box-shadow 1s, -moz-transform 0.5s;\n    -webkit-transition: background-color 1s, -webkit-box-shadow 1s, -webkit-transform 0.5s;\n    -o-transition: background-color 1s, -o-box-shadow 1s, -o-transform 0.5s;\n}\n.box[data-v-68c3f256]:hover{\n    background-color:#fff;\n    z-index:10;\n\n    box-shadow:0 0 15px #333;\n    -moz-box-shadow:0 0 15px #333;\n    -webkit-box-shadow:0 0 15px #333;\n\n    transform: scale(1.1);\n    -moz-transform: scale(1.1);\n    -webkit-transform: scale(1.1);\n}\n/* title holder */\n.box h3[data-v-68c3f256]{\n    font-size:27px;\n    color:#777;\n    margin:5px 10px;\n    padding:5px 10px;\n    font-family:'Arial Narrow', Arial;\n    letter-spacing:1px;\n    text-shadow:0 1px 1px #ccc;\n    border-bottom:0 solid #fff;\n\n    transition: color 1s, text-shadow 1s, border-bottom 1s;\n    -moz-transition: color 1s, text-shadow 1s, border-bottom 1s;\n    -webkit-transition: color 1s, text-shadow 1s, border-bottom 1s;\n    -o-transition: color 1s, text-shadow 1s, border-bottom 1s;\n}\n.box:hover h3[data-v-68c3f256]{\n    color:#333;\n    border-bottom:1px solid #aaa;\n    text-shadow:1px 1px 1px #fff, 2px 2px 1px #888;\n}\n\n/* image holder */\n.box .image[data-v-68c3f256]{\n\n    margin:10px;\n    opacity:0.5;\n    filter: alpha(opacity=50);\n\n    transition: opacity 1s;\n    -moz-transition: opacity 1s;\n    -webkit-transition: opacity 1.5s;\n    -o-transition: opacity 1s;\n}\n.box:hover .image[data-v-68c3f256]{\n    opacity:1;\n    filter: alpha(opacity=100);\n}\n.box .image img[data-v-68c3f256]{\n    padding:2%;\n    background: #000000;\n    width: 100%;\n}\n.box .image img[data-v-68c3f256]:hover{\n    background:#333;\n}\n@media (min-width: 600px) {\n.box-1[data-v-68c3f256]{\n        float: left;\n        margin-right:10px;\n}\n.box-2[data-v-68c3f256]{\n        float: left;\n        margin-left:10px;\n}\n}\n", ""]);
-
-// exports
-
-
-/***/ }),
-
-/***/ "./node_modules/css-loader/lib/css-base.js":
-/*!*************************************************!*\
-  !*** ./node_modules/css-loader/lib/css-base.js ***!
-  \*************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-/*
-	MIT License http://www.opensource.org/licenses/mit-license.php
-	Author Tobias Koppers @sokra
-*/
-// css base code, injected by the css-loader
-module.exports = function(useSourceMap) {
-	var list = [];
-
-	// return the list of modules as css string
-	list.toString = function toString() {
-		return this.map(function (item) {
-			var content = cssWithMappingToString(item, useSourceMap);
-			if(item[2]) {
-				return "@media " + item[2] + "{" + content + "}";
-			} else {
-				return content;
-			}
-		}).join("");
-	};
-
-	// import a list of modules into the list
-	list.i = function(modules, mediaQuery) {
-		if(typeof modules === "string")
-			modules = [[null, modules, ""]];
-		var alreadyImportedModules = {};
-		for(var i = 0; i < this.length; i++) {
-			var id = this[i][0];
-			if(typeof id === "number")
-				alreadyImportedModules[id] = true;
-		}
-		for(i = 0; i < modules.length; i++) {
-			var item = modules[i];
-			// skip already imported module
-			// this implementation is not 100% perfect for weird media query combinations
-			//  when a module is imported multiple times with different media queries.
-			//  I hope this will never occur (Hey this way we have smaller bundles)
-			if(typeof item[0] !== "number" || !alreadyImportedModules[item[0]]) {
-				if(mediaQuery && !item[2]) {
-					item[2] = mediaQuery;
-				} else if(mediaQuery) {
-					item[2] = "(" + item[2] + ") and (" + mediaQuery + ")";
-				}
-				list.push(item);
-			}
-		}
-	};
-	return list;
-};
-
-function cssWithMappingToString(item, useSourceMap) {
-	var content = item[1] || '';
-	var cssMapping = item[3];
-	if (!cssMapping) {
-		return content;
-	}
-
-	if (useSourceMap && typeof btoa === 'function') {
-		var sourceMapping = toComment(cssMapping);
-		var sourceURLs = cssMapping.sources.map(function (source) {
-			return '/*# sourceURL=' + cssMapping.sourceRoot + source + ' */'
-		});
-
-		return [content].concat(sourceURLs).concat([sourceMapping]).join('\n');
-	}
-
-	return [content].join('\n');
-}
-
-// Adapted from convert-source-map (MIT)
-function toComment(sourceMap) {
-	// eslint-disable-next-line no-undef
-	var base64 = btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap))));
-	var data = 'sourceMappingURL=data:application/json;charset=utf-8;base64,' + base64;
-
-	return '/*# ' + data + ' */';
-}
-
-
-/***/ }),
-
-/***/ "./node_modules/css-loader/lib/url/escape.js":
-/*!***************************************************!*\
-  !*** ./node_modules/css-loader/lib/url/escape.js ***!
-  \***************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = function escape(url) {
-    if (typeof url !== 'string') {
-        return url
-    }
-    // If url is already wrapped in quotes, remove them
-    if (/^['"].*['"]$/.test(url)) {
-        url = url.slice(1, -1);
-    }
-    // Should url be wrapped?
-    // See https://drafts.csswg.org/css-values-3/#urls
-    if (/["'() \t\n]/.test(url)) {
-        return '"' + url.replace(/"/g, '\\"').replace(/\n/g, '\\n') + '"'
-    }
-
-    return url
-}
 
 
 /***/ }),
@@ -37989,765 +37303,6 @@ process.umask = function() { return 0; };
 
 /***/ }),
 
-/***/ "./node_modules/regenerator-runtime/runtime.js":
-/*!*****************************************************!*\
-  !*** ./node_modules/regenerator-runtime/runtime.js ***!
-  \*****************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-/**
- * Copyright (c) 2014-present, Facebook, Inc.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- */
-
-var runtime = (function (exports) {
-  "use strict";
-
-  var Op = Object.prototype;
-  var hasOwn = Op.hasOwnProperty;
-  var undefined; // More compressible than void 0.
-  var $Symbol = typeof Symbol === "function" ? Symbol : {};
-  var iteratorSymbol = $Symbol.iterator || "@@iterator";
-  var asyncIteratorSymbol = $Symbol.asyncIterator || "@@asyncIterator";
-  var toStringTagSymbol = $Symbol.toStringTag || "@@toStringTag";
-
-  function define(obj, key, value) {
-    Object.defineProperty(obj, key, {
-      value: value,
-      enumerable: true,
-      configurable: true,
-      writable: true
-    });
-    return obj[key];
-  }
-  try {
-    // IE 8 has a broken Object.defineProperty that only works on DOM objects.
-    define({}, "");
-  } catch (err) {
-    define = function(obj, key, value) {
-      return obj[key] = value;
-    };
-  }
-
-  function wrap(innerFn, outerFn, self, tryLocsList) {
-    // If outerFn provided and outerFn.prototype is a Generator, then outerFn.prototype instanceof Generator.
-    var protoGenerator = outerFn && outerFn.prototype instanceof Generator ? outerFn : Generator;
-    var generator = Object.create(protoGenerator.prototype);
-    var context = new Context(tryLocsList || []);
-
-    // The ._invoke method unifies the implementations of the .next,
-    // .throw, and .return methods.
-    generator._invoke = makeInvokeMethod(innerFn, self, context);
-
-    return generator;
-  }
-  exports.wrap = wrap;
-
-  // Try/catch helper to minimize deoptimizations. Returns a completion
-  // record like context.tryEntries[i].completion. This interface could
-  // have been (and was previously) designed to take a closure to be
-  // invoked without arguments, but in all the cases we care about we
-  // already have an existing method we want to call, so there's no need
-  // to create a new function object. We can even get away with assuming
-  // the method takes exactly one argument, since that happens to be true
-  // in every case, so we don't have to touch the arguments object. The
-  // only additional allocation required is the completion record, which
-  // has a stable shape and so hopefully should be cheap to allocate.
-  function tryCatch(fn, obj, arg) {
-    try {
-      return { type: "normal", arg: fn.call(obj, arg) };
-    } catch (err) {
-      return { type: "throw", arg: err };
-    }
-  }
-
-  var GenStateSuspendedStart = "suspendedStart";
-  var GenStateSuspendedYield = "suspendedYield";
-  var GenStateExecuting = "executing";
-  var GenStateCompleted = "completed";
-
-  // Returning this object from the innerFn has the same effect as
-  // breaking out of the dispatch switch statement.
-  var ContinueSentinel = {};
-
-  // Dummy constructor functions that we use as the .constructor and
-  // .constructor.prototype properties for functions that return Generator
-  // objects. For full spec compliance, you may wish to configure your
-  // minifier not to mangle the names of these two functions.
-  function Generator() {}
-  function GeneratorFunction() {}
-  function GeneratorFunctionPrototype() {}
-
-  // This is a polyfill for %IteratorPrototype% for environments that
-  // don't natively support it.
-  var IteratorPrototype = {};
-  IteratorPrototype[iteratorSymbol] = function () {
-    return this;
-  };
-
-  var getProto = Object.getPrototypeOf;
-  var NativeIteratorPrototype = getProto && getProto(getProto(values([])));
-  if (NativeIteratorPrototype &&
-      NativeIteratorPrototype !== Op &&
-      hasOwn.call(NativeIteratorPrototype, iteratorSymbol)) {
-    // This environment has a native %IteratorPrototype%; use it instead
-    // of the polyfill.
-    IteratorPrototype = NativeIteratorPrototype;
-  }
-
-  var Gp = GeneratorFunctionPrototype.prototype =
-    Generator.prototype = Object.create(IteratorPrototype);
-  GeneratorFunction.prototype = Gp.constructor = GeneratorFunctionPrototype;
-  GeneratorFunctionPrototype.constructor = GeneratorFunction;
-  GeneratorFunction.displayName = define(
-    GeneratorFunctionPrototype,
-    toStringTagSymbol,
-    "GeneratorFunction"
-  );
-
-  // Helper for defining the .next, .throw, and .return methods of the
-  // Iterator interface in terms of a single ._invoke method.
-  function defineIteratorMethods(prototype) {
-    ["next", "throw", "return"].forEach(function(method) {
-      define(prototype, method, function(arg) {
-        return this._invoke(method, arg);
-      });
-    });
-  }
-
-  exports.isGeneratorFunction = function(genFun) {
-    var ctor = typeof genFun === "function" && genFun.constructor;
-    return ctor
-      ? ctor === GeneratorFunction ||
-        // For the native GeneratorFunction constructor, the best we can
-        // do is to check its .name property.
-        (ctor.displayName || ctor.name) === "GeneratorFunction"
-      : false;
-  };
-
-  exports.mark = function(genFun) {
-    if (Object.setPrototypeOf) {
-      Object.setPrototypeOf(genFun, GeneratorFunctionPrototype);
-    } else {
-      genFun.__proto__ = GeneratorFunctionPrototype;
-      define(genFun, toStringTagSymbol, "GeneratorFunction");
-    }
-    genFun.prototype = Object.create(Gp);
-    return genFun;
-  };
-
-  // Within the body of any async function, `await x` is transformed to
-  // `yield regeneratorRuntime.awrap(x)`, so that the runtime can test
-  // `hasOwn.call(value, "__await")` to determine if the yielded value is
-  // meant to be awaited.
-  exports.awrap = function(arg) {
-    return { __await: arg };
-  };
-
-  function AsyncIterator(generator, PromiseImpl) {
-    function invoke(method, arg, resolve, reject) {
-      var record = tryCatch(generator[method], generator, arg);
-      if (record.type === "throw") {
-        reject(record.arg);
-      } else {
-        var result = record.arg;
-        var value = result.value;
-        if (value &&
-            typeof value === "object" &&
-            hasOwn.call(value, "__await")) {
-          return PromiseImpl.resolve(value.__await).then(function(value) {
-            invoke("next", value, resolve, reject);
-          }, function(err) {
-            invoke("throw", err, resolve, reject);
-          });
-        }
-
-        return PromiseImpl.resolve(value).then(function(unwrapped) {
-          // When a yielded Promise is resolved, its final value becomes
-          // the .value of the Promise<{value,done}> result for the
-          // current iteration.
-          result.value = unwrapped;
-          resolve(result);
-        }, function(error) {
-          // If a rejected Promise was yielded, throw the rejection back
-          // into the async generator function so it can be handled there.
-          return invoke("throw", error, resolve, reject);
-        });
-      }
-    }
-
-    var previousPromise;
-
-    function enqueue(method, arg) {
-      function callInvokeWithMethodAndArg() {
-        return new PromiseImpl(function(resolve, reject) {
-          invoke(method, arg, resolve, reject);
-        });
-      }
-
-      return previousPromise =
-        // If enqueue has been called before, then we want to wait until
-        // all previous Promises have been resolved before calling invoke,
-        // so that results are always delivered in the correct order. If
-        // enqueue has not been called before, then it is important to
-        // call invoke immediately, without waiting on a callback to fire,
-        // so that the async generator function has the opportunity to do
-        // any necessary setup in a predictable way. This predictability
-        // is why the Promise constructor synchronously invokes its
-        // executor callback, and why async functions synchronously
-        // execute code before the first await. Since we implement simple
-        // async functions in terms of async generators, it is especially
-        // important to get this right, even though it requires care.
-        previousPromise ? previousPromise.then(
-          callInvokeWithMethodAndArg,
-          // Avoid propagating failures to Promises returned by later
-          // invocations of the iterator.
-          callInvokeWithMethodAndArg
-        ) : callInvokeWithMethodAndArg();
-    }
-
-    // Define the unified helper method that is used to implement .next,
-    // .throw, and .return (see defineIteratorMethods).
-    this._invoke = enqueue;
-  }
-
-  defineIteratorMethods(AsyncIterator.prototype);
-  AsyncIterator.prototype[asyncIteratorSymbol] = function () {
-    return this;
-  };
-  exports.AsyncIterator = AsyncIterator;
-
-  // Note that simple async functions are implemented on top of
-  // AsyncIterator objects; they just return a Promise for the value of
-  // the final result produced by the iterator.
-  exports.async = function(innerFn, outerFn, self, tryLocsList, PromiseImpl) {
-    if (PromiseImpl === void 0) PromiseImpl = Promise;
-
-    var iter = new AsyncIterator(
-      wrap(innerFn, outerFn, self, tryLocsList),
-      PromiseImpl
-    );
-
-    return exports.isGeneratorFunction(outerFn)
-      ? iter // If outerFn is a generator, return the full iterator.
-      : iter.next().then(function(result) {
-          return result.done ? result.value : iter.next();
-        });
-  };
-
-  function makeInvokeMethod(innerFn, self, context) {
-    var state = GenStateSuspendedStart;
-
-    return function invoke(method, arg) {
-      if (state === GenStateExecuting) {
-        throw new Error("Generator is already running");
-      }
-
-      if (state === GenStateCompleted) {
-        if (method === "throw") {
-          throw arg;
-        }
-
-        // Be forgiving, per 25.3.3.3.3 of the spec:
-        // https://people.mozilla.org/~jorendorff/es6-draft.html#sec-generatorresume
-        return doneResult();
-      }
-
-      context.method = method;
-      context.arg = arg;
-
-      while (true) {
-        var delegate = context.delegate;
-        if (delegate) {
-          var delegateResult = maybeInvokeDelegate(delegate, context);
-          if (delegateResult) {
-            if (delegateResult === ContinueSentinel) continue;
-            return delegateResult;
-          }
-        }
-
-        if (context.method === "next") {
-          // Setting context._sent for legacy support of Babel's
-          // function.sent implementation.
-          context.sent = context._sent = context.arg;
-
-        } else if (context.method === "throw") {
-          if (state === GenStateSuspendedStart) {
-            state = GenStateCompleted;
-            throw context.arg;
-          }
-
-          context.dispatchException(context.arg);
-
-        } else if (context.method === "return") {
-          context.abrupt("return", context.arg);
-        }
-
-        state = GenStateExecuting;
-
-        var record = tryCatch(innerFn, self, context);
-        if (record.type === "normal") {
-          // If an exception is thrown from innerFn, we leave state ===
-          // GenStateExecuting and loop back for another invocation.
-          state = context.done
-            ? GenStateCompleted
-            : GenStateSuspendedYield;
-
-          if (record.arg === ContinueSentinel) {
-            continue;
-          }
-
-          return {
-            value: record.arg,
-            done: context.done
-          };
-
-        } else if (record.type === "throw") {
-          state = GenStateCompleted;
-          // Dispatch the exception by looping back around to the
-          // context.dispatchException(context.arg) call above.
-          context.method = "throw";
-          context.arg = record.arg;
-        }
-      }
-    };
-  }
-
-  // Call delegate.iterator[context.method](context.arg) and handle the
-  // result, either by returning a { value, done } result from the
-  // delegate iterator, or by modifying context.method and context.arg,
-  // setting context.delegate to null, and returning the ContinueSentinel.
-  function maybeInvokeDelegate(delegate, context) {
-    var method = delegate.iterator[context.method];
-    if (method === undefined) {
-      // A .throw or .return when the delegate iterator has no .throw
-      // method always terminates the yield* loop.
-      context.delegate = null;
-
-      if (context.method === "throw") {
-        // Note: ["return"] must be used for ES3 parsing compatibility.
-        if (delegate.iterator["return"]) {
-          // If the delegate iterator has a return method, give it a
-          // chance to clean up.
-          context.method = "return";
-          context.arg = undefined;
-          maybeInvokeDelegate(delegate, context);
-
-          if (context.method === "throw") {
-            // If maybeInvokeDelegate(context) changed context.method from
-            // "return" to "throw", let that override the TypeError below.
-            return ContinueSentinel;
-          }
-        }
-
-        context.method = "throw";
-        context.arg = new TypeError(
-          "The iterator does not provide a 'throw' method");
-      }
-
-      return ContinueSentinel;
-    }
-
-    var record = tryCatch(method, delegate.iterator, context.arg);
-
-    if (record.type === "throw") {
-      context.method = "throw";
-      context.arg = record.arg;
-      context.delegate = null;
-      return ContinueSentinel;
-    }
-
-    var info = record.arg;
-
-    if (! info) {
-      context.method = "throw";
-      context.arg = new TypeError("iterator result is not an object");
-      context.delegate = null;
-      return ContinueSentinel;
-    }
-
-    if (info.done) {
-      // Assign the result of the finished delegate to the temporary
-      // variable specified by delegate.resultName (see delegateYield).
-      context[delegate.resultName] = info.value;
-
-      // Resume execution at the desired location (see delegateYield).
-      context.next = delegate.nextLoc;
-
-      // If context.method was "throw" but the delegate handled the
-      // exception, let the outer generator proceed normally. If
-      // context.method was "next", forget context.arg since it has been
-      // "consumed" by the delegate iterator. If context.method was
-      // "return", allow the original .return call to continue in the
-      // outer generator.
-      if (context.method !== "return") {
-        context.method = "next";
-        context.arg = undefined;
-      }
-
-    } else {
-      // Re-yield the result returned by the delegate method.
-      return info;
-    }
-
-    // The delegate iterator is finished, so forget it and continue with
-    // the outer generator.
-    context.delegate = null;
-    return ContinueSentinel;
-  }
-
-  // Define Generator.prototype.{next,throw,return} in terms of the
-  // unified ._invoke helper method.
-  defineIteratorMethods(Gp);
-
-  define(Gp, toStringTagSymbol, "Generator");
-
-  // A Generator should always return itself as the iterator object when the
-  // @@iterator function is called on it. Some browsers' implementations of the
-  // iterator prototype chain incorrectly implement this, causing the Generator
-  // object to not be returned from this call. This ensures that doesn't happen.
-  // See https://github.com/facebook/regenerator/issues/274 for more details.
-  Gp[iteratorSymbol] = function() {
-    return this;
-  };
-
-  Gp.toString = function() {
-    return "[object Generator]";
-  };
-
-  function pushTryEntry(locs) {
-    var entry = { tryLoc: locs[0] };
-
-    if (1 in locs) {
-      entry.catchLoc = locs[1];
-    }
-
-    if (2 in locs) {
-      entry.finallyLoc = locs[2];
-      entry.afterLoc = locs[3];
-    }
-
-    this.tryEntries.push(entry);
-  }
-
-  function resetTryEntry(entry) {
-    var record = entry.completion || {};
-    record.type = "normal";
-    delete record.arg;
-    entry.completion = record;
-  }
-
-  function Context(tryLocsList) {
-    // The root entry object (effectively a try statement without a catch
-    // or a finally block) gives us a place to store values thrown from
-    // locations where there is no enclosing try statement.
-    this.tryEntries = [{ tryLoc: "root" }];
-    tryLocsList.forEach(pushTryEntry, this);
-    this.reset(true);
-  }
-
-  exports.keys = function(object) {
-    var keys = [];
-    for (var key in object) {
-      keys.push(key);
-    }
-    keys.reverse();
-
-    // Rather than returning an object with a next method, we keep
-    // things simple and return the next function itself.
-    return function next() {
-      while (keys.length) {
-        var key = keys.pop();
-        if (key in object) {
-          next.value = key;
-          next.done = false;
-          return next;
-        }
-      }
-
-      // To avoid creating an additional object, we just hang the .value
-      // and .done properties off the next function object itself. This
-      // also ensures that the minifier will not anonymize the function.
-      next.done = true;
-      return next;
-    };
-  };
-
-  function values(iterable) {
-    if (iterable) {
-      var iteratorMethod = iterable[iteratorSymbol];
-      if (iteratorMethod) {
-        return iteratorMethod.call(iterable);
-      }
-
-      if (typeof iterable.next === "function") {
-        return iterable;
-      }
-
-      if (!isNaN(iterable.length)) {
-        var i = -1, next = function next() {
-          while (++i < iterable.length) {
-            if (hasOwn.call(iterable, i)) {
-              next.value = iterable[i];
-              next.done = false;
-              return next;
-            }
-          }
-
-          next.value = undefined;
-          next.done = true;
-
-          return next;
-        };
-
-        return next.next = next;
-      }
-    }
-
-    // Return an iterator with no values.
-    return { next: doneResult };
-  }
-  exports.values = values;
-
-  function doneResult() {
-    return { value: undefined, done: true };
-  }
-
-  Context.prototype = {
-    constructor: Context,
-
-    reset: function(skipTempReset) {
-      this.prev = 0;
-      this.next = 0;
-      // Resetting context._sent for legacy support of Babel's
-      // function.sent implementation.
-      this.sent = this._sent = undefined;
-      this.done = false;
-      this.delegate = null;
-
-      this.method = "next";
-      this.arg = undefined;
-
-      this.tryEntries.forEach(resetTryEntry);
-
-      if (!skipTempReset) {
-        for (var name in this) {
-          // Not sure about the optimal order of these conditions:
-          if (name.charAt(0) === "t" &&
-              hasOwn.call(this, name) &&
-              !isNaN(+name.slice(1))) {
-            this[name] = undefined;
-          }
-        }
-      }
-    },
-
-    stop: function() {
-      this.done = true;
-
-      var rootEntry = this.tryEntries[0];
-      var rootRecord = rootEntry.completion;
-      if (rootRecord.type === "throw") {
-        throw rootRecord.arg;
-      }
-
-      return this.rval;
-    },
-
-    dispatchException: function(exception) {
-      if (this.done) {
-        throw exception;
-      }
-
-      var context = this;
-      function handle(loc, caught) {
-        record.type = "throw";
-        record.arg = exception;
-        context.next = loc;
-
-        if (caught) {
-          // If the dispatched exception was caught by a catch block,
-          // then let that catch block handle the exception normally.
-          context.method = "next";
-          context.arg = undefined;
-        }
-
-        return !! caught;
-      }
-
-      for (var i = this.tryEntries.length - 1; i >= 0; --i) {
-        var entry = this.tryEntries[i];
-        var record = entry.completion;
-
-        if (entry.tryLoc === "root") {
-          // Exception thrown outside of any try block that could handle
-          // it, so set the completion value of the entire function to
-          // throw the exception.
-          return handle("end");
-        }
-
-        if (entry.tryLoc <= this.prev) {
-          var hasCatch = hasOwn.call(entry, "catchLoc");
-          var hasFinally = hasOwn.call(entry, "finallyLoc");
-
-          if (hasCatch && hasFinally) {
-            if (this.prev < entry.catchLoc) {
-              return handle(entry.catchLoc, true);
-            } else if (this.prev < entry.finallyLoc) {
-              return handle(entry.finallyLoc);
-            }
-
-          } else if (hasCatch) {
-            if (this.prev < entry.catchLoc) {
-              return handle(entry.catchLoc, true);
-            }
-
-          } else if (hasFinally) {
-            if (this.prev < entry.finallyLoc) {
-              return handle(entry.finallyLoc);
-            }
-
-          } else {
-            throw new Error("try statement without catch or finally");
-          }
-        }
-      }
-    },
-
-    abrupt: function(type, arg) {
-      for (var i = this.tryEntries.length - 1; i >= 0; --i) {
-        var entry = this.tryEntries[i];
-        if (entry.tryLoc <= this.prev &&
-            hasOwn.call(entry, "finallyLoc") &&
-            this.prev < entry.finallyLoc) {
-          var finallyEntry = entry;
-          break;
-        }
-      }
-
-      if (finallyEntry &&
-          (type === "break" ||
-           type === "continue") &&
-          finallyEntry.tryLoc <= arg &&
-          arg <= finallyEntry.finallyLoc) {
-        // Ignore the finally entry if control is not jumping to a
-        // location outside the try/catch block.
-        finallyEntry = null;
-      }
-
-      var record = finallyEntry ? finallyEntry.completion : {};
-      record.type = type;
-      record.arg = arg;
-
-      if (finallyEntry) {
-        this.method = "next";
-        this.next = finallyEntry.finallyLoc;
-        return ContinueSentinel;
-      }
-
-      return this.complete(record);
-    },
-
-    complete: function(record, afterLoc) {
-      if (record.type === "throw") {
-        throw record.arg;
-      }
-
-      if (record.type === "break" ||
-          record.type === "continue") {
-        this.next = record.arg;
-      } else if (record.type === "return") {
-        this.rval = this.arg = record.arg;
-        this.method = "return";
-        this.next = "end";
-      } else if (record.type === "normal" && afterLoc) {
-        this.next = afterLoc;
-      }
-
-      return ContinueSentinel;
-    },
-
-    finish: function(finallyLoc) {
-      for (var i = this.tryEntries.length - 1; i >= 0; --i) {
-        var entry = this.tryEntries[i];
-        if (entry.finallyLoc === finallyLoc) {
-          this.complete(entry.completion, entry.afterLoc);
-          resetTryEntry(entry);
-          return ContinueSentinel;
-        }
-      }
-    },
-
-    "catch": function(tryLoc) {
-      for (var i = this.tryEntries.length - 1; i >= 0; --i) {
-        var entry = this.tryEntries[i];
-        if (entry.tryLoc === tryLoc) {
-          var record = entry.completion;
-          if (record.type === "throw") {
-            var thrown = record.arg;
-            resetTryEntry(entry);
-          }
-          return thrown;
-        }
-      }
-
-      // The context.catch method must only be called with a location
-      // argument that corresponds to a known catch block.
-      throw new Error("illegal catch attempt");
-    },
-
-    delegateYield: function(iterable, resultName, nextLoc) {
-      this.delegate = {
-        iterator: values(iterable),
-        resultName: resultName,
-        nextLoc: nextLoc
-      };
-
-      if (this.method === "next") {
-        // Deliberately forget the last sent value so that we don't
-        // accidentally pass it on to the delegate.
-        this.arg = undefined;
-      }
-
-      return ContinueSentinel;
-    }
-  };
-
-  // Regardless of whether this script is executing as a CommonJS module
-  // or not, return the runtime object so that we can declare the variable
-  // regeneratorRuntime in the outer scope, which allows this module to be
-  // injected easily by `bin/regenerator --include-runtime script.js`.
-  return exports;
-
-}(
-  // If this script is executing as a CommonJS module, use module.exports
-  // as the regeneratorRuntime namespace. Otherwise create a new empty
-  // object. Either way, the resulting object will be used to initialize
-  // the regeneratorRuntime variable at the top of this file.
-   true ? module.exports : undefined
-));
-
-try {
-  regeneratorRuntime = runtime;
-} catch (accidentalStrictMode) {
-  // This module should not be running in strict mode, so the above
-  // assignment should always work unless something is misconfigured. Just
-  // in case runtime.js accidentally runs in strict mode, we can escape
-  // strict mode using a global Function call. This could conceivably fail
-  // if a Content Security Policy forbids using Function, but in that case
-  // the proper solution is to fix the accidental strict mode problem. If
-  // you've misconfigured your bundler to force strict mode and applied a
-  // CSP to forbid Function, and you're not willing to fix either of those
-  // problems, please detail your unique predicament in a GitHub issue.
-  Function("r", "regeneratorRuntime = r")(runtime);
-}
-
-
-/***/ }),
-
 /***/ "./node_modules/setimmediate/setImmediate.js":
 /*!***************************************************!*\
   !*** ./node_modules/setimmediate/setImmediate.js ***!
@@ -38943,635 +37498,6 @@ try {
 }(typeof self === "undefined" ? typeof global === "undefined" ? this : global : self));
 
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../webpack/buildin/global.js */ "./node_modules/webpack/buildin/global.js"), __webpack_require__(/*! ./../process/browser.js */ "./node_modules/process/browser.js")))
-
-/***/ }),
-
-/***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/actividadesjuegos/niños/actividadDos/semaforoComponent.vue?vue&type=style&index=0&id=6747b3c0&scoped=true&lang=css&":
-/*!****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/style-loader!./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/actividadesjuegos/niños/actividadDos/semaforoComponent.vue?vue&type=style&index=0&id=6747b3c0&scoped=true&lang=css& ***!
-  \****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-
-var content = __webpack_require__(/*! !../../../../../../node_modules/css-loader??ref--6-1!../../../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../../../node_modules/postcss-loader/src??ref--6-2!../../../../../../node_modules/vue-loader/lib??vue-loader-options!./semaforoComponent.vue?vue&type=style&index=0&id=6747b3c0&scoped=true&lang=css& */ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/actividadesjuegos/niños/actividadDos/semaforoComponent.vue?vue&type=style&index=0&id=6747b3c0&scoped=true&lang=css&");
-
-if(typeof content === 'string') content = [[module.i, content, '']];
-
-var transform;
-var insertInto;
-
-
-
-var options = {"hmr":true}
-
-options.transform = transform
-options.insertInto = undefined;
-
-var update = __webpack_require__(/*! ../../../../../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
-
-if(content.locals) module.exports = content.locals;
-
-if(false) {}
-
-/***/ }),
-
-/***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/actividadesjuegos/niños/actividadUno/cuentoNiniaComponent.vue?vue&type=style&index=0&id=6d6f293b&scoped=true&lang=css&":
-/*!*******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/style-loader!./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/actividadesjuegos/niños/actividadUno/cuentoNiniaComponent.vue?vue&type=style&index=0&id=6d6f293b&scoped=true&lang=css& ***!
-  \*******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-
-var content = __webpack_require__(/*! !../../../../../../node_modules/css-loader??ref--6-1!../../../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../../../node_modules/postcss-loader/src??ref--6-2!../../../../../../node_modules/vue-loader/lib??vue-loader-options!./cuentoNiniaComponent.vue?vue&type=style&index=0&id=6d6f293b&scoped=true&lang=css& */ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/actividadesjuegos/niños/actividadUno/cuentoNiniaComponent.vue?vue&type=style&index=0&id=6d6f293b&scoped=true&lang=css&");
-
-if(typeof content === 'string') content = [[module.i, content, '']];
-
-var transform;
-var insertInto;
-
-
-
-var options = {"hmr":true}
-
-options.transform = transform
-options.insertInto = undefined;
-
-var update = __webpack_require__(/*! ../../../../../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
-
-if(content.locals) module.exports = content.locals;
-
-if(false) {}
-
-/***/ }),
-
-/***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/actividadesjuegos/niños/actividadUno/cuentoNinioComponent.vue?vue&type=style&index=0&id=70dfa026&scoped=true&lang=css&":
-/*!*******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/style-loader!./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/actividadesjuegos/niños/actividadUno/cuentoNinioComponent.vue?vue&type=style&index=0&id=70dfa026&scoped=true&lang=css& ***!
-  \*******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-
-var content = __webpack_require__(/*! !../../../../../../node_modules/css-loader??ref--6-1!../../../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../../../node_modules/postcss-loader/src??ref--6-2!../../../../../../node_modules/vue-loader/lib??vue-loader-options!./cuentoNinioComponent.vue?vue&type=style&index=0&id=70dfa026&scoped=true&lang=css& */ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/actividadesjuegos/niños/actividadUno/cuentoNinioComponent.vue?vue&type=style&index=0&id=70dfa026&scoped=true&lang=css&");
-
-if(typeof content === 'string') content = [[module.i, content, '']];
-
-var transform;
-var insertInto;
-
-
-
-var options = {"hmr":true}
-
-options.transform = transform
-options.insertInto = undefined;
-
-var update = __webpack_require__(/*! ../../../../../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
-
-if(content.locals) module.exports = content.locals;
-
-if(false) {}
-
-/***/ }),
-
-/***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/actividadesjuegos/niños/actividadUno/niñosComponent.vue?vue&type=style&index=0&id=68c3f256&scoped=true&lang=css&":
-/*!*************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/style-loader!./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/actividadesjuegos/niños/actividadUno/niñosComponent.vue?vue&type=style&index=0&id=68c3f256&scoped=true&lang=css& ***!
-  \*************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-
-var content = __webpack_require__(/*! !../../../../../../node_modules/css-loader??ref--6-1!../../../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../../../node_modules/postcss-loader/src??ref--6-2!../../../../../../node_modules/vue-loader/lib??vue-loader-options!./niñosComponent.vue?vue&type=style&index=0&id=68c3f256&scoped=true&lang=css& */ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/actividadesjuegos/niños/actividadUno/niñosComponent.vue?vue&type=style&index=0&id=68c3f256&scoped=true&lang=css&");
-
-if(typeof content === 'string') content = [[module.i, content, '']];
-
-var transform;
-var insertInto;
-
-
-
-var options = {"hmr":true}
-
-options.transform = transform
-options.insertInto = undefined;
-
-var update = __webpack_require__(/*! ../../../../../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
-
-if(content.locals) module.exports = content.locals;
-
-if(false) {}
-
-/***/ }),
-
-/***/ "./node_modules/style-loader/lib/addStyles.js":
-/*!****************************************************!*\
-  !*** ./node_modules/style-loader/lib/addStyles.js ***!
-  \****************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-/*
-	MIT License http://www.opensource.org/licenses/mit-license.php
-	Author Tobias Koppers @sokra
-*/
-
-var stylesInDom = {};
-
-var	memoize = function (fn) {
-	var memo;
-
-	return function () {
-		if (typeof memo === "undefined") memo = fn.apply(this, arguments);
-		return memo;
-	};
-};
-
-var isOldIE = memoize(function () {
-	// Test for IE <= 9 as proposed by Browserhacks
-	// @see http://browserhacks.com/#hack-e71d8692f65334173fee715c222cb805
-	// Tests for existence of standard globals is to allow style-loader
-	// to operate correctly into non-standard environments
-	// @see https://github.com/webpack-contrib/style-loader/issues/177
-	return window && document && document.all && !window.atob;
-});
-
-var getTarget = function (target, parent) {
-  if (parent){
-    return parent.querySelector(target);
-  }
-  return document.querySelector(target);
-};
-
-var getElement = (function (fn) {
-	var memo = {};
-
-	return function(target, parent) {
-                // If passing function in options, then use it for resolve "head" element.
-                // Useful for Shadow Root style i.e
-                // {
-                //   insertInto: function () { return document.querySelector("#foo").shadowRoot }
-                // }
-                if (typeof target === 'function') {
-                        return target();
-                }
-                if (typeof memo[target] === "undefined") {
-			var styleTarget = getTarget.call(this, target, parent);
-			// Special case to return head of iframe instead of iframe itself
-			if (window.HTMLIFrameElement && styleTarget instanceof window.HTMLIFrameElement) {
-				try {
-					// This will throw an exception if access to iframe is blocked
-					// due to cross-origin restrictions
-					styleTarget = styleTarget.contentDocument.head;
-				} catch(e) {
-					styleTarget = null;
-				}
-			}
-			memo[target] = styleTarget;
-		}
-		return memo[target]
-	};
-})();
-
-var singleton = null;
-var	singletonCounter = 0;
-var	stylesInsertedAtTop = [];
-
-var	fixUrls = __webpack_require__(/*! ./urls */ "./node_modules/style-loader/lib/urls.js");
-
-module.exports = function(list, options) {
-	if (typeof DEBUG !== "undefined" && DEBUG) {
-		if (typeof document !== "object") throw new Error("The style-loader cannot be used in a non-browser environment");
-	}
-
-	options = options || {};
-
-	options.attrs = typeof options.attrs === "object" ? options.attrs : {};
-
-	// Force single-tag solution on IE6-9, which has a hard limit on the # of <style>
-	// tags it will allow on a page
-	if (!options.singleton && typeof options.singleton !== "boolean") options.singleton = isOldIE();
-
-	// By default, add <style> tags to the <head> element
-        if (!options.insertInto) options.insertInto = "head";
-
-	// By default, add <style> tags to the bottom of the target
-	if (!options.insertAt) options.insertAt = "bottom";
-
-	var styles = listToStyles(list, options);
-
-	addStylesToDom(styles, options);
-
-	return function update (newList) {
-		var mayRemove = [];
-
-		for (var i = 0; i < styles.length; i++) {
-			var item = styles[i];
-			var domStyle = stylesInDom[item.id];
-
-			domStyle.refs--;
-			mayRemove.push(domStyle);
-		}
-
-		if(newList) {
-			var newStyles = listToStyles(newList, options);
-			addStylesToDom(newStyles, options);
-		}
-
-		for (var i = 0; i < mayRemove.length; i++) {
-			var domStyle = mayRemove[i];
-
-			if(domStyle.refs === 0) {
-				for (var j = 0; j < domStyle.parts.length; j++) domStyle.parts[j]();
-
-				delete stylesInDom[domStyle.id];
-			}
-		}
-	};
-};
-
-function addStylesToDom (styles, options) {
-	for (var i = 0; i < styles.length; i++) {
-		var item = styles[i];
-		var domStyle = stylesInDom[item.id];
-
-		if(domStyle) {
-			domStyle.refs++;
-
-			for(var j = 0; j < domStyle.parts.length; j++) {
-				domStyle.parts[j](item.parts[j]);
-			}
-
-			for(; j < item.parts.length; j++) {
-				domStyle.parts.push(addStyle(item.parts[j], options));
-			}
-		} else {
-			var parts = [];
-
-			for(var j = 0; j < item.parts.length; j++) {
-				parts.push(addStyle(item.parts[j], options));
-			}
-
-			stylesInDom[item.id] = {id: item.id, refs: 1, parts: parts};
-		}
-	}
-}
-
-function listToStyles (list, options) {
-	var styles = [];
-	var newStyles = {};
-
-	for (var i = 0; i < list.length; i++) {
-		var item = list[i];
-		var id = options.base ? item[0] + options.base : item[0];
-		var css = item[1];
-		var media = item[2];
-		var sourceMap = item[3];
-		var part = {css: css, media: media, sourceMap: sourceMap};
-
-		if(!newStyles[id]) styles.push(newStyles[id] = {id: id, parts: [part]});
-		else newStyles[id].parts.push(part);
-	}
-
-	return styles;
-}
-
-function insertStyleElement (options, style) {
-	var target = getElement(options.insertInto)
-
-	if (!target) {
-		throw new Error("Couldn't find a style target. This probably means that the value for the 'insertInto' parameter is invalid.");
-	}
-
-	var lastStyleElementInsertedAtTop = stylesInsertedAtTop[stylesInsertedAtTop.length - 1];
-
-	if (options.insertAt === "top") {
-		if (!lastStyleElementInsertedAtTop) {
-			target.insertBefore(style, target.firstChild);
-		} else if (lastStyleElementInsertedAtTop.nextSibling) {
-			target.insertBefore(style, lastStyleElementInsertedAtTop.nextSibling);
-		} else {
-			target.appendChild(style);
-		}
-		stylesInsertedAtTop.push(style);
-	} else if (options.insertAt === "bottom") {
-		target.appendChild(style);
-	} else if (typeof options.insertAt === "object" && options.insertAt.before) {
-		var nextSibling = getElement(options.insertAt.before, target);
-		target.insertBefore(style, nextSibling);
-	} else {
-		throw new Error("[Style Loader]\n\n Invalid value for parameter 'insertAt' ('options.insertAt') found.\n Must be 'top', 'bottom', or Object.\n (https://github.com/webpack-contrib/style-loader#insertat)\n");
-	}
-}
-
-function removeStyleElement (style) {
-	if (style.parentNode === null) return false;
-	style.parentNode.removeChild(style);
-
-	var idx = stylesInsertedAtTop.indexOf(style);
-	if(idx >= 0) {
-		stylesInsertedAtTop.splice(idx, 1);
-	}
-}
-
-function createStyleElement (options) {
-	var style = document.createElement("style");
-
-	if(options.attrs.type === undefined) {
-		options.attrs.type = "text/css";
-	}
-
-	if(options.attrs.nonce === undefined) {
-		var nonce = getNonce();
-		if (nonce) {
-			options.attrs.nonce = nonce;
-		}
-	}
-
-	addAttrs(style, options.attrs);
-	insertStyleElement(options, style);
-
-	return style;
-}
-
-function createLinkElement (options) {
-	var link = document.createElement("link");
-
-	if(options.attrs.type === undefined) {
-		options.attrs.type = "text/css";
-	}
-	options.attrs.rel = "stylesheet";
-
-	addAttrs(link, options.attrs);
-	insertStyleElement(options, link);
-
-	return link;
-}
-
-function addAttrs (el, attrs) {
-	Object.keys(attrs).forEach(function (key) {
-		el.setAttribute(key, attrs[key]);
-	});
-}
-
-function getNonce() {
-	if (false) {}
-
-	return __webpack_require__.nc;
-}
-
-function addStyle (obj, options) {
-	var style, update, remove, result;
-
-	// If a transform function was defined, run it on the css
-	if (options.transform && obj.css) {
-	    result = typeof options.transform === 'function'
-		 ? options.transform(obj.css) 
-		 : options.transform.default(obj.css);
-
-	    if (result) {
-	    	// If transform returns a value, use that instead of the original css.
-	    	// This allows running runtime transformations on the css.
-	    	obj.css = result;
-	    } else {
-	    	// If the transform function returns a falsy value, don't add this css.
-	    	// This allows conditional loading of css
-	    	return function() {
-	    		// noop
-	    	};
-	    }
-	}
-
-	if (options.singleton) {
-		var styleIndex = singletonCounter++;
-
-		style = singleton || (singleton = createStyleElement(options));
-
-		update = applyToSingletonTag.bind(null, style, styleIndex, false);
-		remove = applyToSingletonTag.bind(null, style, styleIndex, true);
-
-	} else if (
-		obj.sourceMap &&
-		typeof URL === "function" &&
-		typeof URL.createObjectURL === "function" &&
-		typeof URL.revokeObjectURL === "function" &&
-		typeof Blob === "function" &&
-		typeof btoa === "function"
-	) {
-		style = createLinkElement(options);
-		update = updateLink.bind(null, style, options);
-		remove = function () {
-			removeStyleElement(style);
-
-			if(style.href) URL.revokeObjectURL(style.href);
-		};
-	} else {
-		style = createStyleElement(options);
-		update = applyToTag.bind(null, style);
-		remove = function () {
-			removeStyleElement(style);
-		};
-	}
-
-	update(obj);
-
-	return function updateStyle (newObj) {
-		if (newObj) {
-			if (
-				newObj.css === obj.css &&
-				newObj.media === obj.media &&
-				newObj.sourceMap === obj.sourceMap
-			) {
-				return;
-			}
-
-			update(obj = newObj);
-		} else {
-			remove();
-		}
-	};
-}
-
-var replaceText = (function () {
-	var textStore = [];
-
-	return function (index, replacement) {
-		textStore[index] = replacement;
-
-		return textStore.filter(Boolean).join('\n');
-	};
-})();
-
-function applyToSingletonTag (style, index, remove, obj) {
-	var css = remove ? "" : obj.css;
-
-	if (style.styleSheet) {
-		style.styleSheet.cssText = replaceText(index, css);
-	} else {
-		var cssNode = document.createTextNode(css);
-		var childNodes = style.childNodes;
-
-		if (childNodes[index]) style.removeChild(childNodes[index]);
-
-		if (childNodes.length) {
-			style.insertBefore(cssNode, childNodes[index]);
-		} else {
-			style.appendChild(cssNode);
-		}
-	}
-}
-
-function applyToTag (style, obj) {
-	var css = obj.css;
-	var media = obj.media;
-
-	if(media) {
-		style.setAttribute("media", media)
-	}
-
-	if(style.styleSheet) {
-		style.styleSheet.cssText = css;
-	} else {
-		while(style.firstChild) {
-			style.removeChild(style.firstChild);
-		}
-
-		style.appendChild(document.createTextNode(css));
-	}
-}
-
-function updateLink (link, options, obj) {
-	var css = obj.css;
-	var sourceMap = obj.sourceMap;
-
-	/*
-		If convertToAbsoluteUrls isn't defined, but sourcemaps are enabled
-		and there is no publicPath defined then lets turn convertToAbsoluteUrls
-		on by default.  Otherwise default to the convertToAbsoluteUrls option
-		directly
-	*/
-	var autoFixUrls = options.convertToAbsoluteUrls === undefined && sourceMap;
-
-	if (options.convertToAbsoluteUrls || autoFixUrls) {
-		css = fixUrls(css);
-	}
-
-	if (sourceMap) {
-		// http://stackoverflow.com/a/26603875
-		css += "\n/*# sourceMappingURL=data:application/json;base64," + btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap)))) + " */";
-	}
-
-	var blob = new Blob([css], { type: "text/css" });
-
-	var oldSrc = link.href;
-
-	link.href = URL.createObjectURL(blob);
-
-	if(oldSrc) URL.revokeObjectURL(oldSrc);
-}
-
-
-/***/ }),
-
-/***/ "./node_modules/style-loader/lib/urls.js":
-/*!***********************************************!*\
-  !*** ./node_modules/style-loader/lib/urls.js ***!
-  \***********************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-
-/**
- * When source maps are enabled, `style-loader` uses a link element with a data-uri to
- * embed the css on the page. This breaks all relative urls because now they are relative to a
- * bundle instead of the current page.
- *
- * One solution is to only use full urls, but that may be impossible.
- *
- * Instead, this function "fixes" the relative urls to be absolute according to the current page location.
- *
- * A rudimentary test suite is located at `test/fixUrls.js` and can be run via the `npm test` command.
- *
- */
-
-module.exports = function (css) {
-  // get current location
-  var location = typeof window !== "undefined" && window.location;
-
-  if (!location) {
-    throw new Error("fixUrls requires window.location");
-  }
-
-	// blank or null?
-	if (!css || typeof css !== "string") {
-	  return css;
-  }
-
-  var baseUrl = location.protocol + "//" + location.host;
-  var currentDir = baseUrl + location.pathname.replace(/\/[^\/]*$/, "/");
-
-	// convert each url(...)
-	/*
-	This regular expression is just a way to recursively match brackets within
-	a string.
-
-	 /url\s*\(  = Match on the word "url" with any whitespace after it and then a parens
-	   (  = Start a capturing group
-	     (?:  = Start a non-capturing group
-	         [^)(]  = Match anything that isn't a parentheses
-	         |  = OR
-	         \(  = Match a start parentheses
-	             (?:  = Start another non-capturing groups
-	                 [^)(]+  = Match anything that isn't a parentheses
-	                 |  = OR
-	                 \(  = Match a start parentheses
-	                     [^)(]*  = Match anything that isn't a parentheses
-	                 \)  = Match a end parentheses
-	             )  = End Group
-              *\) = Match anything and then a close parens
-          )  = Close non-capturing group
-          *  = Match anything
-       )  = Close capturing group
-	 \)  = Match a close parens
-
-	 /gi  = Get all matches, not the first.  Be case insensitive.
-	 */
-	var fixedCss = css.replace(/url\s*\(((?:[^)(]|\((?:[^)(]+|\([^)(]*\))*\))*)\)/gi, function(fullMatch, origUrl) {
-		// strip quotes (if they exist)
-		var unquotedOrigUrl = origUrl
-			.trim()
-			.replace(/^"(.*)"$/, function(o, $1){ return $1; })
-			.replace(/^'(.*)'$/, function(o, $1){ return $1; });
-
-		// already a full url? no change
-		if (/^(#|data:|http:\/\/|https:\/\/|file:\/\/\/|\s*$)/i.test(unquotedOrigUrl)) {
-		  return fullMatch;
-		}
-
-		// convert the url to a full url
-		var newUrl;
-
-		if (unquotedOrigUrl.indexOf("//") === 0) {
-		  	//TODO: should we add protocol?
-			newUrl = unquotedOrigUrl;
-		} else if (unquotedOrigUrl.indexOf("/") === 0) {
-			// path should be relative to the base url
-			newUrl = baseUrl + unquotedOrigUrl; // already starts with '/'
-		} else {
-			// path should be relative to current directory
-			newUrl = currentDir + unquotedOrigUrl.replace(/^\.\//, ""); // Strip leading './'
-		}
-
-		// send back the fixed url(...)
-		return "url(" + JSON.stringify(newUrl) + ")";
-	});
-
-	// send back the fixed css
-	return fixedCss;
-};
-
 
 /***/ }),
 
@@ -39782,10 +37708,10 @@ render._withStripped = true
 
 /***/ }),
 
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/PensamientoComponent.vue?vue&type=template&id=66687e41&":
-/*!***********************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/PensamientoComponent.vue?vue&type=template&id=66687e41& ***!
-  \***********************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/actividades/niños/SemaforoComponent.vue?vue&type=template&id=115be4dd&":
+/*!**************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/actividades/niños/SemaforoComponent.vue?vue&type=template&id=115be4dd& ***!
+  \**************************************************************************************************************************************************************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -39797,681 +37723,292 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "card" }, [
-    _c("div", { staticClass: "card-header" }, [
-      _vm._v(
-        "Publicado en " +
-          _vm._s(_vm.pensamiento.created_at) +
-          " - Ultima actualizacion: " +
-          _vm._s(_vm.pensamiento.updated_at)
-      )
-    ]),
-    _vm._v(" "),
-    _c("div", { staticClass: "card-body" }, [
-      _vm.editMode
-        ? _c("input", {
-            directives: [
-              {
-                name: "model",
-                rawName: "v-model",
-                value: _vm.pensamiento.description,
-                expression: "pensamiento.description"
-              }
-            ],
-            staticClass: "form-control",
-            attrs: { type: "text" },
-            domProps: { value: _vm.pensamiento.description },
-            on: {
-              input: function($event) {
-                if ($event.target.composing) {
-                  return
-                }
-                _vm.$set(_vm.pensamiento, "description", $event.target.value)
-              }
-            }
-          })
-        : _c("p", [_vm._v(_vm._s(_vm.pensamiento.description))])
-    ]),
-    _vm._v(" "),
-    _c("div", { staticClass: "card-footer" }, [
-      _vm.editMode
-        ? _c(
-            "button",
-            {
-              staticClass: "btn btn-success",
-              on: {
-                click: function($event) {
-                  return _vm.onClickUpdate()
-                }
-              }
-            },
-            [_vm._v("\n            Guardar cambios\n        ")]
-          )
-        : _c(
-            "button",
-            {
-              staticClass: "btn btn-default",
-              on: {
-                click: function($event) {
-                  return _vm.onClickEdit()
-                }
-              }
-            },
-            [_vm._v("\n            Editar\n        ")]
-          ),
-      _vm._v(" "),
-      _c(
-        "button",
-        {
-          staticClass: "btn btn-danger",
-          on: {
-            click: function($event) {
-              return _vm.onClickDelete()
-            }
+  return _c("div", { staticClass: "container" }, [
+    _c("div", { staticClass: "row" }, [
+      _c("div", { staticClass: "col-lg-4 " }, [
+        _c("div", {
+          staticStyle: {
+            position: "absolute",
+            width: "250px",
+            height: "250px",
+            background: "#ff0000",
+            opacity: "0.4"
           }
-        },
-        [_vm._v("\n            Eliminar\n        ")]
-      )
-    ])
-  ])
-}
-var staticRenderFns = []
-render._withStripped = true
-
-
-
-/***/ }),
-
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/actividadesjuegos/niños/actividadDos/semaforoComponent.vue?vue&type=template&id=6747b3c0&scoped=true&":
-/*!*********************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/actividadesjuegos/niños/actividadDos/semaforoComponent.vue?vue&type=template&id=6747b3c0&scoped=true& ***!
-  \*********************************************************************************************************************************************************************************************************************************************************************/
-/*! exports provided: render, staticRenderFns */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _vm._m(0)
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", [
-      _c("div", { staticClass: "mx-auto", staticStyle: { width: "400px" } }, [
-        _c("figure", [
+        }),
+        _vm._v(" "),
+        _c("div", { staticStyle: { width: "250px" } }, [
           _c("img", {
             attrs: {
-              src: "image/actividadesyjuegos/semaforo.png",
-              width: "400px",
-              alt: ""
+              src: _vm.imagenRojo,
+              id: "imagenRojo",
+              width: "250",
+              height: "250"
             }
           }),
           _vm._v(" "),
-          _c("div", { staticClass: "hover" }, [
-            _c("div", {
-              staticClass: "hover1",
-              attrs: {
-                "data-toggle": "modal",
-                "data-target": "#rompecabezarojo"
+          _c(
+            "form",
+            {
+              attrs: { enctype: "multipart/form-data" },
+              on: {
+                submit: function($event) {
+                  $event.preventDefault()
+                  return _vm.addImageRojo($event)
+                }
               }
-            }),
-            _vm._v(" "),
-            _c("div", {
-              staticClass: "hover2",
-              attrs: {
-                "data-toggle": "modal",
-                "data-target": "#rompecabezaamarillo"
-              }
-            }),
-            _vm._v(" "),
-            _c("div", {
-              staticClass: "hover3",
-              attrs: {
-                "data-toggle": "modal",
-                "data-target": "#rompecabezaverde"
-              }
-            })
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "luces" }, [
-            _c("div", { staticClass: "red" }),
-            _vm._v(" "),
-            _c("div", { staticClass: "yellow" }),
-            _vm._v(" "),
-            _c("div", { staticClass: "green" })
-          ])
+            },
+            [
+              _c("div", { staticClass: "input-group is-invalid" }, [
+                _c("div", { staticClass: "custom-file" }, [
+                  _c("input", {
+                    staticClass: "custom-file-input",
+                    attrs: { id: "rojo", type: "file", accept: "image/*" },
+                    on: { change: _vm.obtenerImageRojo }
+                  }),
+                  _vm._v(" "),
+                  _c("label", { staticClass: "custom-file-label" }, [
+                    _vm._v("Suba una imagen")
+                  ])
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "mb-3" }, [
+                _c(
+                  "textarea",
+                  {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.rojo,
+                        expression: "rojo"
+                      }
+                    ],
+                    staticClass: "form-control is-invalid",
+                    attrs: {
+                      id: "validationTextarea",
+                      name: "mensajeverde",
+                      placeholder: "Su mensaje"
+                    },
+                    domProps: { value: _vm.rojo },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.rojo = $event.target.value
+                      }
+                    }
+                  },
+                  [_vm._v(_vm._s(_vm.mensajes.rojo))]
+                )
+              ]),
+              _vm._v(" "),
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-primary btn-lg btn-block",
+                  attrs: { type: "submit" }
+                },
+                [_vm._v("Aplicar")]
+              )
+            ]
+          )
         ])
       ]),
       _vm._v(" "),
-      _c(
-        "div",
-        {
-          staticClass: "modal fade",
-          attrs: {
-            id: "rompecabezarojo",
-            tabindex: "-1",
-            role: "dialog",
-            "aria-labelledby": "exampleModalCenterTitle",
-            "aria-hidden": "true"
+      _c("div", { staticClass: "col-lg-4" }, [
+        _c("div", {
+          staticStyle: {
+            position: "absolute",
+            width: "250px",
+            height: "250px",
+            background: "yellow",
+            opacity: "0.4"
           }
-        },
-        [
-          _c(
-            "div",
-            {
-              staticClass: "modal-dialog modal-dialog-centered modal-xl",
-              attrs: { role: "document" }
-            },
-            [
-              _c("div", { staticClass: "modal-content" }, [
-                _c("div", { staticClass: "modal-header" }, [
-                  _c("h5", { staticClass: "modal-title" }, [
-                    _vm._v("Modal title")
-                  ]),
-                  _vm._v(" "),
-                  _c(
-                    "button",
-                    {
-                      staticClass: "close",
-                      attrs: {
-                        type: "button",
-                        "data-dismiss": "modal",
-                        "aria-label": "Close"
-                      }
-                    },
-                    [
-                      _c("span", { attrs: { "aria-hidden": "true" } }, [
-                        _vm._v("×")
-                      ])
-                    ]
-                  )
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "modal-body" }, [
-                  _c("div", { staticClass: "rompecabeza" }, [
-                    _c("div", { staticClass: "base" }, [
-                      _c("img", {
-                        staticClass: "mt-0 ",
-                        staticStyle: { opacity: "50%" },
-                        attrs: {
-                          src:
-                            "https://raw.githubusercontent.com/NestorPlasencia/pikachu-puzzle/master//pikachu.png",
-                          alt: "",
-                          width: "100%"
-                        }
-                      })
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "piezas" }, [
-                      _c("img", {
-                        staticClass: "pieza",
-                        attrs: {
-                          src:
-                            "https://raw.githubusercontent.com/NestorPlasencia/pikachu-puzzle/master/1.png",
-                          id: "img1"
-                        }
-                      }),
-                      _vm._v(" "),
-                      _c("img", {
-                        staticClass: "pieza",
-                        attrs: {
-                          src:
-                            "https://raw.githubusercontent.com/NestorPlasencia/pikachu-puzzle/master/2.png",
-                          id: "img2"
-                        }
-                      }),
-                      _vm._v(" "),
-                      _c("img", {
-                        staticClass: "pieza",
-                        attrs: {
-                          src:
-                            "https://raw.githubusercontent.com/NestorPlasencia/pikachu-puzzle/master/3.png",
-                          id: "img3"
-                        }
-                      }),
-                      _vm._v(" "),
-                      _c("img", {
-                        staticClass: "pieza",
-                        attrs: {
-                          src:
-                            "https://raw.githubusercontent.com/NestorPlasencia/pikachu-puzzle/master/4.png",
-                          id: "img4"
-                        }
-                      }),
-                      _vm._v(" "),
-                      _c("img", {
-                        staticClass: "pieza",
-                        attrs: {
-                          src:
-                            "https://raw.githubusercontent.com/NestorPlasencia/pikachu-puzzle/master/5.png",
-                          id: "img5"
-                        }
-                      }),
-                      _vm._v(" "),
-                      _c("img", {
-                        staticClass: "pieza",
-                        attrs: {
-                          src:
-                            "https://raw.githubusercontent.com/NestorPlasencia/pikachu-puzzle/master/6.png",
-                          id: "img6"
-                        }
-                      }),
-                      _vm._v(" "),
-                      _c("img", {
-                        staticClass: "pieza",
-                        attrs: {
-                          src:
-                            "https://raw.githubusercontent.com/NestorPlasencia/pikachu-puzzle/master/7.png",
-                          id: "img7"
-                        }
-                      }),
-                      _vm._v(" "),
-                      _c("img", {
-                        staticClass: "pieza",
-                        attrs: {
-                          src:
-                            "https://raw.githubusercontent.com/NestorPlasencia/pikachu-puzzle/master/8.png",
-                          id: "img8"
-                        }
-                      }),
-                      _vm._v(" "),
-                      _c("img", {
-                        staticClass: "pieza",
-                        attrs: {
-                          src:
-                            "https://raw.githubusercontent.com/NestorPlasencia/pikachu-puzzle/master/9.png",
-                          id: "img9"
-                        }
-                      })
-                    ]),
-                    _vm._v(" "),
-                    _c("audio", {
-                      attrs: {
-                        id: "win",
-                        src:
-                          "https://raw.githubusercontent.com/NestorPlasencia/PikaPuzzle/master/media/win.mp3"
-                      }
-                    })
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "modal-footer" }, [
-                  _c(
-                    "button",
-                    {
-                      staticClass: "btn btn-secondary",
-                      attrs: { type: "button", "data-dismiss": "modal" }
-                    },
-                    [_vm._v("Close")]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "button",
-                    {
-                      staticClass: "btn btn-primary",
-                      attrs: { type: "button" }
-                    },
-                    [_vm._v("Save changes")]
-                  )
-                ])
-              ])
-            ]
-          )
-        ]
-      ),
-      _vm._v(" "),
-      _c(
-        "div",
-        {
-          staticClass: "modal fade",
-          attrs: {
-            id: "rompecabezaamarillo",
-            tabindex: "-1",
-            role: "dialog",
-            "aria-labelledby": "exampleModalCenterTitle",
-            "aria-hidden": "true"
-          }
-        },
-        [
-          _c(
-            "div",
-            {
-              staticClass: "modal-dialog modal-dialog-centered",
-              attrs: { role: "document" }
-            },
-            [
-              _c("div", { staticClass: "modal-content" }, [
-                _c("div", { staticClass: "modal-header" }, [
-                  _c("h5", { staticClass: "modal-title" }, [
-                    _vm._v("Modal title")
-                  ]),
-                  _vm._v(" "),
-                  _c(
-                    "button",
-                    {
-                      staticClass: "close",
-                      attrs: {
-                        type: "button",
-                        "data-dismiss": "modal",
-                        "aria-label": "Close"
-                      }
-                    },
-                    [
-                      _c("span", { attrs: { "aria-hidden": "true" } }, [
-                        _vm._v("×")
-                      ])
-                    ]
-                  )
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "modal-body" }, [
-                  _vm._v(
-                    "\n                    rompe cabeza amarillo\n                "
-                  )
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "modal-footer" }, [
-                  _c(
-                    "button",
-                    {
-                      staticClass: "btn btn-secondary",
-                      attrs: { type: "button", "data-dismiss": "modal" }
-                    },
-                    [_vm._v("Close")]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "button",
-                    {
-                      staticClass: "btn btn-primary",
-                      attrs: { type: "button" }
-                    },
-                    [_vm._v("Save changes")]
-                  )
-                ])
-              ])
-            ]
-          )
-        ]
-      ),
-      _vm._v(" "),
-      _c(
-        "div",
-        {
-          staticClass: "modal fade",
-          attrs: {
-            id: "rompecabezaverde",
-            tabindex: "-1",
-            role: "dialog",
-            "aria-labelledby": "exampleModalCenterTitle",
-            "aria-hidden": "true"
-          }
-        },
-        [
-          _c(
-            "div",
-            {
-              staticClass: "modal-dialog modal-dialog-centered",
-              attrs: { role: "document" }
-            },
-            [
-              _c("div", { staticClass: "modal-content" }, [
-                _c("div", { staticClass: "modal-header" }, [
-                  _c("h5", { staticClass: "modal-title" }, [
-                    _vm._v("Modal title")
-                  ]),
-                  _vm._v(" "),
-                  _c(
-                    "button",
-                    {
-                      staticClass: "close",
-                      attrs: {
-                        type: "button",
-                        "data-dismiss": "modal",
-                        "aria-label": "Close"
-                      }
-                    },
-                    [
-                      _c("span", { attrs: { "aria-hidden": "true" } }, [
-                        _vm._v("×")
-                      ])
-                    ]
-                  )
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "modal-body" }, [
-                  _vm._v(
-                    "\n                    rompe cabeza verde\n                "
-                  )
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "modal-footer" }, [
-                  _c(
-                    "button",
-                    {
-                      staticClass: "btn btn-secondary",
-                      attrs: { type: "button", "data-dismiss": "modal" }
-                    },
-                    [_vm._v("Close")]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "button",
-                    {
-                      staticClass: "btn btn-primary",
-                      attrs: { type: "button" }
-                    },
-                    [_vm._v("Save changes")]
-                  )
-                ])
-              ])
-            ]
-          )
-        ]
-      )
-    ])
-  }
-]
-render._withStripped = true
-
-
-
-/***/ }),
-
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/actividadesjuegos/niños/actividadUno/cuentoNiniaComponent.vue?vue&type=template&id=6d6f293b&scoped=true&":
-/*!************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/actividadesjuegos/niños/actividadUno/cuentoNiniaComponent.vue?vue&type=template&id=6d6f293b&scoped=true& ***!
-  \************************************************************************************************************************************************************************************************************************************************************************/
-/*! exports provided: render, staticRenderFns */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c("div", [
-    _c("h1", [_c("center", [_vm._v("MARITA")])], 1),
-    _vm._v(" "),
-    _c("p", [
-      _vm._v(
-        "\n        Marita era una niña de pelo largo y negro, gordita, muy alegre, juguetona y muy feliz. Ella se había mudado a una nueva ciudad y a una nueva escuela.\n        Por otro lado, Julieta era: inteligente, abusona, violenta, con mucha picardía y sin nada de empatía. Todas las fechorías que decía o hacia estaba bien para los que la seguían.\n        - ¡Eh, tú! - le gritó Julieta a Marita, al verla en la fila para entrar al aula.\n        A Marita le asusto ese tono de voz, y sin hacer caso se dirigió a su clase.\n        Cuando fue a sentarse, Julieta le habló susurrando a su espalda amenazadoramente, cuidándose de que la profesora no la oyera. - ¿Dónde vas gorda? ¡Ese es mi sitio! Marita, sin mirarla, fue a colocarse en uno de los pupitres de la última fila.\n        Cuando llegó a casa no contó nada a pesar de estar muy disgustada.\n        A la mañana siguiente, Marita desayunó nerviosa deseando que esas niñas se hubieran olvidado de ella, pero en cuanto la vieron llegar, empezaron de nuevo los ataques.  - ¡Gordaaaaa, gordaaaaa! - le cantaron, delante de todos.\n        Y a la hora de la salida…. Cuando salió las niñas estaban esperándola en la puerta. Marita siguió su camino sin mirarlas, pero una de ellas le puso el pie haciendo que tropezara. - ¡Jajajajajajajaja! ¡Perdona, ha sido sin querer! - escuchó que decían\n        Se estaba levantando del suelo cuando llegó la profesora, que no había visto nada. - ¿Qué te ha pasado Marita? ¿Te has hecho daño? - le dijo preocupada. - Solo he resbalado - dijo ocultando la verdad ante la mirada amenazadora de las otras.\n        Otros niños de la clase vieron lo que estaba pasando, pero por miedo a ser objeto también de sus ataques se callaron.\n        Pasaban los días y Marita cada vez estaba más amargada, no podía dormir y no sabía cómo resolver esa situación. Marita bajó en sus notas, no comía bien, estaba muy triste y se volvió muy reservada.\n        Los padres estaban preocupados por su cambio de actitud, pero pensaban que le estaba costando mucho adaptarse a la nueva ciudad, la nueva casa y el nuevo colegio, y decidieron tener paciencia y estar más atentos.\n        Mientras, Julieta y sus seguidoras continuaban con el acoso sin darle tregua. Estuvo así durante todo el curso; atormentada.\n        Poco antes de que terminara el curso, se mudaron a otra ciudad\n        y Marita les conto a sus padres todo lo que había vivido.\n\n\n    "
-      )
-    ]),
-    _vm._v(" "),
-    _c(
-      "div",
-      { staticClass: "section mb-5" },
-      [
-        _c("center", [
-          _c(
-            "button",
-            {
-              staticClass: "btn btn-outline-primary",
-              on: { click: _vm.question }
-            },
-            [_vm._v("Preguntas")]
-          )
-        ])
-      ],
-      1
-    )
-  ])
-}
-var staticRenderFns = []
-render._withStripped = true
-
-
-
-/***/ }),
-
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/actividadesjuegos/niños/actividadUno/cuentoNinioComponent.vue?vue&type=template&id=70dfa026&scoped=true&":
-/*!************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/actividadesjuegos/niños/actividadUno/cuentoNinioComponent.vue?vue&type=template&id=70dfa026&scoped=true& ***!
-  \************************************************************************************************************************************************************************************************************************************************************************/
-/*! exports provided: render, staticRenderFns */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c("div", [
-    _c("h1", [_c("center", [_vm._v("JOAQUÍN")])], 1),
-    _vm._v(" "),
-    _c("p", [
-      _vm._v(
-        "\n\n        Joaquín era un niño de pelo corto y negro, gordito, muy alegre, juguetón y muy feliz. Él se había mudado a una nueva ciudad y a una nueva escuela.\n        Por otro lado, Tito era: inteligente, abusón, violento, con mucha picardía y sin nada de empatía. Todas las fechorías que decía o hacia estaba bien para los que le seguían.\n        - ¡Eh, tú! - le gritó Tito a Joaquín, al verlo en la fila para entrar al aula.\n        A Joaquín le asusto ese tono de voz, y sin hacer caso se dirigió a su clase.\n        Cuando fue a sentarse, Tito le habló susurrando a su espalda amenazadoramente, cuidándose de que la profesora no lo oyera. - ¿Dónde vas gordo? ¡Ese es mi sitio! Joaquín, sin mirarlo, fue a colocarse en uno de los pupitres de la última fila.\n        Cuando llegó a casa no contó nada a pesar de estar muy disgustado.\n        A la mañana siguiente, Joaquín desayunó nervioso deseando que esos niños se hubieran olvidado de él, pero en cuanto lo vieron llegar, empezaron de nuevo los ataques.  - ¡Gordoooo, gordoooo! - le cantaron, delante de todos.\n        Y a la hora de la salida…. Cuando salió, los niños estaban esperándolo en la puerta. Joaquín siguió su camino sin mirarlos, pero uno de ellos le puso el pie haciendo que tropezara. - ¡Jajajajajajajaja! ¡Perdona, ha sido sin querer! - escuchó que decían\n        Se estaba levantando del suelo cuando llegó la profesora, que no había visto nada. - ¿Qué te ha pasado Joaquín? ¿Te has hecho daño? - le dijo preocupada. - Solo he resbalado - dijo ocultando la verdad ante la mirada amenazadora de los otros.\n        Otros niños de la clase vieron lo que estaba pasando, pero por miedo a ser objeto también de sus ataques se callaron.\n        Pasaban los días y Joaquín cada vez estaba más amargado, no podía dormir y no sabía cómo resolver esa situación. Joaquín bajó en sus notas, no comía bien, estaba muy triste y se volvió muy reservado.\n        Los padres estaban preocupados por su cambio de actitud, pero pensaban que le estaba costando mucho adaptarse a la nueva ciudad, la nueva casa y el nuevo colegio, y decidieron tener paciencia y estar más atentos.\n        Mientras, Tito y sus seguidores continuaban con el acoso sin darle\n        tregua. Estuvo así durante todo el curso; atormentado.\n        Poco antes de que terminara el curso, se mudaron a otra ciudad\n        y Joaquín les conto a sus padres todo lo que había vivido.\n\n    "
-      )
-    ]),
-    _vm._v(" "),
-    _c(
-      "div",
-      { staticClass: "section mb-5" },
-      [
-        _c("center", [
-          _c(
-            "button",
-            {
-              staticClass: "btn btn-outline-primary",
-              on: { click: _vm.question }
-            },
-            [_vm._v("Preguntas")]
-          )
-        ])
-      ],
-      1
-    )
-  ])
-}
-var staticRenderFns = []
-render._withStripped = true
-
-
-
-/***/ }),
-
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/actividadesjuegos/niños/actividadUno/niñosComponent.vue?vue&type=template&id=68c3f256&scoped=true&":
-/*!******************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/actividadesjuegos/niños/actividadUno/niñosComponent.vue?vue&type=template&id=68c3f256&scoped=true& ***!
-  \******************************************************************************************************************************************************************************************************************************************************************/
-/*! exports provided: render, staticRenderFns */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _vm.show
-    ? _c(
-        "div",
-        {
-          staticClass: "d-flex justify-content-center",
-          attrs: { id: "seletion" }
-        },
-        [
-          _c(
-            "div",
-            {
-              staticClass: "box box-1",
-              on: {
-                click: function($event) {
-                  return _vm.selectionChildren("ninio")
-                }
-              }
-            },
-            [_c("h3", [_vm._v("Niño")]), _vm._v(" "), _vm._m(0)]
-          ),
+        }),
+        _vm._v(" "),
+        _c("div", { staticStyle: { width: "250px" } }, [
+          _c("img", {
+            attrs: {
+              src: _vm.imagenAmarillo,
+              id: "imagenAmarillo",
+              width: "250",
+              height: "250"
+            }
+          }),
           _vm._v(" "),
           _c(
-            "div",
+            "form",
             {
-              staticClass: "box box-2",
+              attrs: { enctype: "multipart/form-data" },
               on: {
-                click: function($event) {
-                  return _vm.selectionChildren("ninia")
+                submit: function($event) {
+                  $event.preventDefault()
+                  return _vm.addImageAmarillo($event)
                 }
               }
             },
-            [_c("h3", [_vm._v("Niña")]), _vm._v(" "), _vm._m(1)]
+            [
+              _c("div", { staticClass: "input-group is-invalid" }, [
+                _c("div", { staticClass: "custom-file" }, [
+                  _c("input", {
+                    staticClass: "custom-file-input",
+                    attrs: {
+                      id: "amarillo",
+                      name: "base",
+                      type: "file",
+                      accept: "image/*"
+                    },
+                    on: { change: _vm.obtenerImageAmarillo }
+                  }),
+                  _vm._v(" "),
+                  _c("label", { staticClass: "custom-file-label" }, [
+                    _vm._v("Suba una imagen")
+                  ])
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "mb-3" }, [
+                _c(
+                  "textarea",
+                  {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.amarillo,
+                        expression: "amarillo"
+                      }
+                    ],
+                    staticClass: "form-control ",
+                    attrs: {
+                      name: "mensajeamarillo",
+                      placeholder: "Su mensaje"
+                    },
+                    domProps: { value: _vm.amarillo },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.amarillo = $event.target.value
+                      }
+                    }
+                  },
+                  [_vm._v(_vm._s(_vm.mensajes.amarillo))]
+                )
+              ]),
+              _vm._v(" "),
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-primary btn-lg btn-block",
+                  attrs: { type: "submit" }
+                },
+                [_vm._v("Aplicar")]
+              )
+            ]
           )
-        ]
-      )
-    : _vm.children === "ninio"
-    ? _c("cuentoniño-component")
-    : _vm.children === "ninia"
-    ? _c("cuentoniña-component")
-    : _vm._e()
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-lg-4" }, [
+        _c("div", {
+          staticStyle: {
+            position: "absolute",
+            width: "250px",
+            height: "250px",
+            background: "green",
+            opacity: "0.4"
+          }
+        }),
+        _vm._v(" "),
+        _c("div", { staticStyle: { width: "250px" } }, [
+          _c("img", {
+            attrs: {
+              src: _vm.imagenVerde,
+              id: "imagenVerde",
+              width: "250",
+              height: "250"
+            }
+          }),
+          _vm._v(" "),
+          _c(
+            "form",
+            {
+              attrs: { enctype: "multipart/form-data" },
+              on: {
+                submit: function($event) {
+                  $event.preventDefault()
+                  return _vm.addImageVerde($event)
+                }
+              }
+            },
+            [
+              _c("div", { staticClass: "input-group " }, [
+                _c("div", { staticClass: "custom-file" }, [
+                  _c("input", {
+                    staticClass: "custom-file-input",
+                    attrs: {
+                      id: "verde",
+                      name: "base",
+                      type: "file",
+                      accept: "image/*"
+                    },
+                    on: { change: _vm.obtenerImageVerde }
+                  }),
+                  _vm._v(" "),
+                  _c("label", { staticClass: "custom-file-label" }, [
+                    _vm._v("Suba una imagen")
+                  ])
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "mb-3" }, [
+                _c(
+                  "textarea",
+                  {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.verde,
+                        expression: "verde"
+                      }
+                    ],
+                    staticClass: "form-control ",
+                    attrs: { name: "mensajeverde", placeholder: "Su mensaje" },
+                    domProps: { value: _vm.verde },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.verde = $event.target.value
+                      }
+                    }
+                  },
+                  [_vm._v(_vm._s(_vm.mensajes.verde))]
+                )
+              ]),
+              _vm._v(" "),
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-primary btn-lg btn-block",
+                  attrs: { type: "submit" }
+                },
+                [_vm._v("Aplicar")]
+              )
+            ]
+          )
+        ])
+      ])
+    ])
+  ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "image" }, [
-      _c("img", {
-        attrs: {
-          src: "image/actividadesyjuegos/niño.jpg",
-          width: "350",
-          alt: "For you..."
-        }
-      })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "image" }, [
-      _c("img", {
-        attrs: {
-          src: "image/actividadesyjuegos/niña.jpg",
-          width: "350",
-          alt: "For you..."
-        }
-      })
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -52640,17 +50177,6 @@ module.exports = function(module) {
 
 /***/ }),
 
-/***/ "./public/image/actividadesyjuegos/border.png":
-/*!****************************************************!*\
-  !*** ./public/image/actividadesyjuegos/border.png ***!
-  \****************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "/images/border.png?18654677e0698479013f14327e130a38";
-
-/***/ }),
-
 /***/ "./resources/js/app.js":
 /*!*****************************!*\
   !*** ./resources/js/app.js ***!
@@ -52664,13 +50190,9 @@ window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 //noticia
 
-Vue.component('semaforo-component', __webpack_require__(/*! ./components/actividadesjuegos/niños/actividadDos/semaforoComponent.vue */ "./resources/js/components/actividadesjuegos/niños/actividadDos/semaforoComponent.vue")["default"]);
-Vue.component('cuentoniño-component', __webpack_require__(/*! ./components/actividadesjuegos/niños/actividadUno/cuentoNinioComponent.vue */ "./resources/js/components/actividadesjuegos/niños/actividadUno/cuentoNinioComponent.vue")["default"]);
-Vue.component('cuentoniña-component', __webpack_require__(/*! ./components/actividadesjuegos/niños/actividadUno/cuentoNiniaComponent.vue */ "./resources/js/components/actividadesjuegos/niños/actividadUno/cuentoNiniaComponent.vue")["default"]);
-Vue.component('niños-component', __webpack_require__(/*! ./components/actividadesjuegos/niños/actividadUno/niñosComponent.vue */ "./resources/js/components/actividadesjuegos/niños/actividadUno/niñosComponent.vue")["default"]);
 Vue.component('my-pensamientos-component', __webpack_require__(/*! ./components/MyPensamientosComponent */ "./resources/js/components/MyPensamientosComponent.vue")["default"]);
 Vue.component('form-component', __webpack_require__(/*! ./components/FormComponent */ "./resources/js/components/FormComponent.vue")["default"]);
-Vue.component('pensamiento-component', __webpack_require__(/*! ./components/PensamientoComponent.vue */ "./resources/js/components/PensamientoComponent.vue")["default"]);
+Vue.component('semaforo-component', __webpack_require__(/*! ./components/actividades/niños/SemaforoComponent.vue */ "./resources/js/components/actividades/niños/SemaforoComponent.vue")["default"]);
 var app = new Vue({
   el: '#app'
 });
@@ -52873,18 +50395,18 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/components/PensamientoComponent.vue":
-/*!**********************************************************!*\
-  !*** ./resources/js/components/PensamientoComponent.vue ***!
-  \**********************************************************/
+/***/ "./resources/js/components/actividades/niños/SemaforoComponent.vue":
+/*!*************************************************************************!*\
+  !*** ./resources/js/components/actividades/niños/SemaforoComponent.vue ***!
+  \*************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _PensamientoComponent_vue_vue_type_template_id_66687e41___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./PensamientoComponent.vue?vue&type=template&id=66687e41& */ "./resources/js/components/PensamientoComponent.vue?vue&type=template&id=66687e41&");
-/* harmony import */ var _PensamientoComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./PensamientoComponent.vue?vue&type=script&lang=js& */ "./resources/js/components/PensamientoComponent.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* harmony import */ var _SemaforoComponent_vue_vue_type_template_id_115be4dd___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./SemaforoComponent.vue?vue&type=template&id=115be4dd& */ "./resources/js/components/actividades/niños/SemaforoComponent.vue?vue&type=template&id=115be4dd&");
+/* harmony import */ var _SemaforoComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./SemaforoComponent.vue?vue&type=script&lang=js& */ "./resources/js/components/actividades/niños/SemaforoComponent.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
 
@@ -52893,9 +50415,9 @@ __webpack_require__.r(__webpack_exports__);
 /* normalize component */
 
 var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
-  _PensamientoComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _PensamientoComponent_vue_vue_type_template_id_66687e41___WEBPACK_IMPORTED_MODULE_0__["render"],
-  _PensamientoComponent_vue_vue_type_template_id_66687e41___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  _SemaforoComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _SemaforoComponent_vue_vue_type_template_id_115be4dd___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _SemaforoComponent_vue_vue_type_template_id_115be4dd___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
   false,
   null,
   null,
@@ -52905,389 +50427,38 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
 
 /* hot reload */
 if (false) { var api; }
-component.options.__file = "resources/js/components/PensamientoComponent.vue"
+component.options.__file = "resources/js/components/actividades/niños/SemaforoComponent.vue"
 /* harmony default export */ __webpack_exports__["default"] = (component.exports);
 
 /***/ }),
 
-/***/ "./resources/js/components/PensamientoComponent.vue?vue&type=script&lang=js&":
-/*!***********************************************************************************!*\
-  !*** ./resources/js/components/PensamientoComponent.vue?vue&type=script&lang=js& ***!
-  \***********************************************************************************/
+/***/ "./resources/js/components/actividades/niños/SemaforoComponent.vue?vue&type=script&lang=js&":
+/*!**************************************************************************************************!*\
+  !*** ./resources/js/components/actividades/niños/SemaforoComponent.vue?vue&type=script&lang=js& ***!
+  \**************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_PensamientoComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./PensamientoComponent.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/PensamientoComponent.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_PensamientoComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_SemaforoComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../node_modules/vue-loader/lib??vue-loader-options!./SemaforoComponent.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/actividades/niños/SemaforoComponent.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_SemaforoComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 
-/***/ "./resources/js/components/PensamientoComponent.vue?vue&type=template&id=66687e41&":
-/*!*****************************************************************************************!*\
-  !*** ./resources/js/components/PensamientoComponent.vue?vue&type=template&id=66687e41& ***!
-  \*****************************************************************************************/
+/***/ "./resources/js/components/actividades/niños/SemaforoComponent.vue?vue&type=template&id=115be4dd&":
+/*!********************************************************************************************************!*\
+  !*** ./resources/js/components/actividades/niños/SemaforoComponent.vue?vue&type=template&id=115be4dd& ***!
+  \********************************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_PensamientoComponent_vue_vue_type_template_id_66687e41___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./PensamientoComponent.vue?vue&type=template&id=66687e41& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/PensamientoComponent.vue?vue&type=template&id=66687e41&");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_PensamientoComponent_vue_vue_type_template_id_66687e41___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_SemaforoComponent_vue_vue_type_template_id_115be4dd___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib??vue-loader-options!./SemaforoComponent.vue?vue&type=template&id=115be4dd& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/actividades/niños/SemaforoComponent.vue?vue&type=template&id=115be4dd&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_SemaforoComponent_vue_vue_type_template_id_115be4dd___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_PensamientoComponent_vue_vue_type_template_id_66687e41___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
-
-
-
-/***/ }),
-
-/***/ "./resources/js/components/actividadesjuegos/niños/actividadDos/semaforoComponent.vue":
-/*!********************************************************************************************!*\
-  !*** ./resources/js/components/actividadesjuegos/niños/actividadDos/semaforoComponent.vue ***!
-  \********************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _semaforoComponent_vue_vue_type_template_id_6747b3c0_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./semaforoComponent.vue?vue&type=template&id=6747b3c0&scoped=true& */ "./resources/js/components/actividadesjuegos/niños/actividadDos/semaforoComponent.vue?vue&type=template&id=6747b3c0&scoped=true&");
-/* harmony import */ var _semaforoComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./semaforoComponent.vue?vue&type=script&lang=js& */ "./resources/js/components/actividadesjuegos/niños/actividadDos/semaforoComponent.vue?vue&type=script&lang=js&");
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _semaforoComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _semaforoComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[key]; }) }(__WEBPACK_IMPORT_KEY__));
-/* harmony import */ var _semaforoComponent_vue_vue_type_style_index_0_id_6747b3c0_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./semaforoComponent.vue?vue&type=style&index=0&id=6747b3c0&scoped=true&lang=css& */ "./resources/js/components/actividadesjuegos/niños/actividadDos/semaforoComponent.vue?vue&type=style&index=0&id=6747b3c0&scoped=true&lang=css&");
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
-
-
-
-
-
-
-/* normalize component */
-
-var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
-  _semaforoComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _semaforoComponent_vue_vue_type_template_id_6747b3c0_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
-  _semaforoComponent_vue_vue_type_template_id_6747b3c0_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
-  false,
-  null,
-  "6747b3c0",
-  null
-  
-)
-
-/* hot reload */
-if (false) { var api; }
-component.options.__file = "resources/js/components/actividadesjuegos/niños/actividadDos/semaforoComponent.vue"
-/* harmony default export */ __webpack_exports__["default"] = (component.exports);
-
-/***/ }),
-
-/***/ "./resources/js/components/actividadesjuegos/niños/actividadDos/semaforoComponent.vue?vue&type=script&lang=js&":
-/*!*********************************************************************************************************************!*\
-  !*** ./resources/js/components/actividadesjuegos/niños/actividadDos/semaforoComponent.vue?vue&type=script&lang=js& ***!
-  \*********************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_semaforoComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../../node_modules/vue-loader/lib??vue-loader-options!./semaforoComponent.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/actividadesjuegos/niños/actividadDos/semaforoComponent.vue?vue&type=script&lang=js&");
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_semaforoComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_semaforoComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__);
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_semaforoComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_semaforoComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
- /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_semaforoComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0___default.a); 
-
-/***/ }),
-
-/***/ "./resources/js/components/actividadesjuegos/niños/actividadDos/semaforoComponent.vue?vue&type=style&index=0&id=6747b3c0&scoped=true&lang=css&":
-/*!*****************************************************************************************************************************************************!*\
-  !*** ./resources/js/components/actividadesjuegos/niños/actividadDos/semaforoComponent.vue?vue&type=style&index=0&id=6747b3c0&scoped=true&lang=css& ***!
-  \*****************************************************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_semaforoComponent_vue_vue_type_style_index_0_id_6747b3c0_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../node_modules/style-loader!../../../../../../node_modules/css-loader??ref--6-1!../../../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../../../node_modules/postcss-loader/src??ref--6-2!../../../../../../node_modules/vue-loader/lib??vue-loader-options!./semaforoComponent.vue?vue&type=style&index=0&id=6747b3c0&scoped=true&lang=css& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/actividadesjuegos/niños/actividadDos/semaforoComponent.vue?vue&type=style&index=0&id=6747b3c0&scoped=true&lang=css&");
-/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_semaforoComponent_vue_vue_type_style_index_0_id_6747b3c0_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_semaforoComponent_vue_vue_type_style_index_0_id_6747b3c0_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__);
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_semaforoComponent_vue_vue_type_style_index_0_id_6747b3c0_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_semaforoComponent_vue_vue_type_style_index_0_id_6747b3c0_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
- /* harmony default export */ __webpack_exports__["default"] = (_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_semaforoComponent_vue_vue_type_style_index_0_id_6747b3c0_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0___default.a); 
-
-/***/ }),
-
-/***/ "./resources/js/components/actividadesjuegos/niños/actividadDos/semaforoComponent.vue?vue&type=template&id=6747b3c0&scoped=true&":
-/*!***************************************************************************************************************************************!*\
-  !*** ./resources/js/components/actividadesjuegos/niños/actividadDos/semaforoComponent.vue?vue&type=template&id=6747b3c0&scoped=true& ***!
-  \***************************************************************************************************************************************/
-/*! exports provided: render, staticRenderFns */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_semaforoComponent_vue_vue_type_template_id_6747b3c0_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../../node_modules/vue-loader/lib??vue-loader-options!./semaforoComponent.vue?vue&type=template&id=6747b3c0&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/actividadesjuegos/niños/actividadDos/semaforoComponent.vue?vue&type=template&id=6747b3c0&scoped=true&");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_semaforoComponent_vue_vue_type_template_id_6747b3c0_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_semaforoComponent_vue_vue_type_template_id_6747b3c0_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
-
-
-
-/***/ }),
-
-/***/ "./resources/js/components/actividadesjuegos/niños/actividadUno/cuentoNiniaComponent.vue":
-/*!***********************************************************************************************!*\
-  !*** ./resources/js/components/actividadesjuegos/niños/actividadUno/cuentoNiniaComponent.vue ***!
-  \***********************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _cuentoNiniaComponent_vue_vue_type_template_id_6d6f293b_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./cuentoNiniaComponent.vue?vue&type=template&id=6d6f293b&scoped=true& */ "./resources/js/components/actividadesjuegos/niños/actividadUno/cuentoNiniaComponent.vue?vue&type=template&id=6d6f293b&scoped=true&");
-/* harmony import */ var _cuentoNiniaComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./cuentoNiniaComponent.vue?vue&type=script&lang=js& */ "./resources/js/components/actividadesjuegos/niños/actividadUno/cuentoNiniaComponent.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _cuentoNiniaComponent_vue_vue_type_style_index_0_id_6d6f293b_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./cuentoNiniaComponent.vue?vue&type=style&index=0&id=6d6f293b&scoped=true&lang=css& */ "./resources/js/components/actividadesjuegos/niños/actividadUno/cuentoNiniaComponent.vue?vue&type=style&index=0&id=6d6f293b&scoped=true&lang=css&");
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
-
-
-
-
-
-
-/* normalize component */
-
-var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
-  _cuentoNiniaComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _cuentoNiniaComponent_vue_vue_type_template_id_6d6f293b_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
-  _cuentoNiniaComponent_vue_vue_type_template_id_6d6f293b_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
-  false,
-  null,
-  "6d6f293b",
-  null
-  
-)
-
-/* hot reload */
-if (false) { var api; }
-component.options.__file = "resources/js/components/actividadesjuegos/niños/actividadUno/cuentoNiniaComponent.vue"
-/* harmony default export */ __webpack_exports__["default"] = (component.exports);
-
-/***/ }),
-
-/***/ "./resources/js/components/actividadesjuegos/niños/actividadUno/cuentoNiniaComponent.vue?vue&type=script&lang=js&":
-/*!************************************************************************************************************************!*\
-  !*** ./resources/js/components/actividadesjuegos/niños/actividadUno/cuentoNiniaComponent.vue?vue&type=script&lang=js& ***!
-  \************************************************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_cuentoNiniaComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../../node_modules/vue-loader/lib??vue-loader-options!./cuentoNiniaComponent.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/actividadesjuegos/niños/actividadUno/cuentoNiniaComponent.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_cuentoNiniaComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
-
-/***/ }),
-
-/***/ "./resources/js/components/actividadesjuegos/niños/actividadUno/cuentoNiniaComponent.vue?vue&type=style&index=0&id=6d6f293b&scoped=true&lang=css&":
-/*!********************************************************************************************************************************************************!*\
-  !*** ./resources/js/components/actividadesjuegos/niños/actividadUno/cuentoNiniaComponent.vue?vue&type=style&index=0&id=6d6f293b&scoped=true&lang=css& ***!
-  \********************************************************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_cuentoNiniaComponent_vue_vue_type_style_index_0_id_6d6f293b_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../node_modules/style-loader!../../../../../../node_modules/css-loader??ref--6-1!../../../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../../../node_modules/postcss-loader/src??ref--6-2!../../../../../../node_modules/vue-loader/lib??vue-loader-options!./cuentoNiniaComponent.vue?vue&type=style&index=0&id=6d6f293b&scoped=true&lang=css& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/actividadesjuegos/niños/actividadUno/cuentoNiniaComponent.vue?vue&type=style&index=0&id=6d6f293b&scoped=true&lang=css&");
-/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_cuentoNiniaComponent_vue_vue_type_style_index_0_id_6d6f293b_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_cuentoNiniaComponent_vue_vue_type_style_index_0_id_6d6f293b_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__);
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_cuentoNiniaComponent_vue_vue_type_style_index_0_id_6d6f293b_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_cuentoNiniaComponent_vue_vue_type_style_index_0_id_6d6f293b_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
- /* harmony default export */ __webpack_exports__["default"] = (_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_cuentoNiniaComponent_vue_vue_type_style_index_0_id_6d6f293b_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0___default.a); 
-
-/***/ }),
-
-/***/ "./resources/js/components/actividadesjuegos/niños/actividadUno/cuentoNiniaComponent.vue?vue&type=template&id=6d6f293b&scoped=true&":
-/*!******************************************************************************************************************************************!*\
-  !*** ./resources/js/components/actividadesjuegos/niños/actividadUno/cuentoNiniaComponent.vue?vue&type=template&id=6d6f293b&scoped=true& ***!
-  \******************************************************************************************************************************************/
-/*! exports provided: render, staticRenderFns */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_cuentoNiniaComponent_vue_vue_type_template_id_6d6f293b_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../../node_modules/vue-loader/lib??vue-loader-options!./cuentoNiniaComponent.vue?vue&type=template&id=6d6f293b&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/actividadesjuegos/niños/actividadUno/cuentoNiniaComponent.vue?vue&type=template&id=6d6f293b&scoped=true&");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_cuentoNiniaComponent_vue_vue_type_template_id_6d6f293b_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_cuentoNiniaComponent_vue_vue_type_template_id_6d6f293b_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
-
-
-
-/***/ }),
-
-/***/ "./resources/js/components/actividadesjuegos/niños/actividadUno/cuentoNinioComponent.vue":
-/*!***********************************************************************************************!*\
-  !*** ./resources/js/components/actividadesjuegos/niños/actividadUno/cuentoNinioComponent.vue ***!
-  \***********************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _cuentoNinioComponent_vue_vue_type_template_id_70dfa026_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./cuentoNinioComponent.vue?vue&type=template&id=70dfa026&scoped=true& */ "./resources/js/components/actividadesjuegos/niños/actividadUno/cuentoNinioComponent.vue?vue&type=template&id=70dfa026&scoped=true&");
-/* harmony import */ var _cuentoNinioComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./cuentoNinioComponent.vue?vue&type=script&lang=js& */ "./resources/js/components/actividadesjuegos/niños/actividadUno/cuentoNinioComponent.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _cuentoNinioComponent_vue_vue_type_style_index_0_id_70dfa026_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./cuentoNinioComponent.vue?vue&type=style&index=0&id=70dfa026&scoped=true&lang=css& */ "./resources/js/components/actividadesjuegos/niños/actividadUno/cuentoNinioComponent.vue?vue&type=style&index=0&id=70dfa026&scoped=true&lang=css&");
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
-
-
-
-
-
-
-/* normalize component */
-
-var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
-  _cuentoNinioComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _cuentoNinioComponent_vue_vue_type_template_id_70dfa026_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
-  _cuentoNinioComponent_vue_vue_type_template_id_70dfa026_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
-  false,
-  null,
-  "70dfa026",
-  null
-  
-)
-
-/* hot reload */
-if (false) { var api; }
-component.options.__file = "resources/js/components/actividadesjuegos/niños/actividadUno/cuentoNinioComponent.vue"
-/* harmony default export */ __webpack_exports__["default"] = (component.exports);
-
-/***/ }),
-
-/***/ "./resources/js/components/actividadesjuegos/niños/actividadUno/cuentoNinioComponent.vue?vue&type=script&lang=js&":
-/*!************************************************************************************************************************!*\
-  !*** ./resources/js/components/actividadesjuegos/niños/actividadUno/cuentoNinioComponent.vue?vue&type=script&lang=js& ***!
-  \************************************************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_cuentoNinioComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../../node_modules/vue-loader/lib??vue-loader-options!./cuentoNinioComponent.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/actividadesjuegos/niños/actividadUno/cuentoNinioComponent.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_cuentoNinioComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
-
-/***/ }),
-
-/***/ "./resources/js/components/actividadesjuegos/niños/actividadUno/cuentoNinioComponent.vue?vue&type=style&index=0&id=70dfa026&scoped=true&lang=css&":
-/*!********************************************************************************************************************************************************!*\
-  !*** ./resources/js/components/actividadesjuegos/niños/actividadUno/cuentoNinioComponent.vue?vue&type=style&index=0&id=70dfa026&scoped=true&lang=css& ***!
-  \********************************************************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_cuentoNinioComponent_vue_vue_type_style_index_0_id_70dfa026_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../node_modules/style-loader!../../../../../../node_modules/css-loader??ref--6-1!../../../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../../../node_modules/postcss-loader/src??ref--6-2!../../../../../../node_modules/vue-loader/lib??vue-loader-options!./cuentoNinioComponent.vue?vue&type=style&index=0&id=70dfa026&scoped=true&lang=css& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/actividadesjuegos/niños/actividadUno/cuentoNinioComponent.vue?vue&type=style&index=0&id=70dfa026&scoped=true&lang=css&");
-/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_cuentoNinioComponent_vue_vue_type_style_index_0_id_70dfa026_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_cuentoNinioComponent_vue_vue_type_style_index_0_id_70dfa026_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__);
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_cuentoNinioComponent_vue_vue_type_style_index_0_id_70dfa026_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_cuentoNinioComponent_vue_vue_type_style_index_0_id_70dfa026_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
- /* harmony default export */ __webpack_exports__["default"] = (_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_cuentoNinioComponent_vue_vue_type_style_index_0_id_70dfa026_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0___default.a); 
-
-/***/ }),
-
-/***/ "./resources/js/components/actividadesjuegos/niños/actividadUno/cuentoNinioComponent.vue?vue&type=template&id=70dfa026&scoped=true&":
-/*!******************************************************************************************************************************************!*\
-  !*** ./resources/js/components/actividadesjuegos/niños/actividadUno/cuentoNinioComponent.vue?vue&type=template&id=70dfa026&scoped=true& ***!
-  \******************************************************************************************************************************************/
-/*! exports provided: render, staticRenderFns */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_cuentoNinioComponent_vue_vue_type_template_id_70dfa026_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../../node_modules/vue-loader/lib??vue-loader-options!./cuentoNinioComponent.vue?vue&type=template&id=70dfa026&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/actividadesjuegos/niños/actividadUno/cuentoNinioComponent.vue?vue&type=template&id=70dfa026&scoped=true&");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_cuentoNinioComponent_vue_vue_type_template_id_70dfa026_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_cuentoNinioComponent_vue_vue_type_template_id_70dfa026_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
-
-
-
-/***/ }),
-
-/***/ "./resources/js/components/actividadesjuegos/niños/actividadUno/niñosComponent.vue":
-/*!*****************************************************************************************!*\
-  !*** ./resources/js/components/actividadesjuegos/niños/actividadUno/niñosComponent.vue ***!
-  \*****************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _ni_osComponent_vue_vue_type_template_id_68c3f256_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./niñosComponent.vue?vue&type=template&id=68c3f256&scoped=true& */ "./resources/js/components/actividadesjuegos/niños/actividadUno/niñosComponent.vue?vue&type=template&id=68c3f256&scoped=true&");
-/* harmony import */ var _ni_osComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./niñosComponent.vue?vue&type=script&lang=js& */ "./resources/js/components/actividadesjuegos/niños/actividadUno/niñosComponent.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _ni_osComponent_vue_vue_type_style_index_0_id_68c3f256_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./niñosComponent.vue?vue&type=style&index=0&id=68c3f256&scoped=true&lang=css& */ "./resources/js/components/actividadesjuegos/niños/actividadUno/niñosComponent.vue?vue&type=style&index=0&id=68c3f256&scoped=true&lang=css&");
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
-
-
-
-
-
-
-/* normalize component */
-
-var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
-  _ni_osComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _ni_osComponent_vue_vue_type_template_id_68c3f256_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
-  _ni_osComponent_vue_vue_type_template_id_68c3f256_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
-  false,
-  null,
-  "68c3f256",
-  null
-  
-)
-
-/* hot reload */
-if (false) { var api; }
-component.options.__file = "resources/js/components/actividadesjuegos/niños/actividadUno/niñosComponent.vue"
-/* harmony default export */ __webpack_exports__["default"] = (component.exports);
-
-/***/ }),
-
-/***/ "./resources/js/components/actividadesjuegos/niños/actividadUno/niñosComponent.vue?vue&type=script&lang=js&":
-/*!******************************************************************************************************************!*\
-  !*** ./resources/js/components/actividadesjuegos/niños/actividadUno/niñosComponent.vue?vue&type=script&lang=js& ***!
-  \******************************************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ni_osComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../../node_modules/vue-loader/lib??vue-loader-options!./niñosComponent.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/actividadesjuegos/niños/actividadUno/niñosComponent.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ni_osComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
-
-/***/ }),
-
-/***/ "./resources/js/components/actividadesjuegos/niños/actividadUno/niñosComponent.vue?vue&type=style&index=0&id=68c3f256&scoped=true&lang=css&":
-/*!**************************************************************************************************************************************************!*\
-  !*** ./resources/js/components/actividadesjuegos/niños/actividadUno/niñosComponent.vue?vue&type=style&index=0&id=68c3f256&scoped=true&lang=css& ***!
-  \**************************************************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_ni_osComponent_vue_vue_type_style_index_0_id_68c3f256_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../node_modules/style-loader!../../../../../../node_modules/css-loader??ref--6-1!../../../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../../../node_modules/postcss-loader/src??ref--6-2!../../../../../../node_modules/vue-loader/lib??vue-loader-options!./niñosComponent.vue?vue&type=style&index=0&id=68c3f256&scoped=true&lang=css& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/actividadesjuegos/niños/actividadUno/niñosComponent.vue?vue&type=style&index=0&id=68c3f256&scoped=true&lang=css&");
-/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_ni_osComponent_vue_vue_type_style_index_0_id_68c3f256_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_ni_osComponent_vue_vue_type_style_index_0_id_68c3f256_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__);
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_ni_osComponent_vue_vue_type_style_index_0_id_68c3f256_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_ni_osComponent_vue_vue_type_style_index_0_id_68c3f256_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
- /* harmony default export */ __webpack_exports__["default"] = (_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_ni_osComponent_vue_vue_type_style_index_0_id_68c3f256_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0___default.a); 
-
-/***/ }),
-
-/***/ "./resources/js/components/actividadesjuegos/niños/actividadUno/niñosComponent.vue?vue&type=template&id=68c3f256&scoped=true&":
-/*!************************************************************************************************************************************!*\
-  !*** ./resources/js/components/actividadesjuegos/niños/actividadUno/niñosComponent.vue?vue&type=template&id=68c3f256&scoped=true& ***!
-  \************************************************************************************************************************************/
-/*! exports provided: render, staticRenderFns */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ni_osComponent_vue_vue_type_template_id_68c3f256_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../../node_modules/vue-loader/lib??vue-loader-options!./niñosComponent.vue?vue&type=template&id=68c3f256&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/actividadesjuegos/niños/actividadUno/niñosComponent.vue?vue&type=template&id=68c3f256&scoped=true&");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ni_osComponent_vue_vue_type_template_id_68c3f256_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ni_osComponent_vue_vue_type_template_id_68c3f256_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_SemaforoComponent_vue_vue_type_template_id_115be4dd___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 

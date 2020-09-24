@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="csrf-token" content="{{csrf_token()}}">
 
     <title>AmarEsEducar | Admin</title>
 
@@ -43,10 +44,10 @@
         <!-- /.content-header -->
 
         <!-- Main content -->
-        <div class="content">
+        <div class="content" id="app">
 
 
-    @yield('contentWrapper')
+             @yield('contentWrapper')
         </div>
         <!-- /.content -->
     </div>
@@ -92,7 +93,7 @@
             fd.append("imgUpload", ListadeImagenes[x]);
         }
         $.ajax({
-            url: {{asset('recorte')}},
+            url: "{{asset('recorte')}}",
             method: 'post',
             data: fd,
             contentType: false,
@@ -109,5 +110,6 @@
     };
 
 </script>
+<script src="{{asset('js/app.js')}}"></script>
 </body>
 </html>

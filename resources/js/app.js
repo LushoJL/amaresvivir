@@ -9,7 +9,7 @@ window.Vue = require('vue');
 
 Vue.component('my-pensamientos-component', require('./components/MyPensamientosComponent').default);
 Vue.component('form-component', require('./components/FormComponent').default);
-Vue.component('pensamiento-component', require('./components/PensamientoComponent.vue').default);
+Vue.component('semaforo-component', require('./components/actividades/niños/SemaforoComponent.vue').default);
 
 const app = new Vue({
     el: '#app',
