@@ -31,13 +31,14 @@ class ActivitygameController extends Controller
             return view('landingPage/actividadesjuegos.niños.actividadDos.semaforo');
         }
         function actividadDosRojo(){
-            return view('landingPage/actividadesjuegos.niños.actividadDos.rojo');
+
+            return view('landingPage/actividadesjuegos.niños.actividadDos.rojo', ['color' => semaforo::findOrFail(1)]);
         }
         function actividadDosAmarillo(){
-            return view('landingPage/actividadesjuegos.niños.actividadDos.amarillo');
+            return view('landingPage/actividadesjuegos.niños.actividadDos.amarillo', ['color' => semaforo::findOrFail(1)]);
         }
         function actividadDosVerde(){
-            return view('landingPage/actividadesjuegos.niños.actividadDos.verde');
+            return view('landingPage/actividadesjuegos.niños.actividadDos.verde', ['color' => semaforo::findOrFail(1)]);
         }
         //cuento de niño
         public function boy(){

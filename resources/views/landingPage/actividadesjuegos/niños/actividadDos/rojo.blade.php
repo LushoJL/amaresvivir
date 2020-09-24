@@ -33,7 +33,8 @@
                      id="img9">
             </div>
 
-            <audio id="win" src="https://raw.githubusercontent.com/NestorPlasencia/PikaPuzzle/master/media/win.mp3"></audio>
         </div>
-
+        <script type="text/javascript">
+            var dataMensaje = @json($color->rojo);
+        </script>
 @endsection

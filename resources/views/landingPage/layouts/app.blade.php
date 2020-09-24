@@ -522,7 +522,7 @@
     });
 </script>
 
-<script src="{{asset('js/puzzle/semaforo.js') }}"></script>
+<script src="{{asset('js/puzzle/semaforo.js') }}" type="text/javascript"></script>
 
 
 <script src="{{asset('js/sweetalert2/sweetalert2.min.js') }}"></script>

@@ -1,4 +1,6 @@
 <?php
+
+use App\semaforo;
 use App\User;
 use Illuminate\Database\Seeder;
 
@@ -12,9 +14,10 @@ class UsersTableSeeder extends Seeder
     public function run()
     {
                 User::create([
-                'name' => 'lucho',
-                'email' => 'lucho@lucho.com',
-                'password' => bcrypt('123456')
+                'name' => 'admin',
+                'email' => 'admin@admin.com',
+                'password' => bcrypt('12345678')
                 ]);
+                semaforo::Create();
     }
 }

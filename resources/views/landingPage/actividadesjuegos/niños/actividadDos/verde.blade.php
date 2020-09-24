@@ -32,8 +32,9 @@
                 <img src="{{Storage::disk('s3')->url('public/verde/9.jpg')}}" class="pieza"
                      id="img9">
             </div>
-
-            <audio id="win" src="https://raw.githubusercontent.com/NestorPlasencia/PikaPuzzle/master/media/win.mp3"></audio>
+            <script type="text/javascript">
+                var dataMensaje = @json($color->verde);
+            </script>
         </div>
     </div>
 @endsection
