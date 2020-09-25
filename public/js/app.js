@@ -1882,6 +1882,15 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {
     this.getMensajes();
@@ -37800,8 +37809,22 @@ var render = function() {
                       }
                     }
                   },
-                  [_vm._v(_vm._s(_vm.mensajes.rojo))]
-                )
+                  [
+                    _vm._v(
+                      "                                " +
+                        _vm._s(_vm.mensajes.rojo) +
+                        "\n                            "
+                    )
+                  ]
+                ),
+                _vm._v(" "),
+                _vm.rojo === ""
+                  ? _c("div", { staticClass: "invalid-feedback" }, [
+                      _vm._v(
+                        "\n                                Please enter a message in the textarea.\n                            "
+                      )
+                    ])
+                  : _vm._e()
               ]),
               _vm._v(" "),
               _c(

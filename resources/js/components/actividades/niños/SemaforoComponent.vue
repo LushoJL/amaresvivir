@@ -15,7 +15,17 @@
                             </div>
                         </div>
                         <div class="mb-3">
-                            <textarea class="form-control is-invalid" id="validationTextarea" name="mensajeverde" placeholder="Su mensaje"   v-model="rojo">{{mensajes.rojo}}</textarea>
+                            <textarea class="form-control  "
+                                      :class="{ 'is-invalid': inavalidRed }"
+                                      id="validationTextarea"
+                                      name="mensajeverde"
+                                      placeholder="Su mensaje"
+                                      v-model="rojo">
+                                {{mensajes.rojo}}
+                            </textarea>
+                            <div class="invalid-feedback" v-if="rojo===''">
+                               Por favor, ingrese un mensaje para rojo
+                            </div>
                         </div>
                         <button type="submit" class="btn btn-primary btn-lg btn-block">Aplicar</button>
                     </form>
@@ -39,8 +49,16 @@
                             </div>
                         </div>
                         <div class="mb-3">
-                            <textarea class="form-control " name="mensajeamarillo" placeholder="Su mensaje"  v-model="amarillo">{{mensajes.amarillo}}</textarea>
-
+                            <textarea class="form-control "
+                                      :class="{ 'is-invalid': inavalidYellow }"
+                                      name="mensajeamarillo"
+                                      placeholder="Su mensaje"
+                                      v-model="amarillo">
+                                {{mensajes.amarillo}}
+                            </textarea>
+                            <div class="invalid-feedback" v-if="amarillo===''">
+                                Por favor, ingrese un mensaje para amarillo
+                            </div>
                         </div>
                         <button type="submit" class="btn btn-primary btn-lg btn-block">Aplicar</button>
                     </form>
@@ -63,8 +81,16 @@
                             </div>
                         </div>
                         <div class="mb-3">
-                            <textarea class="form-control " name="mensajeverde" placeholder="Su mensaje"  v-model="verde">{{mensajes.verde}}</textarea>
-
+                            <textarea class="form-control "
+                                      :class="{ 'is-invalid': inavalidGreen }"
+                                      name="mensajeverde"
+                                      placeholder="Su mensaje"
+                                      v-model="verde">
+                                {{mensajes.verde}}
+                            </textarea>
+                            <div class="invalid-feedback" v-if="verde===''">
+                                Por favor, ingrese un mensaje para verde
+                            </div>
                         </div>
                         <button type="submit" class="btn btn-primary btn-lg btn-block">Aplicar</button>
 
@@ -90,11 +116,15 @@
               rojo:'',
               amarillo:'',
               verde:'',
+              inavalidRed:false,
+              inavalidYellow:false,
+              inavalidGreen:false,
 
           }
         },
 
         methods:{
+
                 getMensajes(){
                     var mensajes='todoslosmensajesdelsemaforo'
                     axios.get(mensajes).then(response=>{
@@ -174,7 +204,9 @@
             },
             imagenVerde(){
                 return this.imagenMiniaturaVerde;
-            }
+            },
+
+
         }
     }
 </script>
