@@ -19,7 +19,20 @@ COLORES
 .negro{
     background: #000000 !important;
 }
+.coiny{
+    font-family: 'Coiny', cursive;
 
+}
+.ravie{
+    font-family: Ravie;
+
+}
+.textoblanco{
+    color:white!important;
+}
+.textonegro{
+    color: #000000 !important;
+}
 /*---
 todo el cuerpo
  */
@@ -420,3 +433,33 @@ div.unaPlabra{
     margin-bottom: 10px;
 }
 
+/**
+jovenes
+ */
+.cardluc{
+    height: 150px;
+}
+.cardluc-100{
+    height: 100px;
+}
+.cardluc,.cardluc-100{
+    position: relative;
+    border: black solid 5px;
+    text-align: center;
+    font-size: 1.5vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@media only screen and (max-width: 1000px) {
+    .cardluc,.cardluc-100{
+        font-size: 2vw
+    }
+
+}
+@media only screen and (max-width: 767px) {
+    .cardluc,.cardluc-100{
+        font-size: 5vw
+    }
+}
