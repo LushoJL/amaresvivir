@@ -1,0 +1,13 @@
+#gallery .col-lg-4 {
+    margin: 0; !important;
+    padding: 25px;
+}
+
+#gallery img {
+    width: 100%;
+    height: auto;
+}
+
+#gallery img:hover {
+    border: 5px solid #f7f7f7;
+}
