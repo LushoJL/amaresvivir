@@ -19,6 +19,10 @@ Route::get('/semaforo-verde', 'ActivitygameController@actividadDosVerde');
  */
 Route::get('/actividades-juegos-joven', 'ActivitygameController@FourPicsOneWord')->name('FourPicsOneWord');
 
+Route::get('/hablemos-claro-joven', 'ActivitygameController@HablemosClaroIndex')->name('hablemosClaroIndex');
+Route::get('/hablemosClaro', 'ActivitygameController@HablemosClaro')->name('hablemosClaro');
+Route::get('/diversidad', 'ActivitygameController@diversidad')->name('diversidad');
+
 
 /*
  * Adultos

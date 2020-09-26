@@ -24,7 +24,7 @@ class ActivitygameController extends Controller
      */
         public function index()
     {
-        return view('landingPage/actividadesjuegos.niños.actividadUno.niños');
+        return view('landingPage/actividadesjuegos.niños.hablemosClaro.niños');
     }
         public function actividadDos()
         {
@@ -42,23 +42,36 @@ class ActivitygameController extends Controller
         }
         //cuento de niño
         public function boy(){
-            return view('landingPage/actividadesjuegos.niños.actividadUno.cuentos.niño');
+            return view('landingPage/actividadesjuegos.niños.hablemosClaro.cuentos.niño');
         }
         //cuento de niña
         public function girl()
         {
-            return view('landingPage/actividadesjuegos.niños.actividadUno.cuentos.niña');
+            return view('landingPage/actividadesjuegos.niños.hablemosClaro.cuentos.niña');
         }
         /*
         * jovenes
         *
         */
+
+            //actividad uno
+        public function HablemosClaroIndex(){
+            return view('landingPage/actividadesjuegos.jovenes.hablemosClaro.index');
+        }
+    public function HablemosClaro(){
+        return view('landingPage/actividadesjuegos.jovenes.hablemosClaro.hablemosClaro');
+    }
+        public function diversidad(){
+            return view('landingPage/actividadesjuegos.jovenes.hablemosClaro.diversidad');
+
+        }
         //actividad dos
             //cuatro fotos una palabra
         public function FourPicsOneWord()
         {
             return view('landingPage/actividadesjuegos.jovenes.actividadDos.index');
         }
+
 
         /**
          * ADMIN
