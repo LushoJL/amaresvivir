@@ -10,6 +10,7 @@ window.Vue = require('vue');
 Vue.component('my-pensamientos-component', require('./components/MyPensamientosComponent').default);
 Vue.component('form-component', require('./components/FormComponent').default);
 Vue.component('semaforo-component', require('./components/actividades/niños/SemaforoComponent.vue').default);
+Vue.component('galeria-component', require('./components/home/GaleriaComponent').default);
 
 const app = new Vue({
     el: '#app',
