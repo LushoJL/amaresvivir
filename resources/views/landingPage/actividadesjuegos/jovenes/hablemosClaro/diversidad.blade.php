@@ -12,7 +12,7 @@
         <br>
         <div class="row justify-content-start">
                         <div class="col-md-4 align-self-end cardluc negro">
-                            <a href="" class="textoblanco"><strong>QUE ES LBT?</strong></a>
+                            <a href="{{route('lbt')}}" class="textoblanco"><strong>QUE ES LBT?</strong></a>
                         </div>
         </div>
 

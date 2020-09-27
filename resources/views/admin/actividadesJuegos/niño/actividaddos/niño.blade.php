@@ -6,7 +6,7 @@
         <div class="row">
             <div class="col-lg-4 ">
                 <div  style="width: 250px">
-                    <img SRC="{{asset('images/ninioactividades/cuento1ninos.png')}}" id="imagenRojo" width="350" height="450">
+                    <img SRC="{{asset('images/ninioactividades/cuento1ninos.png')}}" id="imagenRojo" width="100%">
 
                     <form  enctype="multipart/form-data">
                         <div class="input-group is-invalid">
@@ -24,7 +24,7 @@
             </div>
             <div class="col-lg-4 ">
                 <div  style="width: 250px">
-                    <img SRC="{{asset('images/ninioactividades/cuento2ninos.png')}}" id="imagenRojo" width="350" height="450">
+                    <img SRC="{{asset('images/ninioactividades/cuento2ninos.png')}}" id="imagenRojo" width="100%">
 
                     <form  enctype="multipart/form-data">
                         <div class="input-group is-invalid">
@@ -41,7 +41,7 @@
             </div>
             <div class="col-lg-4 ">
                 <div  style="width: 250px">
-                    <img SRC="{{asset('images/ninioactividades/CUENTO3NINO.png')}}" id="imagenRojo" width="350" height="450">
+                    <img SRC="{{asset('images/ninioactividades/CUENTO3NINO.png')}}" id="imagenRojo" width="100%">
 
                     <form  enctype="multipart/form-data">
                         <div class="input-group is-invalid">

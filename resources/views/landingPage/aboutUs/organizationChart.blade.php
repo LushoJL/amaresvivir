@@ -5,7 +5,7 @@
         <div class="row mt-5 justify-content-center">
             <div class="col-12 my-2">
 
-              <img src="{{ sasset('images/Conocenos/organigrama.png') }}" alt="inserte imagen" width="100%">
+              <img src="{{ asset('images/Conocenos/organigrama.png') }}" alt="inserte imagen" width="100%">
             </div>
         </div>
 

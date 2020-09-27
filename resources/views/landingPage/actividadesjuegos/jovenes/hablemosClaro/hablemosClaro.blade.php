@@ -15,12 +15,12 @@
         </div>
         <div class="col-md-4 naranjado cardluc" >
 
-            <a href="#" class="textoblanco"><strong>AUTOCONOCIMIENTO</strong></a>
+            <a href="{{route('autoconocimiento')}}" class="textoblanco"><strong>AUTOCONOCIMIENTO</strong></a>
 
         </div>
         <div class="col-md-3 negro cardluc">
 
-            <a href="#" class="textoblanco"><strong>AFECTIVIDAD</strong></a>
+            <a href="{{route('afectividad')}}" class="textoblanco"><strong>AFECTIVIDAD</strong></a>
 
         </div>
     </div>
@@ -28,17 +28,17 @@
     <div class="row justify-content-around coiny textoblanco">
         <div class="col-md-3 naranjado cardluc">
 
-            <a href="#" class="textoblanco"><strong>VIDA/SALUD</strong></a>
+            <a href="{{route('vidasalud')}}" class="textoblanco"><strong>VIDA/SALUD</strong></a>
 
         </div>
         <div class="col-md-4 negro cardluc">
 
-            <a href="#" class="textoblanco"><strong>ANTICONCEPCION Y EMBARAZO</strong></a>
+            <a href="{{route('embarazo')}}" class="textoblanco"><strong>ANTICONCEPCION Y EMBARAZO</strong></a>
 
         </div>
         <div class="col-md-3 naranjado cardluc">
 
-            <a href="#" class="textoblanco"><strong>ITS / RIESGOS</strong></a>
+            <a href="{{route('its')}}" class="textoblanco"><strong>ITS / RIESGOS</strong></a>
 
         </div>
     </div>

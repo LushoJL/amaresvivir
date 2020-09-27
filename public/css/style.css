@@ -451,15 +451,43 @@ jovenes
     justify-content: center;
     align-items: center;
 }
+.lbt{
+    width: 50%;
+    background: black;
+    height: 100px;
+
+    font-size: 1.5vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.banderalbt{
+    width: 100%;
+}
+.personajelbt{
+    width: 100%;
+}
 
 @media only screen and (max-width: 1000px) {
-    .cardluc,.cardluc-100{
+    .cardluc,.cardluc-100,.lbt{
         font-size: 2vw
     }
 
 }
 @media only screen and (max-width: 767px) {
-    .cardluc,.cardluc-100{
+    .cardluc,.cardluc-100,.lbt{
         font-size: 5vw
+    }
+
+    .lbt {
+        top:0;
+        width: 75%;
+    }
+    .banderalbt{
+        width: 100%;
+
+    }
+    .personajelbt{
+        width: 40%;
     }
 }

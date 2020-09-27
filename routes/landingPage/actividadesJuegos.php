@@ -22,6 +22,12 @@ Route::get('/actividades-juegos-joven', 'ActivitygameController@FourPicsOneWord'
 Route::get('/hablemos-claro-joven', 'ActivitygameController@HablemosClaroIndex')->name('hablemosClaroIndex');
 Route::get('/hablemosClaro', 'ActivitygameController@HablemosClaro')->name('hablemosClaro');
 Route::get('/diversidad', 'ActivitygameController@diversidad')->name('diversidad');
+Route::get('/que-es-lbt', 'ActivitygameController@lbt')->name('lbt');
+Route::get('/autoconocimiento', 'ActivitygameController@autoconocimiento')->name('autoconocimiento');
+Route::get('/afectividad', 'ActivitygameController@afectividad')->name('afectividad');
+Route::get('/vida-salud', 'ActivitygameController@vidasalud')->name('vidasalud');
+Route::get('/anticoncepcion-embarazo', 'ActivitygameController@embarazo')->name('embarazo');
+Route::get('/its-riesgos', 'ActivitygameController@its')->name('its');
 
 
 /*
