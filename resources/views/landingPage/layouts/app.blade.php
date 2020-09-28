@@ -503,7 +503,7 @@
                                     <input type="radio" id="swal-input4"  name="1" value="ME GUSTA"><label for="swal-input4">ME GUSTA</label>
                                 </div>
                                 <div class="section">
-                                    <textarea class="form-control" name="2" id="swal-input5" style="width: 100%;" placeholder="OTRO: "></textarea>
+                                    <textarea class="form-control" name="1" id="swal-input5" style="width: 100%;" placeholder="OTRO: "></textarea>
                                 </div>
                                 `,
                         preConfirm: () => {
@@ -520,13 +520,13 @@
                         headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
                         type: "POST",
                         url: "{{route('activitygame.storeG')}}",
-                        data: {
-                            respuestas : respuestas
-                        },
                         dataType: "json",
-                        complete: function (){
-                            console.log(respuestas);
-                        }
+                        contentType: "json",
+                        data: {
+                                data:JSON.stringify(respuestas)
+                        },
+                        contentType: 'application/json; charset=utf-8',
+
                     });
                 }
             })()
