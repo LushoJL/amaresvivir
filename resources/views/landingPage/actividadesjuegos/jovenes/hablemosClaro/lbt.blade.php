@@ -11,7 +11,6 @@
         </div>
         <div class="col-md-6">
             <img src="{{asset('images/jovenactividades/cuentolgb.png')}}" alt="personajes lbt" width="100%">
-
         </div>
         <div class="col-md-3">
             <div class="row">

@@ -10,7 +10,7 @@
                     <form @submit.prevent="addImageRojo" enctype="multipart/form-data">
                         <div class="input-group is-invalid">
                             <div class="custom-file">
-                                <input id="rojo" type="file" @change="obtenerImageRojo" accept="image/*" class="custom-file-input"  >
+                                <input id="rojo" name="baseRojo" type="file" @change="obtenerImageRojo" accept="image/*" class="custom-file-input"  >
                                 <label class="custom-file-label">Suba una imagen</label>
                             </div>
                         </div>
@@ -44,7 +44,7 @@
 
                         <div class="input-group is-invalid">
                             <div class="custom-file">
-                                <input id="amarillo" name="base" type="file" @change="obtenerImageAmarillo" accept="image/*" class="custom-file-input" >
+                                <input id="amarillo" name="baseAmarillo" type="file" @change="obtenerImageAmarillo" accept="image/*" class="custom-file-input" >
                                 <label class="custom-file-label" >Suba una imagen</label>
                             </div>
                         </div>
@@ -76,7 +76,7 @@
                     <form @submit.prevent="addImageVerde" enctype="multipart/form-data">
                         <div class="input-group ">
                             <div class="custom-file">
-                                <input id="verde" name="base" type="file" @change="obtenerImageVerde" accept="image/*" class="custom-file-input"  >
+                                <input id="verde" name="baseVerde" type="file" @change="obtenerImageVerde" accept="image/*" class="custom-file-input"  >
                                 <label class="custom-file-label">Suba una imagen</label>
                             </div>
                         </div>
@@ -104,15 +104,16 @@
 <script>
 
     export default {
+       props:['url'],
         mounted() {
             this.getMensajes();
             },
         data(){
           return{
               mensajes: '',
-              imagenMiniaturaRojo:'https://amar-es-educar-imagenes.s3-sa-east-1.amazonaws.com/public/rojo/base.jpg',
-              imagenMiniaturaAmarillo:'https://amar-es-educar-imagenes.s3-sa-east-1.amazonaws.com/public/amarillo/base.jpg',
-              imagenMiniaturaVerde:'https://amar-es-educar-imagenes.s3-sa-east-1.amazonaws.com/public/verde/base.jpg',
+              imagenMiniaturaRojo:this.url+'/rojo/base.jpg',
+              imagenMiniaturaAmarillo:this.url+'/amarillo/base.jpg',
+              imagenMiniaturaVerde:this.url+'/verde/base.jpg',
               rojo:'',
               amarillo:'',
               verde:'',
@@ -132,7 +133,8 @@
                         this.rojo=this.mensajes.rojo;
                         this.amarillo=this.mensajes.amarillo;
                         this.verde=this.mensajes.verde;
-                    })
+                    });
+
                 },
                 //rojo
                 obtenerImageRojo(e){

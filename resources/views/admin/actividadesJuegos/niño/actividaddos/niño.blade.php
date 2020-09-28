@@ -11,7 +11,7 @@
                     <form  enctype="multipart/form-data">
                         <div class="input-group is-invalid">
                             <div class="custom-file">
-                                <input id="rojo" type="file" @change="obtenerImageRojo" accept="image/*" class="custom-file-input"  >
+                                <input id="rojo" type="file"  accept="image/*" class="custom-file-input"  >
                                 <label class="custom-file-label">Suba una imagen</label>
                             </div>
                         </div>
@@ -46,7 +46,7 @@
                     <form  enctype="multipart/form-data">
                         <div class="input-group is-invalid">
                             <div class="custom-file">
-                                <input id="rojo" type="file" @change="obtenerImageRojo" accept="image/*" class="custom-file-input"  >
+                                <input id="rojo" type="file"  accept="image/*" class="custom-file-input"  >
                                 <label class="custom-file-label">Suba una imagen</label>
                             </div>
                         </div>
@@ -69,7 +69,7 @@
                     <form  enctype="multipart/form-data">
                         <div class="input-group is-invalid">
                             <div class="custom-file">
-                                <input id="rojo" type="file" @change="obtenerImageRojo" accept="image/*" class="custom-file-input"  >
+                                <input id="rojo" type="file"  accept="image/*" class="custom-file-input"  >
                                 <label class="custom-file-label">Suba una imagen</label>
                             </div>
                         </div>
@@ -104,7 +104,7 @@
                     <form  enctype="multipart/form-data">
                         <div class="input-group is-invalid">
                             <div class="custom-file">
-                                <input id="rojo" type="file" @change="obtenerImageRojo" accept="image/*" class="custom-file-input"  >
+                                <input id="rojo" type="file"  accept="image/*" class="custom-file-input"  >
                                 <label class="custom-file-label">Suba una imagen</label>
                             </div>
                         </div>
@@ -119,5 +119,5 @@
     <hr>
     <center><h1>SEMAFORO</h1></center>
 
-    <semaforo-component></semaforo-component>
+    <semaforo-component :url="'{{Storage::disk('s3')->url('public')}}'"></semaforo-component>
 @endsection

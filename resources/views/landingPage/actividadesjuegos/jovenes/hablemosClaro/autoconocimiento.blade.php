@@ -10,7 +10,9 @@
                 </div>
                 <div class="row ">
                     <div class="col-md-12">
-                        <img src="{{asset('images/Conocenos/objetivospersonaje.png')}}" alt="objetivospersonaje" width="75%">
+                        <center>
+                            <img src="{{asset('images/Conocenos/objetivospersonaje.png')}}" alt="objetivospersonaje" width="75%">
+                        </center>
                     </div>
                 </div>
                 <div class="row ml-auto mr-auto negro cardluc-100">

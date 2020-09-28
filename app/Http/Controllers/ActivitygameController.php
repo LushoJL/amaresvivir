@@ -102,7 +102,9 @@ class ActivitygameController extends Controller
          * ADMIN
          */
         function niñoAdmin(){
-            return view('admin.actividadesJuegos.niño.actividaddos.niño');
+            $mensajes=semaforo::find(1);
+
+            return view('admin.actividadesJuegos.niño.actividaddos.niño',['message'=>$mensajes]);
         }
         function jovenAdmin(){
             return view('admin.actividadesJuegos.joven');
