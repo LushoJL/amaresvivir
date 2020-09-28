@@ -515,7 +515,19 @@
                     },
                 ])
                 if (respuestas) {
-                    Swal.fire(JSON.stringify(respuestas))
+                    //Swal.fire(JSON.stringify(respuestas))
+                    $.ajax({
+                        headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
+                        type: "POST",
+                        url: "{{route('activitygame.storeG')}}",
+                        data: {
+                            respuestas : respuestas
+                        },
+                        dataType: "json",
+                        complete: function (){
+                            console.log(respuestas);
+                        }
+                    });
                 }
             })()
         });
