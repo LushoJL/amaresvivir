@@ -53,20 +53,22 @@
 
 <script>
     export  default {
-        props: ['url'],
+        props: ['url', 'urlpubl'],
 
         data(){
             return{
-                fotoMiniaturaCarrusel: '',
+                fotoMiniaturaCarrusel:this.urlpubl,
                 mensaje: '',
                 rutas: '',
+                imagen:this.urlpubl,
             }
         },
         methods: {
             obtenerUrl(){
                 axios.get('llamarImagenesCarrusel').then(response=>{
                     this.rutas=response.data;
-                    console.log(this.rutas);
+                    //console.log(this.rutas);
+                    console.log(this.urlpubl);
                 })
             },
 
@@ -87,9 +89,11 @@
 
             addPicture(){
                 //console.log(this.fotoMiniaturaCarrusel);
+                Startloader();
                 axios.post('/picture', {fotos: this.fotoMiniaturaCarrusel})
                 .then(response => {
                     console.log(response.data);
+                    endLoader('actualizado exitosamente');
                 })
             }
         },

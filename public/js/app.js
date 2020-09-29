@@ -1981,12 +1981,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['url'],
+  props: ['url', 'urlpubl'],
   data: function data() {
     return {
-      fotoMiniaturaCarrusel: '',
+      fotoMiniaturaCarrusel: this.urlpubl,
       mensaje: '',
-      rutas: ''
+      rutas: '',
+      imagen: this.urlpubl
     };
   },
   methods: {
@@ -1994,8 +1995,9 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
 
       axios.get('llamarImagenesCarrusel').then(function (response) {
-        _this.rutas = response.data;
-        console.log(_this.rutas);
+        _this.rutas = response.data; //console.log(this.rutas);
+
+        console.log(_this.urlpubl);
       });
     },
     obtenerFoto: function obtenerFoto(e) {
@@ -2015,10 +2017,12 @@ __webpack_require__.r(__webpack_exports__);
     },
     addPicture: function addPicture() {
       //console.log(this.fotoMiniaturaCarrusel);
+      Startloader();
       axios.post('/picture', {
         fotos: this.fotoMiniaturaCarrusel
       }).then(function (response) {
         console.log(response.data);
+        endLoader('actualizado exitosamente');
       });
     }
   },
