@@ -14,7 +14,7 @@ function Startloader(){
 
     });
 }
-function endLoader(mensaje){
+function endLoader(icon, mensaje){
     swal.close();
     const Toast = Swal.mixin({
         toast: true,
@@ -29,7 +29,7 @@ function endLoader(mensaje){
     })
 
     Toast.fire({
-        icon: 'success',
+        icon: icon,
         title: mensaje
     })
 }

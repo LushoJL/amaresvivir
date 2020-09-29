@@ -48,4 +48,15 @@ class AdminController extends Controller
 
         return $datos;
     }
+
+    public function postData(Request $request)
+    {
+        $borrar = Image::destroy($request->id);
+
+        if ($borrar)
+        {
+            Storage::disk('s3')->delete($request->image);
+        }
+        return $borrar;
+    }
 }

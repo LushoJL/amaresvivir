@@ -7,17 +7,9 @@
         <div class="col-12">
             <div class="swiper-container ">
                 <div class="swiper-wrapper">
-                    <div class="swiper-slide" style="background-image:url(./image/topBar/logo1.png)"></div>
-                    <div class="swiper-slide" style="background-image:url(./image/swiper/image1.jpg)"></div>
-                    <div class="swiper-slide" style="background-image:url(./image/swiper/image2.jpg)"></div>
-                    <div class="swiper-slide" style="background-image:url(./image/swiper/image3.jpg)"></div>
-                    <div class="swiper-slide" style="background-image:url(./image/swiper/image4.jpg)"></div>
-                    <div class="swiper-slide" style="background-image:url(./image/swiper/image5.jpg)"></div>
-                    <div class="swiper-slide" style="background-image:url(./image/swiper/image6.jpg)"></div>
-                    <div class="swiper-slide" style="background-image:url(./image/swiper/image8.jpg)"></div>
-                    <div class="swiper-slide" style="background-image:url(./image/swiper/image9.jpg)"></div>
-                    <div class="swiper-slide" style="background-image:url(./image/swiper/image10.jpg)"></div>
-                    <div class="swiper-slide" style="background-image:url(./image/swiper/image11.jpg)"></div>
+                    @foreach($datos as $dato)
+                        <div class="swiper-slide" style="background-image:url({{Storage::disk('s3')->url('/').$dato->url}})"></div>
+                    @endforeach
                 </div>
                 <!-- Add Pagination -->
                 <div class="swiper-pagination"></div>
@@ -37,17 +29,6 @@
         <div class="col-sm-6 mt-5"><p style="font-family: Ravie;color: white;font-size: 3vw">Bienvenido</p></div>
         <div class="col-sm-6 naranjado mt-5" style="border: black solid 10px;height: 100px"></div>
     </div>
-    <h1>hola mundo 1</h1>
-    <h1>hola mundo 2</h1>
-    <h1>hola mundo 3</h1>
-    <h1>hola mundo 4</h1>
-    <h1>hola mundo</h1>
-    <h1>hola mundo</h1>
-    <h1>hola mundo</h1>
-    <h1>hola mundo</h1>
-    <h1>hola mundo</h1>
-    <h1>hola mundo</h1>
-    <h1>hola mundo</h1>
 </div>
 
 

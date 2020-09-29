@@ -1980,6 +1980,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['url', 'urlpubl'],
   data: function data() {
@@ -2016,13 +2019,33 @@ __webpack_require__.r(__webpack_exports__);
       reader.readAsDataURL(file);
     },
     addPicture: function addPicture() {
+      var _this3 = this;
+
       //console.log(this.fotoMiniaturaCarrusel);
       Startloader();
       axios.post('/picture', {
         fotos: this.fotoMiniaturaCarrusel
       }).then(function (response) {
         console.log(response.data);
-        endLoader('actualizado exitosamente');
+
+        _this3.obtenerUrl();
+
+        endLoader('success', 'actualizado exitosamente');
+      });
+    },
+    deleteImage: function deleteImage(id, image) {
+      var _this4 = this;
+
+      Startloader();
+      axios.post('/eliminarImagenesCarrusel', {
+        id: id,
+        image: image
+      }).then(function (response) {
+        console.log(response.data);
+
+        _this4.obtenerUrl();
+
+        endLoader('error', 'Borrado exitosasmente');
       });
     }
   },
@@ -38723,9 +38746,27 @@ var render = function() {
                         "div",
                         { staticClass: "col-lg-4 col-md-6 col-sm-12" },
                         [
-                          _c("img", {
-                            attrs: { src: _vm.url + ruta.url, alt: "imagen" }
-                          })
+                          _c(
+                            "form",
+                            {
+                              on: {
+                                submit: function($event) {
+                                  $event.preventDefault()
+                                  return _vm.deleteImage(ruta.id, ruta.url)
+                                }
+                              }
+                            },
+                            [
+                              _c("button", { attrs: { type: "submit" } }, [
+                                _c("img", {
+                                  attrs: {
+                                    src: _vm.url + ruta.url,
+                                    alt: "imagen"
+                                  }
+                                })
+                              ])
+                            ]
+                          )
                         ]
                       )
                     }),

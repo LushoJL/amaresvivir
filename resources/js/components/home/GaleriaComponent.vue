@@ -34,9 +34,12 @@
                         <div class="card-body">
                             <div id="gallery" class="container">
                                 <div class="row">
-
                                     <div class="col-lg-4 col-md-6 col-sm-12" v-for="ruta in rutas">
-                                        <img :src="url+ruta.url" alt="imagen">
+                                        <form @submit.prevent="deleteImage(ruta.id, ruta.url)">
+                                                <button type="submit">
+                                                    <img :src="url+ruta.url" alt="imagen">
+                                                </button>
+                                        </form>
                                     </div>
 
                                 </div>
@@ -94,7 +97,16 @@
                 axios.post('/picture', {fotos: this.fotoMiniaturaCarrusel})
                 .then(response => {
                     console.log(response.data);
-                    endLoader('actualizado exitosamente');
+                    this.obtenerUrl();
+                    endLoader('success','actualizado exitosamente');
+                })
+            },
+            deleteImage(id, image){
+                Startloader();
+                axios.post('/eliminarImagenesCarrusel', {id:id, image:image}).then(response=>{
+                    console.log(response.data);
+                    this.obtenerUrl();
+                    endLoader('error','Borrado exitosasmente');
                 })
             }
         },

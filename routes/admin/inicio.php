@@ -9,4 +9,5 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/index', 'AdminController@index')->name('index');
 Route::post('/picture', 'AdminController@storage');
 Route::get('/llamarImagenesCarrusel', 'AdminController@getData');
+Route::post('/eliminarImagenesCarrusel', 'AdminController@postData');
 
