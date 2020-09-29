@@ -53,7 +53,7 @@
 
 <script>
     export  default {
-        props: ['url','variable'],
+        props: ['url'],
 
         data(){
             return{
