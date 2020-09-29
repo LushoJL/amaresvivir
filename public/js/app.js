@@ -1950,7 +1950,78 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-/* harmony default export */ __webpack_exports__["default"] = ({});
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  props: ['url'],
+  data: function data() {
+    return {
+      fotoMiniaturaCarrusel: '',
+      mensaje: '',
+      rutas: ''
+    };
+  },
+  methods: {
+    obtenerUrl: function obtenerUrl() {
+      var _this = this;
+
+      axios.get('llamarImagenesCarrusel').then(function (response) {
+        _this.rutas = response.data;
+        console.log(_this.rutas);
+      });
+    },
+    obtenerFoto: function obtenerFoto(e) {
+      var file = e.target.files[0];
+      this.cargarFoto(file);
+    },
+    cargarFoto: function cargarFoto(file) {
+      var _this2 = this;
+
+      var reader = new FileReader();
+
+      reader.onload = function (e) {
+        _this2.fotoMiniaturaCarrusel = e.target.result;
+      };
+
+      reader.readAsDataURL(file);
+    },
+    addPicture: function addPicture() {
+      //console.log(this.fotoMiniaturaCarrusel);
+      axios.post('/picture', {
+        fotos: this.fotoMiniaturaCarrusel
+      }).then(function (response) {
+        console.log(response.data);
+      });
+    }
+  },
+  computed: {
+    foto: function foto() {
+      return this.fotoMiniaturaCarrusel;
+    }
+  },
+  mounted: function mounted() {
+    this.obtenerUrl();
+  }
+});
 
 /***/ }),
 
@@ -38560,33 +38631,125 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("div", [
+    _c("div", { staticClass: "container" }, [
+      _c(
+        "div",
+        {
+          staticClass: "row mb-3",
+          staticStyle: { "justify-content": "center" }
+        },
+        [
+          _c("div", { staticClass: "col-6" }, [
+            _c(
+              "form",
+              {
+                attrs: { enctype: "multipart/form-data" },
+                on: {
+                  submit: function($event) {
+                    $event.preventDefault()
+                    return _vm.addPicture($event)
+                  }
+                }
+              },
+              [
+                _c(
+                  "div",
+                  {
+                    staticClass: "row mb-3",
+                    staticStyle: { "justify-content": "center" }
+                  },
+                  [
+                    _c("img", {
+                      attrs: {
+                        src: _vm.foto,
+                        alt: "foto",
+                        width: "200",
+                        height: "auto"
+                      }
+                    })
+                  ]
+                ),
+                _vm._v(" "),
+                _c("div", { staticClass: "custom-file mb-2" }, [
+                  _c("input", {
+                    staticClass: "custom-file-input",
+                    attrs: { type: "file" },
+                    on: { change: _vm.obtenerFoto }
+                  }),
+                  _vm._v(" "),
+                  _c("label", { staticClass: "custom-file-label" }, [
+                    _vm._v("Agrega una imagen")
+                  ])
+                ]),
+                _vm._v(" "),
+                _vm._m(0)
+              ]
+            )
+          ])
+        ]
+      )
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "container-fluid" }, [
+      _c("div", { staticClass: "row" }, [
+        _c("div", { staticClass: "col-12" }, [
+          _c("div", { staticClass: "card" }, [
+            _vm._m(1),
+            _vm._v(" "),
+            _c("div", { staticClass: "card-body" }, [
+              _c(
+                "div",
+                { staticClass: "container", attrs: { id: "gallery" } },
+                [
+                  _c(
+                    "div",
+                    { staticClass: "row" },
+                    _vm._l(_vm.rutas, function(ruta) {
+                      return _c(
+                        "div",
+                        { staticClass: "col-lg-4 col-md-6 col-sm-12" },
+                        [
+                          _c("img", {
+                            attrs: { src: _vm.url + ruta.url, alt: "imagen" }
+                          })
+                        ]
+                      )
+                    }),
+                    0
+                  )
+                ]
+              )
+            ])
+          ])
+        ])
+      ])
+    ])
+  ])
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "container-fluid" }, [
-      _c("div", { staticClass: "row" }, [
-        _c("div", { staticClass: "col-12" }, [
-          _c("div", { staticClass: "card" }, [
-            _c("div", { staticClass: "card-header border-0" }, [
-              _c("h3", { staticClass: "card-title" }, [
-                _vm._v("Imagenes disponibles")
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "card-body" }, [
-              _c(
-                "div",
-                { staticClass: "container", attrs: { id: "gallery" } },
-                [_c("div", { staticClass: "row" })]
-              )
-            ])
-          ])
-        ])
-      ])
+    return _c(
+      "div",
+      { staticClass: "row", staticStyle: { "justify-content": "center" } },
+      [
+        _c(
+          "button",
+          { staticClass: "btn btn-primary btn-md", attrs: { type: "submit" } },
+          [_vm._v("Subir")]
+        )
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "card-header border-0" }, [
+      _c("h3", { staticClass: "card-title" }, [_vm._v("Imagenes disponibles")])
     ])
   }
 ]
@@ -51011,8 +51174,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /home/vagrant/proyectos/blog/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /home/vagrant/proyectos/blog/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Projects\amaresvivir\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Projects\amaresvivir\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
