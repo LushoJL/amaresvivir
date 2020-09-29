@@ -55,6 +55,7 @@
     export  default {
         props: ['url', 'urlpubl'],
 
+
         data(){
             return{
                 fotoMiniaturaCarrusel:this.urlpubl,
