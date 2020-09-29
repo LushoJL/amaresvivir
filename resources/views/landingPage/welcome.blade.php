@@ -26,7 +26,7 @@
         </div>
     </div>
     <div class="row ">
-        <div class="col-sm-6 mt-5"><p style="font-family: Ravie;color: white;font-size: 3vw">Bienvenido</p></div>
+        <div class="col-sm-6 mt-5"><p style="font-family: Ravie;color: white;font-size: 3vw">Bienvenidos</p></div>
         <div class="col-sm-6 naranjado mt-5" style="border: black solid 10px;height: 100px"></div>
     </div>
 </div>
