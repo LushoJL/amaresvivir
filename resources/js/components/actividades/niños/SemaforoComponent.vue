@@ -102,12 +102,13 @@
             </div>
         </div>
     </div>
+
 </template>
 
 <script>
 
 export default {
-    props: ['url'],
+    props:['url'],
     mounted() {
         this.getMensajes();
     },
@@ -123,12 +124,9 @@ export default {
             inavalidRed: false,
             inavalidYellow: false,
             inavalidGreen: false,
-
         }
     },
-
     methods: {
-
         getMensajes() {
             var mensajes = 'todoslosmensajesdelsemaforo'
             axios.get(mensajes).then(response => {
@@ -137,7 +135,6 @@ export default {
                 this.amarillo = this.mensajes.amarillo;
                 this.verde = this.mensajes.verde;
             });
-
         },
         //rojo
         obtenerImageRojo(e) {
@@ -213,8 +210,6 @@ export default {
         imagenVerde() {
             return this.imagenMiniaturaVerde;
         },
-
-
     }
 }
 </script>
