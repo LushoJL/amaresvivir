@@ -7,6 +7,7 @@
     <meta name="csrf-token" content="{{csrf_token()}}">
 
     <title>AmarEsEducar | Admin</title>
+    <link rel="stylesheet" href="{{ asset('css/sweetalert2/sweetalert2.min.css') }}">
 
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="{{asset('plugins/fontawesome-free/css/all.min.css')}}">
@@ -18,6 +19,7 @@
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
     <!--galeria-->
     <link rel="stylesheet" href="{{asset('css/galeria.css')}}">
+    <link rel="stylesheet" href="{{asset('dist/css/styles.css')}}">
 </head>
 
 <body class="hold-transition sidebar-mini">
@@ -112,6 +114,9 @@
     };
 
 </script>
+<script src="{{asset('js/sweetalert2/sweetalert2.all.min.js') }}"></script>
+
 <script src="{{asset('js/app.js')}}"></script>
+<script src="{{asset('dist/js/main.js')}}"></script>
 </body>
 </html>

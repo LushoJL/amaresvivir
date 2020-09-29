@@ -142,6 +142,7 @@ class ActivitygameController extends Controller
                     0,
                     false
                 );
+
                 $image_resize = Image::make($image);
                 $image_resize->resize(400, 400);
                 Storage::disk('s3')->put("public/".$color."/base.jpg", $image_resize->encode(), 'public');

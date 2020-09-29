@@ -1800,6 +1800,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['url'],
   mounted: function mounted() {
@@ -1860,36 +1864,41 @@ __webpack_require__.r(__webpack_exports__);
     addImageRojo: function addImageRojo() {
       var _this3 = this;
 
+      Startloader();
       axios.post('/rojo', {
         image: this.imagenMiniaturaRojo,
         mensaje: this.rojo
       }).then(function (response) {
         _this3.getMensajes();
 
-        console.log(response.data);
+        endLoader('actualizado exitosamente');
       });
     },
     addImageAmarillo: function addImageAmarillo() {
       var _this4 = this;
 
+      Startloader();
       axios.post('/amarillo', {
         image: this.imagenMiniaturaAmarillo,
         mensaje: this.amarillo
       }).then(function (response) {
         _this4.getMensajes();
 
+        endLoader('actualizado exitosamente');
         console.log(response.data);
       });
     },
     addImageVerde: function addImageVerde() {
       var _this5 = this;
 
+      Startloader();
       axios.post('/verde', {
         image: this.imagenMiniaturaVerde,
         mensaje: this.verde
       }).then(function (response) {
         _this5.getMensajes();
 
+        endLoader('actualizado exitosamente');
         console.log(response.data);
       });
     }
@@ -38359,9 +38368,9 @@ var render = function() {
                   },
                   [
                     _vm._v(
-                      "                                " +
+                      "                            " +
                         _vm._s(_vm.mensajes.rojo) +
-                        "\n                            "
+                        "\n                        "
                     )
                   ]
                 ),
@@ -38369,7 +38378,7 @@ var render = function() {
                 _vm.rojo === ""
                   ? _c("div", { staticClass: "invalid-feedback" }, [
                       _vm._v(
-                        "\n                               Por favor, ingrese un mensaje para rojo\n                            "
+                        "\n                            Por favor, ingrese un mensaje para rojo\n                        "
                       )
                     ])
                   : _vm._e()
@@ -38470,9 +38479,9 @@ var render = function() {
                   },
                   [
                     _vm._v(
-                      "                                " +
+                      "                            " +
                         _vm._s(_vm.mensajes.amarillo) +
-                        "\n                            "
+                        "\n                        "
                     )
                   ]
                 ),
@@ -38480,7 +38489,7 @@ var render = function() {
                 _vm.amarillo === ""
                   ? _c("div", { staticClass: "invalid-feedback" }, [
                       _vm._v(
-                        "\n                                Por favor, ingrese un mensaje para amarillo\n                            "
+                        "\n                            Por favor, ingrese un mensaje para amarillo\n                        "
                       )
                     ])
                   : _vm._e()
@@ -38578,9 +38587,9 @@ var render = function() {
                   },
                   [
                     _vm._v(
-                      "                                " +
+                      "                            " +
                         _vm._s(_vm.mensajes.verde) +
-                        "\n                            "
+                        "\n                        "
                     )
                   ]
                 ),
@@ -38588,7 +38597,7 @@ var render = function() {
                 _vm.verde === ""
                   ? _c("div", { staticClass: "invalid-feedback" }, [
                       _vm._v(
-                        "\n                                Por favor, ingrese un mensaje para verde\n                            "
+                        "\n                            Por favor, ingrese un mensaje para verde\n                        "
                       )
                     ])
                   : _vm._e()
