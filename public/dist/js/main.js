@@ -1,14 +1,12 @@
 function Startloader(){
     swal.fire({
-        html:'' +
-            '<div class="loader-container">\n' +
-            '    <div class="loader">\n' +
-            '\n' +
-            '    </div>\n' +
-            '    <div class="loader2">\n' +
-            '\n' +
-            '    </div>\n' +
-            '</div>',
+
+        html:'<div class="loader-container">\n' +
+            '     <div class="loader"></div>\n' +
+            '       <div class="loader2" ></div>\n' +
+            '</div>\n' +
+
+            '<div class="cargando"><strong>CARGANDO</strong></div>' ,
         showCancelButton: false,
         customClass: 'swal-wide',
         showConfirmButton: false,
