@@ -13,7 +13,7 @@
                             <label  class="custom-file-label">Agrega una imagen</label>
                         </div>
                         <div class="row" style="justify-content: center">
-                            <button type="submit" class="btn btn-primary btn-md">Subir</button>
+                            <button type="submit" class="btn btn-primary btn-md" :disabled="desabilitado">Subir</button>
                         </div>
                     </form>
                 </div>
@@ -35,10 +35,10 @@
                             <div id="gallery" class="container">
                                 <div class="row">
                                     <div class="col-lg-4 col-md-6 col-sm-12" v-for="ruta in rutas">
-                                        <form @submit.prevent="deleteImage(ruta.id, ruta.url)">
-                                                <button type="submit">
+                                        <form>
+                                                <a href="" @click.prevent="submit(ruta.id, ruta.url)">
                                                     <img :src="url+ruta.url" alt="imagen">
-                                                </button>
+                                                </a>
                                         </form>
                                     </div>
 
@@ -62,7 +62,7 @@
         data(){
             return{
                 fotoMiniaturaCarrusel:this.urlpubl,
-                mensaje: '',
+                mensaje: 0,
                 rutas: '',
                 imagen:this.urlpubl,
             }
@@ -89,6 +89,7 @@
                     this.fotoMiniaturaCarrusel = e.target.result;
                 }
                 reader.readAsDataURL(file);
+                this.mensaje = 1;
             },
 
             addPicture(){
@@ -98,7 +99,9 @@
                 .then(response => {
                     console.log(response.data);
                     this.obtenerUrl();
-                    endLoader('success','actualizado exitosamente');
+                    endLoader('success','Imagen Guardada');
+                    this.mensaje = 0;
+                    this.fotoMiniaturaCarrusel=this.urlpubl;
                 })
             },
             deleteImage(id, image){
@@ -106,13 +109,32 @@
                 axios.post('/eliminarImagenesCarrusel', {id:id, image:image}).then(response=>{
                     console.log(response.data);
                     this.obtenerUrl();
-                    endLoader('error','Borrado exitosasmente');
+                    endLoader('success','Borrado exitosasmente');
+                })
+            },
+            submit(id, url){
+                Swal.fire({
+                    title: '¿Borrar esto?',
+                    text: "No se puede revertir",
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Borrar',
+                    cancelButtonText: 'Cancelar'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        this.deleteImage(id, url);
+                    }
                 })
             }
         },
         computed: {
             foto(){
                 return this.fotoMiniaturaCarrusel;
+            },
+            desabilitado(){
+                return this.mensaje === 0;
             }
         },
         mounted() {

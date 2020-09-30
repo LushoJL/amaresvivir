@@ -1988,7 +1988,7 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       fotoMiniaturaCarrusel: this.urlpubl,
-      mensaje: '',
+      mensaje: 0,
       rutas: '',
       imagen: this.urlpubl
     };
@@ -2017,6 +2017,7 @@ __webpack_require__.r(__webpack_exports__);
       };
 
       reader.readAsDataURL(file);
+      this.mensaje = 1;
     },
     addPicture: function addPicture() {
       var _this3 = this;
@@ -2030,7 +2031,9 @@ __webpack_require__.r(__webpack_exports__);
 
         _this3.obtenerUrl();
 
-        endLoader('success', 'actualizado exitosamente');
+        endLoader('success', 'Imagen Guardada');
+        _this3.mensaje = 0;
+        _this3.fotoMiniaturaCarrusel = _this3.urlpubl;
       });
     },
     deleteImage: function deleteImage(id, image) {
@@ -2045,13 +2048,34 @@ __webpack_require__.r(__webpack_exports__);
 
         _this4.obtenerUrl();
 
-        endLoader('error', 'Borrado exitosasmente');
+        endLoader('success', 'Borrado exitosasmente');
+      });
+    },
+    submit: function submit(id, url) {
+      var _this5 = this;
+
+      Swal.fire({
+        title: '¿Borrar esto?',
+        text: "No se puede revertir",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Borrar',
+        cancelButtonText: 'Cancelar'
+      }).then(function (result) {
+        if (result.isConfirmed) {
+          _this5.deleteImage(id, url);
+        }
       });
     }
   },
   computed: {
     foto: function foto() {
       return this.fotoMiniaturaCarrusel;
+    },
+    desabilitado: function desabilitado() {
+      return this.mensaje === 0;
     }
   },
   mounted: function mounted() {
@@ -38719,7 +38743,23 @@ var render = function() {
                   ])
                 ]),
                 _vm._v(" "),
-                _vm._m(0)
+                _c(
+                  "div",
+                  {
+                    staticClass: "row",
+                    staticStyle: { "justify-content": "center" }
+                  },
+                  [
+                    _c(
+                      "button",
+                      {
+                        staticClass: "btn btn-primary btn-md",
+                        attrs: { type: "submit", disabled: _vm.desabilitado }
+                      },
+                      [_vm._v("Subir")]
+                    )
+                  ]
+                )
               ]
             )
           ])
@@ -38731,7 +38771,7 @@ var render = function() {
       _c("div", { staticClass: "row" }, [
         _c("div", { staticClass: "col-12" }, [
           _c("div", { staticClass: "card" }, [
-            _vm._m(1),
+            _vm._m(0),
             _vm._v(" "),
             _c("div", { staticClass: "card-body" }, [
               _c(
@@ -38746,27 +38786,28 @@ var render = function() {
                         "div",
                         { staticClass: "col-lg-4 col-md-6 col-sm-12" },
                         [
-                          _c(
-                            "form",
-                            {
-                              on: {
-                                submit: function($event) {
-                                  $event.preventDefault()
-                                  return _vm.deleteImage(ruta.id, ruta.url)
+                          _c("form", [
+                            _c(
+                              "a",
+                              {
+                                attrs: { href: "" },
+                                on: {
+                                  click: function($event) {
+                                    $event.preventDefault()
+                                    return _vm.submit(ruta.id, ruta.url)
+                                  }
                                 }
-                              }
-                            },
-                            [
-                              _c("button", { attrs: { type: "submit" } }, [
+                              },
+                              [
                                 _c("img", {
                                   attrs: {
                                     src: _vm.url + ruta.url,
                                     alt: "imagen"
                                   }
                                 })
-                              ])
-                            ]
-                          )
+                              ]
+                            )
+                          ])
                         ]
                       )
                     }),
@@ -38782,22 +38823,6 @@ var render = function() {
   ])
 }
 var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: "row", staticStyle: { "justify-content": "center" } },
-      [
-        _c(
-          "button",
-          { staticClass: "btn btn-primary btn-md", attrs: { type: "submit" } },
-          [_vm._v("Subir")]
-        )
-      ]
-    )
-  },
   function() {
     var _vm = this
     var _h = _vm.$createElement
