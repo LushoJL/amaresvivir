@@ -35,11 +35,9 @@
                             <div id="gallery" class="container">
                                 <div class="row">
                                     <div class="col-lg-4 col-md-6 col-sm-12" v-for="ruta in rutas">
-                                        <form>
-                                                <a href="" @click.prevent="submit(ruta.id, ruta.url)">
-                                                    <img :src="url+ruta.url" alt="imagen">
-                                                </a>
-                                        </form>
+                                        <a href="" @click.prevent="submit(ruta.id, ruta.url)">
+                                            <img :src="url+ruta.url" alt="imagen">
+                                        </a>
                                     </div>
 
                                 </div>

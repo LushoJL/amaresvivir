@@ -1981,8 +1981,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['url', 'urlpubl'],
   data: function data() {
@@ -38786,28 +38784,26 @@ var render = function() {
                         "div",
                         { staticClass: "col-lg-4 col-md-6 col-sm-12" },
                         [
-                          _c("form", [
-                            _c(
-                              "a",
-                              {
-                                attrs: { href: "" },
-                                on: {
-                                  click: function($event) {
-                                    $event.preventDefault()
-                                    return _vm.submit(ruta.id, ruta.url)
-                                  }
+                          _c(
+                            "a",
+                            {
+                              attrs: { href: "" },
+                              on: {
+                                click: function($event) {
+                                  $event.preventDefault()
+                                  return _vm.submit(ruta.id, ruta.url)
                                 }
-                              },
-                              [
-                                _c("img", {
-                                  attrs: {
-                                    src: _vm.url + ruta.url,
-                                    alt: "imagen"
-                                  }
-                                })
-                              ]
-                            )
-                          ])
+                              }
+                            },
+                            [
+                              _c("img", {
+                                attrs: {
+                                  src: _vm.url + ruta.url,
+                                  alt: "imagen"
+                                }
+                              })
+                            ]
+                          )
                         ]
                       )
                     }),
