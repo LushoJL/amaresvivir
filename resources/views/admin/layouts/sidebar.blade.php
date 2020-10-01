@@ -58,49 +58,16 @@
                     </a>
                 </li>
 
-                <li class="nav-item has-treeview {{($activePage=='mision' || $activePage=='vision' || $activePage=='filosofia' || $activePage=='objetivos' || $activePage=='organigrama')?'menu-open':''}}">
-                    <a href="#" class="nav-link {{($activePage=='mision' || $activePage=='vision' || $activePage=='filosofia' || $activePage=='objetivos' || $activePage=='organigrama')?'active':''}}">
-                        <i class="nav-icon fas fa-tachometer-alt"></i>
+                <li class="nav-item">
+                    <a href="{{route('quienesSomos')}}" class="nav-link {{$activePage=='Quienes Somos'?'active':''}}">
+                        <i class="nav-icon fas fa-th"></i>
                         <p>
                             Quienes Somos
-                            <i class="right fas fa-angle-left"></i>
+
                         </p>
                     </a>
-                    <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                            <a href="{{url('mision-admin')}}" class="nav-link {{$activePage=='mision'?'active':''}}">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Mision</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="{{url('vision-admin')}}" class="nav-link {{$activePage=='vision'?'active':''}}">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Vision</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="{{url('filosofia-admin')}}" class="nav-link {{$activePage=='filosofia'?'active':''}} ">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Filosofia</p>
-                            </a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a href="{{url('objetivos_institucionales-admin')}}" class="nav-link {{$activePage=='objetivos'?'active':''}} ">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Objetivos</p>
-                            </a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a href="{{url('organigrama-admin')}}" class="nav-link {{$activePage=='organigrama'?'active':''}} ">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Organigrama</p>
-                            </a>
-                        </li>
-                    </ul>
                 </li>
+
 
                 <li class="nav-item has-treeview menu-close {{($activePage=='niño' || $activePage=='joven' || $activePage=='adulto')?'menu-open':''}}">
                     <a href="#" class="nav-link {{($activePage=='niño' || $activePage=='joven' || $activePage=='adulto')?'active':''}}">

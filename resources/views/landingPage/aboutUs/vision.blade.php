@@ -13,7 +13,12 @@
                     <div class="card-body overflow-auto">
 
                         <h1 class="card-title " style="font-family: Ravie;font-size: 50px"><center>Nuestra visión</center> </h1>
-                        <p class="card-text"><h4>Ser reconocidos y apoyados como institución, a fin de ampliar la fundación de forma departamental y posteriormente de forma nacional, buscando también crecer en contenidos de abordaje, y que este llegue a niños, jóvenes, adultos.</h4></p>
+                        <p class="card-text">
+                            <strong>
+                                {!!strtr($dato->vision, array("\r\n" => '<br /><br />', "\r" => '<br /><br />', "\n" => '<br /><br />'))!!}
+
+                            </strong>
+                        </p>
 
                     </div>
                 </div>

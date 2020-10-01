@@ -49,6 +49,13 @@ class ActivitygameController extends Controller
         {
             return view('landingPage/actividadesjuegos.niños.actividadUno.cuentos.niña');
         }
+        public function roluno()
+        {
+            return view('landingPage/actividadesjuegos.niños.roles.roluno');
+        }
+
+
+
         /*
         * jovenes
         *
@@ -96,6 +103,7 @@ class ActivitygameController extends Controller
         {
             return view('landingPage/actividadesjuegos.jovenes.actividadDos.index');
         }
+
 
 
         /**

@@ -60,11 +60,11 @@
     </div>
     @include('landingPage.layouts.navbar')
 
-    <div class="row" id="app">
+    <div class="row" >
         <div class="col-md-4" >
             @include('landingPage.layouts.conocenos')
         </div>
-        <div class="plomo main col"  >
+        <div  class="plomo main col"  >
             @yield('content')
         </div>
     </div>
@@ -85,7 +85,9 @@
 <script src="{{asset('js/sweetalert2/sweetalert2.all.min.js') }}"></script>
 
 <script src="{{asset('js/jquery-ui/jquery-ui.js')}}"></script>
+
 <script src="{{asset('js/jquery-touch/jquery.ui.touch-punch.min.js')}}"></script>
+
 <script src="{{asset('js/main.js')}}"></script>
 
 
@@ -541,6 +543,7 @@
 
 
 @yield('swiper')
+
 
 </body>
 

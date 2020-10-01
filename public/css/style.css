@@ -23,6 +23,17 @@ COLORES
     font-family: 'Coiny', cursive;
 
 }
+.btn-naranjado{
+    background: #CC652B!important;
+    border:solid black 4px;
+    float: right;
+}
+.btn-naranjado:hover{
+    background: #cf7b4d !important;
+}
+/*
+fuentes
+ */
 .ravie{
     font-family: Ravie;
 
@@ -135,7 +146,7 @@ CONTENIDO
     left: -15px!important;
     margin-left: 10px;
     border-radius: 5px;
-    padding: 50px;
+
     min-width: 512px!important;
 
 }
@@ -489,5 +500,55 @@ jovenes
     }
     .personajelbt{
         width: 40%;
+    }
+}
+.imgrol{
+    width: 250px;
+    height: 250px;
+}
+.imgrolesboton{
+    width: 100px;
+    height: 100px;
+}
+@media only screen and (max-width: 1385px) {
+
+    .imgrolesboton{
+
+        width: 90px;
+        height: 90px;
+    }
+}
+@media only screen and (max-width: 1242px) {
+
+    .imgrolesboton{
+
+        width: 80px;
+        height: 80px;
+    }
+}
+@media only screen and (max-width: 1177px) {
+
+    .imgrolesboton{
+
+        width: 70px;
+        height: 70px;
+    }
+}
+@media only screen and (max-width: 992px) {
+
+    .imgrolesboton{
+
+        width: 100px;
+        height: 100px;
+    }
+}
+@media only screen and (max-width: 675px) {
+    .imgrol{
+        width: 200px;
+        height: 200px;
+    }
+    .imgrolesboton{
+        margin-top: 20px;
+
     }
 }
