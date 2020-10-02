@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Option;
+use App\Question;
 use Illuminate\Http\Request;
 
 class QuizController extends Controller
@@ -25,5 +26,12 @@ class QuizController extends Controller
         $text = Option::with('question')->where('type', 'text')->get();
 
         return $text;
+    }
+
+    public function listaPreguntas()
+    {
+        $question = Question::all();
+
+        return $question;
     }
 }

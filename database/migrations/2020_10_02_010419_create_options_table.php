@@ -18,6 +18,7 @@ class CreateOptionsTable extends Migration
             $table->string('option');
             $table->string('type');
             $table->unsignedInteger('question_id');
+            $table->unsignedInteger('position_id')->nullable();
             $table->timestamps();
 
             $table->foreign('question_id')->references('id')->on('questions')->onUpdate('cascade')->onDelete('cascade');

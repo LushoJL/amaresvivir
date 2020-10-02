@@ -2363,31 +2363,54 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {
     this.obtenerRadios();
     this.obtenerText();
+    this.obtenerPregunta();
   },
   data: function data() {
     return {
+      preguntas: [],
       elements: [],
-      textElements: []
+      textElements: [],
+      c: 1,
+      aux: 0
     };
   },
   methods: {
-    obtenerRadios: function obtenerRadios() {
+    obtenerPregunta: function obtenerPregunta() {
       var _this = this;
 
+      axios.get('/lista-preguntas').then(function (response) {
+        _this.preguntas = response.data;
+        _this.aux = _this.preguntas.position;
+        console.log(_this.aux);
+      });
+    },
+    obtenerRadios: function obtenerRadios() {
+      var _this2 = this;
+
       axios.get('/lista-radios').then(function (response) {
-        _this.elements = response.data;
+        _this2.elements = response.data;
       });
     },
     obtenerText: function obtenerText() {
-      var _this2 = this;
+      var _this3 = this;
 
       axios.get('/lista-text').then(function (response) {
-        _this2.textElements = response.data;
+        _this3.textElements = response.data;
       });
+    },
+    contador: function contador() {
+      this.c = this.c + 1;
     }
   }
 });
@@ -40635,33 +40658,59 @@ var render = function() {
       "form",
       { attrs: { action: "" } },
       [
-        _c(
-          "div",
-          { staticClass: "ravie mt-5 mb-5" },
-          [
-            _c("center", [
-              _c("h1", { staticStyle: { "font-size": "50px" } }, [
-                _vm._v("¿CON QUE PERSONAJE DEL CUENTO TE IDENTIFICAS?")
+        _vm._l(_vm.preguntas, function(pregunta) {
+          return _c(
+            "div",
+            {
+              directives: [
+                {
+                  name: "show",
+                  rawName: "v-show",
+                  value: pregunta.position === _vm.c,
+                  expression: "pregunta.position === c"
+                }
+              ],
+              staticClass: "ravie mt-5 mb-5"
+            },
+            [
+              _c("center", [
+                _c("h1", { staticStyle: { "font-size": "50px" } }, [
+                  _vm._v(_vm._s(pregunta.question))
+                ])
               ])
-            ])
-          ],
-          1
-        ),
+            ],
+            1
+          )
+        }),
         _vm._v(" "),
         _vm._l(_vm.elements, function(element) {
-          return _c("div", { staticClass: "radiobtn" }, [
-            _c("input", {
-              attrs: {
-                type: element.type,
-                id: element.id,
-                name: "1",
-                value: "VUERGÜENZA"
-              }
-            }),
-            _c("label", { attrs: { for: element.id } }, [
-              _vm._v(_vm._s(element.option))
-            ])
-          ])
+          return _c(
+            "div",
+            {
+              directives: [
+                {
+                  name: "show",
+                  rawName: "v-show",
+                  value: element.question_id === _vm.c,
+                  expression: "element.question_id === c"
+                }
+              ],
+              staticClass: "radiobtn"
+            },
+            [
+              _c("input", {
+                attrs: {
+                  type: element.type,
+                  id: element.id,
+                  name: "1",
+                  value: "VUERGÜENZA"
+                }
+              }),
+              _c("label", { attrs: { for: element.id } }, [
+                _vm._v(_vm._s(element.option))
+              ])
+            ]
+          )
         }),
         _vm._v(" "),
         _vm._l(_vm.textElements, function(textElement) {
@@ -40671,7 +40720,34 @@ var render = function() {
               attrs: { type: textElement.type, placeholder: textElement.option }
             })
           ])
-        })
+        }),
+        _vm._v(" "),
+        _c(
+          "div",
+          { staticClass: "ravie mt-5" },
+          [
+            _c("center", [
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-sm",
+                  staticStyle: {
+                    "background-color": "#CC662D",
+                    text: "#ffffff"
+                  },
+                  on: {
+                    click: function($event) {
+                      $event.preventDefault()
+                      return _vm.contador($event)
+                    }
+                  }
+                },
+                [_vm._v("Siguiente")]
+              )
+            ])
+          ],
+          1
+        )
       ],
       2
     )

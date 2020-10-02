@@ -17,7 +17,7 @@ class CreateQuestionsTable extends Migration
             $table->increments('id');
             $table->string('question');
             $table->string('category');
-            $table->integer('position');
+            $table->integer('position')->unique();
             $table->timestamps();
         });
     }

@@ -11,11 +11,11 @@
 }
 .radiobtn label {
     display: block;
-    background: #c3e6fe;
+    background: #f1c5b2;
     color: #444;
     border-radius: 5px;
     padding: 10px 20px;
-    border: 2px solid #91c0fd;
+    border: 2px solid #eeb29e;
     margin-bottom: 5px;
     cursor: pointer;
 }
@@ -27,7 +27,7 @@
     width: 20px;
     height: 20px;
     border-radius: 3px;
-    background: #77b5fd;
+    background: #f19a60;
 }
 .radiobtn label:before {
     background: transparent;
@@ -51,15 +51,15 @@
     appearance: none;
 }
 .radiobtn input[type="radio"]:checked + label {
-    background: #77b5fd;
+    background: #f19a60;
     -webkit-animation-name: blink;
     animation-name: blink;
     -webkit-animation-duration: 1s;
     animation-duration: 1s;
-    border-color: #2c52fc;
+    border-color: #CC662D;
 }
 .radiobtn input[type="radio"]:checked + label:after {
-    background: #2c52fc;
+    background: #CC662D;
 }
 .radiobtn input[type="radio"]:checked + label:before {
     width: 20px;
@@ -68,60 +68,60 @@
 
 @-webkit-keyframes blink {
     0% {
-        background-color: #77b5fd;
+        background-color: #f19a60;
     }
     10% {
-        background-color: #77b5fd;
+        background-color: #f19a60;
     }
     11% {
-        background-color: #91c0fd;
+        background-color: #eeb29e;
     }
     29% {
-        background-color: #91c0fd;
+        background-color: #eeb29e;
     }
     30% {
-        background-color: #77b5fd;
+        background-color: #f19a60;
     }
     50% {
-        background-color: #91c0fd;
+        background-color: #eeb29e;
     }
     45% {
-        background-color: #77b5fd;
+        background-color: #f19a60;
     }
     50% {
-        background-color: #91c0fd;
+        background-color: #eeb29e;
     }
     100% {
-        background-color: #77b5fd;
+        background-color: #f19a60;
     }
 }
 
 @keyframes blink {
     0% {
-        background-color: #77b5fd;
+        background-color: #f19a60;
     }
     10% {
-        background-color: #77b5fd;
+        background-color: #f19a60;
     }
     11% {
-        background-color: #91c0fd;
+        background-color: #eeb29e;
     }
     29% {
-        background-color: #91c0fd;
+        background-color: #eeb29e;
     }
     30% {
-        background-color: #77b5fd;
+        background-color: #f19a60;
     }
     50% {
-        background-color: #91c0fd;
+        background-color: #eeb29e;
     }
     45% {
-        background-color: #77b5fd;
+        background-color: #f19a60;
     }
     50% {
-        background-color: #91c0fd;
+        background-color: #eeb29e;
     }
     100% {
-        background-color: #77b5fd;
+        background-color: #fc9d6f;
     }
 }

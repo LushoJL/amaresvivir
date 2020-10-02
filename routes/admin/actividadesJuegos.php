@@ -21,3 +21,4 @@ Route::get('/actividades-preguntas-listaOpciones', 'QuestionController@listaOpci
 Route::get('/quiz-nino', 'QuizController@nino');
 Route::get('/lista-radios', 'QuizController@listaRadios');
 Route::get('/lista-text', 'QuizController@listaText');
+Route::get('/lista-preguntas', 'QuizController@listaPreguntas');
