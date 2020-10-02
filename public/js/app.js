@@ -1833,6 +1833,276 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/actividades/niños/PreguntasComponent.vue?vue&type=script&lang=js&":
+/*!***********************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/actividades/niños/PreguntasComponent.vue?vue&type=script&lang=js& ***!
+  \***********************************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  mounted: function mounted() {
+    this.obtenerPreguntas();
+    this.obtenerOpciones();
+  },
+  data: function data() {
+    return {
+      mesasges: '',
+      question: '',
+      category: '',
+      position: '',
+      questionsList: [],
+      type: '',
+      option: '',
+      question_id: '',
+      optionList: []
+    };
+  },
+  methods: {
+    obtenerPreguntas: function obtenerPreguntas() {
+      var _this = this;
+
+      axios.get('/actividades-preguntas-listaPreguntas').then(function (response) {
+        _this.questionsList = response.data; //console.log(response.data);
+      });
+    },
+    addQuestion: function addQuestion() {
+      var _this2 = this;
+
+      axios.post('/guardar-pregunta', {
+        category: this.category,
+        question: this.question,
+        position: this.position
+      }).then(function (response) {
+        _this2.category = '';
+        _this2.question = '';
+        _this2.position = '';
+
+        _this2.obtenerPreguntas();
+
+        endLoader('success', 'Pregunta guardada');
+      })["catch"](function (error) {
+        console.log(error);
+      });
+    },
+    obtenerOpciones: function obtenerOpciones() {
+      var _this3 = this;
+
+      axios.get('/actividades-preguntas-listaOpciones').then(function (response) {
+        _this3.optionList = response.data; //console.log(response.data);
+      });
+    },
+    addOption: function addOption() {
+      var _this4 = this;
+
+      axios.post('/guardar-opcion', {
+        option: this.option,
+        type: this.type,
+        question_id: this.question_id
+      }).then(function (response) {
+        _this4.option = '';
+        _this4.type = '';
+        _this4.question_id = '';
+
+        _this4.obtenerOpciones();
+
+        endLoader('success', 'Opcion agregada');
+      })["catch"](function (error) {
+        console.log(error);
+      });
+    }
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/actividades/niños/SemaforoComponent.vue?vue&type=script&lang=js&":
 /*!**********************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/actividades/niños/SemaforoComponent.vue?vue&type=script&lang=js& ***!
@@ -2057,6 +2327,67 @@ __webpack_require__.r(__webpack_exports__);
     },
     imagenVerde: function imagenVerde() {
       return this.imagenMiniaturaVerde;
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/actividades/niños/quiz.vue?vue&type=script&lang=js&":
+/*!*********************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/actividades/niños/quiz.vue?vue&type=script&lang=js& ***!
+  \*********************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  mounted: function mounted() {
+    this.obtenerRadios();
+    this.obtenerText();
+  },
+  data: function data() {
+    return {
+      elements: [],
+      textElements: []
+    };
+  },
+  methods: {
+    obtenerRadios: function obtenerRadios() {
+      var _this = this;
+
+      axios.get('/lista-radios').then(function (response) {
+        _this.elements = response.data;
+      });
+    },
+    obtenerText: function obtenerText() {
+      var _this2 = this;
+
+      axios.get('/lista-text').then(function (response) {
+        _this2.textElements = response.data;
+      });
     }
   }
 });
@@ -6921,7 +7252,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n#gallery .col-lg-4 {\r\n    margin: 0;\r\n    padding: 25px;\n}\n#gallery img {\r\n    width: 100%;\r\n    height: auto;\n}\n#gallery img:hover {\r\n    border: 5px solid #f7f7f7;\n}\r\n", ""]);
+exports.push([module.i, "\n#gallery .col-lg-4 {\n    margin: 0;\n    padding: 25px;\n}\n#gallery img {\n    width: 100%;\n    height: auto;\n}\n#gallery img:hover {\n    border: 5px solid #f7f7f7;\n}\n", ""]);
 
 // exports
 
@@ -38968,6 +39299,588 @@ render._withStripped = true
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/actividades/niños/PreguntasComponent.vue?vue&type=template&id=76266c90&":
+/*!***************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/actividades/niños/PreguntasComponent.vue?vue&type=template&id=76266c90& ***!
+  \***************************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [
+    _vm._m(0),
+    _vm._v(" "),
+    _c(
+      "form",
+      {
+        attrs: { method: "POST" },
+        on: {
+          submit: function($event) {
+            $event.preventDefault()
+            return _vm.addQuestion($event)
+          }
+        }
+      },
+      [
+        _c(
+          "div",
+          {
+            staticClass: "modal fade",
+            attrs: {
+              id: "formModal",
+              tabindex: "-1",
+              role: "dialog",
+              "aria-labelledby": "exampleModalLabel",
+              "aria-hidden": "true"
+            }
+          },
+          [
+            _c(
+              "div",
+              {
+                staticClass: "modal-dialog modal-dialog-centered",
+                attrs: { role: "document" }
+              },
+              [
+                _c("div", { staticClass: "modal-content" }, [
+                  _vm._m(1),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "modal-body" }, [
+                    _c("label", [_vm._v("Categoria de pregunta:")]),
+                    _vm._v(" "),
+                    _c(
+                      "select",
+                      {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.category,
+                            expression: "category"
+                          }
+                        ],
+                        staticClass: "form-control mb-3",
+                        attrs: { name: "category", id: "", required: "" },
+                        on: {
+                          change: function($event) {
+                            var $$selectedVal = Array.prototype.filter
+                              .call($event.target.options, function(o) {
+                                return o.selected
+                              })
+                              .map(function(o) {
+                                var val = "_value" in o ? o._value : o.value
+                                return val
+                              })
+                            _vm.category = $event.target.multiple
+                              ? $$selectedVal
+                              : $$selectedVal[0]
+                          }
+                        }
+                      },
+                      [
+                        _c("option", { attrs: { value: "" } }, [_vm._v("-")]),
+                        _vm._v(" "),
+                        _c("option", { attrs: { value: "niño" } }, [
+                          _vm._v("Niño")
+                        ]),
+                        _vm._v(" "),
+                        _c("option", { attrs: { value: "niña" } }, [
+                          _vm._v("Niña")
+                        ])
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c("label", [_vm._v("Pregunta:")]),
+                    _vm._v(" "),
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.question,
+                          expression: "question"
+                        }
+                      ],
+                      staticClass: "form-control mb-3",
+                      attrs: {
+                        type: "text",
+                        name: "question",
+                        autocomplete: "off",
+                        required: ""
+                      },
+                      domProps: { value: _vm.question },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.question = $event.target.value
+                        }
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("label", [_vm._v("Orden de pregunta:")]),
+                    _vm._v(" "),
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.position,
+                          expression: "position"
+                        }
+                      ],
+                      staticClass: "form-control mb-3",
+                      attrs: {
+                        type: "number",
+                        name: "position",
+                        autocomplete: "off",
+                        required: ""
+                      },
+                      domProps: { value: _vm.position },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.position = $event.target.value
+                        }
+                      }
+                    })
+                  ]),
+                  _vm._v(" "),
+                  _vm._m(2)
+                ])
+              ]
+            )
+          ]
+        )
+      ]
+    ),
+    _vm._v(" "),
+    _c(
+      "form",
+      {
+        attrs: { method: "POST" },
+        on: {
+          submit: function($event) {
+            $event.preventDefault()
+            return _vm.addOption($event)
+          }
+        }
+      },
+      [
+        _c(
+          "div",
+          {
+            staticClass: "modal fade",
+            attrs: {
+              id: "optionsModal",
+              tabindex: "-1",
+              role: "dialog",
+              "aria-labelledby": "exampleModalLabel",
+              "aria-hidden": "true"
+            }
+          },
+          [
+            _c(
+              "div",
+              {
+                staticClass: "modal-dialog modal-dialog-centered",
+                attrs: { role: "document" }
+              },
+              [
+                _c("div", { staticClass: "modal-content" }, [
+                  _vm._m(3),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    { staticClass: "modal-body" },
+                    [
+                      _c("label", [_vm._v("Tipo de respuesta:")]),
+                      _c("br"),
+                      _vm._v(" "),
+                      _c("center", [
+                        _c("div", { staticClass: "form-check-inline" }, [
+                          _c("label", { staticClass: "form-check-label" }, [
+                            _c("input", {
+                              directives: [
+                                {
+                                  name: "model",
+                                  rawName: "v-model",
+                                  value: _vm.type,
+                                  expression: "type"
+                                }
+                              ],
+                              staticClass: "form-check-input",
+                              attrs: {
+                                type: "radio",
+                                name: "type",
+                                value: "radio"
+                              },
+                              domProps: { checked: _vm._q(_vm.type, "radio") },
+                              on: {
+                                change: function($event) {
+                                  _vm.type = "radio"
+                                }
+                              }
+                            }),
+                            _vm._v(
+                              "Selección múltiple\n                                "
+                            )
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "form-check-inline" }, [
+                          _c("label", { staticClass: "form-check-label" }, [
+                            _c("input", {
+                              directives: [
+                                {
+                                  name: "model",
+                                  rawName: "v-model",
+                                  value: _vm.type,
+                                  expression: "type"
+                                }
+                              ],
+                              staticClass: "form-check-input",
+                              attrs: {
+                                type: "radio",
+                                name: "type",
+                                value: "text"
+                              },
+                              domProps: { checked: _vm._q(_vm.type, "text") },
+                              on: {
+                                change: function($event) {
+                                  _vm.type = "text"
+                                }
+                              }
+                            }),
+                            _vm._v(
+                              "Pregunta abierta\n                                "
+                            )
+                          ])
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("label", [_vm._v("Texto:")]),
+                      _vm._v(" "),
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.option,
+                            expression: "option"
+                          }
+                        ],
+                        staticClass: "form-control mb-3",
+                        attrs: {
+                          type: "text",
+                          name: "option",
+                          value: "option",
+                          autocomplete: "off",
+                          required: ""
+                        },
+                        domProps: { value: _vm.option },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.option = $event.target.value
+                          }
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("label", [_vm._v("Pregunta:")]),
+                      _vm._v(" "),
+                      _c(
+                        "select",
+                        {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.question_id,
+                              expression: "question_id"
+                            }
+                          ],
+                          staticClass: "form-control mb-3",
+                          attrs: { name: "question_id", required: "" },
+                          on: {
+                            change: function($event) {
+                              var $$selectedVal = Array.prototype.filter
+                                .call($event.target.options, function(o) {
+                                  return o.selected
+                                })
+                                .map(function(o) {
+                                  var val = "_value" in o ? o._value : o.value
+                                  return val
+                                })
+                              _vm.question_id = $event.target.multiple
+                                ? $$selectedVal
+                                : $$selectedVal[0]
+                            }
+                          }
+                        },
+                        [
+                          _c("option", { attrs: { value: "" } }, [_vm._v("-")]),
+                          _vm._v(" "),
+                          _vm._l(_vm.questionsList, function(question) {
+                            return _c(
+                              "option",
+                              { domProps: { value: question.id } },
+                              [_vm._v(_vm._s(question.question))]
+                            )
+                          })
+                        ],
+                        2
+                      )
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _vm._m(4)
+                ])
+              ]
+            )
+          ]
+        )
+      ]
+    ),
+    _vm._v(" "),
+    _c("div", { staticClass: "container-fluid" }, [
+      _c("div", { staticClass: "row" }, [
+        _c("div", { staticClass: "col-lg-6 col-md-6 col-sm-12" }, [
+          _c("div", { staticClass: "card" }, [
+            _vm._m(5),
+            _vm._v(" "),
+            _c("div", { staticClass: "card-body" }, [
+              _c("table", { staticClass: "table table-hover" }, [
+                _vm._m(6),
+                _vm._v(" "),
+                _c(
+                  "tbody",
+                  _vm._l(_vm.questionsList, function(question) {
+                    return _c("tr", [
+                      _c("td", [_vm._v(_vm._s(question.question))]),
+                      _vm._v(" "),
+                      _c("td", [_vm._v(_vm._s(question.category))]),
+                      _vm._v(" "),
+                      _c("td", [_vm._v(_vm._s(question.position))])
+                    ])
+                  }),
+                  0
+                )
+              ])
+            ])
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-lg-6 col-md-6 col-sm-12" }, [
+          _c("div", { staticClass: "card" }, [
+            _vm._m(7),
+            _vm._v(" "),
+            _c("div", { staticClass: "card-body" }, [
+              _c("table", { staticClass: "table table-hover" }, [
+                _vm._m(8),
+                _vm._v(" "),
+                _c(
+                  "tbody",
+                  _vm._l(_vm.optionList, function(option) {
+                    return _c("tr", [
+                      _c("td", [_vm._v(_vm._s(option.question.question))]),
+                      _vm._v(" "),
+                      _c("td", [_vm._v(_vm._s(option.option))])
+                    ])
+                  }),
+                  0
+                )
+              ])
+            ])
+          ])
+        ])
+      ])
+    ])
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "row mb-3" }, [
+      _c("div", { staticClass: "col-12" }, [
+        _c(
+          "button",
+          {
+            staticClass: "btn btn-primary float-right mr-3 ml-3",
+            attrs: {
+              type: "button",
+              "data-toggle": "modal",
+              "data-target": "#formModal"
+            }
+          },
+          [_vm._v("\n                Nueva pregunta\n            ")]
+        ),
+        _vm._v(" "),
+        _c(
+          "button",
+          {
+            staticClass: "btn btn-primary float-right mr-3 ml-3",
+            attrs: {
+              type: "button",
+              "data-toggle": "modal",
+              "data-target": "#optionsModal"
+            }
+          },
+          [_vm._v("\n                Nueva respuesta\n            ")]
+        )
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "modal-header" }, [
+      _c("h5", { staticClass: "modal-title", attrs: { id: "Title" } }, [
+        _vm._v("Nueva Pregunta")
+      ]),
+      _vm._v(" "),
+      _c(
+        "button",
+        {
+          staticClass: "close",
+          attrs: {
+            type: "button",
+            "data-dismiss": "modal",
+            "aria-label": "Close"
+          }
+        },
+        [_c("span", { attrs: { "aria-hidden": "true" } }, [_vm._v("×")])]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "modal-footer" }, [
+      _c(
+        "button",
+        {
+          staticClass: "btn btn-secondary",
+          attrs: { type: "button", "data-dismiss": "modal" }
+        },
+        [_vm._v("Cerrar")]
+      ),
+      _vm._v(" "),
+      _c(
+        "button",
+        { staticClass: "btn btn-success", attrs: { type: "submit" } },
+        [_vm._v("Guardar")]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "modal-header" }, [
+      _c("h5", { staticClass: "modal-title" }, [_vm._v("Nueva Opción")]),
+      _vm._v(" "),
+      _c(
+        "button",
+        {
+          staticClass: "close",
+          attrs: {
+            type: "button",
+            "data-dismiss": "modal",
+            "aria-label": "Close"
+          }
+        },
+        [_c("span", { attrs: { "aria-hidden": "true" } }, [_vm._v("×")])]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "modal-footer" }, [
+      _c(
+        "button",
+        {
+          staticClass: "btn btn-secondary",
+          attrs: { type: "button", "data-dismiss": "modal" }
+        },
+        [_vm._v("Cerrar")]
+      ),
+      _vm._v(" "),
+      _c(
+        "button",
+        { staticClass: "btn btn-success", attrs: { type: "submit" } },
+        [_vm._v("Guardar")]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "card-header border-0" }, [
+      _c("h3", { staticClass: "card-title" }, [_vm._v("Preguntas / Opciones")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("thead", [
+      _c("tr", [
+        _c("th", [_vm._v("Pegunta")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Categoría")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Posición")])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "card-header border-0" }, [
+      _c("h3", { staticClass: "card-title" }, [_vm._v("Preguntas / Opciones")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("thead", [
+      _c("tr", [
+        _c("th", [_vm._v("Pegunta")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Texto")])
+      ])
+    ])
+  }
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/actividades/niños/SemaforoComponent.vue?vue&type=template&id=115be4dd&":
 /*!**************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/actividades/niños/SemaforoComponent.vue?vue&type=template&id=115be4dd& ***!
@@ -39316,6 +40229,75 @@ var render = function() {
         ])
       ])
     ])
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/actividades/niños/quiz.vue?vue&type=template&id=4f91a039&":
+/*!*************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/actividades/niños/quiz.vue?vue&type=template&id=4f91a039& ***!
+  \*************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [
+    _c(
+      "form",
+      { attrs: { action: "" } },
+      [
+        _c(
+          "div",
+          { staticClass: "ravie mt-5 mb-5" },
+          [
+            _c("center", [
+              _c("h1", { staticStyle: { "font-size": "50px" } }, [
+                _vm._v("¿CON QUE PERSONAJE DEL CUENTO TE IDENTIFICAS?")
+              ])
+            ])
+          ],
+          1
+        ),
+        _vm._v(" "),
+        _vm._l(_vm.elements, function(element) {
+          return _c("div", { staticClass: "radiobtn" }, [
+            _c("input", {
+              attrs: {
+                type: element.type,
+                id: element.id,
+                name: "1",
+                value: "VUERGÜENZA"
+              }
+            }),
+            _c("label", { attrs: { for: element.id } }, [
+              _vm._v(_vm._s(element.option))
+            ])
+          ])
+        }),
+        _vm._v(" "),
+        _vm._l(_vm.textElements, function(textElement) {
+          return _c("div", {}, [
+            _c("input", {
+              staticClass: "form-control",
+              attrs: { type: textElement.type, placeholder: textElement.option }
+            })
+          ])
+        })
+      ],
+      2
+    )
   ])
 }
 var staticRenderFns = []
@@ -55280,6 +56262,8 @@ Vue.component('app-component', __webpack_require__(/*! ./components/actividades/
 Vue.component('semaforo-component', __webpack_require__(/*! ./components/actividades/niños/SemaforoComponent.vue */ "./resources/js/components/actividades/niños/SemaforoComponent.vue")["default"]);
 Vue.component('galeria-component', __webpack_require__(/*! ./components/home/GaleriaComponent */ "./resources/js/components/home/GaleriaComponent.vue")["default"]);
 Vue.component('conocenos-component', __webpack_require__(/*! ./components/aboutUs/conocenosComponent */ "./resources/js/components/aboutUs/conocenosComponent.vue")["default"]);
+Vue.component('preguntas-component', __webpack_require__(/*! ./components/actividades/niños/PreguntasComponent */ "./resources/js/components/actividades/niños/PreguntasComponent.vue")["default"]);
+Vue.component('quiz-component', __webpack_require__(/*! ./components/actividades/niños/quiz */ "./resources/js/components/actividades/niños/quiz.vue")["default"]);
 
 
 var app = new Vue({
@@ -55417,6 +56401,75 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/actividades/niños/PreguntasComponent.vue":
+/*!**************************************************************************!*\
+  !*** ./resources/js/components/actividades/niños/PreguntasComponent.vue ***!
+  \**************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _PreguntasComponent_vue_vue_type_template_id_76266c90___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./PreguntasComponent.vue?vue&type=template&id=76266c90& */ "./resources/js/components/actividades/niños/PreguntasComponent.vue?vue&type=template&id=76266c90&");
+/* harmony import */ var _PreguntasComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./PreguntasComponent.vue?vue&type=script&lang=js& */ "./resources/js/components/actividades/niños/PreguntasComponent.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _PreguntasComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _PreguntasComponent_vue_vue_type_template_id_76266c90___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _PreguntasComponent_vue_vue_type_template_id_76266c90___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/actividades/niños/PreguntasComponent.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/actividades/niños/PreguntasComponent.vue?vue&type=script&lang=js&":
+/*!***************************************************************************************************!*\
+  !*** ./resources/js/components/actividades/niños/PreguntasComponent.vue?vue&type=script&lang=js& ***!
+  \***************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_PreguntasComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../node_modules/vue-loader/lib??vue-loader-options!./PreguntasComponent.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/actividades/niños/PreguntasComponent.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_PreguntasComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/actividades/niños/PreguntasComponent.vue?vue&type=template&id=76266c90&":
+/*!*********************************************************************************************************!*\
+  !*** ./resources/js/components/actividades/niños/PreguntasComponent.vue?vue&type=template&id=76266c90& ***!
+  \*********************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_PreguntasComponent_vue_vue_type_template_id_76266c90___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib??vue-loader-options!./PreguntasComponent.vue?vue&type=template&id=76266c90& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/actividades/niños/PreguntasComponent.vue?vue&type=template&id=76266c90&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_PreguntasComponent_vue_vue_type_template_id_76266c90___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_PreguntasComponent_vue_vue_type_template_id_76266c90___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
 /***/ "./resources/js/components/actividades/niños/SemaforoComponent.vue":
 /*!*************************************************************************!*\
   !*** ./resources/js/components/actividades/niños/SemaforoComponent.vue ***!
@@ -55481,6 +56534,75 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_SemaforoComponent_vue_vue_type_template_id_115be4dd___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_SemaforoComponent_vue_vue_type_template_id_115be4dd___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/actividades/niños/quiz.vue":
+/*!************************************************************!*\
+  !*** ./resources/js/components/actividades/niños/quiz.vue ***!
+  \************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _quiz_vue_vue_type_template_id_4f91a039___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./quiz.vue?vue&type=template&id=4f91a039& */ "./resources/js/components/actividades/niños/quiz.vue?vue&type=template&id=4f91a039&");
+/* harmony import */ var _quiz_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./quiz.vue?vue&type=script&lang=js& */ "./resources/js/components/actividades/niños/quiz.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _quiz_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _quiz_vue_vue_type_template_id_4f91a039___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _quiz_vue_vue_type_template_id_4f91a039___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/actividades/niños/quiz.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/actividades/niños/quiz.vue?vue&type=script&lang=js&":
+/*!*************************************************************************************!*\
+  !*** ./resources/js/components/actividades/niños/quiz.vue?vue&type=script&lang=js& ***!
+  \*************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_quiz_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../node_modules/vue-loader/lib??vue-loader-options!./quiz.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/actividades/niños/quiz.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_quiz_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/actividades/niños/quiz.vue?vue&type=template&id=4f91a039&":
+/*!*******************************************************************************************!*\
+  !*** ./resources/js/components/actividades/niños/quiz.vue?vue&type=template&id=4f91a039& ***!
+  \*******************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_quiz_vue_vue_type_template_id_4f91a039___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib??vue-loader-options!./quiz.vue?vue&type=template&id=4f91a039& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/actividades/niños/quiz.vue?vue&type=template&id=4f91a039&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_quiz_vue_vue_type_template_id_4f91a039___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_quiz_vue_vue_type_template_id_4f91a039___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 
@@ -55928,8 +57050,8 @@ vue_router__WEBPACK_IMPORTED_MODULE_1__["default"].mode = 'html5';
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\proyectos\blog\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\proyectos\blog\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Projects\amaresvivir\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Projects\amaresvivir\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

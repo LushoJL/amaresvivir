@@ -1,0 +1,29 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use App\Option;
+use Illuminate\Http\Request;
+
+class QuizController extends Controller
+{
+    //
+    public function nino()
+    {
+        return view('landingPage.actividadesjuegos.niños.actividadUno.juegoPreguntas.preguntasninos');
+    }
+
+    public function listaRadios()
+    {
+        $radios = Option::with('question')->where('type', 'radio')->get();
+
+        return $radios;
+    }
+
+    public function listaText()
+    {
+        $text = Option::with('question')->where('type', 'text')->get();
+
+        return $text;
+    }
+}

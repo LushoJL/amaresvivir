@@ -14,6 +14,8 @@ Vue.component('app-component',require('./components/actividades/niños/roles/App
 Vue.component('semaforo-component',require('./components/actividades/niños/SemaforoComponent.vue').default);
 Vue.component('galeria-component', require('./components/home/GaleriaComponent').default);
 Vue.component('conocenos-component', require('./components/aboutUs/conocenosComponent').default);
+Vue.component('preguntas-component', require('./components/actividades/niños/PreguntasComponent').default);
+Vue.component('quiz-component', require('./components/actividades/niños/quiz').default);
 
 import App from './components/actividades/niños/roles/AppComponent.vue';
 
