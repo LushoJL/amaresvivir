@@ -2100,24 +2100,320 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['ninio', 'ninia', 'ambos', 'uri'],
+  data: function data() {
+    return {
+      respuesta: []
+    };
+  },
   mounted: function mounted() {
-    console;
+    if (localStorage.respuesta) {
+      this.respuesta = localStorage.respuesta;
+    }
+  },
+  watch: {
+    respuesta: function respuesta(newName) {
+      localStorage.respuesta = newName;
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/actividades/niños/roles/adminrolComponent.vue?vue&type=script&lang=js&":
+/*!****************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/actividades/niños/roles/adminrolComponent.vue?vue&type=script&lang=js& ***!
+  \****************************************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  props: ['urluno'],
+  mounted: function mounted() {
+    console.log();
   },
   data: function data() {
     return {
-      lista: ['Arbol', 'Perro', 'Caballo'],
-      transitionName: 'slide-left',
-      click: false,
-      nombre: ''
+      imagenMiniatura: this.urluno + '/imageUno.png',
+      imagenMiniaturados: this.urluno + '/imageDos.png'
     };
   },
-  watch: {
-    click: function click(nuevoValor, valorAnterior) {
-      console.log(valorAnterior, nuevoValor);
+  methods: {
+    obtenerImagenUno: function obtenerImagenUno(e) {
+      var file = e.target.files[0];
+      this.cargarImagen(file, true);
+    },
+    obtenerImagenDos: function obtenerImagenDos(e) {
+      var file = e.target.files[0];
+      this.cargarImagen(file, false);
+    },
+    cargarImagen: function cargarImagen(file, thumb) {
+      var _this = this;
+
+      var reader = new FileReader();
+
+      reader.onload = function (e) {
+        if (thumb) _this.imagenMiniatura = e.target.result;else _this.imagenMiniaturados = e.target.result;
+      };
+
+      reader.readAsDataURL(file);
+    },
+    addImagenes: function addImagenes() {
+      Startloader();
+      axios.post('/rol', {
+        imagenUno: this.imagenMiniatura,
+        imagenDos: this.imagenMiniaturados,
+        rol: 'Roluno'
+      }).then(function (response) {
+        endLoader('success', 'Se a subido correctamente');
+      });
+    }
+  },
+  computed: {
+    imagenUno: function imagenUno() {
+      return this.imagenMiniatura;
+    },
+    imagenDos: function imagenDos() {
+      return this.imagenMiniaturados;
     }
   }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/actividades/niños/roles/adminrolDosComponent.vue?vue&type=script&lang=js&":
+/*!*******************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/actividades/niños/roles/adminrolDosComponent.vue?vue&type=script&lang=js& ***!
+  \*******************************************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  props: ['urluno'],
+  mounted: function mounted() {
+    console.log();
+  },
+  data: function data() {
+    return {
+      imagenMiniatura: this.urluno + '/imageUno.png',
+      imagenMiniaturados: this.urluno + '/imageDos.png'
+    };
+  },
+  methods: {
+    obtenerImagenUno: function obtenerImagenUno(e) {
+      var file = e.target.files[0];
+      this.cargarImagen(file, true);
+    },
+    obtenerImagenDos: function obtenerImagenDos(e) {
+      var file = e.target.files[0];
+      this.cargarImagen(file, false);
+    },
+    cargarImagen: function cargarImagen(file, thumb) {
+      var _this = this;
+
+      var reader = new FileReader();
+
+      reader.onload = function (e) {
+        if (thumb) _this.imagenMiniatura = e.target.result;else _this.imagenMiniaturados = e.target.result;
+      };
+
+      reader.readAsDataURL(file);
+    },
+    addImagenes: function addImagenes() {
+      Startloader();
+      axios.post('/rol', {
+        imagenUno: this.imagenMiniatura,
+        imagenDos: this.imagenMiniaturados,
+        rol: 'Roldos'
+      }).then(function (response) {
+        console.log(response);
+        endLoader('success', 'Se a subido correctamente');
+      });
+    }
+  },
+  computed: {
+    imagenUno: function imagenUno() {
+      return this.imagenMiniatura;
+    },
+    imagenDos: function imagenDos() {
+      return this.imagenMiniaturados;
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/actividades/niños/roles/adminrolTresComponent.vue?vue&type=script&lang=js&":
+/*!********************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/actividades/niños/roles/adminrolTresComponent.vue?vue&type=script&lang=js& ***!
+  \********************************************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  props: ['urluno'],
+  mounted: function mounted() {
+    console.log();
+  },
+  data: function data() {
+    return {
+      imagenMiniatura: this.urluno + '/imageUno.png',
+      imagenMiniaturados: this.urluno + '/imageDos.png'
+    };
+  },
+  methods: {
+    obtenerImagenUno: function obtenerImagenUno(e) {
+      var file = e.target.files[0];
+      this.cargarImagen(file, true);
+    },
+    obtenerImagenDos: function obtenerImagenDos(e) {
+      var file = e.target.files[0];
+      this.cargarImagen(file, false);
+    },
+    cargarImagen: function cargarImagen(file, thumb) {
+      var _this = this;
+
+      var reader = new FileReader();
+
+      reader.onload = function (e) {
+        if (thumb) _this.imagenMiniatura = e.target.result;else _this.imagenMiniaturados = e.target.result;
+      };
+
+      reader.readAsDataURL(file);
+    },
+    addImagenes: function addImagenes() {
+      Startloader();
+      axios.post('/rol', {
+        imagenUno: this.imagenMiniatura,
+        imagenDos: this.imagenMiniaturados,
+        rol: 'Roltres'
+      }).then(function (response) {
+        console.log(response);
+        endLoader('success', 'Se a subido correctamente');
+      });
+    }
+  },
+  computed: {
+    imagenUno: function imagenUno() {
+      return this.imagenMiniatura;
+    },
+    imagenDos: function imagenDos() {
+      return this.imagenMiniaturados;
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/actividades/niños/roles/resultado.vue?vue&type=script&lang=js&":
+/*!********************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/actividades/niños/roles/resultado.vue?vue&type=script&lang=js& ***!
+  \********************************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  props: ['respuestas']
 });
 
 /***/ }),
@@ -2131,6 +2427,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _routes_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../routes.js */ "./resources/js/routes.js");
 //
 //
 //
@@ -2172,13 +2469,39 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['ninio', 'ninia', 'ambos', 'uri'],
-  mounted: function mounted() {},
   data: function data() {
-    return {};
+    return {
+      respuesta: {
+        uno: '',
+        dos: ''
+      }
+    };
   },
-  methods: {}
+  methods: {
+    siguiente: function siguiente() {
+      this.$emit('respuesta', this.respuesta);
+      _routes_js__WEBPACK_IMPORTED_MODULE_0__["default"].push('tres');
+    }
+  }
 });
 
 /***/ }),
@@ -2192,6 +2515,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _routes_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../routes.js */ "./resources/js/routes.js");
 //
 //
 //
@@ -2233,13 +2557,39 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['ninio', 'ninia', 'ambos', 'uri'],
-  mounted: function mounted() {},
   data: function data() {
-    return {};
+    return {
+      respuesta: {
+        uno: '',
+        dos: ''
+      }
+    };
   },
-  methods: {}
+  methods: {
+    siguiente: function siguiente() {
+      this.$emit('respuesta', this.respuesta);
+      _routes_js__WEBPACK_IMPORTED_MODULE_0__["default"].push('resultado');
+    }
+  }
 });
 
 /***/ }),
@@ -2253,6 +2603,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _routes_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../routes.js */ "./resources/js/routes.js");
 //
 //
 //
@@ -2294,13 +2645,39 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['ninio', 'ninia', 'ambos', 'uri'],
-  mounted: function mounted() {},
   data: function data() {
-    return {};
+    return {
+      respuesta: {
+        uno: '',
+        dos: ''
+      }
+    };
   },
-  methods: {}
+  methods: {
+    siguiente: function siguiente() {
+      this.$emit('respuesta', this.respuesta);
+      _routes_js__WEBPACK_IMPORTED_MODULE_0__["default"].push('dos');
+    }
+  }
 });
 
 /***/ }),
@@ -39344,24 +39721,32 @@ var render = function() {
     "div",
     { staticClass: "container" },
     [
+      _c("br"),
+      _vm._v(" "),
       _vm._m(0),
       _vm._v(" "),
       _vm._m(1),
       _vm._v(" "),
-      _c("router-view", {
-        attrs: {
-          lista: _vm.lista,
-          ninio: _vm.ninio,
-          ninia: _vm.ninia,
-          ambos: _vm.ambos,
-          uri: _vm.uri
-        },
-        on: {
-          "list-added": function($event) {
-            return _vm.lista.push($event)
-          }
-        }
-      })
+      _c(
+        "transition",
+        [
+          _c("router-view", {
+            attrs: {
+              respuestas: _vm.respuesta,
+              ninio: _vm.ninio,
+              ninia: _vm.ninia,
+              ambos: _vm.ambos,
+              uri: _vm.uri
+            },
+            on: {
+              respuesta: function($event) {
+                return _vm.respuesta.push($event)
+              }
+            }
+          })
+        ],
+        1
+      )
     ],
     1
   )
@@ -39372,9 +39757,11 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "row justify-content-md-center" }, [
-      _c("div", { staticClass: "col-md-auto cardluc-100 naranjado coiny" }, [
-        _c("strong", [_vm._v("ROLES DE GENERO")])
-      ])
+      _c(
+        "div",
+        { staticClass: "col-md-auto cardluc-100 naranjado coiny textonegro" },
+        [_c("strong", [_vm._v("ROLES DE GENERO")])]
+      )
     ])
   },
   function() {
@@ -39388,6 +39775,318 @@ var staticRenderFns = [
     ])
   }
 ]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/actividades/niños/roles/adminrolComponent.vue?vue&type=template&id=737ad9b7&scoped=true&":
+/*!********************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/actividades/niños/roles/adminrolComponent.vue?vue&type=template&id=737ad9b7&scoped=true& ***!
+  \********************************************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "container" }, [
+    _c(
+      "form",
+      {
+        attrs: { enctype: "multipart/form-data" },
+        on: {
+          submit: function($event) {
+            $event.preventDefault()
+            return _vm.addImagenes($event)
+          }
+        }
+      },
+      [
+        _c("div", { staticClass: "row justify-content-around" }, [
+          _c("div", { staticClass: "col-4" }, [
+            _c("img", {
+              attrs: { src: _vm.imagenUno, width: "100%", alt: "" }
+            }),
+            _vm._v(" "),
+            _c("div", { staticClass: "custom-file" }, [
+              _c("input", {
+                staticClass: "custom-file-input",
+                attrs: { type: "file", accept: "image/*", lang: "es" },
+                on: { change: _vm.obtenerImagenUno }
+              }),
+              _vm._v(" "),
+              _c("label", { staticClass: "custom-file-label" }, [
+                _vm._v("Seleccionar Archivo")
+              ])
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col-4" }, [
+            _c("img", {
+              attrs: { src: _vm.imagenDos, width: "100%", alt: "" }
+            }),
+            _vm._v(" "),
+            _c("div", { staticClass: "custom-file" }, [
+              _c("input", {
+                staticClass: "custom-file-input",
+                attrs: { type: "file", accept: "image/*", lang: "es" },
+                on: { change: _vm.obtenerImagenDos }
+              }),
+              _vm._v(" "),
+              _c("label", { staticClass: "custom-file-label" }, [
+                _vm._v("Seleccionar Archivo")
+              ])
+            ])
+          ])
+        ]),
+        _vm._v(" "),
+        _vm._m(0)
+      ]
+    )
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "row" }, [
+      _c("div", { staticClass: "col-md-6 offset-md-3" }, [
+        _c(
+          "button",
+          {
+            staticClass: "btn btn-primary btn-lg btn-block",
+            attrs: { type: "submit" }
+          },
+          [_vm._v("Aplicar")]
+        )
+      ])
+    ])
+  }
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/actividades/niños/roles/adminrolDosComponent.vue?vue&type=template&id=23e55ccb&scoped=true&":
+/*!***********************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/actividades/niños/roles/adminrolDosComponent.vue?vue&type=template&id=23e55ccb&scoped=true& ***!
+  \***********************************************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "container" }, [
+    _c(
+      "form",
+      {
+        attrs: { enctype: "multipart/form-data" },
+        on: {
+          submit: function($event) {
+            $event.preventDefault()
+            return _vm.addImagenes($event)
+          }
+        }
+      },
+      [
+        _c("div", { staticClass: "row justify-content-around" }, [
+          _c("div", { staticClass: "col-4" }, [
+            _c("img", {
+              attrs: { src: _vm.imagenUno, width: "100%", alt: "" }
+            }),
+            _vm._v(" "),
+            _c("div", { staticClass: "custom-file" }, [
+              _c("input", {
+                staticClass: "custom-file-input",
+                attrs: { type: "file", accept: "image/*", lang: "es" },
+                on: { change: _vm.obtenerImagenUno }
+              }),
+              _vm._v(" "),
+              _c("label", { staticClass: "custom-file-label" }, [
+                _vm._v("Seleccionar Archivo")
+              ])
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col-4" }, [
+            _c("img", {
+              attrs: { src: _vm.imagenDos, width: "100%", alt: "" }
+            }),
+            _vm._v(" "),
+            _c("div", { staticClass: "custom-file" }, [
+              _c("input", {
+                staticClass: "custom-file-input",
+                attrs: { type: "file", accept: "image/*", lang: "es" },
+                on: { change: _vm.obtenerImagenDos }
+              }),
+              _vm._v(" "),
+              _c("label", { staticClass: "custom-file-label" }, [
+                _vm._v("Seleccionar Archivo")
+              ])
+            ])
+          ])
+        ]),
+        _vm._v(" "),
+        _vm._m(0)
+      ]
+    )
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "row" }, [
+      _c("div", { staticClass: "col-md-6 offset-md-3" }, [
+        _c(
+          "button",
+          {
+            staticClass: "btn btn-primary btn-lg btn-block",
+            attrs: { type: "submit" }
+          },
+          [_vm._v("Aplicar")]
+        )
+      ])
+    ])
+  }
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/actividades/niños/roles/adminrolTresComponent.vue?vue&type=template&id=16bccc6b&scoped=true&":
+/*!************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/actividades/niños/roles/adminrolTresComponent.vue?vue&type=template&id=16bccc6b&scoped=true& ***!
+  \************************************************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "container" }, [
+    _c(
+      "form",
+      {
+        attrs: { enctype: "multipart/form-data" },
+        on: {
+          submit: function($event) {
+            $event.preventDefault()
+            return _vm.addImagenes($event)
+          }
+        }
+      },
+      [
+        _c("div", { staticClass: "row justify-content-around" }, [
+          _c("div", { staticClass: "col-4" }, [
+            _c("img", {
+              attrs: { src: _vm.imagenUno, width: "100%", alt: "" }
+            }),
+            _vm._v(" "),
+            _c("div", { staticClass: "custom-file" }, [
+              _c("input", {
+                staticClass: "custom-file-input",
+                attrs: { type: "file", accept: "image/*", lang: "es" },
+                on: { change: _vm.obtenerImagenUno }
+              }),
+              _vm._v(" "),
+              _c("label", { staticClass: "custom-file-label" }, [
+                _vm._v("Seleccionar Archivo")
+              ])
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col-4" }, [
+            _c("img", {
+              attrs: { src: _vm.imagenDos, width: "100%", alt: "" }
+            }),
+            _vm._v(" "),
+            _c("div", { staticClass: "custom-file" }, [
+              _c("input", {
+                staticClass: "custom-file-input",
+                attrs: { type: "file", accept: "image/*", lang: "es" },
+                on: { change: _vm.obtenerImagenDos }
+              }),
+              _vm._v(" "),
+              _c("label", { staticClass: "custom-file-label" }, [
+                _vm._v("Seleccionar Archivo")
+              ])
+            ])
+          ])
+        ]),
+        _vm._v(" "),
+        _vm._m(0)
+      ]
+    )
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "row" }, [
+      _c("div", { staticClass: "col-md-6 offset-md-3" }, [
+        _c(
+          "button",
+          {
+            staticClass: "btn btn-primary btn-lg btn-block",
+            attrs: { type: "submit" }
+          },
+          [_vm._v("Aplicar")]
+        )
+      ])
+    ])
+  }
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/actividades/niños/roles/resultado.vue?vue&type=template&id=085d7169&scoped=true&":
+/*!************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/actividades/niños/roles/resultado.vue?vue&type=template&id=085d7169&scoped=true& ***!
+  \************************************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("pre", [_vm._v(" " + _vm._s(_vm.respuestas) + " ")])
+}
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -39409,144 +40108,271 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    {},
-    [
-      _c("div", { staticClass: "row justify-content-md-center" }, [
-        _c(
-          "div",
-          { staticClass: "col col-lg-5" },
-          [
-            _c("center", [
-              _c("img", {
-                staticClass: "imgrol",
-                attrs: { src: _vm.uri + "/compu.png", alt: "" }
-              }),
-              _vm._v(" "),
+  return _c("div", {}, [
+    _c("div", { staticClass: "row justify-content-md-center" }, [
+      _c(
+        "div",
+        { staticClass: "col col-lg-5" },
+        [
+          _c("center", [
+            _c("img", {
+              staticClass: "imgrol",
+              attrs: { src: _vm.uri + "/Roldos/imageUno.png", alt: "" }
+            }),
+            _vm._v(" "),
+            _c("div", { staticClass: "btn-group btn-group-toggle" }, [
               _c(
-                "div",
+                "label",
                 {
-                  staticClass: "btn-group",
-                  attrs: { role: "group", "aria-label": "Basic example" }
+                  staticClass: "btn btn-secondary",
+                  class: { active: _vm.respuesta.uno === "niña" }
                 },
                 [
-                  _c(
-                    "button",
-                    { staticClass: "btn btn-link", attrs: { type: "button" } },
-                    [
-                      _c("img", {
-                        staticClass: "imgrolesboton",
-                        attrs: { src: _vm.ninio, alt: "" }
-                      })
-                    ]
-                  ),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.respuesta.uno,
+                        expression: "respuesta.uno"
+                      }
+                    ],
+                    attrs: {
+                      type: "radio",
+                      name: "options",
+                      id: "option3",
+                      value: "niña"
+                    },
+                    domProps: { checked: _vm._q(_vm.respuesta.uno, "niña") },
+                    on: {
+                      change: function($event) {
+                        return _vm.$set(_vm.respuesta, "uno", "niña")
+                      }
+                    }
+                  }),
                   _vm._v(" "),
-                  _c(
-                    "button",
-                    { staticClass: "btn btn-link", attrs: { type: "button" } },
-                    [
-                      _c("img", {
-                        staticClass: "imgrolesboton",
-                        attrs: { src: _vm.ambos, alt: "" }
-                      })
-                    ]
-                  ),
+                  _c("img", {
+                    staticClass: "imgrolesboton",
+                    attrs: { src: _vm.ninia, alt: "" }
+                  })
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "label",
+                {
+                  staticClass: "btn btn-secondary",
+                  class: { active: _vm.respuesta.uno === "ambos" }
+                },
+                [
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.respuesta.uno,
+                        expression: "respuesta.uno"
+                      }
+                    ],
+                    attrs: {
+                      type: "radio",
+                      name: "options",
+                      id: "option2",
+                      value: "ambos"
+                    },
+                    domProps: { checked: _vm._q(_vm.respuesta.uno, "ambos") },
+                    on: {
+                      change: function($event) {
+                        return _vm.$set(_vm.respuesta, "uno", "ambos")
+                      }
+                    }
+                  }),
                   _vm._v(" "),
-                  _c(
-                    "button",
-                    { staticClass: "btn btn-link", attrs: { type: "button" } },
-                    [
-                      _c("img", {
-                        staticClass: "imgrolesboton",
-                        attrs: { src: _vm.ninia, alt: "" }
-                      })
-                    ]
-                  )
+                  _c("img", {
+                    staticClass: "imgrolesboton",
+                    attrs: { src: _vm.ambos, alt: "" }
+                  })
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "label",
+                {
+                  staticClass: "btn btn-secondary",
+                  class: { active: _vm.respuesta.uno === "niño" }
+                },
+                [
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.respuesta.uno,
+                        expression: "respuesta.uno"
+                      }
+                    ],
+                    attrs: {
+                      type: "radio",
+                      name: "options",
+                      id: "option1",
+                      value: "niño"
+                    },
+                    domProps: { checked: _vm._q(_vm.respuesta.uno, "niño") },
+                    on: {
+                      change: function($event) {
+                        return _vm.$set(_vm.respuesta, "uno", "niño")
+                      }
+                    }
+                  }),
+                  _c("img", {
+                    staticClass: "imgrolesboton",
+                    attrs: { src: _vm.ninio, alt: "" }
+                  })
                 ]
               )
             ])
-          ],
-          1
-        ),
-        _vm._v(" "),
-        _c("div", { staticClass: "col-lg-2" }),
-        _vm._v(" "),
-        _c(
-          "div",
-          { staticClass: "col col-lg-5" },
-          [
-            _c("center", [
-              _c("img", {
-                staticClass: "imgrol",
-                attrs: { src: _vm.uri + "/micro.png", alt: "" }
-              }),
-              _vm._v(" "),
-              _c(
-                "div",
-                {
-                  staticClass: "btn-group",
-                  attrs: { role: "group", "aria-label": "Basic example" }
-                },
-                [
-                  _c(
-                    "button",
-                    { staticClass: "btn btn-link", attrs: { type: "button" } },
-                    [
-                      _c("img", {
-                        staticClass: "imgrolesboton",
-                        attrs: { src: _vm.ninio, alt: "" }
-                      })
-                    ]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "button",
-                    { staticClass: "btn btn-link", attrs: { type: "button" } },
-                    [
-                      _c("img", {
-                        staticClass: "imgrolesboton",
-                        attrs: { src: _vm.ambos, alt: "" }
-                      })
-                    ]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "button",
-                    { staticClass: "btn btn-link", attrs: { type: "button" } },
-                    [
-                      _c("img", {
-                        staticClass: "imgrolesboton",
-                        attrs: { src: _vm.ninia, alt: "" }
-                      })
-                    ]
-                  )
-                ]
-              )
-            ])
-          ],
-          1
-        )
-      ]),
+          ])
+        ],
+        1
+      ),
       _vm._v(" "),
-      _c("div", { staticClass: "row justify-content-between" }),
+      _c("div", { staticClass: "col-lg-2" }),
       _vm._v(" "),
       _c(
-        "router-link",
-        {
-          staticClass: "btn btn-naranjado ravie",
-          attrs: { to: { name: "rol-tres" } },
-          on: {
-            click: function($event) {
-              return _vm.lista.push("uno")
-            }
-          }
-        },
-        [_vm._v("SIGUIENTE")]
+        "div",
+        { staticClass: "col col-lg-5" },
+        [
+          _c("center", [
+            _c("img", {
+              staticClass: "imgrol",
+              attrs: { src: _vm.uri + "/Roldos/imageDos.png", alt: "" }
+            }),
+            _vm._v(" "),
+            _c("div", { staticClass: "btn-group btn-group-toggle" }, [
+              _c(
+                "label",
+                {
+                  staticClass: "btn btn-secondary ",
+                  class: { active: _vm.respuesta.dos === "niña" }
+                },
+                [
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.respuesta.dos,
+                        expression: "respuesta.dos"
+                      }
+                    ],
+                    attrs: {
+                      type: "radio",
+                      name: "options",
+                      id: "option4",
+                      value: "niña"
+                    },
+                    domProps: { checked: _vm._q(_vm.respuesta.dos, "niña") },
+                    on: {
+                      change: function($event) {
+                        return _vm.$set(_vm.respuesta, "dos", "niña")
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("img", {
+                    staticClass: "imgrolesboton",
+                    attrs: { src: _vm.ninia, alt: "" }
+                  })
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "label",
+                {
+                  staticClass: "btn btn-secondary",
+                  class: { active: _vm.respuesta.dos === "ambos" }
+                },
+                [
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.respuesta.dos,
+                        expression: "respuesta.dos"
+                      }
+                    ],
+                    attrs: {
+                      type: "radio",
+                      name: "options",
+                      id: "option6",
+                      value: "ambos"
+                    },
+                    domProps: { checked: _vm._q(_vm.respuesta.dos, "ambos") },
+                    on: {
+                      change: function($event) {
+                        return _vm.$set(_vm.respuesta, "dos", "ambos")
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("img", {
+                    staticClass: "imgrolesboton",
+                    attrs: { src: _vm.ambos, alt: "" }
+                  })
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "label",
+                {
+                  staticClass: "btn btn-secondary",
+                  class: { active: _vm.respuesta.dos === "niño" }
+                },
+                [
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.respuesta.dos,
+                        expression: "respuesta.dos"
+                      }
+                    ],
+                    attrs: {
+                      type: "radio",
+                      name: "options",
+                      id: "option5",
+                      value: "niño"
+                    },
+                    domProps: { checked: _vm._q(_vm.respuesta.dos, "niño") },
+                    on: {
+                      change: function($event) {
+                        return _vm.$set(_vm.respuesta, "dos", "niño")
+                      }
+                    }
+                  }),
+                  _c("img", {
+                    staticClass: "imgrolesboton",
+                    attrs: { src: _vm.ninio, alt: "" }
+                  })
+                ]
+              )
+            ])
+          ])
+        ],
+        1
       )
-    ],
-    1
-  )
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "row justify-content-between" }),
+    _vm._v(" "),
+    _c(
+      "button",
+      { staticClass: "btn btn-naranjado ravie", on: { click: _vm.siguiente } },
+      [_vm._v("SIGUIENTE")]
+    )
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -39570,144 +40396,271 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    {},
-    [
-      _c("div", { staticClass: "row justify-content-md-center" }, [
-        _c(
-          "div",
-          { staticClass: "col col-lg-5" },
-          [
-            _c("center", [
-              _c("img", {
-                staticClass: "imgrol",
-                attrs: { src: _vm.uri + "/cocina.png", alt: "" }
-              }),
-              _vm._v(" "),
+  return _c("div", {}, [
+    _c("div", { staticClass: "row justify-content-md-center" }, [
+      _c(
+        "div",
+        { staticClass: "col col-lg-5" },
+        [
+          _c("center", [
+            _c("img", {
+              staticClass: "imgrol",
+              attrs: { src: _vm.uri + "/Roldos/imageUno.png", alt: "" }
+            }),
+            _vm._v(" "),
+            _c("div", { staticClass: "btn-group btn-group-toggle" }, [
               _c(
-                "div",
+                "label",
                 {
-                  staticClass: "btn-group",
-                  attrs: { role: "group", "aria-label": "Basic example" }
+                  staticClass: "btn btn-secondary",
+                  class: { active: _vm.respuesta.uno === "niña" }
                 },
                 [
-                  _c(
-                    "button",
-                    { staticClass: "btn btn-link", attrs: { type: "button" } },
-                    [
-                      _c("img", {
-                        staticClass: "imgrolesboton",
-                        attrs: { src: _vm.ninio, alt: "" }
-                      })
-                    ]
-                  ),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.respuesta.uno,
+                        expression: "respuesta.uno"
+                      }
+                    ],
+                    attrs: {
+                      type: "radio",
+                      name: "options",
+                      id: "option3",
+                      value: "niña"
+                    },
+                    domProps: { checked: _vm._q(_vm.respuesta.uno, "niña") },
+                    on: {
+                      change: function($event) {
+                        return _vm.$set(_vm.respuesta, "uno", "niña")
+                      }
+                    }
+                  }),
                   _vm._v(" "),
-                  _c(
-                    "button",
-                    { staticClass: "btn btn-link", attrs: { type: "button" } },
-                    [
-                      _c("img", {
-                        staticClass: "imgrolesboton",
-                        attrs: { src: _vm.ambos, alt: "" }
-                      })
-                    ]
-                  ),
+                  _c("img", {
+                    staticClass: "imgrolesboton",
+                    attrs: { src: _vm.ninia, alt: "" }
+                  })
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "label",
+                {
+                  staticClass: "btn btn-secondary",
+                  class: { active: _vm.respuesta.uno === "ambos" }
+                },
+                [
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.respuesta.uno,
+                        expression: "respuesta.uno"
+                      }
+                    ],
+                    attrs: {
+                      type: "radio",
+                      name: "options",
+                      id: "option2",
+                      value: "ambos"
+                    },
+                    domProps: { checked: _vm._q(_vm.respuesta.uno, "ambos") },
+                    on: {
+                      change: function($event) {
+                        return _vm.$set(_vm.respuesta, "uno", "ambos")
+                      }
+                    }
+                  }),
                   _vm._v(" "),
-                  _c(
-                    "button",
-                    { staticClass: "btn btn-link", attrs: { type: "button" } },
-                    [
-                      _c("img", {
-                        staticClass: "imgrolesboton",
-                        attrs: { src: _vm.ninia, alt: "" }
-                      })
-                    ]
-                  )
+                  _c("img", {
+                    staticClass: "imgrolesboton",
+                    attrs: { src: _vm.ambos, alt: "" }
+                  })
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "label",
+                {
+                  staticClass: "btn btn-secondary",
+                  class: { active: _vm.respuesta.uno === "niño" }
+                },
+                [
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.respuesta.uno,
+                        expression: "respuesta.uno"
+                      }
+                    ],
+                    attrs: {
+                      type: "radio",
+                      name: "options",
+                      id: "option1",
+                      value: "niño"
+                    },
+                    domProps: { checked: _vm._q(_vm.respuesta.uno, "niño") },
+                    on: {
+                      change: function($event) {
+                        return _vm.$set(_vm.respuesta, "uno", "niño")
+                      }
+                    }
+                  }),
+                  _c("img", {
+                    staticClass: "imgrolesboton",
+                    attrs: { src: _vm.ninio, alt: "" }
+                  })
                 ]
               )
             ])
-          ],
-          1
-        ),
-        _vm._v(" "),
-        _c("div", { staticClass: "col-lg-2" }),
-        _vm._v(" "),
-        _c(
-          "div",
-          { staticClass: "col col-lg-5" },
-          [
-            _c("center", [
-              _c("img", {
-                staticClass: "imgrol",
-                attrs: { src: _vm.uri + "/auto.png", alt: "" }
-              }),
-              _vm._v(" "),
-              _c(
-                "div",
-                {
-                  staticClass: "btn-group",
-                  attrs: { role: "group", "aria-label": "Basic example" }
-                },
-                [
-                  _c(
-                    "button",
-                    { staticClass: "btn btn-link", attrs: { type: "button" } },
-                    [
-                      _c("img", {
-                        staticClass: "imgrolesboton",
-                        attrs: { src: _vm.ninio, alt: "" }
-                      })
-                    ]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "button",
-                    { staticClass: "btn btn-link", attrs: { type: "button" } },
-                    [
-                      _c("img", {
-                        staticClass: "imgrolesboton",
-                        attrs: { src: _vm.ambos, alt: "" }
-                      })
-                    ]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "button",
-                    { staticClass: "btn btn-link", attrs: { type: "button" } },
-                    [
-                      _c("img", {
-                        staticClass: "imgrolesboton",
-                        attrs: { src: _vm.ninia, alt: "" }
-                      })
-                    ]
-                  )
-                ]
-              )
-            ])
-          ],
-          1
-        )
-      ]),
+          ])
+        ],
+        1
+      ),
       _vm._v(" "),
-      _c("div", { staticClass: "row justify-content-between" }),
+      _c("div", { staticClass: "col-lg-2" }),
       _vm._v(" "),
       _c(
-        "router-link",
-        {
-          staticClass: "btn btn-naranjado ravie",
-          attrs: { to: { name: "rol-dos" } },
-          on: {
-            click: function($event) {
-              return _vm.lista.push("uno")
-            }
-          }
-        },
-        [_vm._v("SIGUIENTE")]
+        "div",
+        { staticClass: "col col-lg-5" },
+        [
+          _c("center", [
+            _c("img", {
+              staticClass: "imgrol",
+              attrs: { src: _vm.uri + "/Roldos/imageDos.png", alt: "" }
+            }),
+            _vm._v(" "),
+            _c("div", { staticClass: "btn-group btn-group-toggle" }, [
+              _c(
+                "label",
+                {
+                  staticClass: "btn btn-secondary ",
+                  class: { active: _vm.respuesta.dos === "niña" }
+                },
+                [
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.respuesta.dos,
+                        expression: "respuesta.dos"
+                      }
+                    ],
+                    attrs: {
+                      type: "radio",
+                      name: "options",
+                      id: "option4",
+                      value: "niña"
+                    },
+                    domProps: { checked: _vm._q(_vm.respuesta.dos, "niña") },
+                    on: {
+                      change: function($event) {
+                        return _vm.$set(_vm.respuesta, "dos", "niña")
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("img", {
+                    staticClass: "imgrolesboton",
+                    attrs: { src: _vm.ninia, alt: "" }
+                  })
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "label",
+                {
+                  staticClass: "btn btn-secondary",
+                  class: { active: _vm.respuesta.dos === "ambos" }
+                },
+                [
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.respuesta.dos,
+                        expression: "respuesta.dos"
+                      }
+                    ],
+                    attrs: {
+                      type: "radio",
+                      name: "options",
+                      id: "option6",
+                      value: "ambos"
+                    },
+                    domProps: { checked: _vm._q(_vm.respuesta.dos, "ambos") },
+                    on: {
+                      change: function($event) {
+                        return _vm.$set(_vm.respuesta, "dos", "ambos")
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("img", {
+                    staticClass: "imgrolesboton",
+                    attrs: { src: _vm.ambos, alt: "" }
+                  })
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "label",
+                {
+                  staticClass: "btn btn-secondary",
+                  class: { active: _vm.respuesta.dos === "niño" }
+                },
+                [
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.respuesta.dos,
+                        expression: "respuesta.dos"
+                      }
+                    ],
+                    attrs: {
+                      type: "radio",
+                      name: "options",
+                      id: "option5",
+                      value: "niño"
+                    },
+                    domProps: { checked: _vm._q(_vm.respuesta.dos, "niño") },
+                    on: {
+                      change: function($event) {
+                        return _vm.$set(_vm.respuesta, "dos", "niño")
+                      }
+                    }
+                  }),
+                  _c("img", {
+                    staticClass: "imgrolesboton",
+                    attrs: { src: _vm.ninio, alt: "" }
+                  })
+                ]
+              )
+            ])
+          ])
+        ],
+        1
       )
-    ],
-    1
-  )
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "row justify-content-between" }),
+    _vm._v(" "),
+    _c(
+      "button",
+      { staticClass: "btn btn-naranjado ravie", on: { click: _vm.siguiente } },
+      [_vm._v("SIGUIENTE")]
+    )
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -39731,144 +40684,271 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    {},
-    [
-      _c("div", { staticClass: "row justify-content-md-center" }, [
-        _c(
-          "div",
-          { staticClass: "col col-lg-5" },
-          [
-            _c("center", [
-              _c("img", {
-                staticClass: "imgrol",
-                attrs: { src: _vm.uri + "/PELOTA.png", alt: "" }
-              }),
-              _vm._v(" "),
+  return _c("div", {}, [
+    _c("div", { staticClass: "row justify-content-md-center" }, [
+      _c(
+        "div",
+        { staticClass: "col col-lg-5" },
+        [
+          _c("center", [
+            _c("img", {
+              staticClass: "imgrol",
+              attrs: { src: _vm.uri + "/Roluno/imageUno.png", alt: "" }
+            }),
+            _vm._v(" "),
+            _c("div", { staticClass: "btn-group btn-group-toggle" }, [
               _c(
-                "div",
+                "label",
                 {
-                  staticClass: "btn-group",
-                  attrs: { role: "group", "aria-label": "Basic example" }
+                  staticClass: "btn btn-secondary",
+                  class: { active: _vm.respuesta.uno === "niña" }
                 },
                 [
-                  _c(
-                    "button",
-                    { staticClass: "btn btn-link", attrs: { type: "button" } },
-                    [
-                      _c("img", {
-                        staticClass: "imgrolesboton",
-                        attrs: { src: _vm.ninio, alt: "" }
-                      })
-                    ]
-                  ),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.respuesta.uno,
+                        expression: "respuesta.uno"
+                      }
+                    ],
+                    attrs: {
+                      type: "radio",
+                      name: "options",
+                      id: "option3",
+                      value: "niña"
+                    },
+                    domProps: { checked: _vm._q(_vm.respuesta.uno, "niña") },
+                    on: {
+                      change: function($event) {
+                        return _vm.$set(_vm.respuesta, "uno", "niña")
+                      }
+                    }
+                  }),
                   _vm._v(" "),
-                  _c(
-                    "button",
-                    { staticClass: "btn btn-link", attrs: { type: "button" } },
-                    [
-                      _c("img", {
-                        staticClass: "imgrolesboton",
-                        attrs: { src: _vm.ambos, alt: "" }
-                      })
-                    ]
-                  ),
+                  _c("img", {
+                    staticClass: "imgrolesboton",
+                    attrs: { src: _vm.ninia, alt: "" }
+                  })
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "label",
+                {
+                  staticClass: "btn btn-secondary",
+                  class: { active: _vm.respuesta.uno === "ambos" }
+                },
+                [
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.respuesta.uno,
+                        expression: "respuesta.uno"
+                      }
+                    ],
+                    attrs: {
+                      type: "radio",
+                      name: "options",
+                      id: "option2",
+                      value: "ambos"
+                    },
+                    domProps: { checked: _vm._q(_vm.respuesta.uno, "ambos") },
+                    on: {
+                      change: function($event) {
+                        return _vm.$set(_vm.respuesta, "uno", "ambos")
+                      }
+                    }
+                  }),
                   _vm._v(" "),
-                  _c(
-                    "button",
-                    { staticClass: "btn btn-link", attrs: { type: "button" } },
-                    [
-                      _c("img", {
-                        staticClass: "imgrolesboton",
-                        attrs: { src: _vm.ninia, alt: "" }
-                      })
-                    ]
-                  )
+                  _c("img", {
+                    staticClass: "imgrolesboton",
+                    attrs: { src: _vm.ambos, alt: "" }
+                  })
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "label",
+                {
+                  staticClass: "btn btn-secondary",
+                  class: { active: _vm.respuesta.uno === "niño" }
+                },
+                [
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.respuesta.uno,
+                        expression: "respuesta.uno"
+                      }
+                    ],
+                    attrs: {
+                      type: "radio",
+                      name: "options",
+                      id: "option1",
+                      value: "niño"
+                    },
+                    domProps: { checked: _vm._q(_vm.respuesta.uno, "niño") },
+                    on: {
+                      change: function($event) {
+                        return _vm.$set(_vm.respuesta, "uno", "niño")
+                      }
+                    }
+                  }),
+                  _c("img", {
+                    staticClass: "imgrolesboton",
+                    attrs: { src: _vm.ninio, alt: "" }
+                  })
                 ]
               )
             ])
-          ],
-          1
-        ),
-        _vm._v(" "),
-        _c("div", { staticClass: "col-lg-2" }),
-        _vm._v(" "),
-        _c(
-          "div",
-          { staticClass: "col col-lg-5" },
-          [
-            _c("center", [
-              _c("img", {
-                staticClass: "imgrol",
-                attrs: { src: _vm.uri + "/muñeca.png", alt: "" }
-              }),
-              _vm._v(" "),
-              _c(
-                "div",
-                {
-                  staticClass: "btn-group",
-                  attrs: { role: "group", "aria-label": "Basic example" }
-                },
-                [
-                  _c(
-                    "button",
-                    { staticClass: "btn btn-link", attrs: { type: "button" } },
-                    [
-                      _c("img", {
-                        staticClass: "imgrolesboton",
-                        attrs: { src: _vm.ninio, alt: "" }
-                      })
-                    ]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "button",
-                    { staticClass: "btn btn-link", attrs: { type: "button" } },
-                    [
-                      _c("img", {
-                        staticClass: "imgrolesboton",
-                        attrs: { src: _vm.ambos, alt: "" }
-                      })
-                    ]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "button",
-                    { staticClass: "btn btn-link", attrs: { type: "button" } },
-                    [
-                      _c("img", {
-                        staticClass: "imgrolesboton",
-                        attrs: { src: _vm.ninia, alt: "" }
-                      })
-                    ]
-                  )
-                ]
-              )
-            ])
-          ],
-          1
-        )
-      ]),
+          ])
+        ],
+        1
+      ),
       _vm._v(" "),
-      _c("div", { staticClass: "row justify-content-between" }),
+      _c("div", { staticClass: "col-lg-2" }),
       _vm._v(" "),
       _c(
-        "router-link",
-        {
-          staticClass: "btn btn-naranjado ravie",
-          attrs: { to: { name: "rol-dos" } },
-          on: {
-            click: function($event) {
-              return _vm.lista.push("uno")
-            }
-          }
-        },
-        [_vm._v("SIGUIENTE")]
+        "div",
+        { staticClass: "col col-lg-5" },
+        [
+          _c("center", [
+            _c("img", {
+              staticClass: "imgrol",
+              attrs: { src: _vm.uri + "/Roluno/imageDos.png", alt: "" }
+            }),
+            _vm._v(" "),
+            _c("div", { staticClass: "btn-group btn-group-toggle" }, [
+              _c(
+                "label",
+                {
+                  staticClass: "btn btn-secondary ",
+                  class: { active: _vm.respuesta.dos === "niña" }
+                },
+                [
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.respuesta.dos,
+                        expression: "respuesta.dos"
+                      }
+                    ],
+                    attrs: {
+                      type: "radio",
+                      name: "options",
+                      id: "option4",
+                      value: "niña"
+                    },
+                    domProps: { checked: _vm._q(_vm.respuesta.dos, "niña") },
+                    on: {
+                      change: function($event) {
+                        return _vm.$set(_vm.respuesta, "dos", "niña")
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("img", {
+                    staticClass: "imgrolesboton",
+                    attrs: { src: _vm.ninia, alt: "" }
+                  })
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "label",
+                {
+                  staticClass: "btn btn-secondary",
+                  class: { active: _vm.respuesta.dos === "ambos" }
+                },
+                [
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.respuesta.dos,
+                        expression: "respuesta.dos"
+                      }
+                    ],
+                    attrs: {
+                      type: "radio",
+                      name: "options",
+                      id: "option6",
+                      value: "ambos"
+                    },
+                    domProps: { checked: _vm._q(_vm.respuesta.dos, "ambos") },
+                    on: {
+                      change: function($event) {
+                        return _vm.$set(_vm.respuesta, "dos", "ambos")
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("img", {
+                    staticClass: "imgrolesboton",
+                    attrs: { src: _vm.ambos, alt: "" }
+                  })
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "label",
+                {
+                  staticClass: "btn btn-secondary",
+                  class: { active: _vm.respuesta.dos === "niño" }
+                },
+                [
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.respuesta.dos,
+                        expression: "respuesta.dos"
+                      }
+                    ],
+                    attrs: {
+                      type: "radio",
+                      name: "options",
+                      id: "option5",
+                      value: "niño"
+                    },
+                    domProps: { checked: _vm._q(_vm.respuesta.dos, "niño") },
+                    on: {
+                      change: function($event) {
+                        return _vm.$set(_vm.respuesta, "dos", "niño")
+                      }
+                    }
+                  }),
+                  _c("img", {
+                    staticClass: "imgrolesboton",
+                    attrs: { src: _vm.ninio, alt: "" }
+                  })
+                ]
+              )
+            ])
+          ])
+        ],
+        1
       )
-    ],
-    1
-  )
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "row justify-content-between" }),
+    _vm._v(" "),
+    _c(
+      "button",
+      { staticClass: "btn btn-naranjado ravie", on: { click: _vm.siguiente } },
+      [_vm._v("SIGUIENTE")]
+    )
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -55278,6 +56358,9 @@ window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.
 Vue.use(vue_router__WEBPACK_IMPORTED_MODULE_0__["default"]);
 Vue.component('app-component', __webpack_require__(/*! ./components/actividades/niños/roles/AppComponent.vue */ "./resources/js/components/actividades/niños/roles/AppComponent.vue")["default"]);
 Vue.component('semaforo-component', __webpack_require__(/*! ./components/actividades/niños/SemaforoComponent.vue */ "./resources/js/components/actividades/niños/SemaforoComponent.vue")["default"]);
+Vue.component('admin-rol-component', __webpack_require__(/*! ./components/actividades/niños/roles/adminrolComponent */ "./resources/js/components/actividades/niños/roles/adminrolComponent.vue")["default"]);
+Vue.component('admin-rol2-component', __webpack_require__(/*! ./components/actividades/niños/roles/adminrolDosComponent */ "./resources/js/components/actividades/niños/roles/adminrolDosComponent.vue")["default"]);
+Vue.component('admin-rol3-component', __webpack_require__(/*! ./components/actividades/niños/roles/adminrolTresComponent */ "./resources/js/components/actividades/niños/roles/adminrolTresComponent.vue")["default"]);
 Vue.component('galeria-component', __webpack_require__(/*! ./components/home/GaleriaComponent */ "./resources/js/components/home/GaleriaComponent.vue")["default"]);
 Vue.component('conocenos-component', __webpack_require__(/*! ./components/aboutUs/conocenosComponent */ "./resources/js/components/aboutUs/conocenosComponent.vue")["default"]);
 
@@ -55568,6 +56651,282 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_AppComponent_vue_vue_type_template_id_fb83e31c_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_AppComponent_vue_vue_type_template_id_fb83e31c_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/actividades/niños/roles/adminrolComponent.vue":
+/*!*******************************************************************************!*\
+  !*** ./resources/js/components/actividades/niños/roles/adminrolComponent.vue ***!
+  \*******************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _adminrolComponent_vue_vue_type_template_id_737ad9b7_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./adminrolComponent.vue?vue&type=template&id=737ad9b7&scoped=true& */ "./resources/js/components/actividades/niños/roles/adminrolComponent.vue?vue&type=template&id=737ad9b7&scoped=true&");
+/* harmony import */ var _adminrolComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./adminrolComponent.vue?vue&type=script&lang=js& */ "./resources/js/components/actividades/niños/roles/adminrolComponent.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _adminrolComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _adminrolComponent_vue_vue_type_template_id_737ad9b7_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _adminrolComponent_vue_vue_type_template_id_737ad9b7_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  "737ad9b7",
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/actividades/niños/roles/adminrolComponent.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/actividades/niños/roles/adminrolComponent.vue?vue&type=script&lang=js&":
+/*!********************************************************************************************************!*\
+  !*** ./resources/js/components/actividades/niños/roles/adminrolComponent.vue?vue&type=script&lang=js& ***!
+  \********************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_adminrolComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../../node_modules/vue-loader/lib??vue-loader-options!./adminrolComponent.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/actividades/niños/roles/adminrolComponent.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_adminrolComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/actividades/niños/roles/adminrolComponent.vue?vue&type=template&id=737ad9b7&scoped=true&":
+/*!**************************************************************************************************************************!*\
+  !*** ./resources/js/components/actividades/niños/roles/adminrolComponent.vue?vue&type=template&id=737ad9b7&scoped=true& ***!
+  \**************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_adminrolComponent_vue_vue_type_template_id_737ad9b7_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../../node_modules/vue-loader/lib??vue-loader-options!./adminrolComponent.vue?vue&type=template&id=737ad9b7&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/actividades/niños/roles/adminrolComponent.vue?vue&type=template&id=737ad9b7&scoped=true&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_adminrolComponent_vue_vue_type_template_id_737ad9b7_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_adminrolComponent_vue_vue_type_template_id_737ad9b7_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/actividades/niños/roles/adminrolDosComponent.vue":
+/*!**********************************************************************************!*\
+  !*** ./resources/js/components/actividades/niños/roles/adminrolDosComponent.vue ***!
+  \**********************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _adminrolDosComponent_vue_vue_type_template_id_23e55ccb_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./adminrolDosComponent.vue?vue&type=template&id=23e55ccb&scoped=true& */ "./resources/js/components/actividades/niños/roles/adminrolDosComponent.vue?vue&type=template&id=23e55ccb&scoped=true&");
+/* harmony import */ var _adminrolDosComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./adminrolDosComponent.vue?vue&type=script&lang=js& */ "./resources/js/components/actividades/niños/roles/adminrolDosComponent.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _adminrolDosComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _adminrolDosComponent_vue_vue_type_template_id_23e55ccb_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _adminrolDosComponent_vue_vue_type_template_id_23e55ccb_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  "23e55ccb",
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/actividades/niños/roles/adminrolDosComponent.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/actividades/niños/roles/adminrolDosComponent.vue?vue&type=script&lang=js&":
+/*!***********************************************************************************************************!*\
+  !*** ./resources/js/components/actividades/niños/roles/adminrolDosComponent.vue?vue&type=script&lang=js& ***!
+  \***********************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_adminrolDosComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../../node_modules/vue-loader/lib??vue-loader-options!./adminrolDosComponent.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/actividades/niños/roles/adminrolDosComponent.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_adminrolDosComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/actividades/niños/roles/adminrolDosComponent.vue?vue&type=template&id=23e55ccb&scoped=true&":
+/*!*****************************************************************************************************************************!*\
+  !*** ./resources/js/components/actividades/niños/roles/adminrolDosComponent.vue?vue&type=template&id=23e55ccb&scoped=true& ***!
+  \*****************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_adminrolDosComponent_vue_vue_type_template_id_23e55ccb_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../../node_modules/vue-loader/lib??vue-loader-options!./adminrolDosComponent.vue?vue&type=template&id=23e55ccb&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/actividades/niños/roles/adminrolDosComponent.vue?vue&type=template&id=23e55ccb&scoped=true&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_adminrolDosComponent_vue_vue_type_template_id_23e55ccb_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_adminrolDosComponent_vue_vue_type_template_id_23e55ccb_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/actividades/niños/roles/adminrolTresComponent.vue":
+/*!***********************************************************************************!*\
+  !*** ./resources/js/components/actividades/niños/roles/adminrolTresComponent.vue ***!
+  \***********************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _adminrolTresComponent_vue_vue_type_template_id_16bccc6b_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./adminrolTresComponent.vue?vue&type=template&id=16bccc6b&scoped=true& */ "./resources/js/components/actividades/niños/roles/adminrolTresComponent.vue?vue&type=template&id=16bccc6b&scoped=true&");
+/* harmony import */ var _adminrolTresComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./adminrolTresComponent.vue?vue&type=script&lang=js& */ "./resources/js/components/actividades/niños/roles/adminrolTresComponent.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _adminrolTresComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _adminrolTresComponent_vue_vue_type_template_id_16bccc6b_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _adminrolTresComponent_vue_vue_type_template_id_16bccc6b_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  "16bccc6b",
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/actividades/niños/roles/adminrolTresComponent.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/actividades/niños/roles/adminrolTresComponent.vue?vue&type=script&lang=js&":
+/*!************************************************************************************************************!*\
+  !*** ./resources/js/components/actividades/niños/roles/adminrolTresComponent.vue?vue&type=script&lang=js& ***!
+  \************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_adminrolTresComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../../node_modules/vue-loader/lib??vue-loader-options!./adminrolTresComponent.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/actividades/niños/roles/adminrolTresComponent.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_adminrolTresComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/actividades/niños/roles/adminrolTresComponent.vue?vue&type=template&id=16bccc6b&scoped=true&":
+/*!******************************************************************************************************************************!*\
+  !*** ./resources/js/components/actividades/niños/roles/adminrolTresComponent.vue?vue&type=template&id=16bccc6b&scoped=true& ***!
+  \******************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_adminrolTresComponent_vue_vue_type_template_id_16bccc6b_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../../node_modules/vue-loader/lib??vue-loader-options!./adminrolTresComponent.vue?vue&type=template&id=16bccc6b&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/actividades/niños/roles/adminrolTresComponent.vue?vue&type=template&id=16bccc6b&scoped=true&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_adminrolTresComponent_vue_vue_type_template_id_16bccc6b_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_adminrolTresComponent_vue_vue_type_template_id_16bccc6b_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/actividades/niños/roles/resultado.vue":
+/*!***********************************************************************!*\
+  !*** ./resources/js/components/actividades/niños/roles/resultado.vue ***!
+  \***********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _resultado_vue_vue_type_template_id_085d7169_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./resultado.vue?vue&type=template&id=085d7169&scoped=true& */ "./resources/js/components/actividades/niños/roles/resultado.vue?vue&type=template&id=085d7169&scoped=true&");
+/* harmony import */ var _resultado_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./resultado.vue?vue&type=script&lang=js& */ "./resources/js/components/actividades/niños/roles/resultado.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _resultado_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _resultado_vue_vue_type_template_id_085d7169_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _resultado_vue_vue_type_template_id_085d7169_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  "085d7169",
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/actividades/niños/roles/resultado.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/actividades/niños/roles/resultado.vue?vue&type=script&lang=js&":
+/*!************************************************************************************************!*\
+  !*** ./resources/js/components/actividades/niños/roles/resultado.vue?vue&type=script&lang=js& ***!
+  \************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_resultado_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../../node_modules/vue-loader/lib??vue-loader-options!./resultado.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/actividades/niños/roles/resultado.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_resultado_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/actividades/niños/roles/resultado.vue?vue&type=template&id=085d7169&scoped=true&":
+/*!******************************************************************************************************************!*\
+  !*** ./resources/js/components/actividades/niños/roles/resultado.vue?vue&type=template&id=085d7169&scoped=true& ***!
+  \******************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_resultado_vue_vue_type_template_id_085d7169_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../../node_modules/vue-loader/lib??vue-loader-options!./resultado.vue?vue&type=template&id=085d7169&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/actividades/niños/roles/resultado.vue?vue&type=template&id=085d7169&scoped=true&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_resultado_vue_vue_type_template_id_085d7169_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_resultado_vue_vue_type_template_id_085d7169_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 
@@ -55882,6 +57241,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_actividades_ni_os_roles_roluno_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/actividades/niños/roles/roluno.vue */ "./resources/js/components/actividades/niños/roles/roluno.vue");
 /* harmony import */ var _components_actividades_ni_os_roles_roldos_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/actividades/niños/roles/roldos.vue */ "./resources/js/components/actividades/niños/roles/roldos.vue");
 /* harmony import */ var _components_actividades_ni_os_roles_roltres_vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/actividades/niños/roles/roltres.vue */ "./resources/js/components/actividades/niños/roles/roltres.vue");
+/* harmony import */ var _components_actividades_ni_os_roles_resultado_vue__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/actividades/niños/roles/resultado.vue */ "./resources/js/components/actividades/niños/roles/resultado.vue");
+
 
 
 
@@ -55890,17 +57251,21 @@ __webpack_require__.r(__webpack_exports__);
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]);
 /* harmony default export */ __webpack_exports__["default"] = (new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
   routes: [{
-    path: '/rol-uno',
+    path: '/rol/uno',
     name: 'rol-uno',
     component: _components_actividades_ni_os_roles_roluno_vue__WEBPACK_IMPORTED_MODULE_2__["default"]
   }, {
-    path: '/rol-dos',
+    path: '/rol/dos',
     name: 'rol-dos',
     component: _components_actividades_ni_os_roles_roldos_vue__WEBPACK_IMPORTED_MODULE_3__["default"]
   }, {
-    path: '/rol-tres',
+    path: '/rol/tres',
     name: 'rol-tres',
     component: _components_actividades_ni_os_roles_roltres_vue__WEBPACK_IMPORTED_MODULE_4__["default"]
+  }, {
+    path: '/rol/resultado',
+    name: 'resultado',
+    component: _components_actividades_ni_os_roles_resultado_vue__WEBPACK_IMPORTED_MODULE_5__["default"]
   }],
   hashbang: false,
   linkActiveClass: 'active',

@@ -1,9 +1,9 @@
 <template>
 
     <div class="container">
-
+        <br>
         <div class="row justify-content-md-center">
-            <div class="col-md-auto cardluc-100 naranjado coiny">
+            <div class="col-md-auto cardluc-100 naranjado coiny textonegro">
                 <strong>ROLES DE GENERO</strong>
             </div>
         </div>
@@ -14,13 +14,16 @@
         </div>
 
 
-            <router-view  :lista="lista"
+        <transition>
+            <router-view  :respuestas="respuesta"
                           :ninio="ninio"
                           :ninia="ninia"
                           :ambos="ambos"
                           :uri="uri"
-                          @list-added="lista.push($event)"
+                          @respuesta="respuesta.push($event)"
             ></router-view>
+        </transition>
+
 
 
 </div>
@@ -29,23 +32,24 @@
 <script>
 export default {
     props:['ninio','ninia','ambos','uri'],
-    mounted() {
-        console
-    },
+
     data() {
         return {
-            lista: ['Arbol', 'Perro', 'Caballo'],
-            transitionName: 'slide-left',
-            click:false,
-            nombre:''
+            respuesta: [],
         }
 
     },
-    watch: {
-        click(nuevoValor, valorAnterior){
-            console.log(valorAnterior, nuevoValor);
+
+    mounted() {
+        if (localStorage.respuesta) {
+            this.respuesta = localStorage.respuesta;
         }
-    }
+    },
+    watch: {
+        respuesta(newName) {
+            localStorage.respuesta = newName;
+        }
+    },
 
 }
 </script>
