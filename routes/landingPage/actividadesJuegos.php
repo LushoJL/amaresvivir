@@ -5,6 +5,7 @@
 /*
  * Niños
  */
+
 Route::get('/actividades-juegos', 'ActivitygameController@index')->name('activitygame');
 Route::get('/actividades-juegos-niña', 'ActivitygameController@girl')->name('girl');
 Route::get('/actividades-juegos-niño', 'ActivitygameController@boy')->name('boy');
@@ -39,3 +40,7 @@ Route::get('/its-riesgos', 'ActivitygameController@its')->name('its');
  */
 Route::get('/actividades-adultos', 'AdultsController@index')->name('adults');
 Route::get('/actividades-adultos/caso-uno', 'AdultsController@firstCase')->name('firstCase');
+
+Route::get('/rol/{vue_capture?}', function () {
+    return view('landingPage.actividadesjuegos.niños.roles.roluno',[]);
+})->where('vue_capture', '[\/\w\.-]*');

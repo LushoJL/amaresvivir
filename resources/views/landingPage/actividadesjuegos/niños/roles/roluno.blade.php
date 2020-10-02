@@ -4,7 +4,7 @@
         <app-component :ninio="'{{asset('images/ninioactividades/niñoactividades.png')}}'"
                        :ninia="'{{asset('images/ninioactividades/niñaactividades.png')}}'"
                        :ambos="'{{asset('images/ninioactividades/AMBOS.png')}}'"
-                       :uri="'{{asset('images/ninioactividades/')}}'"
+                       :uri="'{{Storage::disk('s3')->url('/public/rol')}}'"
         ></app-component>
     </div>
     <script src="{{asset('js/app.js') }}"></script>

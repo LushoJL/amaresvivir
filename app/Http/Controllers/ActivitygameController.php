@@ -135,21 +135,10 @@ class ActivitygameController extends Controller
             $this->guardarImagen('verde',$request);
             return 'success verde';
         }
-
         public function guardarImagen($color,$req){
-            if(strlen( $req->image)>100 ){
-                $config=base64_decode(preg_replace('#^data:image/\w+;base64,#i', '',$req->image));
-                $tmpFilePath = sys_get_temp_dir() . '/' . Str::uuid()->toString();
-                file_put_contents($tmpFilePath, $config);
-                $tmpFile = new File($tmpFilePath);
+            if(strlen( $req->image)>200 ){
 
-                $image = new UploadedFile(
-                    $tmpFile->getPathname(),
-                    $tmpFile->getFilename(),
-                    $tmpFile->getMimeType(),
-                    0,
-                    false
-                );
+                $image=$this->Uploadfile($req->image);
 
                 $image_resize = Image::make($image);
                 $image_resize->resize(400, 400);
@@ -183,10 +172,41 @@ class ActivitygameController extends Controller
 
 
         }
-
         public function mensajesSemaforo(){
             $mensajes=semaforo::find(1);
             return $mensajes;
         }
+
+        //rol
+        public function rolPost(Request $request)
+        {
+            if (strlen($request->imagenUno) > 200) {
+                $imageu=$this->Uploadfile($request->imagenUno);
+                $path = $imageu->storeAs("public/rol/" . $request->rol, 'imageUno.png','s3');
+                Storage::disk('s3')->setVisibility($path, 'public');
+            }
+
+            if (strlen($request->imagenDos) > 200) {
+                $imageu=$this->Uploadfile($request->imagenDos);
+                $path = $imageu->storeAs("public/rol/" . $request->rol, 'imageDos.png','s3');
+                Storage::disk('s3')->setVisibility($path, 'public');
+            }
+            return ;
+        }
+    public function Uploadfile($imagen){
+        $config = base64_decode(preg_replace('#^data:image/\w+;base64,#i', '', $imagen));
+        $tmpFilePath = sys_get_temp_dir() . '/' . Str::uuid()->toString();
+        file_put_contents($tmpFilePath, $config);
+        $tmpFile = new File($tmpFilePath);
+
+        $image = new UploadedFile(
+            $tmpFile->getPathname(),
+            $tmpFile->getFilename(),
+            $tmpFile->getMimeType(),
+            0,
+            false
+        );
+        return $image;
+    }
 
 }
