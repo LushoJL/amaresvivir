@@ -521,7 +521,7 @@
                     $.ajax({
                         headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
                         type: "POST",
-                        url: "{{route('activitygame.storeG')}}",
+                        {{--url: "{{route('activitygame.storeG')}}",--}}
                         dataType: "json",
                         contentType: "json",
                         data: {

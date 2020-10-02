@@ -69,8 +69,8 @@
                 </li>
 
 
-                <li class="nav-item has-treeview menu-close {{($activePage=='niño' || $activePage=='joven' || $activePage=='adulto')?'menu-open':''}}">
-                    <a href="#" class="nav-link {{($activePage=='niño' || $activePage=='joven' || $activePage=='adulto')?'active':''}}">
+                <li class="nav-item has-treeview menu-close {{($activePage=='niño' || $activePage=='joven' || $activePage=='adulto' || $activePage== 'preguntas')?'menu-open':''}}">
+                    <a href="#" class="nav-link {{($activePage=='niño' || $activePage=='joven' || $activePage=='adulto' || $activePage== 'preguntas')?'active':''}}">
                         <i class="nav-icon fas fa-tachometer-alt"></i>
                         <p>
                             Actividades y juegos
@@ -78,6 +78,12 @@
                         </p>
                     </a>
                     <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{url('/actividades-preguntas-admin')}}" class="nav-link {{$activePage=='preguntas'?'active':''}}">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Preguntas</p>
+                            </a>
+                        </li>
                         <li class="nav-item">
                             <a href="{{url('/actividades-juegos-admin')}}" class="nav-link {{$activePage=='niño'?'active':''}}">
                                 <i class="far fa-circle nav-icon"></i>

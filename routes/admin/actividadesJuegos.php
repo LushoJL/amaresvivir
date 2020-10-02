@@ -11,3 +11,4 @@ Route::get('/todoslosmensajesdelsemaforo', 'ActivitygameController@mensajesSemaf
 Route::get('/actividades-juegos-joven-admin', 'ActivitygameController@jovenAdmin');//JOVENES
 Route::get('/actividades-adultos-admin', 'ActivitygameController@adultoAdmin');//ADULTOS
 
+Route::get('/actividades-preguntas-admin', 'QuestionController@index');

@@ -13,9 +13,6 @@ Route::get('/semaforo-rojo', 'ActivitygameController@actividadDosRojo');
 Route::get('/semaforo-amarillo', 'ActivitygameController@actividadDosAmarillo');
 Route::get('/semaforo-verde', 'ActivitygameController@actividadDosVerde');
 
-//preguntas
-Route::post('/actividades-juegos/storeG', 'AnswersController@store')->name('activitygame.storeG');
-
 //roles
 Route::get('/rol-uno', 'ActivitygameController@roluno')->name('roluno');
 
