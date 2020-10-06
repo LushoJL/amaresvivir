@@ -2,7 +2,7 @@
 @extends('landingPage.layouts.app', ['activePage' => 'niño'])
 @section('content')
 
-        <div class="rompecabeza">
+        <div class="rompecabeza mt-5">
             <div class="base">
                 <img src="{{Storage::disk('s3')->url('public/rojo/base.jpg')}}" alt=""
                      class="mt-0 ">

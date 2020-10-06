@@ -171,7 +171,7 @@ export default {
                 mensaje: this.rojo
             }).then(response => {
                 this.getMensajes();
-                endLoader('actualizado exitosamente');
+                endLoader('success','actualizado exitosamente');
 
             })
         },
@@ -183,7 +183,7 @@ export default {
                 mensaje: this.amarillo
             }).then(response => {
                 this.getMensajes();
-                endLoader('actualizado exitosamente');
+                endLoader('success','actualizado exitosamente');
                 console.log(response.data);
             })
         },
@@ -195,7 +195,7 @@ export default {
                 mensaje: this.verde
             }).then(response => {
                 this.getMensajes();
-                endLoader('actualizado exitosamente');
+                endLoader('success','actualizado exitosamente');
                 console.log(response.data);
             })
         }
