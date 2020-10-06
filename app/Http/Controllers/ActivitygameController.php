@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Role;
 use App\semaforo;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Intervention\Image\ImageManagerStatic as Image;
 use Illuminate\Support\Facades\Route;
 
@@ -111,8 +113,9 @@ class ActivitygameController extends Controller
          */
         function niñoAdmin(){
             $mensajes=semaforo::find(1);
+            $rol=DB::table('roles')->where('rol', '!=','0')->get();;
 
-            return view('admin.actividadesJuegos.niño.actividaddos.niño',['message'=>$mensajes]);
+            return view('admin.actividadesJuegos.niño.actividaddos.niño',['message'=>$mensajes,'rol'=>$rol]);
         }
         function jovenAdmin(){
             return view('admin.actividadesJuegos.joven');
@@ -180,18 +183,24 @@ class ActivitygameController extends Controller
         //rol
         public function rolPost(Request $request)
         {
+
             if (strlen($request->imagenUno) > 200) {
                 $imageu=$this->Uploadfile($request->imagenUno);
-                $path = $imageu->storeAs("public/rol/" . $request->rol, 'imageUno.png','s3');
-                Storage::disk('s3')->setVisibility($path, 'public');
+                $url=$imageu->storeAs(
+                    'public/rol/'.$request->rol, 'img1.png','s3'
+                );
+                Storage::disk('s3')->setVisibility($url, 'public');
+
             }
 
             if (strlen($request->imagenDos) > 200) {
                 $imageu=$this->Uploadfile($request->imagenDos);
-                $path = $imageu->storeAs("public/rol/" . $request->rol, 'imageDos.png','s3');
-                Storage::disk('s3')->setVisibility($path, 'public');
+                $url=$imageu->storeAs(
+                    'public/rol/'.$request->rol, 'img2.png','s3'
+                );
+                Storage::disk('s3')->setVisibility($url, 'public');
             }
-            return ;
+return ;
         }
     public function Uploadfile($imagen){
         $config = base64_decode(preg_replace('#^data:image/\w+;base64,#i', '', $imagen));

@@ -20,7 +20,7 @@
                           :ninia="ninia"
                           :ambos="ambos"
                           :uri="uri"
-                          @respuesta="respuesta.push($event)"
+
             ></router-view>
         </transition>
 

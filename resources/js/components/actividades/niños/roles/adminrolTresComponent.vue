@@ -3,14 +3,14 @@
         <form @submit.prevent="addImagenes" enctype="multipart/form-data">
             <div class="row justify-content-around">
                 <div class="col-4">
-                    <img :src="imagenUno" width="100%" alt="">
+                    <img :src="imagenUno" width="100%" height="200" alt="">
                     <div class="custom-file">
                         <input type="file" class="custom-file-input" accept="image/*" @change="obtenerImagenUno" lang="es">
                         <label class="custom-file-label">Seleccionar Archivo</label>
                     </div>
                 </div>
                 <div class="col-4">
-                    <img :src="imagenDos" width="100%" alt="">
+                    <img :src="imagenDos" width="100%" height="200" alt="">
                     <div class="custom-file">
                         <input type="file" class="custom-file-input" accept="image/*" @change="obtenerImagenDos" lang="es">
                         <label class="custom-file-label">Seleccionar Archivo</label>
@@ -29,13 +29,12 @@
 <script>
 export default {
     props:['urluno'],
-    mounted() {
-        console.log()
-    },
+
     data(){
         return{
-            imagenMiniatura:this.urluno+'/imageUno.png',
-            imagenMiniaturados:this.urluno+'/imageDos.png'
+            imagenMiniatura:this.urluno+'/img1.png',
+            imagenMiniaturados:this.urluno+'/img2.png',
+
         }
     },
     methods:{
