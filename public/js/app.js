@@ -2846,6 +2846,9 @@ __webpack_require__.r(__webpack_exports__);
     },
     contador: function contador() {
       this.c += 1;
+    },
+    alerta: function alerta() {
+      modalAlert('¡Felicidades!', 'Terminaste las preguntas', 'success');
     }
   }
 });
@@ -42060,7 +42063,7 @@ var render = function() {
                         on: {
                           click: function($event) {
                             $event.preventDefault()
-                            return _vm.contador($event)
+                            return _vm.alerta($event)
                           }
                         }
                       },

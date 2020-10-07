@@ -541,6 +541,8 @@
 
 <script src="{{asset('js/sweetalert2/sweetalert2.min.js') }}"></script>
 
+<script src="{{asset('dist/js/main.js')}}"></script>
+
 
 @yield('swiper')
 

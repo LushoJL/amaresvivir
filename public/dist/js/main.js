@@ -33,3 +33,11 @@ function endLoader(icon, mensaje){
         title: mensaje
     })
 }
+
+function modalAlert(titulo, subtitulo, icon){
+    Swal.fire(
+        titulo,
+        subtitulo,
+        icon
+    )
+}

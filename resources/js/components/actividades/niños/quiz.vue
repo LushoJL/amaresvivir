@@ -31,7 +31,7 @@
                 <div class="ravie mt-5" v-if="c == max">
                     <center>
                         <button class="btn btn-lg" style="background-color: #CC662D; text: #ffffff"
-                                @click.prevent="contador"
+                                @click.prevent="alerta"
                         >Terminar</button>
                     </center>
                 </div>
@@ -138,6 +138,12 @@
             contador()
             {
                 this.c += 1;
+            },
+
+            alerta()
+            {
+                modalAlert('¡Felicidades!', 'Terminaste las preguntas', 'success');
+
             }
         }
     }
