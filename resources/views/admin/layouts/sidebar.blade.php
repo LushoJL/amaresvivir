@@ -115,15 +115,7 @@
                     </a>
                 </li>
 
-                <li class="nav-item">
-                    <a href="{{url('/nos-importas-tu-admin')}}" class="nav-link {{$activePage=='nosimportas'?'active':''}}">
-                        <i class="nav-icon fas fa-th"></i>
-                        <p>
-                            Tu nos importas
 
-                        </p>
-                    </a>
-                </li>
 
 
                 <li class="nav-item">

@@ -92,7 +92,6 @@
                 <i class="fas fa-th-large"></i>
             </a>
             <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-
                 <a href="{{ route('logout') }}" class="dropdown-item" onclick="event.preventDefault();
                         document.getElementById('logout-form').submit();">
                     <i class="fas fa-file mr-2"></i> {{ __('Cerrar Sesión') }}
