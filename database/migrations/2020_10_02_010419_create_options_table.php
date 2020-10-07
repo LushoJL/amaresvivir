@@ -17,11 +17,10 @@ class CreateOptionsTable extends Migration
             $table->increments('id');
             $table->string('option');
             $table->string('type');
-            $table->unsignedInteger('question_id');
-            $table->unsignedInteger('position_id')->nullable();
+            $table->unsignedInteger('position_id');
             $table->timestamps();
 
-            $table->foreign('question_id')->references('id')->on('questions')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreign('position_id')->references('position')->on('questions')->onUpdate('cascade')->onDelete('cascade');
         });
     }
 

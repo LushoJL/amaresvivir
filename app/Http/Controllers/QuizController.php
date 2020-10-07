@@ -34,4 +34,11 @@ class QuizController extends Controller
 
         return $question;
     }
+
+    public function maximo()
+    {
+        $count = Question::count();
+
+        return $count;
+    }
 }

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateQuestionsTable extends Migration
+class CreateQuestionninasTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,12 @@ class CreateQuestionsTable extends Migration
      */
     public function up()
     {
-        Schema::create('questions', function (Blueprint $table) {
+        Schema::create('questionninas', function (Blueprint $table) {
             //$table->increments('id');
             $table->unsignedInteger('position')->primary();
             $table->string('question');
             $table->string('category');
-            //$table->unsignedInteger('position')->unique();
+            //->unsignedInteger('position')->unique();
             $table->timestamps();
         });
     }
@@ -30,6 +30,6 @@ class CreateQuestionsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('questions');
+        Schema::dropIfExists('questionninas');
     }
 }

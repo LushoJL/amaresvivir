@@ -4,14 +4,14 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Question extends Model
+class Questionnina extends Model
 {
     //
     protected $primaryKey = 'position';
     protected $fillable = ['question', 'category', 'position'];
 
-    public function options()
+    public function option()
     {
-        return $this->hasMany('App\Option', 'position');
+        return $this->hasMany('App\Optionnina', 'position');
     }
 }

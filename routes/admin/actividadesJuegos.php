@@ -14,11 +14,24 @@ Route::get('/actividades-adultos-admin', 'ActivitygameController@adultoAdmin');/
 
 Route::get('/actividades-preguntas-admin', 'QuestionController@index');
 Route::get('/actividades-preguntas-listaPreguntas', 'QuestionController@listaPreguntas');
+Route::get('/actividades-preguntas-listaPreguntas-nina', 'QuestionController@listaPreguntasNina');
 Route::post('/guardar-pregunta', 'QuestionController@store');
+Route::put('/actualizar-pregunta/{id}', 'QuestionController@update');
+Route::put('/actualizar-pregunta-nina/{id}', 'QuestionController@updateNina');
+Route::delete('/borrar-preginta/{id}', 'QuestionController@destroy');
+Route::delete('/borrar-preginta-nina/{id}', 'QuestionController@destroyNina');
+Route::post('/guardar-pregunta-nina', 'QuestionController@storeNina');
 Route::post('/guardar-opcion', 'QuestionController@storeOption');
+Route::put('/actualizar-opcion/{id}', 'QuestionController@updateOption');
+Route::post('/guardar-opcion-nina', 'QuestionController@storeOptionNina');
+Route::put('/actualizar-opcion-nina/{id}', 'QuestionController@updateOptionNina');
 Route::get('/actividades-preguntas-listaOpciones', 'QuestionController@listaOpciones');
+Route::get('/listaOpciones-nina', 'QuestionController@opcionesNina');
+Route::delete('/borrar-opcion/{id}', 'QuestionController@destroyOption');
+Route::delete('/borrar-opcion-nina/{id}', 'QuestionController@destroyOptionNina');
 
 Route::get('/quiz-nino', 'QuizController@nino');
 Route::get('/lista-radios', 'QuizController@listaRadios');
 Route::get('/lista-text', 'QuizController@listaText');
 Route::get('/lista-preguntas', 'QuizController@listaPreguntas');
+Route::get('/maximo', 'QuizController@maximo');
