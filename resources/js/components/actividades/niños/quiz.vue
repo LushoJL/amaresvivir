@@ -44,11 +44,14 @@
 
     export default {
 
+        props: ['cat'],
+
         mounted() {
             this.obtenerRadios();
             this.obtenerText();
             this.obtenerPregunta();
             this.maximo();
+            console.log(this.cat);
         },
 
         data() {
@@ -65,7 +68,16 @@
 
             obtenerPregunta()
             {
-                axios.get('/lista-preguntas')
+                var dest;
+                if (this.cat == 'niño')
+                {
+                    dest = '/lista-preguntas';
+                }
+                else
+                {
+                    dest = '/lista-preguntas-nina';
+                }
+                axios.get(dest)
                 .then(response => {
                     this.preguntas = response.data;
                 })
@@ -73,7 +85,16 @@
 
             obtenerRadios()
             {
-                axios.get('/lista-radios')
+                var dest;
+                if (this.cat == 'niño')
+                {
+                    dest = '/lista-radios';
+                }
+                else
+                {
+                    dest = '/lista-radios-nina';
+                }
+                axios.get(dest)
                 .then(response => {
                     this.elements = response.data
                     //console.log(response.data)
@@ -82,7 +103,16 @@
 
             obtenerText()
             {
-                axios.get('/lista-text')
+                var dest;
+                if (this.cat == 'niño')
+                {
+                    dest = '/lista-text';
+                }
+                else
+                {
+                    dest = '/lista-text-nina';
+                }
+                axios.get(dest)
                     .then(response => {
                         this.textElements = response.data
                     })
@@ -90,7 +120,16 @@
 
             maximo()
             {
-                axios.get('/maximo')
+                var dest;
+                if (this.cat == 'niño')
+                {
+                    dest = '/maximo';
+                }
+                else
+                {
+                    dest = '/maximo-nina';
+                }
+                axios.get(dest)
                 .then(response => {
                     this.max = response.data;
                 })

@@ -2766,11 +2766,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
+  props: ['cat'],
   mounted: function mounted() {
     this.obtenerRadios();
     this.obtenerText();
     this.obtenerPregunta();
     this.maximo();
+    console.log(this.cat);
   },
   data: function data() {
     return {
@@ -2785,28 +2787,60 @@ __webpack_require__.r(__webpack_exports__);
     obtenerPregunta: function obtenerPregunta() {
       var _this = this;
 
-      axios.get('/lista-preguntas').then(function (response) {
+      var dest;
+
+      if (this.cat == 'niño') {
+        dest = '/lista-preguntas';
+      } else {
+        dest = '/lista-preguntas-nina';
+      }
+
+      axios.get(dest).then(function (response) {
         _this.preguntas = response.data;
       });
     },
     obtenerRadios: function obtenerRadios() {
       var _this2 = this;
 
-      axios.get('/lista-radios').then(function (response) {
+      var dest;
+
+      if (this.cat == 'niño') {
+        dest = '/lista-radios';
+      } else {
+        dest = '/lista-radios-nina';
+      }
+
+      axios.get(dest).then(function (response) {
         _this2.elements = response.data; //console.log(response.data)
       });
     },
     obtenerText: function obtenerText() {
       var _this3 = this;
 
-      axios.get('/lista-text').then(function (response) {
+      var dest;
+
+      if (this.cat == 'niño') {
+        dest = '/lista-text';
+      } else {
+        dest = '/lista-text-nina';
+      }
+
+      axios.get(dest).then(function (response) {
         _this3.textElements = response.data;
       });
     },
     maximo: function maximo() {
       var _this4 = this;
 
-      axios.get('/maximo').then(function (response) {
+      var dest;
+
+      if (this.cat == 'niño') {
+        dest = '/maximo';
+      } else {
+        dest = '/maximo-nina';
+      }
+
+      axios.get(dest).then(function (response) {
         _this4.max = response.data;
       });
     },

@@ -4,7 +4,7 @@
             <div class="row">
                 <div class="col-xl-9">
                     <img src="{{asset('images/ninioactividades/CUENTO1NINAS.png')}}" alt="" width="100%">
-                    <div class="section mb-5 buttonQuestion"><center><button class="btn btn-outline-primary" id="btnQuestionGirl">Preguntas</button></center></div>
+                    <div class="section mb-5 buttonQuestion"><center><a href="{{url('/quiz-nina')}}" class="btn btn-outline-primary">Preguntas</a></center></div>
 
                 </div>
                 <div class="col-xl-3 m-auto">

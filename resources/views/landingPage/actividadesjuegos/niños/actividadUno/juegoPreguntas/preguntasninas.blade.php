@@ -3,11 +3,11 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-9">
-            <div id="app">
-                <quiz-component
-                    :cat="'niño'"
-                ></quiz-component>
-            </div>
+                <div id="app">
+                    <quiz-component
+                        :cat="'niña'"
+                    ></quiz-component>
+                </div>
             </div>
             <div class="col-lg-3 m-auto">
                 <img src="{{asset('images/NINO CON SIGNO.png')}}" alt="" width="100%">

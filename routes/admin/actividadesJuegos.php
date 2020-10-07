@@ -31,7 +31,12 @@ Route::delete('/borrar-opcion/{id}', 'QuestionController@destroyOption');
 Route::delete('/borrar-opcion-nina/{id}', 'QuestionController@destroyOptionNina');
 
 Route::get('/quiz-nino', 'QuizController@nino');
+Route::get('/quiz-nina', 'QuizController@nina');
 Route::get('/lista-radios', 'QuizController@listaRadios');
+Route::get('/lista-radios-nina', 'QuizController@listaRadiosNina');
 Route::get('/lista-text', 'QuizController@listaText');
+Route::get('/lista-text-nina', 'QuizController@listaTextNina');
 Route::get('/lista-preguntas', 'QuizController@listaPreguntas');
+Route::get('/lista-preguntas-nina', 'QuizController@listaPreguntasNina');
 Route::get('/maximo', 'QuizController@maximo');
+Route::get('/maximo-nina', 'QuizController@maximoNina');
