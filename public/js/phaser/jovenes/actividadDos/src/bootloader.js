@@ -13,7 +13,7 @@ class Bootloader extends Phaser.Scene{
 
         });
         this.load.image("pikachu","js/phaser/jovenes/actividadDos/assets/Pikachu.png");
-        this.load.image("miu","js/phaser/jovenes/actividadDos/assets/base.jpg");
+        this.load.image("miu","js/phaser/jovenes/actividadDos/assets/miu.jpg");
         this.load.image("button","js/phaser/jovenes/actividadDos/assets/Button.png");
         this.load.image("background","js/phaser/jovenes/actividadDos/assets/BackGround.png");
         this.load.image("TextBox","js/phaser/jovenes/actividadDos/assets/TextBox.png");

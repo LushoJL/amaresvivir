@@ -3,7 +3,7 @@
     <div class="container mt-5">
         <div class="row">
             <div class="col-md-6">
-                <img class="mt-5" src="{{asset('images/tunosimportas/MUÑEQUITOS.png')}}" width="75%" alt="">
+                <img class="mt-5" src="{{asset('images/tunosimportas/MUÑEQUITOS.png')}}" width="150%" alt="">
             </div>
             <div class="col-md-6">
                 <div class="row">
