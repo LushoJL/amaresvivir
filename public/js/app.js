@@ -2667,7 +2667,7 @@ __webpack_require__.r(__webpack_exports__);
       }).then(function (response) {
         _this3.getMensajes();
 
-        endLoader('actualizado exitosamente');
+        endLoader('success', 'actualizado exitosamente');
       });
     },
     addImageAmarillo: function addImageAmarillo() {
@@ -2680,7 +2680,7 @@ __webpack_require__.r(__webpack_exports__);
       }).then(function (response) {
         _this4.getMensajes();
 
-        endLoader('actualizado exitosamente');
+        endLoader('success', 'actualizado exitosamente');
         console.log(response.data);
       });
     },
@@ -2694,7 +2694,7 @@ __webpack_require__.r(__webpack_exports__);
       }).then(function (response) {
         _this5.getMensajes();
 
-        endLoader('actualizado exitosamente');
+        endLoader('success', 'actualizado exitosamente');
         console.log(response.data);
       });
     }
@@ -2918,13 +2918,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['urluno'],
-  mounted: function mounted() {
-    console.log();
-  },
   data: function data() {
     return {
-      imagenMiniatura: this.urluno + '/imageUno.png',
-      imagenMiniaturados: this.urluno + '/imageDos.png'
+      imagenMiniatura: this.urluno + '/img1.png',
+      imagenMiniaturados: this.urluno + '/img2.png'
     };
   },
   methods: {
@@ -2954,6 +2951,7 @@ __webpack_require__.r(__webpack_exports__);
         imagenDos: this.imagenMiniaturados,
         rol: 'Roluno'
       }).then(function (response) {
+        console.log(response);
         endLoader('success', 'Se a subido correctamente');
       });
     }
@@ -3009,13 +3007,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['urluno'],
-  mounted: function mounted() {
-    console.log();
-  },
   data: function data() {
     return {
-      imagenMiniatura: this.urluno + '/imageUno.png',
-      imagenMiniaturados: this.urluno + '/imageDos.png'
+      imagenMiniatura: this.urluno + '/img1.png',
+      imagenMiniaturados: this.urluno + '/img2.png',
+      nombreuno: '',
+      nombredos: ''
     };
   },
   methods: {
@@ -3101,13 +3098,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['urluno'],
-  mounted: function mounted() {
-    console.log();
-  },
   data: function data() {
     return {
-      imagenMiniatura: this.urluno + '/imageUno.png',
-      imagenMiniaturados: this.urluno + '/imageDos.png'
+      imagenMiniatura: this.urluno + '/img1.png',
+      imagenMiniaturados: this.urluno + '/img2.png'
     };
   },
   methods: {
@@ -3167,8 +3161,60 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['respuestas']
+  data: function data() {
+    return {
+      primero: [],
+      segundo: [],
+      tercero: []
+    };
+  },
+  mounted: function mounted() {
+    if (localStorage.getItem('primero')) {
+      try {
+        this.primero.push(JSON.parse(localStorage.getItem('primero')));
+      } catch (e) {
+        localStorage.removeItem('primero');
+      }
+    }
+
+    if (localStorage.getItem('segundo')) {
+      try {
+        this.segundo.push(JSON.parse(localStorage.getItem('segundo')));
+      } catch (e) {
+        localStorage.removeItem('segundo');
+      }
+    }
+
+    if (localStorage.getItem('tercero')) {
+      try {
+        this.tercero.push(JSON.parse(localStorage.getItem('tercero')));
+      } catch (e) {
+        localStorage.removeItem('tercero');
+      }
+    }
+  }
 });
 
 /***/ }),
@@ -3243,9 +3289,18 @@ __webpack_require__.r(__webpack_exports__);
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['ninio', 'ninia', 'ambos', 'uri'],
+  mounted: function mounted() {
+    if (localStorage.getItem('segundo')) {
+      try {
+        this.segundo = JSON.parse(localStorage.getItem('segundo'));
+      } catch (e) {
+        localStorage.removeItem('segundo');
+      }
+    }
+  },
   data: function data() {
     return {
-      respuesta: {
+      segundo: {
         uno: '',
         dos: ''
       }
@@ -3253,8 +3308,27 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     siguiente: function siguiente() {
-      this.$emit('respuesta', this.respuesta);
-      _routes_js__WEBPACK_IMPORTED_MODULE_0__["default"].push('tres');
+      if (this.segundo.uno === '' || this.segundo.dos === '') {
+        var Toast = Swal.mixin({
+          toast: true,
+          position: 'top-end',
+          showConfirmButton: false,
+          timer: 3000,
+          timerProgressBar: true,
+          didOpen: function didOpen(toast) {
+            toast.addEventListener('mouseenter', Swal.stopTimer);
+            toast.addEventListener('mouseleave', Swal.resumeTimer);
+          }
+        });
+        Toast.fire({
+          icon: 'error',
+          title: 'seleccione una opcion'
+        });
+      } else {
+        var parsed = JSON.stringify(this.segundo);
+        localStorage.setItem('segundo', parsed);
+        _routes_js__WEBPACK_IMPORTED_MODULE_0__["default"].push('tres');
+      }
     }
   }
 });
@@ -3331,9 +3405,18 @@ __webpack_require__.r(__webpack_exports__);
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['ninio', 'ninia', 'ambos', 'uri'],
+  mounted: function mounted() {
+    if (localStorage.getItem('tercero')) {
+      try {
+        this.tercero = JSON.parse(localStorage.getItem('tercero'));
+      } catch (e) {
+        localStorage.removeItem('tercero');
+      }
+    }
+  },
   data: function data() {
     return {
-      respuesta: {
+      tercero: {
         uno: '',
         dos: ''
       }
@@ -3341,8 +3424,27 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     siguiente: function siguiente() {
-      this.$emit('respuesta', this.respuesta);
-      _routes_js__WEBPACK_IMPORTED_MODULE_0__["default"].push('resultado');
+      if (this.tercero.uno === '' || this.tercero.dos === '') {
+        var Toast = Swal.mixin({
+          toast: true,
+          position: 'top-end',
+          showConfirmButton: false,
+          timer: 3000,
+          timerProgressBar: true,
+          didOpen: function didOpen(toast) {
+            toast.addEventListener('mouseenter', Swal.stopTimer);
+            toast.addEventListener('mouseleave', Swal.resumeTimer);
+          }
+        });
+        Toast.fire({
+          icon: 'error',
+          title: 'seleccione una opcion'
+        });
+      } else {
+        var parsed = JSON.stringify(this.tercero);
+        localStorage.setItem('tercero', parsed);
+        _routes_js__WEBPACK_IMPORTED_MODULE_0__["default"].push('resultado');
+      }
     }
   }
 });
@@ -3415,13 +3517,21 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['ninio', 'ninia', 'ambos', 'uri'],
+  mounted: function mounted() {
+    if (localStorage.getItem('primero')) {
+      try {
+        this.primero = JSON.parse(localStorage.getItem('primero'));
+      } catch (e) {
+        localStorage.removeItem('primero');
+      }
+    }
+  },
   data: function data() {
     return {
-      respuesta: {
+      primero: {
         uno: '',
         dos: ''
       }
@@ -3429,8 +3539,27 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     siguiente: function siguiente() {
-      this.$emit('respuesta', this.respuesta);
-      _routes_js__WEBPACK_IMPORTED_MODULE_0__["default"].push('dos');
+      if (this.primero.uno === '' || this.primero.dos === '') {
+        var Toast = Swal.mixin({
+          toast: true,
+          position: 'top-end',
+          showConfirmButton: false,
+          timer: 3000,
+          timerProgressBar: true,
+          didOpen: function didOpen(toast) {
+            toast.addEventListener('mouseenter', Swal.stopTimer);
+            toast.addEventListener('mouseleave', Swal.resumeTimer);
+          }
+        });
+        Toast.fire({
+          icon: 'error',
+          title: 'seleccione una opcion'
+        });
+      } else {
+        var parsed = JSON.stringify(this.primero);
+        localStorage.setItem('primero', parsed);
+        _routes_js__WEBPACK_IMPORTED_MODULE_0__["default"].push('dos');
+      }
     }
   }
 });
@@ -41956,11 +42085,6 @@ var render = function() {
               ninia: _vm.ninia,
               ambos: _vm.ambos,
               uri: _vm.uri
-            },
-            on: {
-              respuesta: function($event) {
-                return _vm.respuesta.push($event)
-              }
             }
           })
         ],
@@ -42031,7 +42155,12 @@ var render = function() {
         _c("div", { staticClass: "row justify-content-around" }, [
           _c("div", { staticClass: "col-4" }, [
             _c("img", {
-              attrs: { src: _vm.imagenUno, width: "100%", alt: "" }
+              attrs: {
+                src: _vm.imagenUno,
+                width: "100%",
+                height: "200",
+                alt: ""
+              }
             }),
             _vm._v(" "),
             _c("div", { staticClass: "custom-file" }, [
@@ -42049,7 +42178,12 @@ var render = function() {
           _vm._v(" "),
           _c("div", { staticClass: "col-4" }, [
             _c("img", {
-              attrs: { src: _vm.imagenDos, width: "100%", alt: "" }
+              attrs: {
+                src: _vm.imagenDos,
+                width: "100%",
+                height: "200",
+                alt: ""
+              }
             }),
             _vm._v(" "),
             _c("div", { staticClass: "custom-file" }, [
@@ -42127,7 +42261,12 @@ var render = function() {
         _c("div", { staticClass: "row justify-content-around" }, [
           _c("div", { staticClass: "col-4" }, [
             _c("img", {
-              attrs: { src: _vm.imagenUno, width: "100%", alt: "" }
+              attrs: {
+                src: _vm.imagenUno,
+                width: "100%",
+                height: "200",
+                alt: ""
+              }
             }),
             _vm._v(" "),
             _c("div", { staticClass: "custom-file" }, [
@@ -42145,7 +42284,12 @@ var render = function() {
           _vm._v(" "),
           _c("div", { staticClass: "col-4" }, [
             _c("img", {
-              attrs: { src: _vm.imagenDos, width: "100%", alt: "" }
+              attrs: {
+                src: _vm.imagenDos,
+                width: "100%",
+                height: "200",
+                alt: ""
+              }
             }),
             _vm._v(" "),
             _c("div", { staticClass: "custom-file" }, [
@@ -42223,7 +42367,12 @@ var render = function() {
         _c("div", { staticClass: "row justify-content-around" }, [
           _c("div", { staticClass: "col-4" }, [
             _c("img", {
-              attrs: { src: _vm.imagenUno, width: "100%", alt: "" }
+              attrs: {
+                src: _vm.imagenUno,
+                width: "100%",
+                height: "200",
+                alt: ""
+              }
             }),
             _vm._v(" "),
             _c("div", { staticClass: "custom-file" }, [
@@ -42241,7 +42390,12 @@ var render = function() {
           _vm._v(" "),
           _c("div", { staticClass: "col-4" }, [
             _c("img", {
-              attrs: { src: _vm.imagenDos, width: "100%", alt: "" }
+              attrs: {
+                src: _vm.imagenDos,
+                width: "100%",
+                height: "200",
+                alt: ""
+              }
             }),
             _vm._v(" "),
             _c("div", { staticClass: "custom-file" }, [
@@ -42303,7 +42457,57 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("pre", [_vm._v(" " + _vm._s(_vm.respuestas) + " ")])
+  return _c(
+    "div",
+    [
+      _c("h1", [_vm._v("PRIMERO")]),
+      _vm._v(" "),
+      _vm._l(_vm.primero, function(item) {
+        return _c("h1", [
+          _vm._v(
+            "\n        " +
+              _vm._s(item.uno) +
+              "\n        " +
+              _vm._s(item.dos) +
+              "\n    "
+          )
+        ])
+      }),
+      _vm._v(" "),
+      _c("hr"),
+      _vm._v(" "),
+      _c("h1", [_vm._v("SEGUNDO")]),
+      _vm._v(" "),
+      _vm._l(_vm.segundo, function(item) {
+        return _c("h1", [
+          _vm._v(
+            "\n        " +
+              _vm._s(item.uno) +
+              "\n        " +
+              _vm._s(item.dos) +
+              "\n    "
+          )
+        ])
+      }),
+      _vm._v(" "),
+      _c("hr"),
+      _vm._v(" "),
+      _c("h1", [_vm._v("TERCERO")]),
+      _vm._v(" "),
+      _vm._l(_vm.tercero, function(item) {
+        return _c("h1", [
+          _vm._v(
+            "\n        " +
+              _vm._s(item.uno) +
+              "\n        " +
+              _vm._s(item.dos) +
+              "\n    "
+          )
+        ])
+      })
+    ],
+    2
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -42336,7 +42540,7 @@ var render = function() {
           _c("center", [
             _c("img", {
               staticClass: "imgrol",
-              attrs: { src: _vm.uri + "/Roldos/imageUno.png", alt: "" }
+              attrs: { src: _vm.uri + "/Roldos/img1.png", alt: "" }
             }),
             _vm._v(" "),
             _c("div", { staticClass: "btn-group btn-group-toggle" }, [
@@ -42344,7 +42548,7 @@ var render = function() {
                 "label",
                 {
                   staticClass: "btn btn-secondary",
-                  class: { active: _vm.respuesta.uno === "niña" }
+                  class: { active: _vm.segundo.uno === "niña" }
                 },
                 [
                   _c("input", {
@@ -42352,8 +42556,8 @@ var render = function() {
                       {
                         name: "model",
                         rawName: "v-model",
-                        value: _vm.respuesta.uno,
-                        expression: "respuesta.uno"
+                        value: _vm.segundo.uno,
+                        expression: "segundo.uno"
                       }
                     ],
                     attrs: {
@@ -42362,10 +42566,10 @@ var render = function() {
                       id: "option3",
                       value: "niña"
                     },
-                    domProps: { checked: _vm._q(_vm.respuesta.uno, "niña") },
+                    domProps: { checked: _vm._q(_vm.segundo.uno, "niña") },
                     on: {
                       change: function($event) {
-                        return _vm.$set(_vm.respuesta, "uno", "niña")
+                        return _vm.$set(_vm.segundo, "uno", "niña")
                       }
                     }
                   }),
@@ -42381,7 +42585,7 @@ var render = function() {
                 "label",
                 {
                   staticClass: "btn btn-secondary",
-                  class: { active: _vm.respuesta.uno === "ambos" }
+                  class: { active: _vm.segundo.uno === "ambos" }
                 },
                 [
                   _c("input", {
@@ -42389,8 +42593,8 @@ var render = function() {
                       {
                         name: "model",
                         rawName: "v-model",
-                        value: _vm.respuesta.uno,
-                        expression: "respuesta.uno"
+                        value: _vm.segundo.uno,
+                        expression: "segundo.uno"
                       }
                     ],
                     attrs: {
@@ -42399,10 +42603,10 @@ var render = function() {
                       id: "option2",
                       value: "ambos"
                     },
-                    domProps: { checked: _vm._q(_vm.respuesta.uno, "ambos") },
+                    domProps: { checked: _vm._q(_vm.segundo.uno, "ambos") },
                     on: {
                       change: function($event) {
-                        return _vm.$set(_vm.respuesta, "uno", "ambos")
+                        return _vm.$set(_vm.segundo, "uno", "ambos")
                       }
                     }
                   }),
@@ -42418,7 +42622,7 @@ var render = function() {
                 "label",
                 {
                   staticClass: "btn btn-secondary",
-                  class: { active: _vm.respuesta.uno === "niño" }
+                  class: { active: _vm.segundo.uno === "niño" }
                 },
                 [
                   _c("input", {
@@ -42426,8 +42630,8 @@ var render = function() {
                       {
                         name: "model",
                         rawName: "v-model",
-                        value: _vm.respuesta.uno,
-                        expression: "respuesta.uno"
+                        value: _vm.segundo.uno,
+                        expression: "segundo.uno"
                       }
                     ],
                     attrs: {
@@ -42436,10 +42640,10 @@ var render = function() {
                       id: "option1",
                       value: "niño"
                     },
-                    domProps: { checked: _vm._q(_vm.respuesta.uno, "niño") },
+                    domProps: { checked: _vm._q(_vm.segundo.uno, "niño") },
                     on: {
                       change: function($event) {
-                        return _vm.$set(_vm.respuesta, "uno", "niño")
+                        return _vm.$set(_vm.segundo, "uno", "niño")
                       }
                     }
                   }),
@@ -42464,7 +42668,7 @@ var render = function() {
           _c("center", [
             _c("img", {
               staticClass: "imgrol",
-              attrs: { src: _vm.uri + "/Roldos/imageDos.png", alt: "" }
+              attrs: { src: _vm.uri + "/Roldos/img2.png", alt: "" }
             }),
             _vm._v(" "),
             _c("div", { staticClass: "btn-group btn-group-toggle" }, [
@@ -42472,7 +42676,7 @@ var render = function() {
                 "label",
                 {
                   staticClass: "btn btn-secondary ",
-                  class: { active: _vm.respuesta.dos === "niña" }
+                  class: { active: _vm.segundo.dos === "niña" }
                 },
                 [
                   _c("input", {
@@ -42480,8 +42684,8 @@ var render = function() {
                       {
                         name: "model",
                         rawName: "v-model",
-                        value: _vm.respuesta.dos,
-                        expression: "respuesta.dos"
+                        value: _vm.segundo.dos,
+                        expression: "segundo.dos"
                       }
                     ],
                     attrs: {
@@ -42490,10 +42694,10 @@ var render = function() {
                       id: "option4",
                       value: "niña"
                     },
-                    domProps: { checked: _vm._q(_vm.respuesta.dos, "niña") },
+                    domProps: { checked: _vm._q(_vm.segundo.dos, "niña") },
                     on: {
                       change: function($event) {
-                        return _vm.$set(_vm.respuesta, "dos", "niña")
+                        return _vm.$set(_vm.segundo, "dos", "niña")
                       }
                     }
                   }),
@@ -42509,7 +42713,7 @@ var render = function() {
                 "label",
                 {
                   staticClass: "btn btn-secondary",
-                  class: { active: _vm.respuesta.dos === "ambos" }
+                  class: { active: _vm.segundo.dos === "ambos" }
                 },
                 [
                   _c("input", {
@@ -42517,8 +42721,8 @@ var render = function() {
                       {
                         name: "model",
                         rawName: "v-model",
-                        value: _vm.respuesta.dos,
-                        expression: "respuesta.dos"
+                        value: _vm.segundo.dos,
+                        expression: "segundo.dos"
                       }
                     ],
                     attrs: {
@@ -42527,10 +42731,10 @@ var render = function() {
                       id: "option6",
                       value: "ambos"
                     },
-                    domProps: { checked: _vm._q(_vm.respuesta.dos, "ambos") },
+                    domProps: { checked: _vm._q(_vm.segundo.dos, "ambos") },
                     on: {
                       change: function($event) {
-                        return _vm.$set(_vm.respuesta, "dos", "ambos")
+                        return _vm.$set(_vm.segundo, "dos", "ambos")
                       }
                     }
                   }),
@@ -42546,7 +42750,7 @@ var render = function() {
                 "label",
                 {
                   staticClass: "btn btn-secondary",
-                  class: { active: _vm.respuesta.dos === "niño" }
+                  class: { active: _vm.segundo.dos === "niño" }
                 },
                 [
                   _c("input", {
@@ -42554,8 +42758,8 @@ var render = function() {
                       {
                         name: "model",
                         rawName: "v-model",
-                        value: _vm.respuesta.dos,
-                        expression: "respuesta.dos"
+                        value: _vm.segundo.dos,
+                        expression: "segundo.dos"
                       }
                     ],
                     attrs: {
@@ -42564,10 +42768,10 @@ var render = function() {
                       id: "option5",
                       value: "niño"
                     },
-                    domProps: { checked: _vm._q(_vm.respuesta.dos, "niño") },
+                    domProps: { checked: _vm._q(_vm.segundo.dos, "niño") },
                     on: {
                       change: function($event) {
-                        return _vm.$set(_vm.respuesta, "dos", "niño")
+                        return _vm.$set(_vm.segundo, "dos", "niño")
                       }
                     }
                   }),
@@ -42624,7 +42828,7 @@ var render = function() {
           _c("center", [
             _c("img", {
               staticClass: "imgrol",
-              attrs: { src: _vm.uri + "/Roldos/imageUno.png", alt: "" }
+              attrs: { src: _vm.uri + "/Roltres/img1.png", alt: "" }
             }),
             _vm._v(" "),
             _c("div", { staticClass: "btn-group btn-group-toggle" }, [
@@ -42632,7 +42836,7 @@ var render = function() {
                 "label",
                 {
                   staticClass: "btn btn-secondary",
-                  class: { active: _vm.respuesta.uno === "niña" }
+                  class: { active: _vm.tercero.uno === "niña" }
                 },
                 [
                   _c("input", {
@@ -42640,8 +42844,8 @@ var render = function() {
                       {
                         name: "model",
                         rawName: "v-model",
-                        value: _vm.respuesta.uno,
-                        expression: "respuesta.uno"
+                        value: _vm.tercero.uno,
+                        expression: "tercero.uno"
                       }
                     ],
                     attrs: {
@@ -42650,10 +42854,10 @@ var render = function() {
                       id: "option3",
                       value: "niña"
                     },
-                    domProps: { checked: _vm._q(_vm.respuesta.uno, "niña") },
+                    domProps: { checked: _vm._q(_vm.tercero.uno, "niña") },
                     on: {
                       change: function($event) {
-                        return _vm.$set(_vm.respuesta, "uno", "niña")
+                        return _vm.$set(_vm.tercero, "uno", "niña")
                       }
                     }
                   }),
@@ -42669,7 +42873,7 @@ var render = function() {
                 "label",
                 {
                   staticClass: "btn btn-secondary",
-                  class: { active: _vm.respuesta.uno === "ambos" }
+                  class: { active: _vm.tercero.uno === "ambos" }
                 },
                 [
                   _c("input", {
@@ -42677,8 +42881,8 @@ var render = function() {
                       {
                         name: "model",
                         rawName: "v-model",
-                        value: _vm.respuesta.uno,
-                        expression: "respuesta.uno"
+                        value: _vm.tercero.uno,
+                        expression: "tercero.uno"
                       }
                     ],
                     attrs: {
@@ -42687,10 +42891,10 @@ var render = function() {
                       id: "option2",
                       value: "ambos"
                     },
-                    domProps: { checked: _vm._q(_vm.respuesta.uno, "ambos") },
+                    domProps: { checked: _vm._q(_vm.tercero.uno, "ambos") },
                     on: {
                       change: function($event) {
-                        return _vm.$set(_vm.respuesta, "uno", "ambos")
+                        return _vm.$set(_vm.tercero, "uno", "ambos")
                       }
                     }
                   }),
@@ -42706,7 +42910,7 @@ var render = function() {
                 "label",
                 {
                   staticClass: "btn btn-secondary",
-                  class: { active: _vm.respuesta.uno === "niño" }
+                  class: { active: _vm.tercero.uno === "niño" }
                 },
                 [
                   _c("input", {
@@ -42714,8 +42918,8 @@ var render = function() {
                       {
                         name: "model",
                         rawName: "v-model",
-                        value: _vm.respuesta.uno,
-                        expression: "respuesta.uno"
+                        value: _vm.tercero.uno,
+                        expression: "tercero.uno"
                       }
                     ],
                     attrs: {
@@ -42724,10 +42928,10 @@ var render = function() {
                       id: "option1",
                       value: "niño"
                     },
-                    domProps: { checked: _vm._q(_vm.respuesta.uno, "niño") },
+                    domProps: { checked: _vm._q(_vm.tercero.uno, "niño") },
                     on: {
                       change: function($event) {
-                        return _vm.$set(_vm.respuesta, "uno", "niño")
+                        return _vm.$set(_vm.tercero, "uno", "niño")
                       }
                     }
                   }),
@@ -42752,7 +42956,7 @@ var render = function() {
           _c("center", [
             _c("img", {
               staticClass: "imgrol",
-              attrs: { src: _vm.uri + "/Roldos/imageDos.png", alt: "" }
+              attrs: { src: _vm.uri + "/Roltres/img2.png", alt: "" }
             }),
             _vm._v(" "),
             _c("div", { staticClass: "btn-group btn-group-toggle" }, [
@@ -42760,7 +42964,7 @@ var render = function() {
                 "label",
                 {
                   staticClass: "btn btn-secondary ",
-                  class: { active: _vm.respuesta.dos === "niña" }
+                  class: { active: _vm.tercero.dos === "niña" }
                 },
                 [
                   _c("input", {
@@ -42768,8 +42972,8 @@ var render = function() {
                       {
                         name: "model",
                         rawName: "v-model",
-                        value: _vm.respuesta.dos,
-                        expression: "respuesta.dos"
+                        value: _vm.tercero.dos,
+                        expression: "tercero.dos"
                       }
                     ],
                     attrs: {
@@ -42778,10 +42982,10 @@ var render = function() {
                       id: "option4",
                       value: "niña"
                     },
-                    domProps: { checked: _vm._q(_vm.respuesta.dos, "niña") },
+                    domProps: { checked: _vm._q(_vm.tercero.dos, "niña") },
                     on: {
                       change: function($event) {
-                        return _vm.$set(_vm.respuesta, "dos", "niña")
+                        return _vm.$set(_vm.tercero, "dos", "niña")
                       }
                     }
                   }),
@@ -42797,7 +43001,7 @@ var render = function() {
                 "label",
                 {
                   staticClass: "btn btn-secondary",
-                  class: { active: _vm.respuesta.dos === "ambos" }
+                  class: { active: _vm.tercero.dos === "ambos" }
                 },
                 [
                   _c("input", {
@@ -42805,8 +43009,8 @@ var render = function() {
                       {
                         name: "model",
                         rawName: "v-model",
-                        value: _vm.respuesta.dos,
-                        expression: "respuesta.dos"
+                        value: _vm.tercero.dos,
+                        expression: "tercero.dos"
                       }
                     ],
                     attrs: {
@@ -42815,10 +43019,10 @@ var render = function() {
                       id: "option6",
                       value: "ambos"
                     },
-                    domProps: { checked: _vm._q(_vm.respuesta.dos, "ambos") },
+                    domProps: { checked: _vm._q(_vm.tercero.dos, "ambos") },
                     on: {
                       change: function($event) {
-                        return _vm.$set(_vm.respuesta, "dos", "ambos")
+                        return _vm.$set(_vm.tercero, "dos", "ambos")
                       }
                     }
                   }),
@@ -42834,7 +43038,7 @@ var render = function() {
                 "label",
                 {
                   staticClass: "btn btn-secondary",
-                  class: { active: _vm.respuesta.dos === "niño" }
+                  class: { active: _vm.tercero.dos === "niño" }
                 },
                 [
                   _c("input", {
@@ -42842,8 +43046,8 @@ var render = function() {
                       {
                         name: "model",
                         rawName: "v-model",
-                        value: _vm.respuesta.dos,
-                        expression: "respuesta.dos"
+                        value: _vm.tercero.dos,
+                        expression: "tercero.dos"
                       }
                     ],
                     attrs: {
@@ -42852,10 +43056,10 @@ var render = function() {
                       id: "option5",
                       value: "niño"
                     },
-                    domProps: { checked: _vm._q(_vm.respuesta.dos, "niño") },
+                    domProps: { checked: _vm._q(_vm.tercero.dos, "niño") },
                     on: {
                       change: function($event) {
-                        return _vm.$set(_vm.respuesta, "dos", "niño")
+                        return _vm.$set(_vm.tercero, "dos", "niño")
                       }
                     }
                   }),
@@ -42912,7 +43116,7 @@ var render = function() {
           _c("center", [
             _c("img", {
               staticClass: "imgrol",
-              attrs: { src: _vm.uri + "/Roluno/imageUno.png", alt: "" }
+              attrs: { src: _vm.uri + "/Roluno/img1.png", alt: "" }
             }),
             _vm._v(" "),
             _c("div", { staticClass: "btn-group btn-group-toggle" }, [
@@ -42920,7 +43124,7 @@ var render = function() {
                 "label",
                 {
                   staticClass: "btn btn-secondary",
-                  class: { active: _vm.respuesta.uno === "niña" }
+                  class: { active: _vm.primero.uno === "niña" }
                 },
                 [
                   _c("input", {
@@ -42928,8 +43132,8 @@ var render = function() {
                       {
                         name: "model",
                         rawName: "v-model",
-                        value: _vm.respuesta.uno,
-                        expression: "respuesta.uno"
+                        value: _vm.primero.uno,
+                        expression: "primero.uno"
                       }
                     ],
                     attrs: {
@@ -42938,10 +43142,10 @@ var render = function() {
                       id: "option3",
                       value: "niña"
                     },
-                    domProps: { checked: _vm._q(_vm.respuesta.uno, "niña") },
+                    domProps: { checked: _vm._q(_vm.primero.uno, "niña") },
                     on: {
                       change: function($event) {
-                        return _vm.$set(_vm.respuesta, "uno", "niña")
+                        return _vm.$set(_vm.primero, "uno", "niña")
                       }
                     }
                   }),
@@ -42957,7 +43161,7 @@ var render = function() {
                 "label",
                 {
                   staticClass: "btn btn-secondary",
-                  class: { active: _vm.respuesta.uno === "ambos" }
+                  class: { active: _vm.primero.uno === "ambos" }
                 },
                 [
                   _c("input", {
@@ -42965,8 +43169,8 @@ var render = function() {
                       {
                         name: "model",
                         rawName: "v-model",
-                        value: _vm.respuesta.uno,
-                        expression: "respuesta.uno"
+                        value: _vm.primero.uno,
+                        expression: "primero.uno"
                       }
                     ],
                     attrs: {
@@ -42975,10 +43179,10 @@ var render = function() {
                       id: "option2",
                       value: "ambos"
                     },
-                    domProps: { checked: _vm._q(_vm.respuesta.uno, "ambos") },
+                    domProps: { checked: _vm._q(_vm.primero.uno, "ambos") },
                     on: {
                       change: function($event) {
-                        return _vm.$set(_vm.respuesta, "uno", "ambos")
+                        return _vm.$set(_vm.primero, "uno", "ambos")
                       }
                     }
                   }),
@@ -42994,7 +43198,7 @@ var render = function() {
                 "label",
                 {
                   staticClass: "btn btn-secondary",
-                  class: { active: _vm.respuesta.uno === "niño" }
+                  class: { active: _vm.primero.uno === "niño" }
                 },
                 [
                   _c("input", {
@@ -43002,8 +43206,8 @@ var render = function() {
                       {
                         name: "model",
                         rawName: "v-model",
-                        value: _vm.respuesta.uno,
-                        expression: "respuesta.uno"
+                        value: _vm.primero.uno,
+                        expression: "primero.uno"
                       }
                     ],
                     attrs: {
@@ -43012,10 +43216,10 @@ var render = function() {
                       id: "option1",
                       value: "niño"
                     },
-                    domProps: { checked: _vm._q(_vm.respuesta.uno, "niño") },
+                    domProps: { checked: _vm._q(_vm.primero.uno, "niño") },
                     on: {
                       change: function($event) {
-                        return _vm.$set(_vm.respuesta, "uno", "niño")
+                        return _vm.$set(_vm.primero, "uno", "niño")
                       }
                     }
                   }),
@@ -43040,7 +43244,7 @@ var render = function() {
           _c("center", [
             _c("img", {
               staticClass: "imgrol",
-              attrs: { src: _vm.uri + "/Roluno/imageDos.png", alt: "" }
+              attrs: { src: _vm.uri + "/Roluno/img2.png", alt: "" }
             }),
             _vm._v(" "),
             _c("div", { staticClass: "btn-group btn-group-toggle" }, [
@@ -43048,7 +43252,7 @@ var render = function() {
                 "label",
                 {
                   staticClass: "btn btn-secondary ",
-                  class: { active: _vm.respuesta.dos === "niña" }
+                  class: { active: _vm.primero.dos === "niña" }
                 },
                 [
                   _c("input", {
@@ -43056,8 +43260,8 @@ var render = function() {
                       {
                         name: "model",
                         rawName: "v-model",
-                        value: _vm.respuesta.dos,
-                        expression: "respuesta.dos"
+                        value: _vm.primero.dos,
+                        expression: "primero.dos"
                       }
                     ],
                     attrs: {
@@ -43066,10 +43270,10 @@ var render = function() {
                       id: "option4",
                       value: "niña"
                     },
-                    domProps: { checked: _vm._q(_vm.respuesta.dos, "niña") },
+                    domProps: { checked: _vm._q(_vm.primero.dos, "niña") },
                     on: {
                       change: function($event) {
-                        return _vm.$set(_vm.respuesta, "dos", "niña")
+                        return _vm.$set(_vm.primero, "dos", "niña")
                       }
                     }
                   }),
@@ -43085,7 +43289,7 @@ var render = function() {
                 "label",
                 {
                   staticClass: "btn btn-secondary",
-                  class: { active: _vm.respuesta.dos === "ambos" }
+                  class: { active: _vm.primero.dos === "ambos" }
                 },
                 [
                   _c("input", {
@@ -43093,8 +43297,8 @@ var render = function() {
                       {
                         name: "model",
                         rawName: "v-model",
-                        value: _vm.respuesta.dos,
-                        expression: "respuesta.dos"
+                        value: _vm.primero.dos,
+                        expression: "primero.dos"
                       }
                     ],
                     attrs: {
@@ -43103,10 +43307,10 @@ var render = function() {
                       id: "option6",
                       value: "ambos"
                     },
-                    domProps: { checked: _vm._q(_vm.respuesta.dos, "ambos") },
+                    domProps: { checked: _vm._q(_vm.primero.dos, "ambos") },
                     on: {
                       change: function($event) {
-                        return _vm.$set(_vm.respuesta, "dos", "ambos")
+                        return _vm.$set(_vm.primero, "dos", "ambos")
                       }
                     }
                   }),
@@ -43122,7 +43326,7 @@ var render = function() {
                 "label",
                 {
                   staticClass: "btn btn-secondary",
-                  class: { active: _vm.respuesta.dos === "niño" }
+                  class: { active: _vm.primero.dos === "niño" }
                 },
                 [
                   _c("input", {
@@ -43130,8 +43334,8 @@ var render = function() {
                       {
                         name: "model",
                         rawName: "v-model",
-                        value: _vm.respuesta.dos,
-                        expression: "respuesta.dos"
+                        value: _vm.primero.dos,
+                        expression: "primero.dos"
                       }
                     ],
                     attrs: {
@@ -43140,10 +43344,10 @@ var render = function() {
                       id: "option5",
                       value: "niño"
                     },
-                    domProps: { checked: _vm._q(_vm.respuesta.dos, "niño") },
+                    domProps: { checked: _vm._q(_vm.primero.dos, "niño") },
                     on: {
                       change: function($event) {
-                        return _vm.$set(_vm.respuesta, "dos", "niño")
+                        return _vm.$set(_vm.primero, "dos", "niño")
                       }
                     }
                   }),

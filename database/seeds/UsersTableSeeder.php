@@ -1,6 +1,7 @@
 <?php
 
 use App\About;
+use App\Role;
 use App\semaforo;
 use App\User;
 use Illuminate\Database\Seeder;
@@ -21,6 +22,7 @@ class UsersTableSeeder extends Seeder
                 ]);
                 semaforo::Create();
 
+
                 About::create([
                     'mision'=>'ingrese su mision',
                     'vision'=>'ingrese su vision',
@@ -28,5 +30,9 @@ class UsersTableSeeder extends Seeder
                     'objetivo'=>'ingrese sus objetivos',
                     'ornigrama'=>'no hay imagen'
                 ]);
+
+
+
+
     }
 }

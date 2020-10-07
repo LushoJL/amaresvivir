@@ -2,7 +2,7 @@
 @extends('landingPage.layouts.app', ['activePage' => 'niño'])
 @section('content')
 
-    <div class="container">
+    <div class="container mt-5">
         <div class="rompecabeza">
             <div class="base">
                 <img src="{{Storage::disk('s3')->url('public/amarillo/base.jpg')}}" alt=""

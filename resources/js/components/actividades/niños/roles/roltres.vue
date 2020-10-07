@@ -4,18 +4,18 @@
         <div class="row justify-content-md-center">
             <div class="col col-lg-5">
                 <center>
-                    <img :src="uri+'/Roldos/imageUno.png'" class="imgrol" alt="">
+                    <img :src="uri+'/Roltres/img1.png'" class="imgrol" alt="">
 
                     <div class="btn-group btn-group-toggle">
-                        <label class="btn btn-secondary" :class="{ 'active': respuesta.uno === 'niña' }">
-                            <input type="radio" name="options" id="option3" value="niña" v-model="respuesta.uno"> <img :src="ninia" class="imgrolesboton" alt="">
+                        <label class="btn btn-secondary" :class="{ 'active': tercero.uno === 'niña' }">
+                            <input type="radio" name="options" id="option3" value="niña" v-model="tercero.uno"> <img :src="ninia" class="imgrolesboton" alt="">
                         </label>
 
-                        <label class="btn btn-secondary" :class="{ 'active': respuesta.uno === 'ambos' }">
-                            <input type="radio" name="options" id="option2" value="ambos" v-model="respuesta.uno"> <img :src="ambos" class="imgrolesboton" alt="">
+                        <label class="btn btn-secondary" :class="{ 'active': tercero.uno === 'ambos' }">
+                            <input type="radio" name="options" id="option2" value="ambos" v-model="tercero.uno"> <img :src="ambos" class="imgrolesboton" alt="">
                         </label>
-                        <label class="btn btn-secondary" :class="{ 'active': respuesta.uno === 'niño' }">
-                            <input type="radio" name="options" id="option1" value="niño" v-model="respuesta.uno" ><img :src="ninio" class="imgrolesboton" alt="">
+                        <label class="btn btn-secondary" :class="{ 'active': tercero.uno === 'niño' }">
+                            <input type="radio" name="options" id="option1" value="niño" v-model="tercero.uno" ><img :src="ninio" class="imgrolesboton" alt="">
                         </label>
                     </div>
                 </center>
@@ -25,18 +25,18 @@
             </div>
             <div class="col col-lg-5">
                 <center>
-                    <img :src="uri+'/Roldos/imageDos.png'" class="imgrol" alt="">
+                    <img :src="uri+'/Roltres/img2.png'" class="imgrol" alt="">
 
                     <div class="btn-group btn-group-toggle">
-                        <label class="btn btn-secondary " :class="{ 'active': respuesta.dos === 'niña' }">
-                            <input type="radio" name="options" id="option4" value="niña" v-model="respuesta.dos"> <img :src="ninia" class="imgrolesboton" alt="">
+                        <label class="btn btn-secondary " :class="{ 'active': tercero.dos === 'niña' }">
+                            <input type="radio" name="options" id="option4" value="niña" v-model="tercero.dos"> <img :src="ninia" class="imgrolesboton" alt="">
                         </label>
 
-                        <label class="btn btn-secondary" :class="{ 'active': respuesta.dos === 'ambos' }">
-                            <input type="radio" name="options" id="option6" value="ambos" v-model="respuesta.dos"> <img :src="ambos" class="imgrolesboton" alt="">
+                        <label class="btn btn-secondary" :class="{ 'active': tercero.dos === 'ambos' }">
+                            <input type="radio" name="options" id="option6" value="ambos" v-model="tercero.dos"> <img :src="ambos" class="imgrolesboton" alt="">
                         </label>
-                        <label class="btn btn-secondary" :class="{ 'active': respuesta.dos === 'niño' }">
-                            <input type="radio" name="options" id="option5" value="niño" v-model="respuesta.dos"><img :src="ninio" class="imgrolesboton" alt="">
+                        <label class="btn btn-secondary" :class="{ 'active': tercero.dos === 'niño' }">
+                            <input type="radio" name="options" id="option5" value="niño" v-model="tercero.dos"><img :src="ninio" class="imgrolesboton" alt="">
                         </label>
                     </div>
                 </center>
@@ -64,9 +64,18 @@ export default {
         'ambos',
         'uri'
     ],
+    mounted() {
+        if (localStorage.getItem('tercero')) {
+            try {
+                this.tercero = JSON.parse(localStorage.getItem('tercero'));
+            } catch(e) {
+                localStorage.removeItem('tercero');
+            }
+        }
+    },
     data(){
         return{
-            respuesta:{
+            tercero:{
                 uno:'',
                 dos:'',
             },
@@ -75,9 +84,29 @@ export default {
     },
     methods:{
         siguiente(){
-            this.$emit('respuesta', this.respuesta);
-            router.push('resultado')
-        }
+            if (this.tercero.uno === '' || this.tercero.dos===''){
+                const Toast = Swal.mixin({
+                    toast: true,
+                    position: 'top-end',
+                    showConfirmButton: false,
+                    timer: 3000,
+                    timerProgressBar: true,
+                    didOpen: (toast) => {
+                        toast.addEventListener('mouseenter', Swal.stopTimer)
+                        toast.addEventListener('mouseleave', Swal.resumeTimer)
+                    }
+                })
+
+                Toast.fire({
+                    icon: 'error',
+                    title: 'seleccione una opcion'
+                })
+            }else {
+                let parsed = JSON.stringify(this.tercero);
+                localStorage.setItem('tercero', parsed);
+                router.push('resultado')
+            }
+        },
     }
 }
 </script>
