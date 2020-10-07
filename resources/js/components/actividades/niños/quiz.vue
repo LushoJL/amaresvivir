@@ -11,9 +11,9 @@
                 <div class="radiobtn" v-for="element in elements"  v-show="element.position_id === c">
                     <input
                         :type="element.type"
-                        :id="element.option"
+                        :id="element.id"
                         :name="element.position_id"
-                        :value="element.option"><label :for="element.option">{{element.option}}</label>
+                        :value="element.option"><label :for="element.id">{{element.option}}</label>
                 </div>
 
                 <div class="" v-for="textElement in textElements" v-if="textElement.position_id === c">

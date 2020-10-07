@@ -41991,12 +41991,12 @@ var render = function() {
                 _c("input", {
                   attrs: {
                     type: element.type,
-                    id: element.option,
+                    id: element.id,
                     name: element.position_id
                   },
                   domProps: { value: element.option }
                 }),
-                _c("label", { attrs: { for: element.option } }, [
+                _c("label", { attrs: { for: element.id } }, [
                   _vm._v(_vm._s(element.option))
                 ])
               ]
