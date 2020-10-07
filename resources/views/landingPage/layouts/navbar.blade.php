@@ -30,7 +30,17 @@
                 </div>
             </li>
             <li class="nav-item"> <a class="flex-lg-fill text-lg-center nav-link plomo m-1 {{ $activePage == 'test' ? ' active' : '' }}" style="font-size:30px" href="{{ url('/test') }}">TEST</a></li>
-            <li class="nav-item"> <a class="flex-lg-fill text-lg-center nav-link naranjado m-1 {{ $activePage == 'nosimportas' ? ' active' : '' }}" href="{{ url('/nos-importas-tu') }}">TU!! <br> NOS IMPORTAS</a></li>
+
+            <li class="nav-item dropdown">
+                <a class="flex-lg-fill text-lg-center nav-link naranjado m-1 dropdown-toggle nav-actividadesJuegos {{$activePage == 'nosimportas' ? ' active' : '' }}" data-toggle="dropdown" href="{{url('/actividades-juegos')}}" >TU!! <br> NOS IMPORTAS</a>
+                <div class="dropdown-menu p-3 negro dropdown-menu-actividadesJuegos">
+                    <a class="nav-link plomo mt-2 p-1"   href="{{route('saludmental')}}" role="tab" aria-controls="v-pills-home" aria-selected="true">COMO CUIDAR LA SALUD MENTAL</a>
+                    <a class="nav-link plomo mt-2 p-1"   href="{{route('cuandolloramos')}}" role="tab" aria-controls="v-pills-profile" aria-selected="false">QUE PASA CUANDO LLORAMOS </a>
+                    <a class="nav-link plomo mt-2 p-1"  href="{{route('parejasana')}}" role="tab" aria-controls="v-pills-messages" aria-selected="false">UNA PAREJA SANA</a>
+                    <a class="nav-link plomo mt-2 p-1"  href="{{route('sentimientos')}}" role="tab" aria-controls="v-pills-messages" aria-selected="false">EMOCIONES VS SENTIMIENTOS</a>
+                </div>
+            </li>
+
             <li class="nav-item"> <a class="flex-lg-fill text-lg-center nav-link plomo m-1 {{ $activePage == 'tuhistoria' ? ' active' : '' }}" href="{{ url('/tu-historia') }}">TU <br>HISTORIA</a></li>
             <li class="nav-item"> <a class="flex-lg-fill text-lg-center nav-link naranjado mt-1 ml-1 mb-1 {{ $activePage == 'noticia' ? ' active' : '' }}" href="{{ url('/noticia') }}">NOTICIAS<br> Y NOVEDADES</a></li>
         </ul>
