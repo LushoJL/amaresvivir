@@ -1,7 +1,6 @@
 <?php
 
 use App\About;
-use App\Role;
 use App\semaforo;
 use App\User;
 use Illuminate\Database\Seeder;
