@@ -28,7 +28,12 @@ class SceneFinal extends Phaser.Scene {
                             targets:TextFinal,
                             scale:0.7,
                             yoyo:true,
-                            repeat:-1
+                            duration:1000,
+                            repeat:1.5,
+                            onComplete:()=>{
+                                console.log("termino")
+                                document.location.href = '/hablemos-claro-joven'
+                            }
                         })
                     }
                 });
