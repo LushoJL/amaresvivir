@@ -2765,6 +2765,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['cat'],
   mounted: function mounted() {
@@ -2772,7 +2778,6 @@ __webpack_require__.r(__webpack_exports__);
     this.obtenerText();
     this.obtenerPregunta();
     this.maximo();
-    console.log(this.cat);
   },
   data: function data() {
     return {
@@ -41944,140 +41949,144 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _c("form", { attrs: { action: "" } }, [
-      _c(
-        "div",
-        [
-          _vm._l(_vm.preguntas, function(pregunta) {
-            return _c(
-              "div",
-              {
-                directives: [
-                  {
-                    name: "show",
-                    rawName: "v-show",
-                    value: pregunta.position === _vm.c,
-                    expression: "pregunta.position === c"
+    _c(
+      "div",
+      [
+        _vm._l(_vm.preguntas, function(pregunta) {
+          return _c(
+            "div",
+            {
+              directives: [
+                {
+                  name: "show",
+                  rawName: "v-show",
+                  value: pregunta.position === _vm.c,
+                  expression: "pregunta.position === c"
+                }
+              ],
+              staticClass: "ravie mt-5 mb-5"
+            },
+            [
+              _c("center", [
+                _c("h1", { staticStyle: { "font-size": "50px" } }, [
+                  _vm._v(_vm._s(pregunta.question))
+                ])
+              ])
+            ],
+            1
+          )
+        }),
+        _vm._v(" "),
+        _vm._l(_vm.elements, function(element) {
+          return _c(
+            "div",
+            {
+              directives: [
+                {
+                  name: "show",
+                  rawName: "v-show",
+                  value: element.position_id === _vm.c,
+                  expression: "element.position_id === c"
+                }
+              ],
+              staticClass: "radiobtn"
+            },
+            [
+              _c("input", {
+                attrs: {
+                  type: element.type,
+                  id: element.id,
+                  name: element.position_id
+                },
+                domProps: { value: element.option }
+              }),
+              _vm._v(" "),
+              _c("label", { attrs: { for: element.id } }, [
+                _vm._v(_vm._s(element.option))
+              ])
+            ]
+          )
+        }),
+        _vm._v(" "),
+        _vm._l(_vm.textElements, function(textElement) {
+          return textElement.position_id === _vm.c
+            ? _c("div", {}, [
+                _c("input", {
+                  staticClass: "form-control",
+                  attrs: {
+                    type: textElement.type,
+                    placeholder: textElement.option,
+                    name: textElement.position_id + 1,
+                    autocomplete: _vm.off
                   }
-                ],
-                staticClass: "ravie mt-5 mb-5"
-              },
+                })
+              ])
+            : _vm._e()
+        }),
+        _vm._v(" "),
+        _vm.c != _vm.max
+          ? _c(
+              "div",
+              { staticClass: "ravie mt-5" },
               [
                 _c("center", [
-                  _c("h1", { staticStyle: { "font-size": "50px" } }, [
-                    _vm._v(_vm._s(pregunta.question))
-                  ])
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-sm",
+                      staticStyle: {
+                        "background-color": "#CC662D",
+                        text: "#ffffff"
+                      },
+                      on: {
+                        click: function($event) {
+                          $event.preventDefault()
+                          return _vm.contador($event)
+                        }
+                      }
+                    },
+                    [_vm._v("Siguiente")]
+                  )
                 ])
               ],
               1
             )
-          }),
-          _vm._v(" "),
-          _vm._l(_vm.elements, function(element) {
-            return _c(
-              "div",
+          : _vm._e(),
+        _vm._v(" "),
+        _c(
+          "div",
+          {
+            directives: [
               {
-                directives: [
-                  {
-                    name: "show",
-                    rawName: "v-show",
-                    value: element.position_id === _vm.c,
-                    expression: "element.position_id === c"
-                  }
-                ],
-                staticClass: "radiobtn"
-              },
-              [
-                _c("input", {
-                  attrs: {
-                    type: element.type,
-                    id: element.id,
-                    name: element.position_id
+                name: "show",
+                rawName: "v-show",
+                value: _vm.c == _vm.max,
+                expression: "c == max"
+              }
+            ],
+            staticClass: "ravie mt-5"
+          },
+          [
+            _c("center", [
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-lg",
+                  staticStyle: {
+                    "background-color": "#CC662D",
+                    text: "#ffffff"
                   },
-                  domProps: { value: element.option }
-                }),
-                _c("label", { attrs: { for: element.id } }, [
-                  _vm._v(_vm._s(element.option))
-                ])
-              ]
-            )
-          }),
-          _vm._v(" "),
-          _vm._l(_vm.textElements, function(textElement) {
-            return textElement.position_id === _vm.c
-              ? _c("div", {}, [
-                  _c("input", {
-                    staticClass: "form-control",
-                    attrs: {
-                      type: textElement.type,
-                      placeholder: textElement.option
-                    }
-                  })
-                ])
-              : _vm._e()
-          }),
-          _vm._v(" "),
-          _vm.c != _vm.max
-            ? _c(
-                "div",
-                { staticClass: "ravie mt-5" },
-                [
-                  _c("center", [
-                    _c(
-                      "button",
-                      {
-                        staticClass: "btn btn-sm",
-                        staticStyle: {
-                          "background-color": "#CC662D",
-                          text: "#ffffff"
-                        },
-                        on: {
-                          click: function($event) {
-                            $event.preventDefault()
-                            return _vm.contador($event)
-                          }
-                        }
-                      },
-                      [_vm._v("Siguiente")]
-                    )
-                  ])
-                ],
-                1
+                  attrs: { type: "submit" }
+                },
+                [_vm._v("Terminar")]
               )
-            : _vm._e(),
-          _vm._v(" "),
-          _vm.c == _vm.max
-            ? _c(
-                "div",
-                { staticClass: "ravie mt-5" },
-                [
-                  _c("center", [
-                    _c(
-                      "button",
-                      {
-                        staticClass: "btn btn-lg",
-                        staticStyle: {
-                          "background-color": "#CC662D",
-                          text: "#ffffff"
-                        },
-                        on: {
-                          click: function($event) {
-                            $event.preventDefault()
-                            return _vm.alerta($event)
-                          }
-                        }
-                      },
-                      [_vm._v("Terminar")]
-                    )
-                  ])
-                ],
-                1
-              )
-            : _vm._e()
-        ],
-        2
-      )
-    ])
+            ])
+          ],
+          1
+        )
+      ],
+      2
+    )
   ])
 }
 var staticRenderFns = []

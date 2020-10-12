@@ -4,9 +4,14 @@
         <div class="row">
             <div class="col-lg-9">
             <div id="app">
-                <quiz-component
-                    :cat="'niño'"
-                ></quiz-component>
+
+                <form method="POST" action="{{url('/enviar-respuestas')}}">
+                    @csrf
+                    <quiz-component
+                        :cat="'niño'"
+                    ></quiz-component>
+                </form>
+
             </div>
             </div>
             <div class="col-lg-3 m-auto">

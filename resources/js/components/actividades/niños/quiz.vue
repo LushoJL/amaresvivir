@@ -1,8 +1,7 @@
 <template>
     <div>
-        <form action="">
-            <div>
 
+            <div>
 
                 <div class="ravie mt-5 mb-5" v-for="pregunta in preguntas" v-show="pregunta.position === c">
                     <center><h1 style="font-size: 50px">{{pregunta.question}}</h1></center>
@@ -13,11 +12,18 @@
                         :type="element.type"
                         :id="element.id"
                         :name="element.position_id"
-                        :value="element.option"><label :for="element.id">{{element.option}}</label>
+                        :value="element.option"
+                    >
+                    <label :for="element.id">{{element.option}}</label>
                 </div>
 
                 <div class="" v-for="textElement in textElements" v-if="textElement.position_id === c">
-                    <input class="form-control" :type="textElement.type" :placeholder="textElement.option">
+                    <input class="form-control"
+                           :type="textElement.type"
+                           :placeholder="textElement.option"
+                           :name="textElement.position_id+1"
+                           :autocomplete="off"
+                    >
                 </div>
 
                 <div class="ravie mt-5" v-if="c != max">
@@ -28,15 +34,15 @@
                     </center>
                 </div>
 
-                <div class="ravie mt-5" v-if="c == max">
+                <div class="ravie mt-5" v-show="c == max">
                     <center>
-                        <button class="btn btn-lg" style="background-color: #CC662D; text: #ffffff"
-                                @click.prevent="alerta"
+                        <button type="submit" class="btn btn-lg" style="background-color: #CC662D; text: #ffffff"
+
                         >Terminar</button>
                     </center>
                 </div>
             </div>
-        </form>
+
     </div>
 </template>
 
@@ -51,7 +57,6 @@
             this.obtenerText();
             this.obtenerPregunta();
             this.maximo();
-            console.log(this.cat);
         },
 
         data() {
@@ -144,7 +149,8 @@
             {
                 modalAlert('¡Felicidades!', 'Terminaste las preguntas', 'success');
 
-            }
+            },
+
         }
     }
 

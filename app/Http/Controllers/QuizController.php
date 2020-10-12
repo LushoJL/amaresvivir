@@ -76,4 +76,11 @@ class QuizController extends Controller
 
         return $count;
     }
+
+    public function resultados(Request $request)
+    {
+        //dd($request->all());
+        $respuestas = $request->all();
+        return view('landingPage.actividadesjuegos.niños.actividadUno.juegoPreguntas.resultados', ['respuestas'=>$respuestas]);
+    }
 }

@@ -14,6 +14,20 @@ Route::get('/semaforo-rojo', 'ActivitygameController@actividadDosRojo');
 Route::get('/semaforo-amarillo', 'ActivitygameController@actividadDosAmarillo');
 Route::get('/semaforo-verde', 'ActivitygameController@actividadDosVerde');
 
+//quiz
+Route::get('/quiz-nino', 'QuizController@nino');
+Route::get('/quiz-nina', 'QuizController@nina');
+Route::get('/lista-radios', 'QuizController@listaRadios');
+Route::get('/lista-radios-nina', 'QuizController@listaRadiosNina');
+Route::get('/lista-text', 'QuizController@listaText');
+Route::get('/lista-text-nina', 'QuizController@listaTextNina');
+Route::get('/lista-preguntas', 'QuizController@listaPreguntas');
+Route::get('/lista-preguntas-nina', 'QuizController@listaPreguntasNina');
+Route::get('/maximo', 'QuizController@maximo');
+Route::get('/maximo-nina', 'QuizController@maximoNina');
+
+Route::post('/enviar-respuestas', 'QuizController@resultados');
+
 //roles
 Route::get('/rol-uno', 'ActivitygameController@roluno')->name('roluno');
 
