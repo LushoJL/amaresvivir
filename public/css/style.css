@@ -552,3 +552,13 @@ jovenes
 
     }
 }
+
+.testBtn {
+    padding: 0 20px;
+    font-family: 'Coiny', cursive;
+    font-weight: bold;
+    font-size: 30px;
+    color: #000000;
+
+    border: black solid 7px;
+}
