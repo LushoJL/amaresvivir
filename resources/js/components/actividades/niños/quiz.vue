@@ -37,7 +37,7 @@
                 <div class="ravie mt-5" v-show="c == max">
                     <center>
                         <button type="submit" class="btn btn-lg" style="background-color: #CC662D; text: #ffffff"
-
+                            @click="mensaje"
                         >Terminar</button>
                     </center>
                 </div>
@@ -150,6 +150,11 @@
                 modalAlert('¡Felicidades!', 'Terminaste las preguntas', 'success');
 
             },
+
+            mensaje()
+            {
+                endLoader('success', 'Se guardaron tus respuestas');
+            }
 
         }
     }

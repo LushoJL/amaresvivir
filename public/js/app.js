@@ -2854,6 +2854,9 @@ __webpack_require__.r(__webpack_exports__);
     },
     alerta: function alerta() {
       modalAlert('¡Felicidades!', 'Terminaste las preguntas', 'success');
+    },
+    mensaje: function mensaje() {
+      endLoader('success', 'Se guardaron tus respuestas');
     }
   }
 });
@@ -42076,7 +42079,8 @@ var render = function() {
                     "background-color": "#CC662D",
                     text: "#ffffff"
                   },
-                  attrs: { type: "submit" }
+                  attrs: { type: "submit" },
+                  on: { click: _vm.mensaje }
                 },
                 [_vm._v("Terminar")]
               )

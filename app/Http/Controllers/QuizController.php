@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Answer;
 use App\Option;
 use App\Optionnina;
 use App\Question;
 use App\Questionnina;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class QuizController extends Controller
 {
@@ -79,8 +81,16 @@ class QuizController extends Controller
 
     public function resultados(Request $request)
     {
+        unset($request['_token']);
+        //var_export($request);
         //dd($request->all());
-        $respuestas = $request->all();
-        return view('landingPage.actividadesjuegos.niños.actividadUno.juegoPreguntas.resultados', ['respuestas'=>$respuestas]);
+        $valor = implode(",", $request->all());
+
+        //dd($valor);
+        Answer::create([
+            'description' => $valor
+        ]);
+
+        return view('landingPage/actividadesjuegos.niños.actividadDos.semaforo');
     }
 }
