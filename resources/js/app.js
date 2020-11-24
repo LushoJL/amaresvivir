@@ -7,8 +7,10 @@ window.Vue = require('vue');
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 //noticia
 import VueRouter from 'vue-router'
+import CKEditor from '@ckeditor/ckeditor5-vue2'
 
-Vue.use(VueRouter)
+Vue.use(VueRouter);
+Vue.use(CKEditor)
 
 Vue.component('app-component',require('./components/actividades/niños/roles/AppComponent.vue').default);
 Vue.component('semaforo-component',require('./components/actividades/niños/SemaforoComponent.vue').default);
@@ -19,6 +21,7 @@ Vue.component('galeria-component', require('./components/home/GaleriaComponent')
 Vue.component('conocenos-component', require('./components/aboutUs/conocenosComponent').default);
 Vue.component('preguntas-component', require('./components/actividades/niños/PreguntasComponent').default);
 Vue.component('quiz-component', require('./components/actividades/niños/quiz').default);
+Vue.component('news-component', require('./components/noticias/NewsComponent.vue').default);
 
 import App from './components/actividades/niños/roles/AppComponent.vue';
 
