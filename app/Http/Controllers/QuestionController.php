@@ -49,16 +49,36 @@ class QuestionController extends Controller
 
     public function listaPreguntas()
     {
-        $preguntas = Question::all();
+        $preguntas = Question::orderBy('position', 'ASC')->paginate(5);
 
-        return $preguntas;
+        return [
+            'pagination' => [
+                'total' => $preguntas->total(),
+                'current_page' => $preguntas->currentPage(),
+                'per_page' => $preguntas->perPage(),
+                'last_page' => $preguntas->lastPage(),
+                'form' => $preguntas->firstItem(),
+                'to' => $preguntas->lastPage(),
+            ],
+            'preguntasP' => $preguntas
+        ];
     }
 
     public function listaPreguntasNina()
     {
-        $preguntasN = Questionnina::all();
+        $preguntasN = Questionnina::orderBy('position', 'ASC')->paginate(5);
 
-        return $preguntasN;
+        return [
+            'pagination' => [
+                'total' => $preguntasN->total(),
+                'current_page' => $preguntasN->currentPage(),
+                'per_page' => $preguntasN->perPage(),
+                'last_page' => $preguntasN->lastPage(),
+                'form' => $preguntasN->firstItem(),
+                'to' => $preguntasN->lastPage(),
+            ],
+            'preguntasN' => $preguntasN
+        ];
     }
 
     public function  storeOption(Request $request)
@@ -81,18 +101,38 @@ class QuestionController extends Controller
         Optionnina::find($id)->update($request->all());
     }
 
-    public function listaOpciones()
+    public function listaOpciones(Request $request)
     {
-        $opciones = Option::with('question')->orderBy('position_id', 'ASC')->get();
+        $opciones = Option::with('question')->orderBy('position_id', 'ASC')->paginate(5);
 
-        return $opciones;
+        return [
+            'pagination' => [
+                'total' => $opciones->total(),
+                'current_page' => $opciones->currentPage(),
+                'per_page' => $opciones->perPage(),
+                'last_page' => $opciones->lastPage(),
+                'form' => $opciones->firstItem(),
+                'to' => $opciones->lastPage(),
+            ],
+            'opciones' => $opciones
+        ];
     }
 
     public function opcionesNina()
     {
-        $opcionesN = Optionnina::with('question')->orderBy('position_id', 'ASC')->get();
+        $opcionesN = Optionnina::with('question')->orderBy('position_id', 'ASC')->paginate(5);
 
-        return $opcionesN;
+        return [
+            'pagination' => [
+                'total' => $opcionesN->total(),
+                'current_page' => $opcionesN->currentPage(),
+                'per_page' => $opcionesN->perPage(),
+                'last_page' => $opcionesN->lastPage(),
+                'form' => $opcionesN->firstItem(),
+                'to' => $opcionesN->lastPage(),
+            ],
+            'opcionesN' => $opcionesN
+        ];
     }
 
     public function destroyOption(Request $request, $id)

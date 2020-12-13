@@ -2281,6 +2281,90 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {
     this.obtenerPreguntas();
@@ -2313,22 +2397,56 @@ __webpack_require__.r(__webpack_exports__);
         'option': '',
         'type': '',
         'cat': ''
+      },
+      pagination: {
+        'total': 0,
+        'current_page': 0,
+        'per_page': 0,
+        'last_page': 0,
+        'form': 0,
+        'to': 0
+      },
+      paginationON: {
+        'total': 0,
+        'current_page': 0,
+        'per_page': 0,
+        'last_page': 0,
+        'form': 0,
+        'to': 0
+      },
+      paginationP: {
+        'total': 0,
+        'current_page': 0,
+        'per_page': 0,
+        'last_page': 0,
+        'form': 0,
+        'to': 0
+      },
+      paginationPN: {
+        'total': 0,
+        'current_page': 0,
+        'per_page': 0,
+        'last_page': 0,
+        'form': 0,
+        'to': 0
       }
     };
   },
   methods: {
-    obtenerPreguntas: function obtenerPreguntas() {
+    obtenerPreguntas: function obtenerPreguntas(page) {
       var _this = this;
 
-      axios.get('/actividades-preguntas-listaPreguntas').then(function (response) {
-        _this.questionsList = response.data;
+      axios.get('/actividades-preguntas-listaPreguntas?page=' + page).then(function (response) {
+        _this.questionsList = response.data.preguntasP.data;
+        _this.paginationP = response.data.pagination;
       });
     },
-    obtenerPreguntasNina: function obtenerPreguntasNina() {
+    obtenerPreguntasNina: function obtenerPreguntasNina(page) {
       var _this2 = this;
 
-      axios.get('/actividades-preguntas-listaPreguntas-nina').then(function (response) {
-        _this2.questionsGirls = response.data;
+      axios.get('/actividades-preguntas-listaPreguntas-nina?page=' + page).then(function (response) {
+        _this2.questionsGirls = response.data.preguntasN.data;
+        _this2.paginationPN = response.data.pagination;
       });
     },
     addQuestion: function addQuestion() {
@@ -2414,18 +2532,20 @@ __webpack_require__.r(__webpack_exports__);
         endLoader('warning', 'Eliminado correctamente');
       });
     },
-    obtenerOpciones: function obtenerOpciones() {
+    obtenerOpciones: function obtenerOpciones(page) {
       var _this7 = this;
 
-      axios.get('/actividades-preguntas-listaOpciones').then(function (response) {
-        _this7.optionList = response.data;
+      axios.get('/actividades-preguntas-listaOpciones?page=' + page).then(function (response) {
+        _this7.optionList = response.data.opciones.data;
+        _this7.pagination = response.data.pagination;
       });
     },
-    obtenerOpcionesNina: function obtenerOpcionesNina() {
+    obtenerOpcionesNina: function obtenerOpcionesNina(page) {
       var _this8 = this;
 
-      axios.get('/listaOpciones-nina').then(function (response) {
-        _this8.optionGirls = response.data;
+      axios.get('/listaOpciones-nina?page=' + page).then(function (response) {
+        _this8.optionGirls = response.data.opcionesN.data;
+        _this8.paginationON = response.data.pagination;
       });
     },
     addOption: function addOption() {
@@ -2510,6 +2630,140 @@ __webpack_require__.r(__webpack_exports__);
 
         endLoader('warning', 'Eliminado correctamente');
       });
+    },
+    changePage: function changePage(page) {
+      this.pagination.current_page = page;
+      this.obtenerOpciones(page);
+    },
+    changePageON: function changePageON(page) {
+      this.paginationON.current_page = page;
+      this.obtenerOpcionesNina(page);
+    },
+    changePageP: function changePageP(page) {
+      this.paginationP.current_page = page;
+      this.obtenerPreguntas(page);
+    },
+    changePagePN: function changePagePN(page) {
+      this.paginationPN.current_page = page;
+      this.obtenerPreguntasNina(page);
+    }
+  },
+  computed: {
+    isActived: function isActived() {
+      return this.pagination.current_page;
+    },
+    isActivedON: function isActivedON() {
+      return this.paginationON.current_page;
+    },
+    isActivedP: function isActivedP() {
+      return this.paginationP.current_page;
+    },
+    isActivedPN: function isActivedPN() {
+      return this.paginationPN.current_page;
+    },
+    pagesNumber: function pagesNumber() {
+      if (!this.pagination.to) {
+        return [];
+      }
+
+      var from = this.pagination.current_page - 2;
+
+      if (from < 1) {
+        from = 1;
+      }
+
+      var to = from + 2 * 2;
+
+      if (to >= this.pagination.last_page) {
+        to = this.pagination.last_page;
+      }
+
+      var pagesArray = [];
+
+      while (from <= to) {
+        pagesArray.push(from);
+        from++;
+      }
+
+      return pagesArray;
+    },
+    pagesNumberON: function pagesNumberON() {
+      if (!this.paginationON.to) {
+        return [];
+      }
+
+      var from = this.paginationON.current_page - 2;
+
+      if (from < 1) {
+        from = 1;
+      }
+
+      var to = from + 2 * 2;
+
+      if (to >= this.paginationON.last_page) {
+        to = this.paginationON.last_page;
+      }
+
+      var pagesArrayON = [];
+
+      while (from <= to) {
+        pagesArrayON.push(from);
+        from++;
+      }
+
+      return pagesArrayON;
+    },
+    pagesNumberP: function pagesNumberP() {
+      if (!this.paginationP.to) {
+        return [];
+      }
+
+      var from = this.paginationP.current_page - 2;
+
+      if (from < 1) {
+        from = 1;
+      }
+
+      var to = from + 2 * 2;
+
+      if (to >= this.paginationP.last_page) {
+        to = this.paginationP.last_page;
+      }
+
+      var pagesArrayP = [];
+
+      while (from <= to) {
+        pagesArrayP.push(from);
+        from++;
+      }
+
+      return pagesArrayP;
+    },
+    pagesNumberPN: function pagesNumberPN() {
+      if (!this.paginationPN.to) {
+        return [];
+      }
+
+      var from = this.paginationPN.current_page - 2;
+
+      if (from < 1) {
+        from = 1;
+      }
+
+      var to = from + 2 * 2;
+
+      if (to >= this.paginationPN.last_page) {
+        to = this.paginationPN.last_page;
+      }
+
+      var pagesArrayPN = [];
+
+      while (from <= to) {
+        pagesArrayPN.push(from);
+        from++;
+      }
+
+      return pagesArrayPN;
     }
   }
 });
@@ -41343,6 +41597,89 @@ var render = function() {
                   }),
                   0
                 )
+              ]),
+              _vm._v(" "),
+              _c("nav", [
+                _c(
+                  "ul",
+                  { staticClass: "pagination justify-content-end" },
+                  [
+                    _vm.paginationP.current_page > 1
+                      ? _c("li", { staticClass: "page-item" }, [
+                          _c(
+                            "a",
+                            {
+                              staticClass: "page-link",
+                              attrs: { href: "" },
+                              on: {
+                                click: function($event) {
+                                  $event.preventDefault()
+                                  return _vm.changePageP(
+                                    _vm.paginationP.current_page - 1
+                                  )
+                                }
+                              }
+                            },
+                            [_c("span", [_vm._v("Atrás")])]
+                          )
+                        ])
+                      : _vm._e(),
+                    _vm._v(" "),
+                    _vm._l(_vm.pagesNumberP, function(page) {
+                      return _c(
+                        "li",
+                        {
+                          staticClass: "page-item",
+                          class: [page === _vm.isActivedP ? "active" : ""]
+                        },
+                        [
+                          _c(
+                            "a",
+                            {
+                              staticClass: "page-link",
+                              attrs: { href: "" },
+                              on: {
+                                click: function($event) {
+                                  $event.preventDefault()
+                                  return _vm.changePageP(page)
+                                }
+                              }
+                            },
+                            [
+                              _vm._v(
+                                "\n                                        " +
+                                  _vm._s(page) +
+                                  "\n                                    "
+                              )
+                            ]
+                          )
+                        ]
+                      )
+                    }),
+                    _vm._v(" "),
+                    _vm.paginationP.current_page < _vm.paginationP.last_page
+                      ? _c("li", { staticClass: "page-item" }, [
+                          _c(
+                            "a",
+                            {
+                              staticClass: "page-link",
+                              attrs: { href: "" },
+                              on: {
+                                click: function($event) {
+                                  $event.preventDefault()
+                                  return _vm.changePageP(
+                                    _vm.paginationP.current_page + 1
+                                  )
+                                }
+                              }
+                            },
+                            [_c("span", [_vm._v("Siguiente")])]
+                          )
+                        ])
+                      : _vm._e()
+                  ],
+                  2
+                )
               ])
             ])
           ])
@@ -41398,6 +41735,89 @@ var render = function() {
                     ])
                   }),
                   0
+                )
+              ]),
+              _vm._v(" "),
+              _c("nav", [
+                _c(
+                  "ul",
+                  { staticClass: "pagination justify-content-end" },
+                  [
+                    _vm.pagination.current_page > 1
+                      ? _c("li", { staticClass: "page-item" }, [
+                          _c(
+                            "a",
+                            {
+                              staticClass: "page-link",
+                              attrs: { href: "" },
+                              on: {
+                                click: function($event) {
+                                  $event.preventDefault()
+                                  return _vm.changePage(
+                                    _vm.pagination.current_page - 1
+                                  )
+                                }
+                              }
+                            },
+                            [_c("span", [_vm._v("Atrás")])]
+                          )
+                        ])
+                      : _vm._e(),
+                    _vm._v(" "),
+                    _vm._l(_vm.pagesNumber, function(page) {
+                      return _c(
+                        "li",
+                        {
+                          staticClass: "page-item",
+                          class: [page === _vm.isActived ? "active" : ""]
+                        },
+                        [
+                          _c(
+                            "a",
+                            {
+                              staticClass: "page-link",
+                              attrs: { href: "" },
+                              on: {
+                                click: function($event) {
+                                  $event.preventDefault()
+                                  return _vm.changePage(page)
+                                }
+                              }
+                            },
+                            [
+                              _vm._v(
+                                "\n                                        " +
+                                  _vm._s(page) +
+                                  "\n                                    "
+                              )
+                            ]
+                          )
+                        ]
+                      )
+                    }),
+                    _vm._v(" "),
+                    _vm.pagination.current_page < _vm.pagination.last_page
+                      ? _c("li", { staticClass: "page-item" }, [
+                          _c(
+                            "a",
+                            {
+                              staticClass: "page-link",
+                              attrs: { href: "" },
+                              on: {
+                                click: function($event) {
+                                  $event.preventDefault()
+                                  return _vm.changePage(
+                                    _vm.pagination.current_page + 1
+                                  )
+                                }
+                              }
+                            },
+                            [_c("span", [_vm._v("Siguiente")])]
+                          )
+                        ])
+                      : _vm._e()
+                  ],
+                  2
                 )
               ])
             ])
@@ -41461,6 +41881,89 @@ var render = function() {
                   }),
                   0
                 )
+              ]),
+              _vm._v(" "),
+              _c("nav", [
+                _c(
+                  "ul",
+                  { staticClass: "pagination justify-content-end" },
+                  [
+                    _vm.paginationPN.current_page > 1
+                      ? _c("li", { staticClass: "page-item" }, [
+                          _c(
+                            "a",
+                            {
+                              staticClass: "page-link",
+                              attrs: { href: "" },
+                              on: {
+                                click: function($event) {
+                                  $event.preventDefault()
+                                  return _vm.changePagePN(
+                                    _vm.paginationPN.current_page - 1
+                                  )
+                                }
+                              }
+                            },
+                            [_c("span", [_vm._v("Atrás")])]
+                          )
+                        ])
+                      : _vm._e(),
+                    _vm._v(" "),
+                    _vm._l(_vm.pagesNumberPN, function(page) {
+                      return _c(
+                        "li",
+                        {
+                          staticClass: "page-item",
+                          class: [page === _vm.isActivedPN ? "active" : ""]
+                        },
+                        [
+                          _c(
+                            "a",
+                            {
+                              staticClass: "page-link",
+                              attrs: { href: "" },
+                              on: {
+                                click: function($event) {
+                                  $event.preventDefault()
+                                  return _vm.changePagePN(page)
+                                }
+                              }
+                            },
+                            [
+                              _vm._v(
+                                "\n                                        " +
+                                  _vm._s(page) +
+                                  "\n                                    "
+                              )
+                            ]
+                          )
+                        ]
+                      )
+                    }),
+                    _vm._v(" "),
+                    _vm.paginationPN.current_page < _vm.paginationPN.last_page
+                      ? _c("li", { staticClass: "page-item" }, [
+                          _c(
+                            "a",
+                            {
+                              staticClass: "page-link",
+                              attrs: { href: "" },
+                              on: {
+                                click: function($event) {
+                                  $event.preventDefault()
+                                  return _vm.changePagePN(
+                                    _vm.paginationPN.current_page + 1
+                                  )
+                                }
+                              }
+                            },
+                            [_c("span", [_vm._v("Siguiente")])]
+                          )
+                        ])
+                      : _vm._e()
+                  ],
+                  2
+                )
               ])
             ])
           ])
@@ -41516,6 +42019,89 @@ var render = function() {
                     ])
                   }),
                   0
+                )
+              ]),
+              _vm._v(" "),
+              _c("nav", [
+                _c(
+                  "ul",
+                  { staticClass: "pagination justify-content-end" },
+                  [
+                    _vm.paginationON.current_page > 1
+                      ? _c("li", { staticClass: "page-item" }, [
+                          _c(
+                            "a",
+                            {
+                              staticClass: "page-link",
+                              attrs: { href: "" },
+                              on: {
+                                click: function($event) {
+                                  $event.preventDefault()
+                                  return _vm.changePageON(
+                                    _vm.paginationON.current_page - 1
+                                  )
+                                }
+                              }
+                            },
+                            [_c("span", [_vm._v("Atrás")])]
+                          )
+                        ])
+                      : _vm._e(),
+                    _vm._v(" "),
+                    _vm._l(_vm.pagesNumberON, function(page) {
+                      return _c(
+                        "li",
+                        {
+                          staticClass: "page-item",
+                          class: [page === _vm.isActivedON ? "active" : ""]
+                        },
+                        [
+                          _c(
+                            "a",
+                            {
+                              staticClass: "page-link",
+                              attrs: { href: "" },
+                              on: {
+                                click: function($event) {
+                                  $event.preventDefault()
+                                  return _vm.changePageON(page)
+                                }
+                              }
+                            },
+                            [
+                              _vm._v(
+                                "\n                                        " +
+                                  _vm._s(page) +
+                                  "\n                                    "
+                              )
+                            ]
+                          )
+                        ]
+                      )
+                    }),
+                    _vm._v(" "),
+                    _vm.paginationON.current_page < _vm.paginationON.last_page
+                      ? _c("li", { staticClass: "page-item" }, [
+                          _c(
+                            "a",
+                            {
+                              staticClass: "page-link",
+                              attrs: { href: "" },
+                              on: {
+                                click: function($event) {
+                                  $event.preventDefault()
+                                  return _vm.changePageON(
+                                    _vm.paginationON.current_page + 1
+                                  )
+                                }
+                              }
+                            },
+                            [_c("span", [_vm._v("Siguiente")])]
+                          )
+                        ])
+                      : _vm._e()
+                  ],
+                  2
                 )
               ])
             ])

@@ -269,6 +269,27 @@
                                 </tr>
                                 </tbody>
                             </table>
+                            <nav>
+                                <ul class="pagination justify-content-end">
+                                    <li class="page-item" v-if="paginationP.current_page > 1">
+                                        <a href="" class="page-link" @click.prevent="changePageP(paginationP.current_page - 1)">
+                                            <span>Atrás</span>
+                                        </a>
+                                    </li>
+
+                                    <li class="page-item" v-for="page in pagesNumberP" v-bind:class="[page === isActivedP ? 'active' : '']">
+                                        <a href="" class="page-link" @click.prevent="changePageP(page)">
+                                            {{page}}
+                                        </a>
+                                    </li>
+
+                                    <li class="page-item" v-if="paginationP.current_page < paginationP.last_page">
+                                        <a href="" class="page-link" @click.prevent="changePageP(paginationP.current_page + 1)">
+                                            <span>Siguiente</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </nav>
                         </div>
                     </div>
                 </div>
@@ -308,6 +329,27 @@
                                 </tr>
                                 </tbody>
                             </table>
+                            <nav>
+                                <ul class="pagination justify-content-end">
+                                    <li class="page-item" v-if="pagination.current_page > 1">
+                                        <a href="" class="page-link" @click.prevent="changePage(pagination.current_page - 1)">
+                                            <span>Atrás</span>
+                                        </a>
+                                    </li>
+
+                                    <li class="page-item" v-for="page in pagesNumber" v-bind:class="[page === isActived ? 'active' : '']">
+                                        <a href="" class="page-link" @click.prevent="changePage(page)">
+                                            {{page}}
+                                        </a>
+                                    </li>
+
+                                    <li class="page-item" v-if="pagination.current_page < pagination.last_page">
+                                        <a href="" class="page-link" @click.prevent="changePage(pagination.current_page + 1)">
+                                            <span>Siguiente</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </nav>
                         </div>
                     </div>
                 </div>
@@ -354,6 +396,27 @@
                                 </tr>
                                 </tbody>
                             </table>
+                            <nav>
+                                <ul class="pagination justify-content-end">
+                                    <li class="page-item" v-if="paginationPN.current_page > 1">
+                                        <a href="" class="page-link" @click.prevent="changePagePN(paginationPN.current_page - 1)">
+                                            <span>Atrás</span>
+                                        </a>
+                                    </li>
+
+                                    <li class="page-item" v-for="page in pagesNumberPN" v-bind:class="[page === isActivedPN ? 'active' : '']">
+                                        <a href="" class="page-link" @click.prevent="changePagePN(page)">
+                                            {{page}}
+                                        </a>
+                                    </li>
+
+                                    <li class="page-item" v-if="paginationPN.current_page < paginationPN.last_page">
+                                        <a href="" class="page-link" @click.prevent="changePagePN(paginationPN.current_page + 1)">
+                                            <span>Siguiente</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </nav>
                         </div>
                     </div>
                 </div>
@@ -393,6 +456,27 @@
                                 </tr>
                                 </tbody>
                             </table>
+                            <nav>
+                                <ul class="pagination justify-content-end">
+                                    <li class="page-item" v-if="paginationON.current_page > 1">
+                                        <a href="" class="page-link" @click.prevent="changePageON(paginationON.current_page - 1)">
+                                            <span>Atrás</span>
+                                        </a>
+                                    </li>
+
+                                    <li class="page-item" v-for="page in pagesNumberON" v-bind:class="[page === isActivedON ? 'active' : '']">
+                                        <a href="" class="page-link" @click.prevent="changePageON(page)">
+                                            {{page}}
+                                        </a>
+                                    </li>
+
+                                    <li class="page-item" v-if="paginationON.current_page < paginationON.last_page">
+                                        <a href="" class="page-link" @click.prevent="changePageON(paginationON.current_page + 1)">
+                                            <span>Siguiente</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </nav>
                         </div>
                     </div>
                 </div>
@@ -431,22 +515,56 @@ export default {
             optionGirls: [],
             editQuest: {'id': '', 'category': '', 'question': '', 'position': ''},
             editOpt: {'id': '', 'option': '', 'type': '', 'cat': ''},
+
+            pagination: {
+                'total': 0,
+                'current_page': 0,
+                'per_page': 0,
+                'last_page': 0,
+                'form': 0,
+                'to': 0,
+            },
+            paginationON: {
+                'total': 0,
+                'current_page': 0,
+                'per_page': 0,
+                'last_page': 0,
+                'form': 0,
+                'to': 0,
+            },
+            paginationP: {
+                'total': 0,
+                'current_page': 0,
+                'per_page': 0,
+                'last_page': 0,
+                'form': 0,
+                'to': 0,
+            },
+            paginationPN: {
+                'total': 0,
+                'current_page': 0,
+                'per_page': 0,
+                'last_page': 0,
+                'form': 0,
+                'to': 0,
+            },
         }
     },
 
     methods: {
-        obtenerPreguntas() {
-            axios.get('/actividades-preguntas-listaPreguntas')
+        obtenerPreguntas(page) {
+            axios.get('/actividades-preguntas-listaPreguntas?page='+page)
             .then(response => {
-                this.questionsList = response.data
-
+                this.questionsList = response.data.preguntasP.data
+                this.paginationP = response.data.pagination
             })
         },
 
-        obtenerPreguntasNina() {
-            axios.get('/actividades-preguntas-listaPreguntas-nina')
+        obtenerPreguntasNina(page) {
+            axios.get('/actividades-preguntas-listaPreguntas-nina?page='+page)
                 .then(response => {
-                    this.questionsGirls = response.data;
+                    this.questionsGirls = response.data.preguntasN.data;
+                    this.paginationPN = response.data.pagination
                 })
         },
 
@@ -530,17 +648,19 @@ export default {
                 })
         },
 
-        obtenerOpciones() {
-            axios.get('/actividades-preguntas-listaOpciones')
+        obtenerOpciones(page) {
+            axios.get('/actividades-preguntas-listaOpciones?page='+page)
             .then(response => {
-                this.optionList = response.data;
+                this.optionList = response.data.opciones.data;
+                this.pagination = response.data.pagination
             })
         },
 
-        obtenerOpcionesNina() {
-            axios.get('/listaOpciones-nina')
+        obtenerOpcionesNina(page) {
+            axios.get('/listaOpciones-nina?page='+page)
                 .then(response => {
-                    this.optionGirls = response.data;
+                    this.optionGirls = response.data.opcionesN.data;
+                    this.paginationON = response.data.pagination
                 })
         },
 
@@ -620,6 +740,126 @@ export default {
                 })
         },
 
+        changePage(page){
+            this.pagination.current_page = page;
+            this.obtenerOpciones(page)
+        },
+        changePageON(page){
+            this.paginationON.current_page = page;
+            this.obtenerOpcionesNina(page)
+        },
+        changePageP(page){
+            this.paginationP.current_page = page;
+            this.obtenerPreguntas(page)
+        },
+        changePagePN(page){
+            this.paginationPN.current_page = page;
+            this.obtenerPreguntasNina(page)
+        },
+    },
+
+    computed: {
+        isActived() {
+            return this.pagination.current_page
+        },
+        isActivedON() {
+            return this.paginationON.current_page
+        },
+        isActivedP() {
+            return this.paginationP.current_page
+        },
+        isActivedPN() {
+            return this.paginationPN.current_page
+        },
+
+        pagesNumber() {
+            if (!this.pagination.to){
+                return []
+            }
+
+            let from = this.pagination.current_page - 2;
+            if (from < 1){
+                from = 1;
+            }
+
+            let to = from + (2 * 2);
+            if (to >= this.pagination.last_page){
+                to = this.pagination.last_page
+            }
+
+            let pagesArray = [];
+            while (from <= to){
+                pagesArray.push(from);
+                from++;
+            }
+            return pagesArray;
+        },
+        pagesNumberON() {
+            if (!this.paginationON.to){
+                return []
+            }
+
+            let from = this.paginationON.current_page - 2;
+            if (from < 1){
+                from = 1;
+            }
+
+            let to = from + (2 * 2);
+            if (to >= this.paginationON.last_page){
+                to = this.paginationON.last_page
+            }
+
+            let pagesArrayON = [];
+            while (from <= to){
+                pagesArrayON.push(from);
+                from++;
+            }
+            return pagesArrayON;
+        },
+        pagesNumberP() {
+            if (!this.paginationP.to){
+                return []
+            }
+
+            let from = this.paginationP.current_page - 2;
+            if (from < 1){
+                from = 1;
+            }
+
+            let to = from + (2 * 2);
+            if (to >= this.paginationP.last_page){
+                to = this.paginationP.last_page
+            }
+
+            let pagesArrayP = [];
+            while (from <= to){
+                pagesArrayP.push(from);
+                from++;
+            }
+            return pagesArrayP;
+        },
+        pagesNumberPN() {
+            if (!this.paginationPN.to){
+                return []
+            }
+
+            let from = this.paginationPN.current_page - 2;
+            if (from < 1){
+                from = 1;
+            }
+
+            let to = from + (2 * 2);
+            if (to >= this.paginationPN.last_page){
+                to = this.paginationPN.last_page
+            }
+
+            let pagesArrayPN = [];
+            while (from <= to){
+                pagesArrayPN.push(from);
+                from++;
+            }
+            return pagesArrayPN;
+        },
     }
 }
 
