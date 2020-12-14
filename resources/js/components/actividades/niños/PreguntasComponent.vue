@@ -10,7 +10,7 @@
                     Nueva pregunta
                 </button>
             </div>
-        </div>
+        </div><!--buttons-->
 
         <!--Agregar preguntas-->
         <form method="POST" @submit.prevent="addQuestion">
@@ -231,7 +231,7 @@
             </div>
         </form>
 
-        <!--tablas-->
+        <!--tablas ninño-->
         <div class="container-fluid">
             <div class="row">
                 <!-- /.col-md-6 -->
@@ -374,7 +374,7 @@
                                 <tr>
                                     <th>Pregunta</th>
                                     <th>Posición</th>
-                                    <td>Acciones</td>
+                                    <th>Acciones</th>
                                 </tr>
                                 </thead>
 
@@ -485,6 +485,67 @@
             <!-- /.row -->
         </div>
 
+        <!--Tablas respuesas-->
+        <div class="container-fluid">
+            <div class="row justify-content-center">
+                <div class="col-2 mt-3">
+                    <h3>Respuestas</h3>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-8 col-md-8 col-sm-12">
+                    <!-- /.card -->
+                    <div class="card">
+                        <div class="card-header border-0">
+                            <h3 class="card-title">Respuestas Generales</h3>
+                        </div>
+                        <div class="card-body">
+                            <table class="table table-hover">
+                                <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Hora-Fecha</th>
+                                    <th>Respuestas</th>
+                                </tr>
+                                </thead>
+
+                                <tbody>
+                                <tr v-for="answer in answers" :key="answer.id">
+                                    <td>{{answer.id}}</td>
+                                    <td>{{answer.created_at}}</td>
+                                    <td>{{answer.description}}</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                            <nav>
+                                <ul class="pagination justify-content-end">
+                                    <li class="page-item" v-if="paginationR.current_page > 1">
+                                        <a href="" class="page-link" @click.prevent="changePageR(paginationR.current_page - 1)">
+                                            <span>Atrás</span>
+                                        </a>
+                                    </li>
+
+                                    <li class="page-item" v-for="page in pagesNumberR" v-bind:class="[page === isActivedR ? 'active' : '']">
+                                        <a href="" class="page-link" @click.prevent="changePageR(page)">
+                                            {{page}}
+                                        </a>
+                                    </li>
+
+                                    <li class="page-item" v-if="paginationR.current_page < paginationR.last_page">
+                                        <a href="" class="page-link" @click.prevent="changePageR(paginationPN.current_page + 1)">
+                                            <span>Siguiente</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <!-- /.row -->
+        </div>
+
     </div>
 
 </template>
@@ -497,6 +558,7 @@ export default {
         this.obtenerOpciones();
         this.obtenerPreguntasNina();
         this.obtenerOpcionesNina();
+        this.listAnswers();
     },
 
     data() {
@@ -548,6 +610,16 @@ export default {
                 'form': 0,
                 'to': 0,
             },
+            paginationR: {
+                'total': 0,
+                'current_page': 0,
+                'per_page': 0,
+                'last_page': 0,
+                'form': 0,
+                'to': 0,
+            },
+
+            answers: null,
         }
     },
 
@@ -756,6 +828,18 @@ export default {
             this.paginationPN.current_page = page;
             this.obtenerPreguntasNina(page)
         },
+
+        listAnswers(page) {
+            axios.get('/lista-respuestas?page='+page)
+            .then(response => {
+                this.answers = response.data.respuestas.data
+                this.paginationR = response.data.pagination
+            })
+        },
+        changePageR(page){
+            this.paginationR.current_page = page;
+            this.listAnswers(page)
+        },
     },
 
     computed: {
@@ -770,6 +854,9 @@ export default {
         },
         isActivedPN() {
             return this.paginationPN.current_page
+        },
+        isActivedR() {
+            return this.paginationR.current_page
         },
 
         pagesNumber() {
@@ -859,6 +946,28 @@ export default {
                 from++;
             }
             return pagesArrayPN;
+        },
+        pagesNumberR() {
+            if (!this.paginationR.to){
+                return []
+            }
+
+            let from = this.paginationR.current_page - 2;
+            if (from < 1){
+                from = 1;
+            }
+
+            let to = from + (2 * 2);
+            if (to >= this.paginationR.last_page){
+                to = this.paginationR.last_page
+            }
+
+            let pagesArrayR = [];
+            while (from <= to){
+                pagesArrayR.push(from);
+                from++;
+            }
+            return pagesArrayR;
         },
     }
 }

@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Answer;
 use App\Option;
 use App\Optionnina;
 use App\Question;
 use App\Questionnina;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class QuestionController extends Controller
@@ -143,6 +145,23 @@ class QuestionController extends Controller
     public function destroyOptionNina(Request $request, $id)
     {
         Optionnina::find($id)->delete();
+    }
+
+    public function listAnswers()
+    {
+        $respuestas = Answer::orderBy('id', 'DESC')->paginate(5);
+
+        return [
+            'pagination' => [
+                'total' => $respuestas->total(),
+                'current_page' => $respuestas->currentPage(),
+                'per_page' => $respuestas->perPage(),
+                'last_page' => $respuestas->lastPage(),
+                'form' => $respuestas->firstItem(),
+                'to' => $respuestas->lastPage(),
+            ],
+            'respuestas' => $respuestas
+        ];
     }
 
 }

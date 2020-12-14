@@ -1,6 +1,5 @@
 <template>
     <div>
-
             <div>
 
                 <div class="ravie mt-5 mb-5" v-for="pregunta in preguntas" v-show="pregunta.position === c">

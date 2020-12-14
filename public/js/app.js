@@ -2365,12 +2365,74 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {
     this.obtenerPreguntas();
     this.obtenerOpciones();
     this.obtenerPreguntasNina();
     this.obtenerOpcionesNina();
+    this.listAnswers();
   },
   data: function data() {
     return {
@@ -2429,7 +2491,16 @@ __webpack_require__.r(__webpack_exports__);
         'last_page': 0,
         'form': 0,
         'to': 0
-      }
+      },
+      paginationR: {
+        'total': 0,
+        'current_page': 0,
+        'per_page': 0,
+        'last_page': 0,
+        'form': 0,
+        'to': 0
+      },
+      answers: null
     };
   },
   methods: {
@@ -2646,6 +2717,18 @@ __webpack_require__.r(__webpack_exports__);
     changePagePN: function changePagePN(page) {
       this.paginationPN.current_page = page;
       this.obtenerPreguntasNina(page);
+    },
+    listAnswers: function listAnswers(page) {
+      var _this13 = this;
+
+      axios.get('/lista-respuestas?page=' + page).then(function (response) {
+        _this13.answers = response.data.respuestas.data;
+        _this13.paginationR = response.data.pagination;
+      });
+    },
+    changePageR: function changePageR(page) {
+      this.paginationR.current_page = page;
+      this.listAnswers(page);
     }
   },
   computed: {
@@ -2660,6 +2743,9 @@ __webpack_require__.r(__webpack_exports__);
     },
     isActivedPN: function isActivedPN() {
       return this.paginationPN.current_page;
+    },
+    isActivedR: function isActivedR() {
+      return this.paginationR.current_page;
     },
     pagesNumber: function pagesNumber() {
       if (!this.pagination.to) {
@@ -2764,6 +2850,32 @@ __webpack_require__.r(__webpack_exports__);
       }
 
       return pagesArrayPN;
+    },
+    pagesNumberR: function pagesNumberR() {
+      if (!this.paginationR.to) {
+        return [];
+      }
+
+      var from = this.paginationR.current_page - 2;
+
+      if (from < 1) {
+        from = 1;
+      }
+
+      var to = from + 2 * 2;
+
+      if (to >= this.paginationR.last_page) {
+        to = this.paginationR.last_page;
+      }
+
+      var pagesArrayR = [];
+
+      while (from <= to) {
+        pagesArrayR.push(from);
+        from++;
+      }
+
+      return pagesArrayR;
     }
   }
 });
@@ -3009,7 +3121,6 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-//
 //
 //
 //
@@ -42108,6 +42219,121 @@ var render = function() {
           ])
         ])
       ])
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "container-fluid" }, [
+      _vm._m(17),
+      _vm._v(" "),
+      _c("div", { staticClass: "row justify-content-center" }, [
+        _c("div", { staticClass: "col-lg-8 col-md-8 col-sm-12" }, [
+          _c("div", { staticClass: "card" }, [
+            _vm._m(18),
+            _vm._v(" "),
+            _c("div", { staticClass: "card-body" }, [
+              _c("table", { staticClass: "table table-hover" }, [
+                _vm._m(19),
+                _vm._v(" "),
+                _c(
+                  "tbody",
+                  _vm._l(_vm.answers, function(answer) {
+                    return _c("tr", { key: answer.id }, [
+                      _c("td", [_vm._v(_vm._s(answer.id))]),
+                      _vm._v(" "),
+                      _c("td", [_vm._v(_vm._s(answer.created_at))]),
+                      _vm._v(" "),
+                      _c("td", [_vm._v(_vm._s(answer.description))])
+                    ])
+                  }),
+                  0
+                )
+              ]),
+              _vm._v(" "),
+              _c("nav", [
+                _c(
+                  "ul",
+                  { staticClass: "pagination justify-content-end" },
+                  [
+                    _vm.paginationR.current_page > 1
+                      ? _c("li", { staticClass: "page-item" }, [
+                          _c(
+                            "a",
+                            {
+                              staticClass: "page-link",
+                              attrs: { href: "" },
+                              on: {
+                                click: function($event) {
+                                  $event.preventDefault()
+                                  return _vm.changePageR(
+                                    _vm.paginationR.current_page - 1
+                                  )
+                                }
+                              }
+                            },
+                            [_c("span", [_vm._v("Atrás")])]
+                          )
+                        ])
+                      : _vm._e(),
+                    _vm._v(" "),
+                    _vm._l(_vm.pagesNumberR, function(page) {
+                      return _c(
+                        "li",
+                        {
+                          staticClass: "page-item",
+                          class: [page === _vm.isActivedR ? "active" : ""]
+                        },
+                        [
+                          _c(
+                            "a",
+                            {
+                              staticClass: "page-link",
+                              attrs: { href: "" },
+                              on: {
+                                click: function($event) {
+                                  $event.preventDefault()
+                                  return _vm.changePageR(page)
+                                }
+                              }
+                            },
+                            [
+                              _vm._v(
+                                "\n                                        " +
+                                  _vm._s(page) +
+                                  "\n                                    "
+                              )
+                            ]
+                          )
+                        ]
+                      )
+                    }),
+                    _vm._v(" "),
+                    _vm.paginationR.current_page < _vm.paginationR.last_page
+                      ? _c("li", { staticClass: "page-item" }, [
+                          _c(
+                            "a",
+                            {
+                              staticClass: "page-link",
+                              attrs: { href: "" },
+                              on: {
+                                click: function($event) {
+                                  $event.preventDefault()
+                                  return _vm.changePageR(
+                                    _vm.paginationPN.current_page + 1
+                                  )
+                                }
+                              }
+                            },
+                            [_c("span", [_vm._v("Siguiente")])]
+                          )
+                        ])
+                      : _vm._e()
+                  ],
+                  2
+                )
+              ])
+            ])
+          ])
+        ])
+      ])
     ])
   ])
 }
@@ -42380,7 +42606,7 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("th", [_vm._v("Posición")]),
         _vm._v(" "),
-        _c("td", [_vm._v("Acciones")])
+        _c("th", [_vm._v("Acciones")])
       ])
     ])
   },
@@ -42403,6 +42629,38 @@ var staticRenderFns = [
         _c("th", [_vm._v("Texto")]),
         _vm._v(" "),
         _c("th", [_vm._v("Acciones")])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "row justify-content-center" }, [
+      _c("div", { staticClass: "col-2 mt-3" }, [
+        _c("h3", [_vm._v("Respuestas")])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "card-header border-0" }, [
+      _c("h3", { staticClass: "card-title" }, [_vm._v("Respuestas Generales")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("thead", [
+      _c("tr", [
+        _c("th", [_vm._v("ID")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Hora-Fecha")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Respuestas")])
       ])
     ])
   }

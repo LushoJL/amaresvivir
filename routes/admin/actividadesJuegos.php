@@ -31,6 +31,8 @@ Route::group(['middleware' => ['auth']], function () {
     Route::delete('/borrar-opcion/{id}', 'QuestionController@destroyOption');
     Route::delete('/borrar-opcion-nina/{id}', 'QuestionController@destroyOptionNina');
 
+    Route::get('/lista-respuestas', 'QuestionController@listAnswers');
+
 
 
 });
