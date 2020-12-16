@@ -13,8 +13,9 @@
 
                         <p class=" mb-0 mt-0"> <strong class="">Publicado en: </strong>{{\Carbon\Carbon::parse($new->created_at)->format('d/m/Y')}}</p>
                         <p class="mb-3 mt-0"> <strong>Autor: </strong>{{$new->author}}</p>
-
-                        <img src="{{Storage::disk('s3')->url('/').$new->image}}" alt="Imagen no encontrada" class="img-fluid"><br><br>
+                        <div class="row justify-content-center mb-3">
+                            <img src="{{Storage::disk('s3')->url('/').$new->image}}" alt="Imagen no encontrada" class="img-fluid"><br><br>
+                        </div>
                         <p class="card-text">
                             {!! $new->body !!}
                         </p><br>
