@@ -113,9 +113,9 @@ class ActivitygameController extends Controller
          */
         function niñoAdmin(){
             $mensajes=semaforo::find(1);
-            $rol=DB::table('roles')->where('rol', '!=','0')->get();;
+//            $rol=DB::table('roles')->where('rol', '!=','0')->get();;
 
-            return view('admin.actividadesJuegos.niño.actividaddos.niño',['message'=>$mensajes,'rol'=>$rol]);
+            return view('admin.actividadesJuegos.niño.actividaddos.niño',['message'=>$mensajes]);
         }
         function jovenAdmin(){
             return view('admin.actividadesJuegos.joven');
