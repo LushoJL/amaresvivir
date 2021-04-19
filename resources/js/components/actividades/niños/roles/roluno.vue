@@ -49,7 +49,12 @@
 
 
         </div>
-        <button @click="siguiente" class="btn btn-naranjado ravie">SIGUIENTE</button>
+        <br>
+        <div class="row justify-content-center">
+            <div col-lg-12>
+                <button @click="siguiente" class="btn btn-naranjado ravie">SIGUIENTE</button>
+            </div>
+        </div>
 
     </div>
 </template>

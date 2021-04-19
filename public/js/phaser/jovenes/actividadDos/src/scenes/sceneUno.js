@@ -1,4 +1,5 @@
 import SceneDos from "./sceneDos.js";
+import SceneDos1 from "./sceneDos1.js";
 
 class SceneUno extends Phaser.Scene{
     constructor() {
@@ -14,16 +15,16 @@ class SceneUno extends Phaser.Scene{
 
         this.img1 = this.add.image(225, 325, "background");
         var imgf = this.add.image(225, 325, "background");
-        this.img1 = this.add.image(120, 120, "pikachu");
-        this.img2 = this.add.image(330, 120, "pikachu");
+        this.img1 = this.add.image(120, 120, "T");
+        this.img2 = this.add.image(330, 120, "T1");
 
-        this.img3 = this.add.image(120, 305, "pikachu");
-        this.img4 = this.add.image(330, 305, "pikachu");
+        this.img3 = this.add.image(120, 305, "T2");
+        this.img4 = this.add.image(330, 305, "T3");
 
         //creando grupo de caja de text
         let TextBoxGroup = this.add.group({
             key: 'TextBox',
-            repeat: 6,
+            repeat: 7,
         });
 
         //creando grupo de botones para las letras
@@ -34,15 +35,15 @@ class SceneUno extends Phaser.Scene{
         });
 
         //Ubicaciones para las cajas donde se imprimiran las letras
-        var TextBoxX = [126, 159, 192, 225, 258, 291, 324]
-        var TextBoxY = [450, 450, 450, 450, 450, 450, 450]
+        var TextBoxX = [120, 150, 180, 210, 240, 270, 300, 330]
+        var TextBoxY = [450, 450, 450, 450, 450, 450, 450, 450]
 
         //ubicacion de los botones con letras
         var ButtonX = [75, 135, 195, 255, 315, 375, 75, 135, 195, 255, 315, 375]
         var ButtonY = [520, 520, 520, 520, 520, 520, 570, 570, 570, 570, 570, 570]
 
-        var abecedario = ["B", "D", "E", "F", "G", "J",  "L", "M", "N", "O", "Q", "R", "S", "T", "V", "W", "X", "Y", "Z"];
-        var Respuesta = ["P", "I", "K", "A", "C", "H", "U"];
+        var abecedario = ["A", "F", "G", "H", "I", "J", "K", "L", "M", "N", "P", "Q", "S", "U", "V", "W", "X", "Y", "Z"];
+        var Respuesta = ["T", "D", "E", "C", "O", "B", "R", "E"];
 
         //mezcla el array del abecedario
         abecedario = abecedario.sort(function () {
@@ -50,7 +51,7 @@ class SceneUno extends Phaser.Scene{
         });
 
         var LetrasDeBotones = [];//letras que mostraran en los botones
-        var LetrasSeleccionadas = [0, 0, 0, 0, 0, 0, 0];//letras que se selecionaron
+        var LetrasSeleccionadas = [0, 0, 0, 0, 0, 0, 0, 0];//letras que se selecionaron
         var LetrasAzar = [];//letras mezcladas de abecedario y respuesta
 
         //concatenando abecedario y respuesta
@@ -68,7 +69,7 @@ class SceneUno extends Phaser.Scene{
 
         // poniendo ubicacion a los botones y caja de texto
         for (var i = 0; i < 12; i++) {
-            if (i<7){
+            if (i<8){
                 //cajas de text
                 TextBoxGroup.getChildren()[i].x = TextBoxX[i];
                 TextBoxGroup.getChildren()[i].y = TextBoxY[i];
@@ -157,7 +158,7 @@ class SceneUno extends Phaser.Scene{
             },
             active: function ()
             {
-                TextFinal=add.text(225, -100, 'PIKACHU', { fontFamily: 'Londrina Solid', fontSize: 80, color: '#29e705' }).setShadow(2, 2, "#333333", 2, false, true).setOrigin(0.5,0.5);
+                TextFinal=add.text(225, -100, 'T DE COBRE', { fontFamily: 'Londrina Solid', fontSize: 80, color: '#29e705' }).setShadow(2, 2, "#333333", 2, false, true).setOrigin(0.5,0.5);
 
             }
         });
@@ -166,7 +167,7 @@ class SceneUno extends Phaser.Scene{
             for (var i=0;i<LetrasSeleccionadas.length;i++){
                 if (LetrasSeleccionadas[i]===Respuesta[i])VereficarResultado++;
             }
-            if (VereficarResultado===7){
+            if (VereficarResultado===8){
                 for (var i=0;i<12;i++){
                     if (LetrasDeBotones[i].i!==100)LetrasDeBotones[i].letra.setColor('#06f300');
                 }
@@ -197,8 +198,8 @@ class SceneUno extends Phaser.Scene{
                                 getEnd: () => 1
                             },
                             onComplete:()=>{
-                                scene.add("SceneDos", new SceneDos());
-                                scene.start("SceneDos");
+                                scene.add("SceneDos1", new SceneDos1());
+                                scene.start("SceneDos1");
 
                             }
 

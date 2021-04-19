@@ -1,12 +1,9 @@
-import SceneFinal from "./sceneFinal.js";
+import SceneDos from "./sceneDos.js";
 
-class SceneDos extends Phaser.Scene{
+class SceneTres extends Phaser.Scene{
     constructor() {
-        super({key: "SceneDos"});
+        super({key: "SceneTres"});
     }
-
-
-
 
     create() {
         var add = this.add;
@@ -16,18 +13,17 @@ class SceneDos extends Phaser.Scene{
 
 
         this.img1 = this.add.image(225, 325, "background");
-        this.img1 = this.add.image(120, 120, "D");
-        this.img2 = this.add.image(330, 120, "D1");
+        var imgf = this.add.image(225, 325, "background");
+        this.img1 = this.add.image(120, 120, "P");
+        this.img2 = this.add.image(330, 120, "P1");
 
-        this.img3 = this.add.image(120, 305, "D2");
-        this.img4 = this.add.image(330, 305, "D3");
-
-
+        this.img3 = this.add.image(120, 305, "P2");
+        this.img4 = this.add.image(330, 305, "P3");
 
         //creando grupo de caja de text
         let TextBoxGroup = this.add.group({
             key: 'TextBox',
-            repeat: 2,
+            repeat: 7,
         });
 
         //creando grupo de botones para las letras
@@ -37,18 +33,16 @@ class SceneDos extends Phaser.Scene{
 
         });
 
-
-
         //Ubicaciones para las cajas donde se imprimiran las letras
-        var TextBoxX = [192, 225, 258]
-        var TextBoxY = [450, 450, 450]
+        var TextBoxX = [150, 180, 210, 240, 270, 300]
+        var TextBoxY = [450, 450, 450, 450, 450, 450]
 
         //ubicacion de los botones con letras
         var ButtonX = [75, 135, 195, 255, 315, 375, 75, 135, 195, 255, 315, 375]
         var ButtonY = [520, 520, 520, 520, 520, 520, 570, 570, 570, 570, 570, 570]
 
-        var abecedario = ["P", "K", "A", "H","B", "M", "E", "F", "G", "J",  "L", "N", "O", "Q", "R", "S", "T", "V", "W", "X", "Y", "Z"];
-        var Respuesta = ["D", "I", "U"];
+        var abecedario = ["B", "D", "F", "G", "I", "J", "K", "L", "M", "N", "Q", "S", "T", "U", "V", "W", "X", "Y", "Z"];
+        var Respuesta = ["P", "A", "R", "C", "H", "E"];
 
         //mezcla el array del abecedario
         abecedario = abecedario.sort(function () {
@@ -56,7 +50,7 @@ class SceneDos extends Phaser.Scene{
         });
 
         var LetrasDeBotones = [];//letras que mostraran en los botones
-        var LetrasSeleccionadas = [0, 0, 0, 0];//letras que se selecionaron
+        var LetrasSeleccionadas = [0, 0, 0, 0, 0, 0];//letras que se selecionaron
         var LetrasAzar = [];//letras mezcladas de abecedario y respuesta
 
         //concatenando abecedario y respuesta
@@ -111,7 +105,7 @@ class SceneDos extends Phaser.Scene{
                 var sw = true;
                 for (var i = 0; i < 12; i++) {
 
-                    if (LetrasDeBotones[i].letra.x === x.x && LetrasDeBotones[i].letra.y === x.y && VereficarResultado!==Respuesta.length+1) {
+                    if (LetrasDeBotones[i].letra.x === x.x && LetrasDeBotones[i].letra.y === x.y && VereficarResultado!==8) {
 
                         for (var j = 0; j < LetrasSeleccionadas.length; j++) {
                             if (LetrasSeleccionadas[j] === 0 && sw) {
@@ -163,11 +157,10 @@ class SceneDos extends Phaser.Scene{
             },
             active: function ()
             {
-                TextFinal=add.text(225, -100, 'DIU', { fontFamily: 'Londrina Solid', fontSize: 80, color: '#29e705' }).setShadow(2, 2, "#333333", 2, false, true).setOrigin(0.5,0.5);
+                TextFinal=add.text(225, -100, 'PARCHE', { fontFamily: 'Londrina Solid', fontSize: 80, color: '#29e705' }).setShadow(2, 2, "#333333", 2, false, true).setOrigin(0.5,0.5);
 
             }
         });
-
         function verefica(){
             VereficarResultado=0;
             for (var i=0;i<LetrasSeleccionadas.length;i++){
@@ -204,8 +197,8 @@ class SceneDos extends Phaser.Scene{
                                 getEnd: () => 1
                             },
                             onComplete:()=>{
-                                scene.add("SceneFinal", new SceneFinal());
-                                scene.start("SceneFinal");
+                                scene.add("SceneDos", new SceneDos());
+                                scene.start("SceneDos");
 
                             }
 
@@ -214,17 +207,6 @@ class SceneDos extends Phaser.Scene{
                 })
             }
         }
-
-
-        var imgf = this.add.image(225, 325, "background");
-        tweens.add({
-            targets:imgf,
-            duration: 3000,
-            alpha: {
-                getStart: () => 1,
-                getEnd: () => 0
-            },
-        });
     }
 }
-export default SceneDos;
+export default SceneTres;

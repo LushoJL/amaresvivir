@@ -49,7 +49,11 @@
 
 
         </div>
-        <button @click="siguiente" class="btn btn-naranjado ravie">SIGUIENTE</button>
+        <div class="row justify-content-center">
+            <div col-lg-12>
+                <button @click="siguiente" class="btn btn-naranjado ravie">SIGUIENTE</button>
+            </div>
+        </div>
         <!--        <router-link :to="{name:'rol-dos'}" @click="lista.push('uno')" class="btn btn-naranjado ravie">SIGUIENTE</router-link>-->
 
     </div>

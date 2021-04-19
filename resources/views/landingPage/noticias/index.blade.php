@@ -1,7 +1,7 @@
 @extends('landingPage.layouts.app', ['activePage' => 'noticia'])
 @section('content')
     <div class="container">
-        <h2 class="my-5 text-center" style="font-family: Ravie; color: #CC662D">Noticias Unifranz</h2>
+        <h2 class="my-5 text-center" style="font-family: Ravie; color: #CC662D">Noticias y Novedades</h2>
         <hr>
 
         <div class="row" style="justify-content: center">
